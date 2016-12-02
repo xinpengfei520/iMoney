@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/title_common" />
+
+    <com.atguigu.p2p.ui.MyScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="12dp"
+                android:background="#ccc" />
+
+            <RelativeLayout
+                android:id="@+id/select_bank"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="#fff">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/account_zhifubao"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:text="支付宝: 151428109@qq.com"
+                        android:textColor="#333"
+                        android:textSize="14sp" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#ccc" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="12dp"
+                android:background="#ccc" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:background="#fff">
+
+                <TextView
+                    android:id="@+id/chongzhi_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"
+                    android:text="提现金额"
+                    android:textColor="#333"
+                    android:textSize="14sp" />
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="1dp"
+                    android:layout_height="19dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="18dp"
+                    android:layout_toRightOf="@+id/chongzhi_text"
+                    android:background="#ccc" />
+
+                <EditText
+                    android:id="@+id/input_money"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="18dp"
+                    android:layout_toRightOf="@+id/view"
+                    android:background="@color/white"
+                    android:hint="请输入100元以上金额"
+                    android:inputType="numberDecimal"
+                    android:maxLength="19"
+                    android:singleLine="true"
+                    android:textColor="#333333"
+                    android:textCursorDrawable="@null"
+                    android:textSize="13sp"></EditText>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#ccc" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="23dp">
+
+                <TextView
+                    android:id="@+id/chongzhi_text2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="您的账户目前可用余额："
+                    android:textColor="#333"
+                    android:textSize="11sp" />
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/chongzhi_text2"
+                    android:text="888888"
+                    android:textColor="#e84768"
+                    android:textSize="11sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/textView5"
+                    android:text="元"
+                    android:textSize="11sp" />
+
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/btn_tixian"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="22dp"
+                android:background="@drawable/btn_023"
+                android:text="提现"
+                android:textColor="#fff"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="45dp"
+                android:text="温馨提示："
+                android:textColor="#666"
+                android:textSize="13sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:text="1、若您未在本平台理财，账户余额在3个月以后才能进行提现申请。\n2、如您已绑定过银行卡的快捷签约，绑定后，无论在电脑PC端或手机端体现都只能使用该银行卡。除非原卡丢失、损坏或停用，否侧一经绑定银行卡，将不得更换。此种情况下，请提供由银行提供的书面证明材料。"
+                android:textColor="#999"
+                android:textSize="13dp" />
+
+        </LinearLayout>
+
+    </com.atguigu.p2p.ui.MyScrollView>
+
+</LinearLayout>

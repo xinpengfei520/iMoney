@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="55dp"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#33000000" />
+
+    <RadioGroup
+        android:id="@+id/rg_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#F6F6F6"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rb_home"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/rb_home_selector"
+            android:gravity="center"
+            android:text="首页"
+            android:textColor="@drawable/rb_textcolor_selector"
+            android:textSize="15sp" />
+
+        <RadioButton
+            android:id="@+id/rb_invest"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/rb_invest_selector"
+            android:gravity="center"
+            android:text="投资"
+            android:textColor="@drawable/rb_textcolor_selector"
+            android:textSize="15sp" />
+
+        <RadioButton
+            android:id="@+id/rb_assets"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/rb_assets_selector"
+            android:gravity="center"
+            android:text="资产"
+            android:textColor="@drawable/rb_textcolor_selector"
+            android:textSize="15sp" />
+
+        <RadioButton
+            android:id="@+id/rb_more"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/rb_more_selector"
+            android:gravity="center"
+            android:text="更多"
+            android:textColor="@drawable/rb_textcolor_selector"
+            android:textSize="15sp" />
+
+    </RadioGroup>
+
+</LinearLayout>

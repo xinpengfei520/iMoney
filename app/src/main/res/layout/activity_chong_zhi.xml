@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/title_common" />
+
+    <com.atguigu.p2p.ui.MyScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginTop="20dp"
+                android:background="#fff">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#ccc" />
+
+                <TextView
+                    android:id="@+id/chongzhi_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"
+                    android:text="充值金额"
+                    android:textColor="#333"
+                    android:textSize="14sp" />
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="1dp"
+                    android:layout_height="19dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="18dp"
+                    android:layout_toRightOf="@+id/chongzhi_text"
+                    android:background="#ccc" />
+
+                <!-- edittext如果默认看不到光标闪烁，是因为当前编译的系统版本edittext控件的光标颜色和你设置的EditText的背景颜色重叠了，所以看不到而已
+                 android:textCursorDrawable="@null"设置光标的颜色和textColor属性保持一致
+                -->
+                <EditText
+                    android:id="@+id/chongzhi_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="18dp"
+                    android:layout_toRightOf="@+id/view"
+                    android:background="@color/white"
+                    android:hint="请输入充值金额"
+                    android:inputType="numberDecimal"
+                    android:maxLength="19"
+                    android:singleLine="true"
+                    android:textColor="#333333"
+                    android:textCursorDrawable="@null"
+                    android:textSize="13sp" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#ccc" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="23dp">
+
+                <TextView
+                    android:id="@+id/chongzhi_text2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="您的账户目前可用余额："
+                    android:textColor="#333"
+                    android:textSize="11sp" />
+
+                <TextView
+                    android:id="@+id/yue_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/chongzhi_text2"
+                    android:text="0"
+                    android:textColor="#e84768"
+                    android:textSize="11sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/yue_tv"
+                    android:text="元"
+                    android:textSize="11sp" />
+
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/chongzhi_btn"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="22dp"
+                android:background="@drawable/btn_023"
+                android:clickable="false"
+                android:text="充值"
+                android:textColor="#fff"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="45dp"
+                android:text="温馨提示："
+                android:textColor="#666"
+                android:textSize="14sp" />
+
+            <!--text当中使用\n即可换行书写多行文本内容-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:text="1、所有投资保证金将有第三方平台托管。\n2、线上、线下充值手续费全免。\n3、请注意您的银行卡充值限额，以免造成不便。\n4、如果充值进的没有及时到帐，请与客服联系。\n5、禁止信用卡套现、虚假交易等行为，已经发现将予以处罚,包括但不限于：限制收款、冻结账户，永久停止服务等。\n6、如果您的账户充值金额为用于投资在本平台的理财服务,3个月之后才能进行体现申请。\n7、如果已在手机客户端充过值，则电脑端或手机端体现都只能使用该银行卡。除非原卡丢失、损坏或停用，否则一经绑定银行卡，将不得更换。此情况下，请联系客服并提供由银行提供的书面证明材料。"
+                android:textColor="#999"
+                android:textSize="13sp" />
+
+        </LinearLayout>
+
+    </com.atguigu.p2p.ui.MyScrollView>
+
+
+</LinearLayout>
+
