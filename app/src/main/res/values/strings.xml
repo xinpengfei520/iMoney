@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">硅谷金融</string>
+    <string name="app_name">P2P金融</string>
     <string-array name="invest_tab">
         <item>全部理财</item>
         <item>推荐理财</item>

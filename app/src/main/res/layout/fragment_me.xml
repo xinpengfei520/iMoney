@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.atguigu.p2p.ui.MyScrollView
+    <com.xpf.p2p.ui.MyScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -104,7 +104,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="10dp"
-                android:background="#11000000"/>
+                android:background="#11000000" />
 
             <!--充分使用textview属性代替LinearLayout布局-->
             <TextView
@@ -134,6 +134,6 @@
         </LinearLayout>
 
 
-    </com.atguigu.p2p.ui.MyScrollView>
+    </com.xpf.p2p.ui.MyScrollView>
 
 </LinearLayout>

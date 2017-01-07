@@ -5,7 +5,7 @@ android {
     compileSdkVersion 24
     buildToolsVersion "24.0.2"
     defaultConfig {
-        applicationId "com.atguigu.p2p"
+        applicationId "com.xpf.p2p"
         minSdkVersion 16
         targetSdkVersion 24
         versionCode 1

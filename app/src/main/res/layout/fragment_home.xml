@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.atguigu.p2p.ui.MyScrollView
+    <com.xpf.p2p.ui.MyScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -79,7 +79,7 @@
                     android:textSize="15sp" />
             </LinearLayout>
 
-            <com.atguigu.p2p.ui.RoundProgress
+            <com.xpf.p2p.ui.RoundProgress
                 android:id="@+id/roundprogress"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
@@ -134,6 +134,6 @@
 
         </LinearLayout>
 
-    </com.atguigu.p2p.ui.MyScrollView>
+    </com.xpf.p2p.ui.MyScrollView>
 
 </LinearLayout>

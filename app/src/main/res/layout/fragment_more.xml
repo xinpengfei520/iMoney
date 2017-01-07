@@ -19,7 +19,7 @@
         <!--android:textColor="@color/title_text"-->
         <!--android:textSize="40sp" />-->
 
-        <com.atguigu.p2p.ui.MyTextView
+        <com.xpf.p2p.ui.MyTextView
             android:id="@+id/tv_content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

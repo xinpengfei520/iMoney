@@ -54,13 +54,11 @@
         android:orientation="horizontal"
         android:padding="15dp">
 
-
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical">
-
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -245,10 +243,12 @@
                         android:textColor="@color/product_detail_common"
                         android:textSize="12sp" />
                 </LinearLayout>
+
             </LinearLayout>
+
         </LinearLayout>
 
-        <com.atguigu.p2p.ui.RoundProgress
+        <com.xpf.p2p.ui.RoundProgress
             android:id="@+id/p_progresss"
             android:layout_width="50dp"
             android:layout_height="50dp"
@@ -264,6 +264,7 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/divider_line" />
+
 </LinearLayout>
 
 
