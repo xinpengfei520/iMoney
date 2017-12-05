@@ -1,0 +1,37 @@
+-- Merging decision tree log ---
+manifest
+ADDED from F:\AndroidStudioProjects\P2P\ViewPagerIndicator_library\src\main\AndroidManifest.xml:3:1-9:12
+INJECTED from F:\AndroidStudioProjects\P2P\ViewPagerIndicator_library\src\main\AndroidManifest.xml:3:1-9:12
+INJECTED from F:\AndroidStudioProjects\P2P\ViewPagerIndicator_library\src\main\AndroidManifest.xml:3:1-9:12
+INJECTED from F:\AndroidStudioProjects\P2P\ViewPagerIndicator_library\src\main\AndroidManifest.xml:3:1-9:12
+INJECTED from F:\AndroidStudioProjects\P2P\ViewPagerIndicator_library\src\main\AndroidManifest.xml:3:1-9:12
+INJECTED from F:\AndroidStudioProjects\P2P\ViewPagerIndicator_library\src\main\AndroidManifest.xml:3:1-9:12
+INJECTED from F:\AndroidStudioProjects\P2P\ViewPagerIndicator_library\src\main\AndroidManifest.xml:3:1-9:12
+	package
+		ADDED from F:\AndroidStudioProjects\P2P\ViewPagerIndicator_library\src\main\AndroidManifest.xml:4:5-37
+		INJECTED from F:\AndroidStudioProjects\P2P\ViewPagerIndicator_library\src\main\AndroidManifest.xml
+		INJECTED from F:\AndroidStudioProjects\P2P\ViewPagerIndicator_library\src\main\AndroidManifest.xml
+	android:versionName
+		ADDED from F:\AndroidStudioProjects\P2P\ViewPagerIndicator_library\src\main\AndroidManifest.xml:6:5-32
+		INJECTED from F:\AndroidStudioProjects\P2P\ViewPagerIndicator_library\src\main\AndroidManifest.xml
+		INJECTED from F:\AndroidStudioProjects\P2P\ViewPagerIndicator_library\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from F:\AndroidStudioProjects\P2P\ViewPagerIndicator_library\src\main\AndroidManifest.xml:3:11-69
+	android:versionCode
+		ADDED from F:\AndroidStudioProjects\P2P\ViewPagerIndicator_library\src\main\AndroidManifest.xml:5:5-29
+		INJECTED from F:\AndroidStudioProjects\P2P\ViewPagerIndicator_library\src\main\AndroidManifest.xml
+		INJECTED from F:\AndroidStudioProjects\P2P\ViewPagerIndicator_library\src\main\AndroidManifest.xml
+uses-sdk
+ADDED from F:\AndroidStudioProjects\P2P\ViewPagerIndicator_library\src\main\AndroidManifest.xml:8:5-43
+INJECTED from F:\AndroidStudioProjects\P2P\ViewPagerIndicator_library\src\main\AndroidManifest.xml:8:5-43
+INJECTED from F:\AndroidStudioProjects\P2P\ViewPagerIndicator_library\src\main\AndroidManifest.xml:8:5-43
+INJECTED from F:\AndroidStudioProjects\P2P\ViewPagerIndicator_library\src\main\AndroidManifest.xml:8:5-43
+INJECTED from F:\AndroidStudioProjects\P2P\ViewPagerIndicator_library\src\main\AndroidManifest.xml:8:5-43
+	android:targetSdkVersion
+		INJECTED from F:\AndroidStudioProjects\P2P\ViewPagerIndicator_library\src\main\AndroidManifest.xml
+		ADDED from F:\AndroidStudioProjects\P2P\ViewPagerIndicator_library\src\main\AndroidManifest.xml:8:5-43
+		INJECTED from F:\AndroidStudioProjects\P2P\ViewPagerIndicator_library\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		ADDED from F:\AndroidStudioProjects\P2P\ViewPagerIndicator_library\src\main\AndroidManifest.xml:8:15-40
+		INJECTED from F:\AndroidStudioProjects\P2P\ViewPagerIndicator_library\src\main\AndroidManifest.xml
+		INJECTED from F:\AndroidStudioProjects\P2P\ViewPagerIndicator_library\src\main\AndroidManifest.xml

@@ -1,23 +1,23 @@
 package com.xpf.p2p.ui;
 
 import android.content.Context;
+import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
-import android.widget.TextView;
 
 /**
  * Created by xpf on 2016/11/19 :)
  * Wechat:18091383534
- * Function:
+ * Function:自定义TextView跑马灯效果
  */
 
-public class MyTextView extends TextView {
+public class MyTextView extends AppCompatTextView {
 
     public MyTextView(Context context) {
-        super(context);
+        this(context, null);
     }
 
     public MyTextView(Context context, AttributeSet attrs) {
-        super(context, attrs);
+        this(context, attrs, 0);
     }
 
     public MyTextView(Context context, AttributeSet attrs, int defStyleAttr) {

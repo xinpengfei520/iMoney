@@ -5,6 +5,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.util.Log;
 
 public class ShakeListener implements SensorEventListener {
     private static final int FORCE_THRESHOLD = 250;
@@ -43,7 +44,6 @@ public class ShakeListener implements SensorEventListener {
         boolean supported = mSensorMgr.registerListener(this, mSensorMgr.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_UI);
         if (!supported) {
             mSensorMgr.unregisterListener(this);
-            return;
         }
     }
 
@@ -59,13 +59,14 @@ public class ShakeListener implements SensorEventListener {
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
-        System.out.println("accuracy:" + accuracy);
+        Log.e("TAG", "accuracy:" + accuracy);
     }
 
     @Override
     public void onSensorChanged(SensorEvent event) {
-
-        System.out.println("x:" + event.values[SensorManager.DATA_X] + "  y:" + event.values[SensorManager.DATA_Y] + "  z:" + event.values[SensorManager.DATA_Z]);
+        Log.i("TAG", "x:" + event.values[SensorManager.DATA_X] + "  y:" +
+                event.values[SensorManager.DATA_Y] + "  z:" +
+                event.values[SensorManager.DATA_Z]);
 
         if (event.sensor.getType() != Sensor.TYPE_ACCELEROMETER) {
             return;
@@ -100,6 +101,6 @@ public class ShakeListener implements SensorEventListener {
     }
 
     public interface OnShakeListener {
-        public void onShake();
+        void onShake();
     }
 }

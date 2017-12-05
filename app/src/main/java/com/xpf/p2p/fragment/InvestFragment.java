@@ -46,9 +46,7 @@ public class InvestFragment extends BaseFragment {
 
     @Override
     protected void initData(String content) {
-
         initFragments();
-
         // 显示列表
         investViewPager.setAdapter(new MyAdapter(getFragmentManager()));
         // 关联TabPagerIndicator和ViewPager
@@ -61,11 +59,11 @@ public class InvestFragment extends BaseFragment {
     private void initFragments() {
 
         ProductListFragment productListFragment = new ProductListFragment();
-        ProductRecommondFragment productRecommondFragment = new ProductRecommondFragment();
+        RecommendFragment recommendFragment = new RecommendFragment();
         ProductHotFragment productHotFragment = new ProductHotFragment();
 
         fragments.add(productListFragment);
-        fragments.add(productRecommondFragment);
+        fragments.add(recommendFragment);
         fragments.add(productHotFragment);
     }
 

@@ -26,7 +26,6 @@ public abstract class BaseActivity extends FragmentActivity {
         ButterKnife.bind(this);
         // 将当前的Activity添加到ActivityManager中
         ActivityManager.getInstance().add(this);
-
         initData();
     }
 
@@ -43,7 +42,6 @@ public abstract class BaseActivity extends FragmentActivity {
 
     // 启动新的activity
     public void goToActivity(Class activity, Bundle bundle) {
-
         Intent intent = new Intent(this, activity);
         if (bundle != null && bundle.size() != 0) {
             intent.putExtra("data", bundle);
@@ -61,7 +59,6 @@ public abstract class BaseActivity extends FragmentActivity {
 
     // 保存用户信息的操作,使用sp存储
     public void saveUser(User user) {
-
         SharedPreferences sp = this.getSharedPreferences("user_info", Context.MODE_PRIVATE);
         SharedPreferences.Editor edit = sp.edit();
         edit.putString("UF_ACC", user.UF_ACC);
@@ -73,14 +70,12 @@ public abstract class BaseActivity extends FragmentActivity {
 
     // 读取数据,得到内存中的User对象
     public User readUser() {
-
         User user = new User();
         SharedPreferences sp = this.getSharedPreferences("user_info", Context.MODE_PRIVATE);
         user.UF_ACC = sp.getString("UF_ACC", "");
         user.UF_AVATAR_URL = sp.getString("UF_AVATAR_URL", "");
         user.UF_IS_CERT = sp.getString("UF_IS_CERT", "");
         user.UF_PHONE = sp.getString("UF_PHONE", "");
-
         return user;
     }
 

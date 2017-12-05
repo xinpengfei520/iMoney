@@ -40,21 +40,16 @@ public class StellarMap extends FrameLayout implements AnimationListener, OnTouc
      */
     private GestureDetector mGestureDetector;
 
-    /**
-     * 构造方法
-     */
-    public StellarMap(Context context, AttributeSet attrs, int defStyle) {
-        super(context, attrs, defStyle);
-        init();
+    public StellarMap(Context context) {
+        this(context, null);
     }
 
     public StellarMap(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        init();
+        this(context, attrs, 0);
     }
 
-    public StellarMap(Context context) {
-        super(context);
+    public StellarMap(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
         init();
     }
 
@@ -321,15 +316,15 @@ public class StellarMap extends FrameLayout implements AnimationListener, OnTouc
     /**
      * 内部类、接口
      */
-    public static interface Adapter {
-        public abstract int getGroupCount();
+    public interface Adapter {
+        int getGroupCount();
 
-        public abstract int getCount(int group);
+        int getCount(int group);
 
-        public abstract View getView(int group, int position, View convertView);
+        View getView(int group, int position, View convertView);
 
-        public abstract int getNextGroupOnPan(int group, float degree);
+        int getNextGroupOnPan(int group, float degree);
 
-        public abstract int getNextGroupOnZoom(int group, boolean isZoomIn);
+        int getNextGroupOnZoom(int group, boolean isZoomIn);
     }
 }

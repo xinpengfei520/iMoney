@@ -3,17 +3,13 @@ package com.xpf.p2p.activity;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.AccelerateInterpolator;
@@ -26,12 +22,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.xpf.p2p.R;
 import com.xpf.p2p.bean.UpdateInfo;
 import com.xpf.p2p.common.AppNetConfig;
+import com.xpf.p2p.utils.AppUtil;
+import com.xpf.p2p.utils.NetStateUtil;
 import com.xpf.p2p.utils.UIUtils;
-import com.loopj.android.http.AsyncHttpClient;
-import com.loopj.android.http.AsyncHttpResponseHandler;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -68,7 +66,7 @@ public class WelcomeActivity extends Activity {
                     startActivity(new Intent(WelcomeActivity.this, MainActivity.class));
                     break;
                 case WHAT_DOWNLOAD_VERSION_SUCCESS: // 获取了服务器端返回的版本信息
-                    String version = getVersion();
+                    String version = AppUtil.getVersion(WelcomeActivity.this);
                     if (version.equals(updateInfo.version)) { // 版本相同
                         toMain();
                     } else {
@@ -89,14 +87,11 @@ public class WelcomeActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        // 去掉窗口标题
+        // 去掉窗口标题和状态栏设置全屏
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        // 隐藏顶部的状态栏
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_welcome);
         ButterKnife.bind(this);
-
         startAnimation(); // 启动动画
         updateApp();      // 联网更新应用的操作
     }
@@ -167,7 +162,6 @@ public class WelcomeActivity extends Activity {
      * 下载对应url下的apk文件
      */
     private void downloadAPK() throws Exception {
-
         FileOutputStream fos = new FileOutputStream(apkFile);
         String path = updateInfo.apkUrl;
         URL url = new URL(path);
@@ -184,7 +178,6 @@ public class WelcomeActivity extends Activity {
             int len;
             while ((len = is.read(buffer)) != -1) {
                 fos.write(buffer, 0, len);
-
                 dialog.incrementProgressBy(len);
                 Thread.sleep(2);
             }
@@ -200,7 +193,6 @@ public class WelcomeActivity extends Activity {
 
     // 通过发送延迟消息，进入主界面
     private void toMain() {
-
         finish(); // 进入主页之前销毁欢迎页面
         long currentTimeMillis = System.currentTimeMillis();
         long delayTime = 3000 - (currentTimeMillis - startTime);
@@ -212,27 +204,12 @@ public class WelcomeActivity extends Activity {
     }
 
     /**
-     * 获取当前应用的版本号
+     * 更新APP
      */
-    private String getVersion() {
-        String version = "未知版本";
-        PackageManager manager = getPackageManager();
-        try {
-            PackageInfo packageInfo = manager.getPackageInfo(getPackageName(), 0);
-            version = packageInfo.versionName;
-        } catch (PackageManager.NameNotFoundException e) {
-            //e.printStackTrace(); //如果找不到对应的应用包信息, 就返回"未知版本"
-        }
-        return version;
-    }
-
-
     private void updateApp() {
-
         startTime = System.currentTimeMillis(); // 获取系统当前的时间
-        boolean isConnected = isConnected();    // 判断手机是否可以联网
-
-        if (!isConnected) {
+        // 判断手机是否可以联网
+        if (!NetStateUtil.isConnected(this)) {
             Toast.makeText(WelcomeActivity.this, "网络异常", Toast.LENGTH_SHORT).show();
             toMain();
         } else {
@@ -242,13 +219,14 @@ public class WelcomeActivity extends Activity {
             client.post(updateUrl, new AsyncHttpResponseHandler() {
                 @Override
                 public void onSuccess(String json) {
-                    // 使用fastjson解析json数据
+                    // 使用fastJson解析json数据
                     updateInfo = JSON.parseObject(json, UpdateInfo.class);
                     handler.sendEmptyMessage(WHAT_DOWNLOAD_VERSION_SUCCESS);
                 }
 
                 @Override
                 public void onFailure(Throwable error, String content) {
+                    Log.e("TAG", "Throwable:" + error.getMessage() + ",content:" + content);
                     Toast.makeText(WelcomeActivity.this, "联网获取更新数据失败", Toast.LENGTH_SHORT).show();
                     toMain();
                 }
@@ -256,22 +234,7 @@ public class WelcomeActivity extends Activity {
         }
     }
 
-    /**
-     * 判断手机是否可以联网
-     */
-    private boolean isConnected() {
-
-        boolean connected = false;
-        ConnectivityManager manager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo networkInfo = manager.getActiveNetworkInfo();
-        if (networkInfo != null) {
-            connected = networkInfo.isConnected();
-        }
-        return connected;
-    }
-
     private void startAnimation() {
-
         AlphaAnimation alphaAnimation = new AlphaAnimation(0, 1);
         alphaAnimation.setFillAfter(true);
         alphaAnimation.setDuration(2000);
