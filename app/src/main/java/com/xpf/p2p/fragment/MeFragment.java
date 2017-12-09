@@ -99,7 +99,6 @@ public class MeFragment extends BaseFragment {
 
     // 未发现登录信息,提示用户登录的Dialog
     private void login() {
-
         new AlertDialog.Builder(getActivity())
                 .setTitle("登录")
                 .setMessage("2B请先登录")
@@ -131,7 +130,6 @@ public class MeFragment extends BaseFragment {
                 // 对Bitmap进行圆形处理
                 Bitmap circleBitmap = BitmapUtils.circleBitmap(zoom);
                 source.recycle(); // 回收,否则会出现内存泄漏
-
                 return circleBitmap;
             }
 
@@ -151,7 +149,10 @@ public class MeFragment extends BaseFragment {
     @Override
     public void onResume() {
         super.onResume();
+        setUserPhoto();
+    }
 
+    private void setUserPhoto() {
         String filePath = this.getActivity().getCacheDir() + "/tx.png";
         File file = new File(filePath);
         if (file.exists()) { // 如果存在

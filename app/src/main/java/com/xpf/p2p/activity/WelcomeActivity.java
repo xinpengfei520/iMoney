@@ -64,6 +64,7 @@ public class WelcomeActivity extends Activity {
             switch (msg.what) {
                 case MESSAGE_MAIN:
                     startActivity(new Intent(WelcomeActivity.this, MainActivity.class));
+                    finish(); // 进入主页之前销毁欢迎页面
                     break;
                 case WHAT_DOWNLOAD_VERSION_SUCCESS: // 获取了服务器端返回的版本信息
                     String version = AppUtil.getVersion(WelcomeActivity.this);
@@ -193,7 +194,6 @@ public class WelcomeActivity extends Activity {
 
     // 通过发送延迟消息，进入主界面
     private void toMain() {
-        finish(); // 进入主页之前销毁欢迎页面
         long currentTimeMillis = System.currentTimeMillis();
         long delayTime = 3000 - (currentTimeMillis - startTime);
         if (delayTime < 0) {

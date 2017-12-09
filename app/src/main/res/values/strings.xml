@@ -15,5 +15,6 @@
     <string name="set_gesture_pattern">绘制解锁图案</string>
     <string name="set_gesture_pattern_reason">设置手势密码，防止他人未经授权查看</string>
     <string name="reset_gesture_code">重新设置手势密码</string>
+    <string name="icbc">风险保障金由ICBC银行监管</string>
     <!-- End -->
 </resources>

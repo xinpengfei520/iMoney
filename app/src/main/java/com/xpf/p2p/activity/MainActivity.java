@@ -56,7 +56,6 @@ public class MainActivity extends BaseActivity {
     protected void initData() {
         // 默认选中“首页”
         handler = new Handler();
-        transaction = this.getSupportFragmentManager().beginTransaction();
         rgMain.check(R.id.rb_home);
         setSelect(0); // 选中0视图
     }
@@ -94,6 +93,8 @@ public class MainActivity extends BaseActivity {
      * 如何在activity中动态加载fragment
      */
     private void setSelect(int i) {
+        // 此处的transaction不能为全局变量（只能提交一次），否则会报java.lang.IllegalStateException: commit already called
+        transaction = this.getSupportFragmentManager().beginTransaction();
         hideFragment();
         switch (i) {
             case 0:

@@ -1,5 +1,6 @@
 package com.xpf.p2p.activity;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.ContentUris;
@@ -33,6 +34,8 @@ import java.io.FileOutputStream;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import pub.devrel.easypermissions.AfterPermissionGranted;
+import pub.devrel.easypermissions.EasyPermissions;
 
 public class UserInfoActivity extends BaseActivity {
 
@@ -52,6 +55,11 @@ public class UserInfoActivity extends BaseActivity {
     @BindView(R.id.logout)
     Button logout;
 
+    private String[] perms = {
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+            Manifest.permission.CAMERA};
+
     @Override
     protected void initData() {
         tvTitle.setText("用户信息");
@@ -70,11 +78,34 @@ public class UserInfoActivity extends BaseActivity {
                 removeCurrentActivity();
                 break;
             case R.id.tv_icon:
-                changeIcon(view);
+                if (EasyPermissions.hasPermissions(this, perms)) {
+                    changeIcon();
+                } else {
+                    EasyPermissions.requestPermissions(this, "应用程序需要这些权限", 520, perms);
+                }
                 break;
             case R.id.logout: // 退出登录的回调
                 logout(view);
                 break;
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        // Forward results to EasyPermissions
+        EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this);
+    }
+
+    @AfterPermissionGranted(520)
+    private void methodRequiresTwoPermission() {
+        if (EasyPermissions.hasPermissions(this, perms)) {
+            // Already have permission, do the thing
+            changeIcon();
+        } else {
+            // Do not have permissions, request them now
+            EasyPermissions.requestPermissions(this, "请求相机和相册权限",
+                    520, perms);
         }
     }
 
@@ -94,8 +125,7 @@ public class UserInfoActivity extends BaseActivity {
         this.goToActivity(MainActivity.class, null);
     }
 
-    private void changeIcon(View view) {
-
+    private void changeIcon() {
         new AlertDialog.Builder(this)
                 .setTitle("图片来源")
                 .setItems(new String[]{"相机", "图库"}, new DialogInterface.OnClickListener() {
@@ -133,16 +163,19 @@ public class UserInfoActivity extends BaseActivity {
             // 获取相机返回的数据，并转换为图片格式
             Bitmap bitmap = (Bitmap) bundle.get("data");
             // bitmap圆形裁剪
-            bitmap = BitmapUtils.zoom(bitmap, UIUtils.dp2px(62), UIUtils.dp2px(62));
-            Bitmap circleBitmap = BitmapUtils.circleBitmap(bitmap);
-
-            // 真是项目中是要上传到服务器的
-            ivIcon.setImageBitmap(circleBitmap);
-            // 将图片保存在本地
-            try {
-                saveImage(circleBitmap);
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
+            if (bitmap != null) {
+                bitmap = BitmapUtils.zoom(bitmap, UIUtils.dp2px(62), UIUtils.dp2px(62));
+                if (bitmap != null) {
+                    Bitmap circleBitmap = BitmapUtils.circleBitmap(bitmap);
+                    // 真是项目中是要上传到服务器的
+                    ivIcon.setImageBitmap(circleBitmap);
+                    // 将图片保存在本地
+                    try {
+                        saveImage(circleBitmap);
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    }
+                }
             }
         } else if (requestCode == PICTURE && resultCode == RESULT_OK && data != null) {
             //图库

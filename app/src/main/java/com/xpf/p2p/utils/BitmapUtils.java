@@ -40,12 +40,16 @@ public class BitmapUtils {
 
     // 图片的压缩
     public static Bitmap zoom(Bitmap source, float width, float height) { //参数2,3不能声明int
-        Matrix matrix = new Matrix();
-        float scaleX = width / source.getWidth();
-        float scaleY = height / source.getHeight();
-        matrix.postScale(scaleX, scaleY);
-        Bitmap bitmap = Bitmap.createBitmap(source, 0, 0, source.getWidth(), source.getHeight(), matrix, true);
-
+        Bitmap bitmap = null;
+        try {
+            Matrix matrix = new Matrix();
+            float scaleX = width / source.getWidth();
+            float scaleY = height / source.getHeight();
+            matrix.postScale(scaleX, scaleY);
+            bitmap = Bitmap.createBitmap(source, 0, 0, source.getWidth(), source.getHeight(), matrix, true);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return bitmap;
     }
 }

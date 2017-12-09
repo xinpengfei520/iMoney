@@ -1,5 +1,6 @@
 package com.xpf.p2p.common;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -7,8 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.xpf.p2p.ui.LoadingPage;
 import com.loopj.android.http.RequestParams;
+import com.xpf.p2p.ui.LoadingPage;
+import com.xpf.p2p.utils.UIUtils;
 
 import butterknife.ButterKnife;
 
@@ -21,18 +23,19 @@ import butterknife.ButterKnife;
 public abstract class BaseFragment extends Fragment {
 
     public LoadingPage loadingPage;
+    protected Context mContext;
 
     // 返回一个关联的布局文件生成的视图
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-//         方式一:使用Application的实例作为Context的对象
-//        View view = UIUtils.getView(getLayoutId());
-//        ButterKnife.bind(this, view);
-//
-//         初始化页面数据
-//        initData();
+        // 方式一:使用Application的实例作为Context的对象
+        View view = UIUtils.getView(getLayoutId());
+        ButterKnife.bind(this, view);
+        mContext = getActivity();
+        // 初始化页面数据
+        // initData();
         loadingPage = new LoadingPage(getActivity()) {
 
             @Override
@@ -43,7 +46,6 @@ public abstract class BaseFragment extends Fragment {
             @Override
             protected void onSuccess(ResultState resultState, View view_success) {
                 ButterKnife.bind(BaseFragment.this, view_success); // 别忘了绑定布局
-
                 initData(resultState.getContent());
             }
 
@@ -80,15 +82,14 @@ public abstract class BaseFragment extends Fragment {
         super.onDestroyView();
     }
 
-    //实现联网操作
+    // 实现联网操作
     public void show() {
-
-//        UIUtils.getHandler().postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                loadingPage.show();
-//            }
-//        },2000);
+        /*UIUtils.getHandler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                loadingPage.show();
+            }
+        },2000);*/
         loadingPage.show();
     }
 }

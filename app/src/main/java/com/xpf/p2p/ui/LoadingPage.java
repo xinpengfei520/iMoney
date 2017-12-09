@@ -7,11 +7,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
-import com.xpf.p2p.R;
-import com.xpf.p2p.utils.UIUtils;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
+import com.xpf.p2p.R;
+import com.xpf.p2p.common.ResultState;
+import com.xpf.p2p.utils.UIUtils;
 
 /**
  * Created by xpf on 2016/11/14 :)
@@ -27,8 +28,9 @@ public abstract class LoadingPage extends FrameLayout {
     private final int STATE_EMPTY = 3;   // 联网成功,但是返回数据为空的状态
     private final int STATE_SUCCESS = 4; // 联网成功,且正确返回数据的状态
 
-    private int state_current = STATE_LOADING; // 表示当前的状态
     private Context mContext;
+    private ResultState resultState;// 联网请求结果枚举类
+    private int state_current = STATE_LOADING; // 表示当前的状态
 
     // 2.提供4个不同的页面
     private View view_loading;
@@ -47,12 +49,13 @@ public abstract class LoadingPage extends FrameLayout {
     public LoadingPage(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         mContext = context;
-
         init();
     }
 
+    /**
+     * 初始化必要的View,并指明视图显示宽高的参数
+     */
     private void init() {
-        // 初始化必要的View,并指明视图显示宽高的参数
         ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         if (view_loading == null) {
             view_loading = UIUtils.getView(R.layout.page_loading);
@@ -67,11 +70,12 @@ public abstract class LoadingPage extends FrameLayout {
             addView(view_empty, params);
         }
 
-        // 根据state_current的值,决定显示哪个具体的View
         showSafePage();
     }
 
-    // 根据state_current的值,决定显示哪个具体的View
+    /**
+     * 根据state_current的值,决定显示哪个具体的View
+     */
     private void showSafePage() {
         // 更新界面的操作需要在主线程中执行
         UIUtils.runOnUiThread(new Runnable() {
@@ -82,14 +86,16 @@ public abstract class LoadingPage extends FrameLayout {
         });
     }
 
-    // 主线程中:根据state_current的值,决定显示哪个具体的View
+    /**
+     * 主线程中:根据state_current的值,决定显示哪个具体的View
+     */
     private void showPage() {
         view_loading.setVisibility(state_current == STATE_LOADING ? View.VISIBLE : View.GONE);
         view_error.setVisibility(state_current == STATE_ERROR ? View.VISIBLE : View.GONE);
         view_empty.setVisibility(state_current == STATE_EMPTY ? View.VISIBLE : View.GONE);
 
         if (view_success == null) {
-//            view_success = UIUtils.getView(layoutId());
+            // view_success = UIUtils.getView(layoutId());
             // 修改为如下的加载:
             view_success = View.inflate(mContext, layoutId(), null);
             addView(view_success);
@@ -97,15 +103,10 @@ public abstract class LoadingPage extends FrameLayout {
         view_success.setVisibility(state_current == STATE_SUCCESS ? View.VISIBLE : View.GONE);
     }
 
-    public abstract int layoutId();
-
-    private ResultState resultState;
-
     // 执行联网操作
     public void show() {
-
         String url = url(); // 先判断url是否为空,
-        if (TextUtils.isEmpty(url)) {
+        if (!TextUtils.isEmpty(url)) {
             resultState = ResultState.SUCCESS;
             resultState.setContent("");
             loadPage();
@@ -115,34 +116,43 @@ public abstract class LoadingPage extends FrameLayout {
         UIUtils.getHandler().postDelayed(new Runnable() {
             @Override
             public void run() {
+                String requestUrl = url();
+                RequestParams params = params();
+                if ((!TextUtils.isEmpty(requestUrl)) && (params != null)) {
+                    AsyncHttpClient client = new AsyncHttpClient();
+                    client.get(requestUrl, params, new AsyncHttpResponseHandler() {
 
-                AsyncHttpClient client = new AsyncHttpClient();
-                client.get(url(), params(), new AsyncHttpResponseHandler() {
-
-                    @Override
-                    public void onSuccess(String content) {
-                        if (TextUtils.isEmpty(content)) { //"" 或 null
-                            resultState = ResultState.EMPTY;
-                            resultState.setContent("");
-                        } else {
-                            resultState = ResultState.SUCCESS;
-                            resultState.setContent(content);
+                        @Override
+                        public void onSuccess(String content) {
+                            if (TextUtils.isEmpty(content)) { //"" 或 null
+                                resultState = ResultState.EMPTY;
+                                resultState.setContent("");
+                            } else {
+                                resultState = ResultState.SUCCESS;
+                                resultState.setContent(content);
+                            }
+                            loadPage();
                         }
-                        loadPage();
-                    }
 
-                    @Override
-                    public void onFailure(Throwable error, String content) {
-                        resultState = ResultState.ERROR;
-                        resultState.setContent("");
-                        loadPage();
-                    }
-                });
+                        @Override
+                        public void onFailure(Throwable error, String content) {
+                            resultState = ResultState.ERROR;
+                            resultState.setContent("");
+                            loadPage();
+                        }
+                    });
+                } else {
+                    resultState = ResultState.ERROR;
+                    resultState.setContent("");
+                    loadPage();
+                }
             }
         }, 2000);
     }
 
-
+    /**
+     * 根据resultState值加载显示不同的页面
+     */
     private void loadPage() {
         switch (resultState) {
             case ERROR:
@@ -162,31 +172,18 @@ public abstract class LoadingPage extends FrameLayout {
         }
     }
 
+    /**
+     * 让子类去实现如下方法
+     *
+     * @param resultState
+     * @param view_success
+     */
     protected abstract void onSuccess(ResultState resultState, View view_success);
 
     protected abstract RequestParams params();
 
     protected abstract String url();
 
-    // 提供一个枚举类:将当前联网以后的状态以及可能返回的数据,封装在枚举类中
-    public enum ResultState {
-
-        ERROR(2), EMPTY(3), SUCCESS(4);
-
-        int state;
-        private String content;
-
-        ResultState(int state) {
-            this.state = state;
-        }
-
-        public String getContent() {
-            return content;
-        }
-
-        public void setContent(String content) {
-            this.content = content;
-        }
-    }
+    public abstract int layoutId();
 
 }
