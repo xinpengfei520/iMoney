@@ -2,7 +2,7 @@
 
 ![image](https://github.com/xinpengfei520/P2P/blob/master/screenshot/image.gif)
 
-## 主要技术点：  
+## 一、主要技术点：  
 
 	1.使用RadioGroup + Fragment + ViewPager搭建软件框架；  
 	2.实现带有回弹效果的MyScrollView；  
@@ -25,6 +25,34 @@
 	19.对Activity、Fragment实现对公共父类的抽取；  
 	20.实现对APP界面使用权重、代码、布局、图片等进行适配。  
 
-// TODO 
-1.处理M动态权限；
-2.使用MaterialDesign库及设计规范；
+## 二、服务端代码部署
+
+找到**Server**目录中的压缩文件
+
+	将文件解压后导入JavaEE版Eclipse中，然后在工程中右键点击build path--> Configure Build Path 
+	
+	重新配置本地的Tomcat服务器，如果有就先移除，然后点add Library --> Server RunTime--> 选择本地的Tomcat服务器，
+	
+	如果JRE配置有问题就同样配置一下本地的JRE环境，add Library --> JRE System Library 选择本地的jre,然后点击ok，
+	
+	右键点击工程Run As -->run On server ,如果还不行就clean 一下工程然后refresh工程在重新启动就ok
+
+解决方案有三种：
+
+	1、导入项目之前，请确认工作空间编码已设置为utf-8
+	window->Preferences->General->Wrokspace->Text file encoding->Other 选择UTF-8
+
+	2、导入后，由于开发环境中JRE以及Tomcat Library名称可能和源代码中的不一致，可能会出现Build Path的错误，
+	解决方法如下：
+	右键project->Build Path->Configure Build Path->选择Libraries tab页->删除带小红叉的Library->
+	点击Add Library->选择JRE System Library(删了Tomcat Library的话就选择Server Runtime)->选择一个JRE后->Finish
+	
+	3、进入项目包下的.settings目录，找到org.eclipse.wst.common.project.facet.core.xml文件，
+	用记事本打开后查看《runtime name="Apache Tomcat v6.0"/》，看是否与你eclipse设置的tomcat版本一致，
+	如果不一致，则删除该内容即可。
+
+// TODO
+ 
+ - 处理M动态权限；  
+ - 使用MaterialDesign库及设计规范；  
+ - xiaomi 5手机选择相册设置头像时的Crash.  
