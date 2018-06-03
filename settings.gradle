@@ -1,2 +1,2 @@
-include ':app', ':MPChart_library', ':GestureLock', ':common'
+include ':app', ':MPChart_library', ':GestureLock', ':common','http2.0'
 include ':ViewPagerIndicator_library'
