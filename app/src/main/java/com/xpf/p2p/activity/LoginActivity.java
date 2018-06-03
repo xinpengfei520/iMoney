@@ -12,13 +12,13 @@ import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.xpf.p2p.R;
-import com.xpf.p2p.bean.User;
-import com.xpf.p2p.common.AppNetConfig;
-import com.xpf.p2p.common.BaseActivity;
-import com.xpf.p2p.utils.MD5Utils;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
+import com.xpf.common.base.BaseActivity;
+import com.xpf.common.bean.User;
+import com.xpf.common.cons.ApiRequestUrl;
+import com.xpf.p2p.R;
+import com.xpf.p2p.utils.MD5Utils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -47,7 +47,6 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-
         tvTitle.setText("用户登录");
         ivBack.setVisibility(View.GONE);
         ivSetting.setVisibility(View.GONE);
@@ -66,7 +65,7 @@ public class LoginActivity extends BaseActivity {
         // 判断输入的信息是否存在空
         if (!TextUtils.isEmpty(number) && !TextUtils.isEmpty(password)) {
             // 2.联网将用户数据发送给服务器，其中手机号和密码作为请求参数
-            String url = AppNetConfig.LOGIN;
+            String url = ApiRequestUrl.LOGIN;
             RequestParams params = new RequestParams();
             params.put("username", number);
             params.put("password", MD5Utils.MD5(password));

@@ -1,4 +1,4 @@
-package com.anloq.common.utils;
+package com.xpf.common.utils;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;

@@ -1,4 +1,4 @@
-package com.anloq.common.utils;
+package com.xpf.common.utils;
 
 import android.app.ActivityManager;
 import android.content.Context;
@@ -7,14 +7,14 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 
-import static android.content.ContentValues.TAG;
-
 /**
  * Created by xpf on 2017/8/26 :)
  * Function:
  */
 
 public class WorkUtil {
+
+    private static final String TAG = WorkUtil.class.getSimpleName();
 
     /**
      * 检测service是否在运行
@@ -29,7 +29,7 @@ public class WorkUtil {
                 (ArrayList<ActivityManager.RunningServiceInfo>) myManager.getRunningServices(Integer.MAX_VALUE);
         Log.e(TAG, "当前运行的: " + runningService);
         for (int i = 0; i < runningService.size(); i++) {
-            if (runningService.get(i).service.getClassName().toString().equals(serviceName)) {
+            if (runningService.get(i).service.getClassName().equals(serviceName)) {
                 return true;
             }
         }
@@ -48,17 +48,17 @@ public class WorkUtil {
         ActivityManager am = (ActivityManager) appContext.getSystemService(Context.ACTIVITY_SERVICE);
         List<ActivityManager.RunningTaskInfo> list = am.getRunningTasks(100);
         boolean isAppRunning = false;
-        String MY_PKG_NAME = "com.anloq.anlebao";
+        String MY_PKG_NAME = context.getPackageName();
         //100表示取的最大的任务数，info.topActivity表示当前正在运行的Activity，info.baseActivity表系统后台有此进程在运行
         for (ActivityManager.RunningTaskInfo info : list) {
             if (info.topActivity.getPackageName().equals(MY_PKG_NAME) || info.baseActivity.getPackageName().equals(MY_PKG_NAME)) {
                 isAppRunning = true;
-                Log.i("TAG", info.topActivity.getPackageName() + " info.baseActivity.getPackageName()=" + info.baseActivity.getPackageName());
+                Log.i(TAG, info.topActivity.getPackageName() + " info.baseActivity.getPackageName()=" + info.baseActivity.getPackageName());
                 break;
             }
         }
 
-        Log.i("TAG", "com.anloq.anlebao程序   ...isAppRunning......" + isAppRunning);
+        Log.i(TAG, "程序 isAppRunning......" + isAppRunning);
         return isAppRunning;
     }
 }

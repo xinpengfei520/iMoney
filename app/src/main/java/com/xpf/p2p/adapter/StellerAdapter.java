@@ -7,8 +7,8 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.xpf.common.utils.UIUtils;
 import com.xpf.p2p.ui.randomLayout.StellarMap;
-import com.xpf.p2p.utils.UIUtils;
 
 import java.util.Random;
 

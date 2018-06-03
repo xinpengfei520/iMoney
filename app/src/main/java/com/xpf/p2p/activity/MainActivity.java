@@ -12,8 +12,8 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.xpf.common.base.BaseActivity;
 import com.xpf.p2p.R;
-import com.xpf.p2p.common.BaseActivity;
 import com.xpf.p2p.fragment.HomeFragment2;
 import com.xpf.p2p.fragment.InvestFragment;
 import com.xpf.p2p.fragment.MeFragment;

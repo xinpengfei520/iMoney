@@ -1,5 +1,6 @@
-package com.xpf.p2p.common;
+package com.xpf.common.base;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -7,7 +8,8 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 
 import com.loopj.android.http.AsyncHttpClient;
-import com.xpf.p2p.bean.User;
+import com.xpf.common.bean.User;
+import com.xpf.common.manager.ActivityManager;
 
 import butterknife.ButterKnife;
 
@@ -58,6 +60,7 @@ public abstract class BaseActivity extends FragmentActivity {
     public AsyncHttpClient client = new AsyncHttpClient();
 
     // 保存用户信息的操作,使用sp存储
+    @SuppressLint("ApplySharedPref")
     public void saveUser(User user) {
         SharedPreferences sp = this.getSharedPreferences("user_info", Context.MODE_PRIVATE);
         SharedPreferences.Editor edit = sp.edit();

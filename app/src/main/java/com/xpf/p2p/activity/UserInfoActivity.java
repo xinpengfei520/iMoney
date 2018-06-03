@@ -23,10 +23,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.xpf.common.base.BaseActivity;
+import com.xpf.common.utils.UIUtils;
 import com.xpf.p2p.R;
-import com.xpf.p2p.common.BaseActivity;
 import com.xpf.p2p.utils.BitmapUtils;
-import com.xpf.p2p.utils.UIUtils;
 
 import java.io.File;
 import java.io.FileNotFoundException;

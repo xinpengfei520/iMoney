@@ -4,6 +4,8 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.StateListDrawable;
 
+import com.xpf.common.utils.UIUtils;
+
 /**
  * DrawUtils绘制矩形的工具类
  */

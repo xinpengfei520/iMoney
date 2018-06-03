@@ -10,8 +10,8 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
 
+import com.xpf.common.utils.UIUtils;
 import com.xpf.p2p.R;
-import com.xpf.p2p.utils.UIUtils;
 
 /**
  * Created by xpf on 2016/11/12 :)

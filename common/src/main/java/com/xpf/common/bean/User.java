@@ -1,4 +1,4 @@
-package com.xpf.p2p.bean;
+package com.xpf.common.bean;
 
 /**
  * 用户信息的bean类

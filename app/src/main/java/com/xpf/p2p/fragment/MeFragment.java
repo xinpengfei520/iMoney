@@ -13,6 +13,13 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.loopj.android.http.RequestParams;
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Transformation;
+import com.xpf.common.base.BaseActivity;
+import com.xpf.common.base.BaseFragment;
+import com.xpf.common.bean.User;
+import com.xpf.common.utils.UIUtils;
 import com.xpf.p2p.R;
 import com.xpf.p2p.activity.AccountSafeActivity;
 import com.xpf.p2p.activity.BarChartActivity;
@@ -22,14 +29,7 @@ import com.xpf.p2p.activity.LineChartActivity;
 import com.xpf.p2p.activity.LoginActivity;
 import com.xpf.p2p.activity.PieChartActivity;
 import com.xpf.p2p.activity.TiXianActivity;
-import com.xpf.p2p.bean.User;
-import com.xpf.p2p.common.BaseActivity;
-import com.xpf.p2p.common.BaseFragment;
 import com.xpf.p2p.utils.BitmapUtils;
-import com.xpf.p2p.utils.UIUtils;
-import com.loopj.android.http.RequestParams;
-import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Transformation;
 
 import java.io.File;
 

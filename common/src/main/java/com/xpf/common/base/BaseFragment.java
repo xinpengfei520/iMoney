@@ -1,4 +1,4 @@
-package com.xpf.p2p.common;
+package com.xpf.common.base;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -9,8 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.loopj.android.http.RequestParams;
-import com.xpf.p2p.ui.LoadingPage;
-import com.xpf.p2p.utils.UIUtils;
+import com.xpf.common.cons.ResultState;
+import com.xpf.common.ui.LoadingPage;
+import com.xpf.common.utils.UIUtils;
 
 import butterknife.ButterKnife;
 

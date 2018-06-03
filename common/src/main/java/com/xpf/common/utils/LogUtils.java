@@ -1,17 +1,17 @@
-package com.xpf.common.logger;
+package com.xpf.common.utils;
 
 import android.util.Log;
 
 /**
  * Created by xpf on 2017/9/22 :)
- * Function:Anloq logger.
+ * Function: logger utils.
  */
 
-public class AnloqLog {
+public class LogUtils {
 
     private static boolean mDebug = true;// default open log print.
 
-    private AnloqLog() {
+    private LogUtils() {
     }
 
     public static void isDebug(boolean isDebug) {

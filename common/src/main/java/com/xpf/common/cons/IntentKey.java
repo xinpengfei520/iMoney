@@ -6,4 +6,6 @@ package com.xpf.common.cons;
  * Function:
  */
 public class IntentKey {
+
+    private static final String aaa = "";
 }

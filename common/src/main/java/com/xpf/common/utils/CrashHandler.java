@@ -1,4 +1,4 @@
-package com.xpf.p2p.common;
+package com.xpf.common.utils;
 
 import android.os.Build;
 import android.os.Looper;
@@ -7,7 +7,6 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.xpf.common.manager.ActivityManager;
-import com.xpf.common.utils.UIUtils;
 
 /**
  * Created by xpf on 2016/11/12 :)

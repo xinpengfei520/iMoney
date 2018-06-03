@@ -18,8 +18,11 @@ ext {
             versionName      : "1.0",
     ]
     dependencies = [
+            junit                  : 'junit:junit:4.12',
             design                 : 'com.android.support:design:26.1.0',
+            appcompat_v4           : 'com.android.support:support-v4:26.1.0',
             appcompat_v7           : 'com.android.support:appcompat-v7:26.1.0',
+            espresso               : 'com.android.support.test.espresso:espresso-core:2.2.2',
 
             okhttputils            : 'com.zhy:okhttputils:2.6.2',
             logger                 : 'com.orhanobut:logger:2.1.1',

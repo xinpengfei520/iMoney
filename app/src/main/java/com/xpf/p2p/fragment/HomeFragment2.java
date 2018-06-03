@@ -9,15 +9,15 @@ import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.xpf.p2p.R;
-import com.xpf.p2p.bean.Image;
-import com.xpf.p2p.bean.Index;
-import com.xpf.p2p.bean.Product;
-import com.xpf.p2p.common.AppNetConfig;
-import com.xpf.p2p.common.BaseFragment;
-import com.xpf.p2p.ui.RoundProgress;
 import com.loopj.android.http.RequestParams;
 import com.squareup.picasso.Picasso;
+import com.xpf.common.base.BaseFragment;
+import com.xpf.common.bean.Image;
+import com.xpf.common.bean.Index;
+import com.xpf.common.bean.Product;
+import com.xpf.common.cons.ApiRequestUrl;
+import com.xpf.p2p.R;
+import com.xpf.p2p.ui.RoundProgress;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.Transformer;
@@ -68,7 +68,7 @@ public class HomeFragment2 extends BaseFragment {
 
     @Override
     protected String getUrl() {
-        return AppNetConfig.INDEX;
+        return ApiRequestUrl.INDEX;
     }
 
     @Override

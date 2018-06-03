@@ -1,4 +1,4 @@
-package com.xpf.p2p.common;
+package com.xpf.common.cons;
 
 /**
  * Created by xpf on 2017/12/9 :)

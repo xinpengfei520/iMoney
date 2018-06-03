@@ -10,7 +10,7 @@ import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.ScrollView;
 
-import com.xpf.p2p.utils.UIUtils;
+import com.xpf.common.utils.UIUtils;
 
 /**
  * Created by xpf on 2016/11/14 :)

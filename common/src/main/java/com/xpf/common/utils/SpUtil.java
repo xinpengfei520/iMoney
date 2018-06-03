@@ -1,9 +1,8 @@
-package com.anloq.common.utils;
+package com.xpf.common.utils;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
-
-import com.anloq.common.CommonApplication;
 
 /**
  * Created by xpf on 2017/03/25 :)
@@ -11,16 +10,18 @@ import com.anloq.common.CommonApplication;
  */
 public class SpUtil {
 
-    private static final String ANLEBAO = "anlebao";
+    private static final String SP_DATA = "sp_data";
     private static SpUtil instance = new SpUtil();
     private static SharedPreferences mSp = null;
 
     private SpUtil() {
     }
 
-    public static SpUtil getInstance() {
+    public static SpUtil getInstance(Context context) {
         if (mSp == null) {
-            mSp = CommonApplication.getContext().getSharedPreferences(ANLEBAO, Context.MODE_PRIVATE);
+            if (context != null) {
+                mSp = context.getApplicationContext().getSharedPreferences(SP_DATA, Context.MODE_PRIVATE);
+            }
         }
         return instance;
     }
@@ -31,6 +32,7 @@ public class SpUtil {
      * @param key   键
      * @param value 值
      */
+    @SuppressLint("ApplySharedPref")
     public void save(String key, Object value) {
         if (value instanceof String) {
             mSp.edit().putString(key, (String) value).commit();
@@ -77,6 +79,7 @@ public class SpUtil {
     /**
      * 清除所有保存的数据
      */
+    @SuppressLint("ApplySharedPref")
     public void clearAll() {
         mSp.edit().clear().commit();// 清空sp存储的数据(xxx.xml仍然存在，但是内部没有数据)
     }

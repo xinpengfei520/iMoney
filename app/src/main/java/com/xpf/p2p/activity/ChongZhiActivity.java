@@ -14,8 +14,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alipay.sdk.app.PayTask;
+import com.xpf.common.base.BaseActivity;
 import com.xpf.p2p.R;
-import com.xpf.p2p.common.BaseActivity;
 import com.xpf.p2p.utils.pay.PayKeys;
 import com.xpf.p2p.utils.pay.PayResult;
 import com.xpf.p2p.utils.pay.SignUtils;

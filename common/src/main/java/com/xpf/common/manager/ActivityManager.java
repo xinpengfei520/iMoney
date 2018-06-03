@@ -1,4 +1,4 @@
-package com.xpf.p2p.common;
+package com.xpf.common.manager;
 
 import android.app.Activity;
 

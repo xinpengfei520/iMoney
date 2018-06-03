@@ -4,8 +4,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.xpf.common.bean.Product;
 import com.xpf.p2p.R;
-import com.xpf.p2p.bean.Product;
 import com.xpf.p2p.ui.RoundProgress;
 
 import java.util.List;

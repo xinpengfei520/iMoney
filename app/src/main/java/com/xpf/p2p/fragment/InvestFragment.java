@@ -5,11 +5,11 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 
-import com.xpf.p2p.R;
-import com.xpf.p2p.common.BaseFragment;
-import com.xpf.p2p.utils.UIUtils;
 import com.loopj.android.http.RequestParams;
 import com.viewpagerindicator.TabPageIndicator;
+import com.xpf.common.base.BaseFragment;
+import com.xpf.common.utils.UIUtils;
+import com.xpf.p2p.R;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -12,8 +12,8 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled false
-            //shrinkResources true
+            minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
 
@@ -26,10 +26,11 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+    androidTestImplementation(rootProject.ext.dependencies.espresso, {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    testImplementation 'junit:junit:4.12'
+    testImplementation rootProject.ext.dependencies.junit
+    implementation rootProject.ext.dependencies.appcompat_v4
     implementation rootProject.ext.dependencies.appcompat_v7
     implementation rootProject.ext.dependencies.banner
     implementation rootProject.ext.dependencies.butterknife
@@ -39,4 +40,5 @@ dependencies {
     implementation project(':GestureLock')
     implementation project(':MPChart_library')
     implementation project(':ViewPagerIndicator_library')
+    implementation project(':common')
 }

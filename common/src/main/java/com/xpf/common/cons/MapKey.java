@@ -5,7 +5,7 @@ package com.xpf.common.cons;
  * GitHub:xinpengfei520
  * Function:
  */
-public class SpKey {
+public class MapKey {
 
     private static final String aaa = "";
 }

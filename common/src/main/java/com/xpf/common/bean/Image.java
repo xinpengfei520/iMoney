@@ -1,4 +1,4 @@
-package com.xpf.p2p.bean;
+package com.xpf.common.bean;
 
 /**
  * Created by xpf on 2016/11/12 :)

@@ -1,4 +1,4 @@
-package com.anloq.common.utils;
+package com.xpf.common.utils;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
@@ -7,33 +7,20 @@ import java.io.InputStreamReader;
 import java.util.List;
 
 /**
- * ShellUtils
- * <ul>
- * <strong>Check root</strong>
- * <li>{@link ShellUtils#checkRootPermission()}</li>
- * </ul>
- * <ul>
- * <strong>Execte command</strong>
- * <li>{@link ShellUtils#execCommand(String, boolean)}</li>
- * <li>{@link ShellUtils#execCommand(String, boolean, boolean)}</li>
- * <li>{@link ShellUtils#execCommand(List, boolean)}</li>
- * <li>{@link ShellUtils#execCommand(List, boolean, boolean)}</li>
- * <li>{@link ShellUtils#execCommand(String[], boolean)}</li>
- * <li>{@link ShellUtils#execCommand(String[], boolean, boolean)}</li>
- * </ul>
- * 
- * @author <a href="http://www.trinea.cn" target="_blank">Trinea</a> 2013-5-16
+ * Created by xpf on 2017/5/11 :)
+ * Function:执行Shell命令的工具类
  */
+
 public class ShellUtils {
 
-    public static final String COMMAND_SU       = "su";
-    public static final String COMMAND_SH       = "sh";
-    public static final String COMMAND_EXIT     = "exit\n";
+    public static final String COMMAND_SU = "su";
+    public static final String COMMAND_SH = "sh";
+    public static final String COMMAND_EXIT = "exit\n";
     public static final String COMMAND_LINE_END = "\n";
 
     /**
      * check whether has root permission
-     * 
+     *
      * @return
      */
     public static boolean checkRootPermission() {
@@ -42,33 +29,33 @@ public class ShellUtils {
 
     /**
      * execute shell command, default return result msg
-     * 
+     *
      * @param command command
-     * @param isRoot whether need to run with root
+     * @param isRoot  whether need to run with root
      * @return
      * @see ShellUtils#execCommand(String[], boolean, boolean)
      */
     public static CommandResult execCommand(String command, boolean isRoot) {
-        return execCommand(new String[] {command}, isRoot, true);
+        return execCommand(new String[]{command}, isRoot, true);
     }
 
     /**
      * execute shell commands, default return result msg
-     * 
+     *
      * @param commands command list
-     * @param isRoot whether need to run with root
+     * @param isRoot   whether need to run with root
      * @return
      * @see ShellUtils#execCommand(String[], boolean, boolean)
      */
     public static CommandResult execCommand(List<String> commands, boolean isRoot) {
-        return execCommand(commands == null ? null : commands.toArray(new String[] {}), isRoot, true);
+        return execCommand(commands == null ? null : commands.toArray(new String[]{}), isRoot, true);
     }
 
     /**
      * execute shell commands, default return result msg
-     * 
+     *
      * @param commands command array
-     * @param isRoot whether need to run with root
+     * @param isRoot   whether need to run with root
      * @return
      * @see ShellUtils#execCommand(String[], boolean, boolean)
      */
@@ -78,41 +65,41 @@ public class ShellUtils {
 
     /**
      * execute shell command
-     * 
-     * @param command command
-     * @param isRoot whether need to run with root
+     *
+     * @param command         command
+     * @param isRoot          whether need to run with root
      * @param isNeedResultMsg whether need result msg
      * @return
      * @see ShellUtils#execCommand(String[], boolean, boolean)
      */
     public static CommandResult execCommand(String command, boolean isRoot, boolean isNeedResultMsg) {
-        return execCommand(new String[] {command}, isRoot, isNeedResultMsg);
+        return execCommand(new String[]{command}, isRoot, isNeedResultMsg);
     }
 
     /**
      * execute shell commands
-     * 
-     * @param commands command list
-     * @param isRoot whether need to run with root
+     *
+     * @param commands        command list
+     * @param isRoot          whether need to run with root
      * @param isNeedResultMsg whether need result msg
      * @return
      * @see ShellUtils#execCommand(String[], boolean, boolean)
      */
     public static CommandResult execCommand(List<String> commands, boolean isRoot, boolean isNeedResultMsg) {
-        return execCommand(commands == null ? null : commands.toArray(new String[] {}), isRoot, isNeedResultMsg);
+        return execCommand(commands == null ? null : commands.toArray(new String[]{}), isRoot, isNeedResultMsg);
     }
 
     /**
      * execute shell commands
-     * 
-     * @param commands command array
-     * @param isRoot whether need to run with root
+     *
+     * @param commands        command array
+     * @param isRoot          whether need to run with root
      * @param isNeedResultMsg whether need result msg
      * @return <ul>
-     *         <li>if isNeedResultMsg is false, {@link CommandResult#successMsg} is null and
-     *         {@link CommandResult#errorMsg} is null.</li>
-     *         <li>if {@link CommandResult#result} is -1, there maybe some excepiton.</li>
-     *         </ul>
+     * <li>if isNeedResultMsg is false, {@link CommandResult#successMsg} is null and
+     * {@link CommandResult#errorMsg} is null.</li>
+     * <li>if {@link CommandResult#result} is -1, there maybe some excepiton.</li>
+     * </ul>
      */
     public static CommandResult execCommand(String[] commands, boolean isRoot, boolean isNeedResultMsg) {
         int result = -1;
@@ -193,16 +180,22 @@ public class ShellUtils {
      * <li>{@link CommandResult#successMsg} means success message of command result</li>
      * <li>{@link CommandResult#errorMsg} means error message of command result</li>
      * </ul>
-     * 
+     *
      * @author <a href="http://www.trinea.cn" target="_blank">Trinea</a> 2013-5-16
      */
     public static class CommandResult {
 
-        /** result of command **/
-        public int    result;
-        /** success message of command result **/
+        /**
+         * result of command
+         **/
+        public int result;
+        /**
+         * success message of command result
+         **/
         public String successMsg;
-        /** error message of command result **/
+        /**
+         * error message of command result
+         **/
         public String errorMsg;
 
         public CommandResult(int result) {

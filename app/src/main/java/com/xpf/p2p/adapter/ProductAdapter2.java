@@ -4,9 +4,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import com.xpf.common.bean.Product;
+import com.xpf.common.utils.UIUtils;
 import com.xpf.p2p.R;
-import com.xpf.p2p.bean.Product;
-import com.xpf.p2p.utils.UIUtils;
 
 import java.util.List;
 

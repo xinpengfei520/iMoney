@@ -1,4 +1,4 @@
-package com.anloq.common.utils;
+package com.xpf.common.utils;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

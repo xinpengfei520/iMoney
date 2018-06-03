@@ -1,5 +1,6 @@
 package com.xpf.p2p.activity;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -24,12 +25,13 @@ import android.widget.Toast;
 import com.alibaba.fastjson.JSON;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.xpf.common.bean.UpdateInfo;
+import com.xpf.common.cons.ApiRequestUrl;
+import com.xpf.common.utils.ToastUtil;
+import com.xpf.common.utils.UIUtils;
 import com.xpf.p2p.R;
-import com.xpf.p2p.bean.UpdateInfo;
-import com.xpf.p2p.common.AppNetConfig;
 import com.xpf.p2p.utils.AppUtil;
 import com.xpf.p2p.utils.NetStateUtil;
-import com.xpf.p2p.utils.UIUtils;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -48,6 +50,7 @@ public class WelcomeActivity extends Activity {
     private static final int WHAT_DOWNLOAD_VERSION_SUCCESS = 2;
     private static final int WHAT_DOWNLOAD_FAIL = 3;
     private static final int WHAT_DOWNLOAD_APK_SUCCESS = 4;
+    private static final String TAG = WelcomeActivity.class.getSimpleName();
 
     @BindView(R.id.tv_version)
     TextView tvVersion;
@@ -59,6 +62,7 @@ public class WelcomeActivity extends Activity {
     private ProgressDialog dialog;
     private File apkFile;
 
+    @SuppressLint("HandlerLeak")
     private Handler handler = new Handler() {
         public void handleMessage(Message msg) {
             switch (msg.what) {
@@ -210,10 +214,10 @@ public class WelcomeActivity extends Activity {
         startTime = System.currentTimeMillis(); // 获取系统当前的时间
         // 判断手机是否可以联网
         if (!NetStateUtil.isConnected(this)) {
-            Toast.makeText(WelcomeActivity.this, "网络异常", Toast.LENGTH_SHORT).show();
+            ToastUtil.show(WelcomeActivity.this, "网络异常!");
             toMain();
         } else {
-            String updateUrl = AppNetConfig.UPDATE; // 获取联网请求更新应用的路径
+            String updateUrl = ApiRequestUrl.UPDATE; // 获取联网请求更新应用的路径
             // 使用AsyncHttpClient实现联网获取版本信息
             AsyncHttpClient client = new AsyncHttpClient();
             client.post(updateUrl, new AsyncHttpResponseHandler() {

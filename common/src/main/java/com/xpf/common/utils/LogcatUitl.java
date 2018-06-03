@@ -1,4 +1,4 @@
-package com.anloq.common.utils;
+package com.xpf.common.utils;
 
 import android.util.Log;
 

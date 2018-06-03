@@ -1,4 +1,4 @@
-package com.xpf.p2p.ui;
+package com.xpf.common.ui;
 
 import android.content.Context;
 import android.text.TextUtils;
@@ -10,9 +10,9 @@ import android.widget.FrameLayout;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
-import com.xpf.p2p.R;
-import com.xpf.p2p.common.ResultState;
-import com.xpf.p2p.utils.UIUtils;
+import com.xpf.common.R;
+import com.xpf.common.cons.ResultState;
+import com.xpf.common.utils.UIUtils;
 
 /**
  * Created by xpf on 2016/11/14 :)

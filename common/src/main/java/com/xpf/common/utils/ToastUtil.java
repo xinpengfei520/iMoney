@@ -1,10 +1,9 @@
-package com.anloq.common.utils;
+package com.xpf.common.utils;
 
 import android.content.Context;
 import android.os.Handler;
+import android.text.TextUtils;
 import android.widget.Toast;
-
-import com.anloq.common.CommonApplication;
 
 /**
  * Created by xpf on 2017/4/15 :)
@@ -35,8 +34,10 @@ public class ToastUtil {
      *
      * @param text
      */
-    public static void show(String text) {
-        Toast.makeText(CommonApplication.getContext(), text, Toast.LENGTH_SHORT).show();
+    public static void show(Context context, String text) {
+        if (!TextUtils.isEmpty(text) && context != null) {
+            Toast.makeText(context.getApplicationContext(), text, Toast.LENGTH_SHORT).show();
+        }
     }
 
     /**
@@ -44,7 +45,9 @@ public class ToastUtil {
      *
      * @param text
      */
-    public static void showLong(String text) {
-        Toast.makeText(CommonApplication.getContext(), text, Toast.LENGTH_LONG).show();
+    public static void showLong(Context context, String text) {
+        if (!TextUtils.isEmpty(text) && context != null) {
+            Toast.makeText(context.getApplicationContext(), text, Toast.LENGTH_LONG).show();
+        }
     }
 }
