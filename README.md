@@ -85,7 +85,7 @@ If you find any bug when using Okla, please report **[here](https://github.com/x
 
 如果你想学习更多关于 Android 的技术，请扫描下面的微信公众号后回复 “加群”。
 
-![image](https://github.com/xinpengfei520/P2P/blob/master/screenshot/official_account.gif)
+![image](https://github.com/xinpengfei520/P2P/blob/master/screenshot/official_account.jpg)
 
 ## LICENSE
 
