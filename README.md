@@ -55,7 +55,37 @@
  
  - 处理M动态权限；  
  - 使用MaterialDesign库及设计规范；  
- - xiaomi 5手机选择相册设置头像时的Crash.  
+ - xiaomi 5手机选择相册设置头像时的Crash；
+ - 多语言；
+ - 多渠道打包；
+ - 生产环境配置；
+
+## Bugs Report
+
+If you find any bug when using Okla, please report **[here](https://github.com/xinpengfei520/P2P/issues/new)**. Thanks for helping us making better.
+
+## Change logs
+
+### 1.2.0
+
+ - update on 2018-06-03 bugs fix.
+ - add http、common module.
+ - add config.gradle file.
+
+### 1.1.0
+
+ - update on 2017-10-01 bugs fix.
+ - adapter AS 3.0
+
+### 1.0.0
+
+ - update on 2016-11-28 first commit.
+
+## 学习更多
+
+如果你想学习更多关于 Android 的技术，请扫描下面的微信公众号后回复 “加群”。
+
+![image](https://github.com/xinpengfei520/P2P/blob/master/screenshot/official_account.gif)
 
 ## LICENSE
 
