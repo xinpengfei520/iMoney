@@ -1,17 +1,23 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
     defaultConfig {
-        applicationId "com.xpf.p2p"
-        minSdkVersion 16
-        targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
+        applicationId rootProject.ext.android.applicationId
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
+            minifyEnabled false
+            //shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
@@ -19,17 +25,17 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    implementation 'com.android.support:appcompat-v7:26.1.0'
-    testCompile 'junit:junit:4.12'
-    implementation 'com.youth.banner:banner:1.4.2'
-    implementation 'com.jakewharton:butterknife:8.5.1'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
-    implementation 'com.squareup.picasso:picasso:2.5.2'
-    implementation 'pub.devrel:easypermissions:1.0.1'
+    testImplementation 'junit:junit:4.12'
+    implementation rootProject.ext.dependencies.appcompat_v7
+    implementation rootProject.ext.dependencies.banner
+    implementation rootProject.ext.dependencies.butterknife
+    annotationProcessor rootProject.ext.dependencies.butterknife_compiler
+    implementation rootProject.ext.dependencies.picasso
+    implementation rootProject.ext.dependencies.easypermissions
     implementation project(':GestureLock')
     implementation project(':MPChart_library')
     implementation project(':ViewPagerIndicator_library')
