@@ -6,7 +6,8 @@ import android.os.SystemClock;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.xpf.p2p.utils.UIUtils;
+import com.xpf.common.manager.ActivityManager;
+import com.xpf.common.utils.UIUtils;
 
 /**
  * Created by xpf on 2016/11/12 :)

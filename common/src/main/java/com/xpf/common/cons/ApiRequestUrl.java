@@ -6,7 +6,7 @@ package com.xpf.p2p.common;
  * Function:提供当前应用访问服务器的请求地址
  */
 
-public class AppNetConfig {
+public class ApiRequestUrl {
 
     //    public static final String HOST = "192.168.31.193"; // 提供ip地址
     public static final String HOST = "10.0.2.2"; // 本地服务器地址
