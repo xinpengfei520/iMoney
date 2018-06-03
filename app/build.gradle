@@ -51,5 +51,5 @@ dependencies {
     implementation project(':MPChart_library')
     implementation project(':ViewPagerIndicator_library')
     implementation project(':common')
-    implementation project(':http2.0')
+    implementation project(':http')
 }

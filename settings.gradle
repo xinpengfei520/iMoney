@@ -1,2 +1,1 @@
-include ':app', ':MPChart_library', ':GestureLock', ':common','http2.0'
-include ':ViewPagerIndicator_library'
+include ':app', ':MPChart_library', ':GestureLock', ':common',':http',':ViewPagerIndicator_library'
