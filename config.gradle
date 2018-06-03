@@ -8,16 +8,15 @@ ext {
     ]
 
     android = [
-            applicationId    : "com.anloq.anlebao",
+            applicationId    : "com.xpf.p2p",
             compileSdkVersion: 26,
 
             minSdkVersion    : 19,
             targetSdkVersion : 26,
 
-            versionCode      : 10,
-            versionName      : "1.4.9",
+            versionCode      : 1,
+            versionName      : "1.0",
     ]
-
     dependencies = [
             design                 : 'com.android.support:design:26.1.0',
             appcompat_v7           : 'com.android.support:appcompat-v7:26.1.0',
@@ -27,11 +26,14 @@ ext {
             zxing_core             : 'com.google.zxing:core:3.3.0',
             zxingscanner           : 'com.mylhyl:zxingscanner:1.6.0',
             eventbus               : 'org.greenrobot:eventbus:3.0.0',
+            banner                 : 'com.youth.banner:banner:1.4.2',
             litepal                : 'org.litepal.android:core:1.6.1',
             gson                   : 'com.google.code.gson:gson:2.8.0',
             io_client              : 'io.socket:socket.io-client:0.7.0',
+            easypermissions        : 'pub.devrel:easypermissions:1.0.1',
             okhttp3                : 'com.squareup.okhttp3:okhttp:3.3.1',
             butterknife            : 'com.jakewharton:butterknife:8.8.1',
+            picasso                : 'com.squareup.picasso:picasso:2.5.2',
             umeng_analytics        : 'com.umeng.analytics:analytics:6.1.3',
             countdownview          : 'com.github.iwgang:countdownview:2.1.3',
             butterknife_compiler   : 'com.jakewharton:butterknife-compiler:8.8.1',
@@ -40,6 +42,7 @@ ext {
             mqtt_service           : 'org.eclipse.paho:org.eclipse.paho.android.service:1.1.1',
             connectionclass        : 'com.facebook.network.connectionclass:connectionclass:1.0.1'
     ]
+
 
 
     bintray = [
