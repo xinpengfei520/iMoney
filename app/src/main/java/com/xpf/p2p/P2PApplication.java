@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 
 import com.xpf.common.CommonApplication;
+import com.xpf.http.ApiClient;
 
 /**
  * Created by xpf on 2016/11/11 :)
@@ -11,7 +12,7 @@ import com.xpf.common.CommonApplication;
  * Function:代表当前整个应用的实例
  */
 
-public class MyApplication extends Application {
+public class P2PApplication extends Application {
 
     public static Context mContext;  // 获取全局上下文
 
@@ -20,6 +21,7 @@ public class MyApplication extends Application {
         super.onCreate();
         mContext = this.getApplicationContext();
         CommonApplication.initialize(this);
+        ApiClient.getInstance().init(this);
         // 设置出现未捕获异常时的处理类
         //CrashHandler.getInstance().init();
     }
