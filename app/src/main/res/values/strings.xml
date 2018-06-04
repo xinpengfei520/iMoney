@@ -16,5 +16,24 @@
     <string name="set_gesture_pattern_reason">设置手势密码，防止他人未经授权查看</string>
     <string name="reset_gesture_code">重新设置手势密码</string>
     <string name="icbc">风险保障金由ICBC银行监管</string>
+    <string name="p2p_name">P2P金融</string>
+    <string name="title_activity_login2">Sign in</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="login_account">账号</string>
+    <string name="login_password">密码</string>
+    <string name="login_youke">游客试用</string>
+    <string name="login_login">登　录</string>
     <!-- End -->
 </resources>

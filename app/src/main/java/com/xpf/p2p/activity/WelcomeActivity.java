@@ -4,13 +4,11 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.AccelerateInterpolator;
@@ -20,13 +18,13 @@ import android.view.animation.RotateAnimation;
 import android.view.animation.ScaleAnimation;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.xpf.common.bean.UpdateInfo;
 import com.xpf.common.cons.ApiRequestUrl;
+import com.xpf.common.utils.LogUtils;
 import com.xpf.common.utils.ToastUtil;
 import com.xpf.common.utils.UIUtils;
 import com.xpf.p2p.R;
@@ -46,7 +44,7 @@ import static com.xpf.p2p.R.id.rl_welcome;
 
 public class WelcomeActivity extends Activity {
 
-    private static final int MESSAGE_MAIN = 1;
+    private static final int MESSAGE_LOGIN = 1;
     private static final int WHAT_DOWNLOAD_VERSION_SUCCESS = 2;
     private static final int WHAT_DOWNLOAD_FAIL = 3;
     private static final int WHAT_DOWNLOAD_APK_SUCCESS = 4;
@@ -66,21 +64,21 @@ public class WelcomeActivity extends Activity {
     private Handler handler = new Handler() {
         public void handleMessage(Message msg) {
             switch (msg.what) {
-                case MESSAGE_MAIN:
-                    startActivity(new Intent(WelcomeActivity.this, MainActivity.class));
+                case MESSAGE_LOGIN:
+                    startActivity(new Intent(WelcomeActivity.this, LoginActivity.class));
                     finish(); // 进入主页之前销毁欢迎页面
                     break;
                 case WHAT_DOWNLOAD_VERSION_SUCCESS: // 获取了服务器端返回的版本信息
                     String version = AppUtil.getVersion(WelcomeActivity.this);
                     if (version.equals(updateInfo.version)) { // 版本相同
-                        toMain();
+                        toLoginPager();
                     } else {
                         showDownloadDialog();
                     }
                     break;
                 case WHAT_DOWNLOAD_FAIL:
-                    Toast.makeText(WelcomeActivity.this, "下载应用文件失败", Toast.LENGTH_SHORT).show();
-                    toMain();
+                    ToastUtil.show(WelcomeActivity.this, "下载应用文件失败!");
+                    toLoginPager();
                     break;
                 case WHAT_DOWNLOAD_APK_SUCCESS:
                     installApk();
@@ -119,18 +117,8 @@ public class WelcomeActivity extends Activity {
         new AlertDialog.Builder(this)
                 .setTitle("发现新版本可用")
                 .setMessage(updateInfo.desc)
-                .setPositiveButton("下载", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        showDownLoad();
-                    }
-                })
-                .setNegativeButton("取消", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        toMain();
-                    }
-                }).show();
+                .setPositiveButton("下载", (dialog, which) -> showDownLoad())
+                .setNegativeButton("取消", (dialog, which) -> toLoginPager()).show();
     }
 
     /**
@@ -196,15 +184,15 @@ public class WelcomeActivity extends Activity {
         conn.disconnect();
     }
 
-    // 通过发送延迟消息，进入主界面
-    private void toMain() {
+    // 通过发送延迟消息，进入登录界面
+    private void toLoginPager() {
         long currentTimeMillis = System.currentTimeMillis();
         long delayTime = 3000 - (currentTimeMillis - startTime);
         if (delayTime < 0) {
             delayTime = 0;
         }
         // 发送延迟消息
-        handler.sendEmptyMessageDelayed(MESSAGE_MAIN, delayTime);
+        handler.sendEmptyMessageDelayed(MESSAGE_LOGIN, delayTime);
     }
 
     /**
@@ -215,7 +203,7 @@ public class WelcomeActivity extends Activity {
         // 判断手机是否可以联网
         if (!NetStateUtil.isConnected(this)) {
             ToastUtil.show(WelcomeActivity.this, "网络异常!");
-            toMain();
+            toLoginPager();
         } else {
             String updateUrl = ApiRequestUrl.UPDATE; // 获取联网请求更新应用的路径
             // 使用AsyncHttpClient实现联网获取版本信息
@@ -230,9 +218,9 @@ public class WelcomeActivity extends Activity {
 
                 @Override
                 public void onFailure(Throwable error, String content) {
-                    Log.e("TAG", "Throwable:" + error.getMessage() + ",content:" + content);
-                    Toast.makeText(WelcomeActivity.this, "联网获取更新数据失败", Toast.LENGTH_SHORT).show();
-                    toMain();
+                    LogUtils.e(TAG, "Throwable:" + error.getMessage() + ",content:" + content);
+                    ToastUtil.show(WelcomeActivity.this, "联网获取更新数据失败!");
+                    toLoginPager();
                 }
             });
         }
@@ -263,6 +251,7 @@ public class WelcomeActivity extends Activity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        handler.removeCallbacksAndMessages(null);
         UIUtils.getHandler().removeCallbacksAndMessages(null);
     }
 }

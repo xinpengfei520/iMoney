@@ -2,86 +2,61 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:background="@drawable/login_background"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin">
 
-    <include layout="@layout/title_common" />
-
-    <RelativeLayout
-        android:id="@+id/about_com"
+    <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="44dp"
-        android:background="@color/white"
-        android:paddingLeft="17dp"
-        android:paddingRight="17dp">
-
-        <TextView
-            android:id="@+id/textView1"
-            android:layout_width="95dp"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:text="手机号:"
-            android:textColor="#333333"
-            android:textSize="14sp" />
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textColorHint="#FFFFFF">
 
         <EditText
             android:id="@+id/log_ed_mob"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_toRightOf="@id/textView1"
             android:background="@null"
             android:gravity="center_vertical"
-            android:hint="请输入手机号"
+            android:hint="@string/login_account"
             android:inputType="phone"
             android:maxLines="1"
             android:singleLine="true"
-            android:textColor="#5c5c5c"
-            android:textSize="14sp" />
-    </RelativeLayout>
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
 
-    <View
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="?android:listDivider" />
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="44dp"
-        android:background="@color/white"
-        android:paddingLeft="17dp"
-        android:paddingRight="17dp">
-
-        <TextView
-            android:id="@+id/tv_2"
-            android:layout_width="95dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:text="密码:"
-            android:textColor="#333333"
-            android:textSize="14sp" />
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:textColorHint="#FFFFFF">
 
         <EditText
             android:id="@+id/log_ed_pad"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_toRightOf="@id/tv_2"
             android:background="@null"
-            android:hint="请输入密码"
+            android:hint="@string/login_password"
             android:inputType="textPassword"
             android:maxLines="1"
             android:singleLine="true"
-            android:textColor="#5c5c5c"
-            android:textSize="14sp" />
-    </RelativeLayout>
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="?android:listDivider" />
+    </android.support.design.widget.TextInputLayout>
 
     <Button
         android:id="@+id/log_log_btn"
@@ -89,9 +64,18 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="30dp"
         android:background="@drawable/btn_01"
-        android:text="登　录"
+        android:text="@string/login_login"
         android:textColor="#ffffff"
-        android:textSize="18sp" />
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvTestUse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/login_youke"
+        android:textColor="@color/white" />
 </LinearLayout>

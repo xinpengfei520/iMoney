@@ -1,9 +1,6 @@
 package com.xpf.p2p.fragment;
 
 import android.app.AlertDialog;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.text.TextUtils;
@@ -19,6 +16,8 @@ import com.squareup.picasso.Transformation;
 import com.xpf.common.base.BaseActivity;
 import com.xpf.common.base.BaseFragment;
 import com.xpf.common.bean.User;
+import com.xpf.common.cons.SpKey;
+import com.xpf.common.utils.SpUtil;
 import com.xpf.common.utils.UIUtils;
 import com.xpf.p2p.R;
 import com.xpf.p2p.activity.AccountSafeActivity;
@@ -62,8 +61,7 @@ public class MeFragment extends BaseFragment {
     TextView llZichang;
     @BindView(R.id.ll_zhanquan)
     TextView llZhanquan;
-
-    private SharedPreferences sp;
+    private static final String TAG = MeFragment.class.getSimpleName();
 
     @Override
     public int getLayoutId() {
@@ -82,14 +80,12 @@ public class MeFragment extends BaseFragment {
 
     @Override
     protected void initData(String content) {
-        sp = this.getActivity().getSharedPreferences("secret_protect", Context.MODE_PRIVATE);
         isLogin(); // 判断是否需要显示需要登录的提示
     }
 
     private void isLogin() {
         // 在本应用中的sp存储的位置,是否已经保存了用户的登录信息
-        SharedPreferences sp = this.getActivity().getSharedPreferences("user_info", Context.MODE_PRIVATE);
-        String userName = sp.getString("UF_ACC", "");
+        String userName = SpUtil.getInstance(mContext).getString(SpKey.UF_ACC, "");
         if (TextUtils.isEmpty(userName)) {
             login();  // 如果没有保存(没有登陆过)就显示AlertDialog
         } else {
@@ -101,14 +97,11 @@ public class MeFragment extends BaseFragment {
     private void login() {
         new AlertDialog.Builder(getActivity())
                 .setTitle("登录")
-                .setMessage("2B请先登录")
-                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        Toast.makeText(MeFragment.this.getActivity(), "请先登录", Toast.LENGTH_SHORT).show();
-                        // 跳转到登录页面
-                        ((BaseActivity) MeFragment.this.getActivity()).goToActivity(LoginActivity.class, null);
-                    }
+                .setMessage("2B请先登录！")
+                .setPositiveButton("确定", (dialog, which) -> {
+                    Toast.makeText(MeFragment.this.getActivity(), "请先登录", Toast.LENGTH_SHORT).show();
+                    // 跳转到登录页面
+                    ((BaseActivity) MeFragment.this.getActivity()).goToActivity(LoginActivity.class, null);
                 })
                 .setCancelable(false) //设置按非dialog区域不取消dialog
                 .show();
@@ -116,7 +109,6 @@ public class MeFragment extends BaseFragment {
 
     // 得到了本地的登录信息,加载显示
     private void doUser() {
-
         // 读取数据,得到内存中的User对象
         User user = ((BaseActivity) this.getActivity()).readUser();
         // 一方面,显示用户名
@@ -140,7 +132,7 @@ public class MeFragment extends BaseFragment {
         }).into(imageView1);
 
         // 如果在本地发现了用户设置了手势密码,则在此需要验证
-        boolean isOpen = sp.getBoolean("isOpen", false);
+        boolean isOpen = SpUtil.getInstance(mContext).getBoolean(SpKey.GESTURE_IS_OPEN, false);
         if (isOpen) {
             ((BaseActivity) this.getActivity()).goToActivity(GestureVerifyActivity.class, null);
         }

@@ -21,9 +21,9 @@
         android:layout_below="@id/iv_icon"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:text="P2P金融"
+        android:text="@string/p2p_name"
         android:textColor="@android:color/white"
-        android:textSize="30sp" />
+        android:textSize="20sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:text="当前版本:v"
             android:textColor="@android:color/white"
-            android:textSize="20sp" />
+            android:textSize="12sp" />
 
         <TextView
             android:id="@+id/tv_version"
@@ -45,8 +45,7 @@
             android:layout_height="wrap_content"
             android:text="1.0"
             android:textColor="@android:color/white"
-            android:textSize="20sp" />
-
+            android:textSize="12sp" />
     </LinearLayout>
 
 </RelativeLayout>

@@ -1,12 +1,10 @@
 package com.xpf.p2p.activity;
 
-import android.os.Bundle;
+import android.content.Intent;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,35 +19,22 @@ import com.xpf.p2p.R;
 import com.xpf.p2p.utils.MD5Utils;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class LoginActivity extends BaseActivity {
 
-    @BindView(R.id.textView1)
-    TextView textView1;
     @BindView(R.id.log_ed_mob)
     EditText logEdMob;
-    @BindView(R.id.about_com)
-    RelativeLayout aboutCom;
-    @BindView(R.id.tv_2)
-    TextView tv2;
+    @BindView(R.id.tvTestUse)
+    TextView tvTestUse;
     @BindView(R.id.log_ed_pad)
     EditText logEdPad;
     @BindView(R.id.log_log_btn)
     Button logLogBtn;
-    @BindView(R.id.iv_back)
-    ImageView ivBack;
-    @BindView(R.id.tv_title)
-    TextView tvTitle;
-    @BindView(R.id.iv_setting)
-    ImageView ivSetting;
 
     @Override
     protected void initData() {
-        tvTitle.setText("用户登录");
-        ivBack.setVisibility(View.GONE);
-        ivSetting.setVisibility(View.GONE);
+
     }
 
     @Override
@@ -57,8 +42,20 @@ public class LoginActivity extends BaseActivity {
         return R.layout.activity_login;
     }
 
-    @OnClick(R.id.log_log_btn)
-    public void onClick() {
+    @OnClick({R.id.log_log_btn, R.id.tvTestUse})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.log_log_btn:
+                login();
+                break;
+            case R.id.tvTestUse:
+                startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                finish();
+                break;
+        }
+    }
+
+    private void login() {
         // 1.获取手机号和加密以后的密码
         String number = logEdMob.getText().toString();
         String password = logEdPad.getText().toString();
@@ -102,10 +99,4 @@ public class LoginActivity extends BaseActivity {
         }
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
-    }
 }

@@ -7,5 +7,6 @@ package com.xpf.common.cons;
  */
 public class SpKey {
 
-    private static final String aaa = "";
+    public static final String UF_ACC = "uf_acc";
+    public static final String GESTURE_IS_OPEN = "gesture_is_open";
 }
