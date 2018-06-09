@@ -14,5 +14,70 @@
     <color name="product_red_common">#e84768</color>
     <color name="round_red_common">#DC143C</color>
     <color name="my_title_bg">#28baed</color>
+
+    <color name="light_blue">#33adff</color>
+    <color name="orange">#ff7e00</color>
     <color name="white">#ffffff</color>
+    <color name="light_grey">#dadada</color>
+    <color name="deep_green">#3C5A38</color>
+    <color name="light_green">#7ED321</color>
+    <color name="gray_bg">#11000000</color>
+    <color name="dark">#000000</color>
+    <color name="gray_true">#E9E9E9</color>
+    <color name="gray_false">#33000000</color>
+    <color name="half_transparent">#80000000</color>
+    <color name="transparent_color">#88000000</color>
+    <color name="percent80_black_transparent">#CC000000</color>
+    <color name="half_white">#99ffffff</color>
+
+    <color name="pale_blue_card_start">#6B7FFF8F</color>
+    <color name="pale_blue_card_end">#00F6FF</color>
+    <color name="sea_blue_card_start">#6B45BFDB</color>
+    <color name="sea_blue_card_end">#21D3C9</color>
+    <color name="yellow_purple_card_start">#6BEB9E45</color>
+    <color name="yellow_purple_card_end">#D321D2</color>
+    <color name="orange_card_start">#6BDCFA61</color>
+    <color name="orange_card_end">#F76B1C</color>
+    <color name="grass_green_card_start">#6BB5EB45</color>
+    <color name="card_apply_start">#B5EB45</color>
+    <color name="grass_green_card_end">#7ED321</color>
+
+    <color name="main_color">#7ED321</color>
+    <color name="color_7ed321">#7ED321</color>
+    <color name="color_94e738">#94E738</color>
+    <color name="sup_color_green_pale">#A5FF50</color>
+    <color name="sup_color_green_deep">#73C518</color>
+    <color name="sup_color_red_pale">#FF5B7F</color>
+    <color name="sup_color_red_deep">#ED4C6F</color>
+    <color name="sup_color_yellow">#FFC159</color>
+    <color name="gray_a">#4F4F4F</color>
+    <color name="gray_b">#828282</color>
+    <color name="gray_c">#BDBDBD</color>
+    <color name="gray_d">#E0E0E0</color>
+    <color name="gray_e">#F2F2F2</color>
+    <color name="gray_f">#F8F8F8</color>
+    <color name="transparent">#00000000</color>
+    <color name="gray_transparent">#66F2F2F2</color>
+
+    <!-- textColor -->
+    <color name="text_color_4f4f4f">#4F4F4F</color>
+    <color name="text_color_bdbdbd">#BDBDBD</color>
+    <color name="text_color_828282">#828282</color>
+    <!--友盟-->
+    <color name="umeng_socialize_comments_bg">#F4F4F4</color>
+    <color name="umeng_socialize_color_group">#2c3035</color>
+    <color name="umeng_socialize_list_item_textcolor">#333333</color>
+    <color name="umeng_socialize_list_item_bgcolor">#FFFFFF</color>
+    <color name="umeng_socialize_divider">#E6E6E6</color>
+    <color name="umeng_socialize_text_time">#999999</color>
+    <color name="umeng_socialize_text_title">#464f61</color>
+    <color name="umeng_socialize_text_friends_list">#959696</color>
+    <color name="umeng_socialize_text_share_content">#666666</color>
+    <color name="umeng_socialize_ucenter_bg">#EEEEEE</color>
+    <color name="umeng_socialize_text_ucenter">#595959</color>
+    <color name="umeng_socialize_edit_bg">#C4C4C4</color>
+    <color name="umeng_socialize_grid_divider_line">#F8F8F8</color>
+    <color name="umeng_socialize_web_bg">#F4F4F4</color>
+    <color name="umeng_socialize_shareactivity">#D4E0E5</color>
+    <color name="umeng_socialize_shareactivitydefault">#ffffff</color>
 </resources>

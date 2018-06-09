@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_multi_language"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_bg"
+    android:orientation="vertical"
+    tools:context="com.xpf.p2p.multilanguage.view.MultiLanguageActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/white"
+        android:elevation="6dp">
+
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="6dp"
+            android:padding="4dp"
+            android:src="@drawable/back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerInParent="true"
+            android:text="@string/language_select"
+            android:textColor="@color/text_color_4f4f4f"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tvSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/margin_20dp"
+            android:text="@string/save_btn"
+            android:textColor="@color/text_color_4f4f4f"
+            android:textSize="16sp" />
+
+    </RelativeLayout>
+
+    <RadioGroup
+        android:id="@+id/rgLanguages"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@color/white">
+
+        <RadioButton
+            android:id="@+id/rbSimpleChinese"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/white_shape_4dp_normal"
+            android:button="@null"
+            android:drawableRight="@drawable/rg_checked_selector"
+            android:padding="10dp"
+            android:text="简体中文"
+            android:textColor="@color/gray_a"
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:background="@color/gray_bg" />
+
+        <RadioButton
+            android:id="@+id/rbFantiChinese"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/white_shape_4dp_normal"
+            android:button="@null"
+            android:drawableRight="@drawable/rg_checked_selector"
+            android:padding="10dp"
+            android:text="繁體中文"
+            android:textColor="@color/gray_a"
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:background="@color/gray_bg" />
+
+        <RadioButton
+            android:id="@+id/rbEnglish"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/white_shape_4dp_normal"
+            android:button="@null"
+            android:drawableRight="@drawable/rg_checked_selector"
+            android:padding="10dp"
+            android:text="English"
+            android:textColor="@color/gray_a"
+            android:textSize="16sp" />
+    </RadioGroup>
+
+</LinearLayout>

@@ -1,4 +1,4 @@
-<resources>
+﻿<resources>
     <string name="app_name">P2P</string>
     <string-array name="invest_tab">
         <item>全部理财</item>
@@ -38,5 +38,5 @@
     <string name="multi_language">Language</string>
     <string name="save_btn">保存</string>
     <string name="language_select">语言选择</string>
-    <string name="set_success">设置成功，重新进入APP即可生效</string>
+    <string name="set_success">設置成功，重新進入APP即可生效</string>
 </resources>

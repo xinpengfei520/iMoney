@@ -2,4 +2,62 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="appbar_padding_top">8dp</dimen>
+    <dimen name="view_normal_margin">10dp</dimen>
+    <dimen name="view_small_margin">5dp</dimen>
+    <dimen name="large_text_size">22sp</dimen>
+    <dimen name="medium_text_size">18sp</dimen>
+    <dimen name="small_text_size">14sp</dimen>
+    <dimen name="shadow_2dp">1dp</dimen>
+    <dimen name="colum_height">46dp</dimen>
+    <dimen name="toggle_width">51dp</dimen>
+    <dimen name="toggle_height">30dp</dimen>
+
+    <!-- textSize -->
+    <dimen name="text_size_36sp">36sp</dimen>
+    <dimen name="text_size_32sp">32sp</dimen>
+    <dimen name="text_size_24sp">24sp</dimen>
+    <dimen name="text_size_22sp">22sp</dimen>
+    <dimen name="text_size_20sp">20sp</dimen>
+    <dimen name="text_size_18sp">18sp</dimen>
+    <dimen name="text_size_16sp">16sp</dimen>
+    <dimen name="text_size_14sp">14sp</dimen>
+    <dimen name="text_size_12sp">12sp</dimen>
+    <dimen name="text_size_10sp">10sp</dimen>
+    <dimen name="text_size_9sp">9sp</dimen>
+
+    <!-- padding -->
+    <dimen name="padding_4dp">4dp</dimen>
+    <dimen name="padding_6dp">6dp</dimen>
+    <dimen name="padding_8dp">8dp</dimen>
+    <dimen name="padding_10dp">10dp</dimen>
+    <dimen name="padding_12dp">12dp</dimen>
+    <dimen name="padding_14dp">14dp</dimen>
+    <dimen name="padding_16dp">16dp</dimen>
+    <dimen name="padding_18dp">18dp</dimen>
+    <dimen name="padding_20dp">20dp</dimen>
+    <dimen name="padding_22dp">22dp</dimen>
+    <dimen name="padding_24dp">24dp</dimen>
+
+    <!-- margin -->
+    <dimen name="margin_4dp">4dp</dimen>
+    <dimen name="margin_6dp">6dp</dimen>
+    <dimen name="margin_8dp">8dp</dimen>
+    <dimen name="margin_10dp">10dp</dimen>
+    <dimen name="margin_12dp">12dp</dimen>
+    <dimen name="margin_14dp">14dp</dimen>
+    <dimen name="margin_16dp">16dp</dimen>
+    <dimen name="margin_18dp">18dp</dimen>
+    <dimen name="margin_20dp">20dp</dimen>
+    <dimen name="margin_22dp">22dp</dimen>
+    <dimen name="margin_24dp">24dp</dimen>
+
+    <!-- size -->
+    <dimen name="titlebar_height">60dp</dimen>
+    <dimen name="sectioned_top">20dp</dimen>
+    <dimen name="sectioned_alignBottom">4dp</dimen>
+    <dimen name="guide_top_dimen">348dp</dimen>
+    <dimen name="phone_edittext_height">44dp</dimen>
 </resources>

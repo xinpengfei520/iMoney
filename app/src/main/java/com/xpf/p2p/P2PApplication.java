@@ -14,7 +14,7 @@ import com.xpf.http.OklaClient;
 
 public class P2PApplication extends Application {
 
-    public static Context mContext;  // 获取全局上下文
+    private static Context mContext;  // 获取全局上下文
 
     @Override
     public void onCreate() {
@@ -24,5 +24,9 @@ public class P2PApplication extends Application {
         OklaClient.getInstance().init(this);
         // 设置出现未捕获异常时的处理类
         //CrashHandler.getInstance().init();
+    }
+
+    public static Context getContext() {
+        return mContext;
     }
 }
