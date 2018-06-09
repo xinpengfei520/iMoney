@@ -1,9 +1,10 @@
-package com.xpf.http;
+package com.xpf.http.httpdns;
 
 import android.content.Context;
 
 import com.alibaba.sdk.android.httpdns.HttpDns;
 import com.alibaba.sdk.android.httpdns.HttpDnsService;
+import com.xpf.http.logger.XLog;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;

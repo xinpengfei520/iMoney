@@ -1,4 +1,7 @@
-package com.xpf.http;
+package com.xpf.http.core.request;
+
+import com.xpf.http.core.callback.ApiRequestListener;
+import com.xpf.http.logger.XLog;
 
 import java.util.HashMap;
 

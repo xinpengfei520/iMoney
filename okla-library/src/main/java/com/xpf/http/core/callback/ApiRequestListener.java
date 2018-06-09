@@ -1,4 +1,4 @@
-package com.xpf.http;
+package com.xpf.http.core.callback;
 
 /**
  * Created by xpf on 2017/9/22 :)

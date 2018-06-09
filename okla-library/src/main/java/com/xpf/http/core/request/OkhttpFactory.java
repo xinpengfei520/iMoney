@@ -1,5 +1,8 @@
-package com.xpf.http;
+package com.xpf.http.core.request;
 
+import com.xpf.http.core.callback.ApiRequestListener;
+import com.xpf.http.core.callback.RequestStringCallback;
+import com.xpf.http.utils.JsonUtil;
 import com.zhy.http.okhttp.OkHttpUtils;
 
 import java.util.HashMap;

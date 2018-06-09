@@ -2,6 +2,7 @@ package com.xpf.http;
 
 import android.content.Context;
 
+import com.xpf.http.httpdns.OkHttpDns;
 import com.zhy.http.okhttp.OkHttpUtils;
 
 import java.security.KeyManagementException;
@@ -20,17 +21,17 @@ import okhttp3.OkHttpClient;
 
 /**
  * Created by xpf on 2017/9/22 :)
- * Function: network request config initialize
+ * Function: OklaClient config initialize
  */
 
-public class ApiClient {
+public class OklaClient {
 
-    private static final ApiClient instance = new ApiClient();
+    private static final OklaClient instance = new OklaClient();
 
-    private ApiClient() {
+    private OklaClient() {
     }
 
-    public static ApiClient getInstance() {
+    public static OklaClient getInstance() {
         return instance;
     }
 
@@ -57,7 +58,7 @@ public class ApiClient {
                 .hostnameVerifier(new HostnameVerifier() {
                     @Override
                     public boolean verify(String hostname, SSLSession session) {
-                        return hostname.contains("anloq.com");// 替换为自己api的域名
+                        return hostname.contains("domain.com");// 替换为自己api的域名
                     }
                 })
                 .sslSocketFactory(getSSLSocketFactory())

@@ -4,7 +4,7 @@ import android.app.Application;
 import android.content.Context;
 
 import com.xpf.common.CommonApplication;
-import com.xpf.http.ApiClient;
+import com.xpf.http.OklaClient;
 
 /**
  * Created by xpf on 2016/11/11 :)
@@ -21,7 +21,7 @@ public class P2PApplication extends Application {
         super.onCreate();
         mContext = this.getApplicationContext();
         CommonApplication.initialize(this);
-        ApiClient.getInstance().init(this);
+        OklaClient.getInstance().init(this);
         // 设置出现未捕获异常时的处理类
         //CrashHandler.getInstance().init();
     }
