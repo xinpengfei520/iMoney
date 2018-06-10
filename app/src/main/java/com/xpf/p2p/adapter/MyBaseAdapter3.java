@@ -40,7 +40,6 @@ public abstract class MyBaseAdapter3<T> extends BaseAdapter {
      */
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-
         BaseHolder holder;
         if (convertView == null) {
             holder = getHolder();
@@ -50,7 +49,6 @@ public abstract class MyBaseAdapter3<T> extends BaseAdapter {
 
         T t = list.get(position);
         holder.setData(t);
-
         return holder.getRootView();
     }
 

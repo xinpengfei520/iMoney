@@ -14,11 +14,15 @@ public class ApiRequestUrl {
     // 提供web应用的地址
     public static final String BASE_URL = "http://" + HOST + ":8080/P2PInvest/";
 
-    public static final String INDEX = BASE_URL + "index"; // 访问首页数据
+    private static final String WEB_ROOT = "WebRoot/";
+    private static final String FILE = "file/";
+    private static final String JSON = ".json";
 
-    public static final String LOGIN = BASE_URL + "login"; // 访问登录的url
+    public static final String INDEX = BASE_URL + WEB_ROOT + FILE + "index" + JSON; // 访问首页数据
 
-    public static final String PRODUCT = BASE_URL + "product"; // 访问“所有理财”的url
+    public static final String LOGIN = BASE_URL + WEB_ROOT + FILE + "login" + JSON; // 访问登录的url
 
-    public static final String UPDATE = BASE_URL + "update.json"; // 访问服务器端当前应用的版本信息
+    public static final String PRODUCT = BASE_URL + WEB_ROOT + FILE + "product" + JSON; // 访问“所有理财”的url
+
+    public static final String UPDATE = BASE_URL + WEB_ROOT + "update" + JSON; // 访问服务器端当前应用的版本信息
 }

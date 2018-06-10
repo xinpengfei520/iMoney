@@ -40,7 +40,7 @@ public class HomeFragment extends Fragment {
     TextView tvHomeRate;
     @BindView(R.id.viewpager)
     ViewPager viewpager;
-    //    @BindView(R.id.cp_home)
+//    @BindView(R.id.cp_home)
 //    CirclePageIndicator cpHome;
     private Index index;
 
@@ -54,14 +54,12 @@ public class HomeFragment extends Fragment {
     }
 
     private void initData() {
-
         AsyncHttpClient client = new AsyncHttpClient();
         client.post(ApiRequestUrl.INDEX, new AsyncHttpResponseHandler() {
 
             // 成功的获取响应数据
             @Override
             public void onSuccess(String content) {
-
                 // 1.使用fastJson解析数据,并封装数据到java对象中
                 JSONObject jsonObject = JSON.parseObject(content);
                 String proInfo = jsonObject.getString("proInfo");

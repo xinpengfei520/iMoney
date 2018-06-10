@@ -10,9 +10,9 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.xpf.common.base.BaseActivity;
+import com.xpf.common.utils.ToastUtil;
 import com.xpf.p2p.R;
 import com.xpf.p2p.fragment.HomeFragment2;
 import com.xpf.p2p.fragment.InvestFragment;
@@ -98,7 +98,7 @@ public class MainActivity extends BaseActivity {
         hideFragment();
         switch (i) {
             case 0:
-                tvTitle.setText("首页");
+                tvTitle.setText(getString(R.string.rb_home));
                 ivBack.setVisibility(View.GONE);
                 ivSetting.setVisibility(View.GONE);
                 if (homeFragment == null) {
@@ -108,7 +108,7 @@ public class MainActivity extends BaseActivity {
                 transaction.show(homeFragment);
                 break;
             case 1:
-                tvTitle.setText("投资");
+                tvTitle.setText(getString(R.string.rb_invest));
                 ivSetting.setVisibility(View.GONE);
                 ivBack.setVisibility(View.GONE);
                 if (investFragment == null) {
@@ -118,7 +118,7 @@ public class MainActivity extends BaseActivity {
                 transaction.show(investFragment);
                 break;
             case 2:
-                tvTitle.setText("我的资产");
+                tvTitle.setText(getString(R.string.rb_my_assets));
                 ivSetting.setVisibility(View.VISIBLE);
                 ivBack.setVisibility(View.GONE);
                 if (meFragment == null) {
@@ -128,7 +128,7 @@ public class MainActivity extends BaseActivity {
                 transaction.show(meFragment);
                 break;
             case 3:
-                tvTitle.setText("更多");
+                tvTitle.setText(getString(R.string.rb_more));
                 ivSetting.setVisibility(View.GONE);
                 ivBack.setVisibility(View.GONE);
                 if (moreFragment == null) {
@@ -165,12 +165,9 @@ public class MainActivity extends BaseActivity {
     public boolean onKeyUp(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK && isFlag) {
             isFlag = false;
-            Toast.makeText(MainActivity.this, "再点击一次返回键退出应用", Toast.LENGTH_SHORT).show();
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    isFlag = true; // 在2s时,恢复isFlag的变量值
-                }
+            ToastUtil.show(this, getString(R.string.toast_exit_click_again));
+            handler.postDelayed(() -> {
+                isFlag = true; // 在2s时,恢复isFlag的变量值
             }, 2000);
             return true;
         }

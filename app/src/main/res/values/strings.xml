@@ -32,11 +32,17 @@
     <string name="login_account">账号</string>
     <string name="login_password">密码</string>
     <string name="login_youke">游客试用</string>
-    <string name="login_login">登　录</string>
+    <string name="login_login">登录</string>
     <!-- End -->
 
-    <string name="multi_language">Language</string>
+    <string name="multi_language">多语言</string>
     <string name="save_btn">保存</string>
     <string name="language_select">语言选择</string>
     <string name="set_success">设置成功，重新进入APP即可生效</string>
+    <string name="rb_home">首页</string>
+    <string name="rb_invest">投资</string>
+    <string name="rb_my_assets">我的资产</string>
+    <string name="rb_more">更多</string>
+    <string name="toast_exit_click_again">再点击一次返回键退出应用</string>
+    <string name="marquee_text">兄弟们,为了金钱和女人,努力拼搏吧！！！</string>
 </resources>

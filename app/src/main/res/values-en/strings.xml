@@ -1,22 +1,22 @@
 ﻿<resources>
     <string name="app_name">P2P</string>
     <string-array name="invest_tab">
-        <item>全部理财</item>
-        <item>推荐理财</item>
-        <item>热门理财</item>
+        <item>All</item>
+        <item>Recommend</item>
+        <item>Hot</item>
     </string-array>
 
     <!-- Gesture code starting -->
-    <string name="setup_gesture_code">设置手势密码</string>
-    <string name="setup_gesture_pattern">绘制解锁图案</string>
-    <string name="setup_gesture_pattern_again">再次绘制解锁图案</string>
-    <string name="forget_gesture_code">忘记手势密码?</string>
-    <string name="use_other_account_login">用其他账号登录</string>
-    <string name="set_gesture_pattern">绘制解锁图案</string>
-    <string name="set_gesture_pattern_reason">设置手势密码，防止他人未经授权查看</string>
-    <string name="reset_gesture_code">重新设置手势密码</string>
-    <string name="icbc">风险保障金由ICBC银行监管</string>
-    <string name="p2p_name">P2P金融</string>
+    <string name="setup_gesture_code">Set gesture password</string>
+    <string name="setup_gesture_pattern">Draw unlock pattern</string>
+    <string name="setup_gesture_pattern_again">Draw the unlock pattern again</string>
+    <string name="forget_gesture_code">Forget gesture code?</string>
+    <string name="use_other_account_login">Log in with another account</string>
+    <string name="set_gesture_pattern">Draw unlock pattern</string>
+    <string name="set_gesture_pattern_reason">Set gesture password to prevent unauthorized viewing</string>
+    <string name="reset_gesture_code">Reset the gesture password</string>
+    <string name="icbc">The risk guarantee fund is regulated by ICBC bank</string>
+    <string name="p2p_name">P2P Finance</string>
     <string name="title_activity_login2">Sign in</string>
 
     <!-- Strings related to login -->
@@ -29,14 +29,20 @@
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
     <string name="permission_rationale">"Contacts permissions are needed for providing email completions."</string>
-    <string name="login_account">账号</string>
-    <string name="login_password">密码</string>
-    <string name="login_youke">游客试用</string>
-    <string name="login_login">登　录</string>
+    <string name="login_account">Account</string>
+    <string name="login_password">Password</string>
+    <string name="login_youke">Visitors to the trial</string>
+    <string name="login_login">Login</string>
     <!-- End -->
 
     <string name="multi_language">Language</string>
-    <string name="save_btn">保存</string>
-    <string name="language_select">语言选择</string>
+    <string name="save_btn">Save</string>
+    <string name="language_select">Language Select</string>
     <string name="set_success">Set successfully, please reaccess to make it valid</string>
+    <string name="rb_home">Home</string>
+    <string name="rb_invest">Invest</string>
+    <string name="rb_my_assets">My Assets</string>
+    <string name="rb_more">更多</string>
+    <string name="toast_exit_click_again">再点击一次返回键退出应用</string>
+    <string name="marquee_text">兄弟们,为了金钱和女人,努力拼搏吧！！！</string>
 </resources>

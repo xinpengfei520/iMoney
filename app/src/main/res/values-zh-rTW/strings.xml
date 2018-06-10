@@ -1,21 +1,21 @@
 ﻿<resources>
     <string name="app_name">P2P</string>
     <string-array name="invest_tab">
-        <item>全部理财</item>
-        <item>推荐理财</item>
-        <item>热门理财</item>
+        <item>全部理財</item>
+        <item>推薦理財</item>
+        <item>熱門理財</item>
     </string-array>
 
     <!-- Gesture code starting -->
-    <string name="setup_gesture_code">设置手势密码</string>
-    <string name="setup_gesture_pattern">绘制解锁图案</string>
-    <string name="setup_gesture_pattern_again">再次绘制解锁图案</string>
-    <string name="forget_gesture_code">忘记手势密码?</string>
-    <string name="use_other_account_login">用其他账号登录</string>
-    <string name="set_gesture_pattern">绘制解锁图案</string>
-    <string name="set_gesture_pattern_reason">设置手势密码，防止他人未经授权查看</string>
-    <string name="reset_gesture_code">重新设置手势密码</string>
-    <string name="icbc">风险保障金由ICBC银行监管</string>
+    <string name="setup_gesture_code">設置手勢密碼</string>
+    <string name="setup_gesture_pattern">繪製解鎖圖案</string>
+    <string name="setup_gesture_pattern_again">再次繪製解鎖圖案</string>
+    <string name="forget_gesture_code">忘記手勢密碼?</string>
+    <string name="use_other_account_login">用其他賬號登錄</string>
+    <string name="set_gesture_pattern">繪製解鎖圖案</string>
+    <string name="set_gesture_pattern_reason">設置手勢密碼，防止他人未經授權查看</string>
+    <string name="reset_gesture_code">重新設置手勢密碼</string>
+    <string name="icbc">風險保障金由ICBC銀行監管</string>
     <string name="p2p_name">P2P金融</string>
     <string name="title_activity_login2">Sign in</string>
 
@@ -29,14 +29,20 @@
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
     <string name="permission_rationale">"Contacts permissions are needed for providing email completions."</string>
-    <string name="login_account">账号</string>
-    <string name="login_password">密码</string>
-    <string name="login_youke">游客试用</string>
-    <string name="login_login">登　录</string>
+    <string name="login_account">賬號</string>
+    <string name="login_password">密碼</string>
+    <string name="login_youke">遊客試用</string>
+    <string name="login_login">登錄</string>
     <!-- End -->
 
-    <string name="multi_language">Language</string>
+    <string name="multi_language">多语言</string>
     <string name="save_btn">保存</string>
-    <string name="language_select">语言选择</string>
+    <string name="language_select">語言選擇</string>
     <string name="set_success">設置成功，重新進入APP即可生效</string>
+    <string name="rb_home">首页</string>
+    <string name="rb_invest">投资</string>
+    <string name="rb_my_assets">我的资产</string>
+    <string name="rb_more">更多</string>
+    <string name="toast_exit_click_again">再点击一次返回键退出应用</string>
+    <string name="marquee_text">兄弟们,为了金钱和女人,努力拼搏吧！！！</string>
 </resources>

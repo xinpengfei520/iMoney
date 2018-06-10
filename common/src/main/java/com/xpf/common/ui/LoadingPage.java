@@ -29,8 +29,8 @@ public abstract class LoadingPage extends FrameLayout {
     private final int STATE_SUCCESS = 4; // 联网成功,且正确返回数据的状态
 
     private Context mContext;
-    private ResultState resultState;// 联网请求结果枚举类
-    private int state_current = STATE_LOADING; // 表示当前的状态
+    private ResultState mResultState; // 联网请求结果枚举类
+    private int mCurrentState = STATE_LOADING; // 表示当前的状态
 
     // 2.提供4个不同的页面
     private View view_loading;
@@ -56,7 +56,8 @@ public abstract class LoadingPage extends FrameLayout {
      * 初始化必要的View,并指明视图显示宽高的参数
      */
     private void init() {
-        ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         if (view_loading == null) {
             view_loading = UIUtils.getView(R.layout.page_loading);
             addView(view_loading, params);
@@ -90,9 +91,9 @@ public abstract class LoadingPage extends FrameLayout {
      * 主线程中:根据state_current的值,决定显示哪个具体的View
      */
     private void showPage() {
-        view_loading.setVisibility(state_current == STATE_LOADING ? View.VISIBLE : View.GONE);
-        view_error.setVisibility(state_current == STATE_ERROR ? View.VISIBLE : View.GONE);
-        view_empty.setVisibility(state_current == STATE_EMPTY ? View.VISIBLE : View.GONE);
+        view_loading.setVisibility(mCurrentState == STATE_LOADING ? View.VISIBLE : View.GONE);
+        view_error.setVisibility(mCurrentState == STATE_ERROR ? View.VISIBLE : View.GONE);
+        view_empty.setVisibility(mCurrentState == STATE_EMPTY ? View.VISIBLE : View.GONE);
 
         if (view_success == null) {
             // view_success = UIUtils.getView(layoutId());
@@ -100,75 +101,81 @@ public abstract class LoadingPage extends FrameLayout {
             view_success = View.inflate(mContext, layoutId(), null);
             addView(view_success);
         }
-        view_success.setVisibility(state_current == STATE_SUCCESS ? View.VISIBLE : View.GONE);
+        view_success.setVisibility(mCurrentState == STATE_SUCCESS ? View.VISIBLE : View.GONE);
     }
 
-    // 执行联网操作
+    /**
+     * 执行联网显示操作
+     */
     public void show() {
-        String url = url(); // 先判断url是否为空,
-        if (!TextUtils.isEmpty(url)) {
-            resultState = ResultState.SUCCESS;
-            resultState.setContent("");
+        // 先判断url是否为空
+        if (!TextUtils.isEmpty(url())) {
+            mResultState = ResultState.SUCCESS;
+            mResultState.setContent("");
             loadPage();
-            return;
+        } else {
+            mResultState = ResultState.ERROR;
+            mResultState.setContent("");
         }
-        // 模拟联网操作的延迟
-        UIUtils.getHandler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                String requestUrl = url();
-                RequestParams params = params();
-                if ((!TextUtils.isEmpty(requestUrl)) && (params != null)) {
-                    AsyncHttpClient client = new AsyncHttpClient();
-                    client.get(requestUrl, params, new AsyncHttpResponseHandler() {
 
-                        @Override
-                        public void onSuccess(String content) {
-                            if (TextUtils.isEmpty(content)) { //"" 或 null
-                                resultState = ResultState.EMPTY;
-                                resultState.setContent("");
-                            } else {
-                                resultState = ResultState.SUCCESS;
-                                resultState.setContent(content);
-                            }
-                            loadPage();
-                        }
+        sendHttpRequest();
+    }
 
-                        @Override
-                        public void onFailure(Throwable error, String content) {
-                            resultState = ResultState.ERROR;
-                            resultState.setContent("");
-                            loadPage();
-                        }
-                    });
-                } else {
-                    resultState = ResultState.ERROR;
-                    resultState.setContent("");
+    /**
+     * 发送联网请求
+     */
+    private void sendHttpRequest() {
+        String requestUrl = url();
+        RequestParams params = params();
+        // && (params != null)
+        if ((!TextUtils.isEmpty(requestUrl))) {
+            AsyncHttpClient client = new AsyncHttpClient();
+            client.get(requestUrl, params, new AsyncHttpResponseHandler() {
+                @Override
+                public void onSuccess(String content) {
+                    if (TextUtils.isEmpty(content)) { //"" 或 null
+                        mResultState = ResultState.EMPTY;
+                        mResultState.setContent("");
+                    } else {
+                        mResultState = ResultState.SUCCESS;
+                        mResultState.setContent(content);
+                    }
                     loadPage();
                 }
-            }
-        }, 2000);
+
+                @Override
+                public void onFailure(Throwable error, String content) {
+                    mResultState = ResultState.ERROR;
+                    mResultState.setContent("");
+                    loadPage();
+                }
+            });
+        } else {
+            mResultState = ResultState.ERROR;
+            mResultState.setContent("");
+            loadPage();
+        }
     }
 
     /**
      * 根据resultState值加载显示不同的页面
      */
     private void loadPage() {
-        switch (resultState) {
+        switch (mResultState) {
             case ERROR:
-                state_current = STATE_ERROR;
+                mCurrentState = STATE_ERROR;
                 break;
             case EMPTY:
-                state_current = STATE_EMPTY;
+                mCurrentState = STATE_EMPTY;
                 break;
             case SUCCESS:
-                state_current = STATE_SUCCESS;
+                mCurrentState = STATE_SUCCESS;
                 break;
         }
         showSafePage();
 
-        if (state_current == STATE_SUCCESS) { // 如果当前是联网成功的状态
-            onSuccess(resultState, view_success);
+        if (mCurrentState == STATE_SUCCESS) { // 如果当前是联网成功的状态
+            onSuccess(mResultState, view_success);
         }
     }
 
