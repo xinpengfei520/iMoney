@@ -6,7 +6,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:gravity="center_vertical">
 
         <!--<TextView-->
@@ -15,7 +15,7 @@
         <!--android:layout_height="wrap_content"-->
         <!--android:ellipsize="marquee"-->
         <!--android:singleLine="true"-->
-        <!--android:text="兄弟们,为了金钱和女人,努力拼搏吧骚年...Fuck!!!!!"-->
+        <!--android:text="@string/marquee_text"-->
         <!--android:textColor="@color/title_text"-->
         <!--android:textSize="40sp" />-->
 
@@ -25,10 +25,18 @@
             android:layout_height="wrap_content"
             android:ellipsize="marquee"
             android:singleLine="true"
-            android:text="兄弟们,为了金钱和女人,努力拼搏吧骚年...Fuck!!!!!"
+            android:text="@string/marquee_text"
             android:textColor="@color/title_text"
             android:textSize="40sp" />
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvLanguage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_10dp"
+        android:text="@string/multi_language"
+        android:textSize="@dimen/text_size_16sp" />
 
 </LinearLayout>
