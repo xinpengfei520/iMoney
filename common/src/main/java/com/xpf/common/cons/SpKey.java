@@ -10,4 +10,5 @@ public class SpKey {
     public static final String UF_ACC = "uf_acc";
     public static final String GESTURE_IS_OPEN = "gesture_is_open";
     public static final String CURRENT_LANGUAGE = "currentLanguage";
+    public static final String IS_NEED_GUIDE = "is_need_guide";
 }

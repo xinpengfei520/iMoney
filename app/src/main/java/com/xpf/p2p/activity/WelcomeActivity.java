@@ -24,9 +24,12 @@ import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.xpf.common.bean.UpdateInfo;
 import com.xpf.common.cons.ApiRequestUrl;
+import com.xpf.common.cons.SpKey;
 import com.xpf.common.utils.LogUtils;
+import com.xpf.common.utils.SpUtil;
 import com.xpf.common.utils.ToastUtil;
 import com.xpf.common.utils.UIUtils;
+import com.xpf.p2p.P2PApplication;
 import com.xpf.p2p.R;
 import com.xpf.p2p.utils.AppUtil;
 import com.xpf.p2p.utils.NetStateUtil;
@@ -65,7 +68,13 @@ public class WelcomeActivity extends Activity {
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case MESSAGE_LOGIN:
-                    startActivity(new Intent(WelcomeActivity.this, LoginActivity.class));
+                    boolean aBoolean = SpUtil.getInstance(P2PApplication.getContext())
+                            .getBoolean(SpKey.IS_NEED_GUIDE, true);
+                    if (aBoolean) {
+                        startActivity(new Intent(WelcomeActivity.this, GuideActivity.class));
+                    } else {
+                        startActivity(new Intent(WelcomeActivity.this, LoginActivity.class));
+                    }
                     finish(); // 进入主页之前销毁欢迎页面
                     break;
                 case WHAT_DOWNLOAD_VERSION_SUCCESS: // 获取了服务器端返回的版本信息

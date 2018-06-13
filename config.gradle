@@ -7,16 +7,6 @@ ext {
             bintray    : 'com.jfrog.bintray'
     ]
 
-    android = [
-            applicationId    : "com.xpf.p2p",
-            compileSdkVersion: 26,
-
-            minSdkVersion    : 19,
-            targetSdkVersion : 26,
-
-            versionCode      : 1,
-            versionName      : "1.0",
-    ]
     dependencies = [
             junit                  : 'junit:junit:4.12',
             design                 : 'com.android.support:design:26.1.0',
@@ -42,8 +32,21 @@ ext {
             butterknife_compiler   : 'com.jakewharton:butterknife-compiler:8.8.1',
             SocketclusterClientJava: 'io.github.sac:SocketclusterClientJava:1.7.1',
             mqtt_client            : 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.1.0',
+            constraint_layout      : 'com.android.support.constraint:constraint-layout:1.1.0',
             mqtt_service           : 'org.eclipse.paho:org.eclipse.paho.android.service:1.1.1',
-            connectionclass        : 'com.facebook.network.connectionclass:connectionclass:1.0.1'
+            connectionclass        : 'com.facebook.network.connectionclass:connectionclass:1.0.1',
+            material_indicator     : 'com.github.ronaldsmartin:Material-ViewPagerIndicator:1.0.4'
+
+    ]
+    android = [
+            applicationId    : "com.xpf.p2p",
+            compileSdkVersion: 26,
+
+            minSdkVersion    : 19,
+            targetSdkVersion : 26,
+
+            versionCode      : 1,
+            versionName      : "1.0",
     ]
 
 

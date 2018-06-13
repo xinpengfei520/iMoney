@@ -64,7 +64,10 @@
         <activity android:name=".activity.AccountSafeActivity" />
         <activity android:name=".activity.GestureEditActivity" />
         <activity android:name=".activity.GestureVerifyActivity" />
-        <activity android:name=".multilanguage.view.MultiLanguageActivity"></activity>
+        <activity android:name=".multilanguage.view.MultiLanguageActivity" />
+        <activity
+            android:name=".activity.GuideActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
     </application>
 
 </manifest>

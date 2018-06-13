@@ -7,7 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.ImageView;
 
 import com.xpf.p2p.R;
 
@@ -21,10 +21,10 @@ import com.xpf.p2p.R;
  */
 public class GuidePageFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_TEXT = "param1";
+    private static final String ARG_IMG_ID = "param1";
 
     @Nullable
-    private String pageText;
+    private int mResId;
 
     public GuidePageFragment() {
         // Required empty public constructor
@@ -34,16 +34,14 @@ public class GuidePageFragment extends Fragment {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @param pageText Parameter 1.
+     * @param resId Parameter 1.
      * @return A new instance of fragment GuidePageFragment.
      */
-    public static GuidePageFragment newInstance(@NonNull final String pageText) {
+    public static GuidePageFragment newInstance(@NonNull final int resId) {
         GuidePageFragment fragment = new GuidePageFragment();
-
         Bundle args = new Bundle();
-        args.putString(ARG_TEXT, pageText);
+        args.putInt(ARG_IMG_ID, resId);
         fragment.setArguments(args);
-
         return fragment;
     }
 
@@ -51,7 +49,7 @@ public class GuidePageFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            pageText = getArguments().getString(ARG_TEXT);
+            mResId = getArguments().getInt(ARG_IMG_ID);
         }
     }
 
@@ -59,10 +57,10 @@ public class GuidePageFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_page, container, false);
-        TextView textView = (TextView) view.findViewById(R.id.text_view);
-        if (textView != null) {
-            textView.setText(pageText);
+        View view = inflater.inflate(R.layout.fragment_guide_page, container, false);
+        ImageView imageView = (ImageView) view.findViewById(R.id.imageView);
+        if (imageView != null) {
+            imageView.setBackgroundResource(mResId);
         }
 
         return view;
