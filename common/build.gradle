@@ -13,6 +13,19 @@ android {
     buildTypes {
         release {
             minifyEnabled false
+            // API HOST(生产环境：pro 研发环境：dev 测试环境：test)
+            buildConfigField 'String', 'HOST', getHOST('pro')
+            // Log日志开关，false不显示log，true显示log
+            buildConfigField "boolean", "ENABLE_DEBUG", "false"
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            minifyEnabled false
+            // API HOST(生产环境：pro 研发环境：dev 测试环境：test)
+            buildConfigField 'String', 'HOST', getHOST('pro')
+            // Log日志开关，false不显示log，true显示log
+            buildConfigField "boolean", "ENABLE_DEBUG", "true"
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -31,4 +44,19 @@ dependencies {
     implementation rootProject.ext.dependencies.butterknife
     annotationProcessor rootProject.ext.dependencies.butterknife_compiler
     api files('libs/android-async-http-master.jar')
+}
+
+// 获取API HOST
+@SuppressWarnings("GroovyVariableNotAssigned")
+def getHOST(String env) {
+    def HOST
+    def Properties props = new Properties()
+    def propFile = file('src/main/env/' + env + '/config.properties')
+    if (propFile.canRead()) {
+        props.load(new FileInputStream(propFile))
+        if (props != null) {
+            HOST = props['HOST']
+        }
+    }
+    HOST
 }

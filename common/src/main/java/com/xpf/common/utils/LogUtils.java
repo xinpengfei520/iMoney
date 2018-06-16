@@ -2,6 +2,8 @@ package com.xpf.common.utils;
 
 import android.util.Log;
 
+import com.xpf.common.BuildConfig;
+
 /**
  * Created by xpf on 2017/9/22 :)
  * Function: logger utils.
@@ -9,7 +11,8 @@ import android.util.Log;
 
 public class LogUtils {
 
-    private static boolean mDebug = true;// default open log print.
+    // default open log print.
+    private static boolean mDebug = BuildConfig.ENABLE_DEBUG;
 
     private LogUtils() {
     }

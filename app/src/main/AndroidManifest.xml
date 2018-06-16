@@ -68,6 +68,10 @@
         <activity
             android:name=".activity.GuideActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
+
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="${UMENG_CHANNEL_VALUE}" />
     </application>
 
 </manifest>

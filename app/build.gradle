@@ -1,5 +1,24 @@
 apply plugin: 'com.android.application'
 
+def keystoreFilepath = ''
+def keystorePSW = ''
+def keystoreAlias = ''
+def keystoreAliasPSW = ''
+// default keystore file, PLZ config file path in local.properties
+def keyFile = file('s.keystore.temp')
+
+Properties properties = new Properties()
+// local.properties file in the root director
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+keystoreFilepath = properties.getProperty("keystore.path")
+
+if (keystoreFilepath) {
+    keystorePSW = properties.getProperty("keystore.password")
+    keystoreAlias = properties.getProperty("keystore.alias")
+    keystoreAliasPSW = properties.getProperty("keystore.alias_password")
+    keyFile = file(keystoreFilepath)
+}
+
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     defaultConfig {
@@ -8,19 +27,54 @@ android {
         targetSdkVersion rootProject.ext.android.targetSdkVersion
         versionCode rootProject.ext.android.versionCode
         versionName rootProject.ext.android.versionName
+        flavorDimensions "versionCode"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    signingConfigs {
+        release {
+            keyAlias keystoreAlias
+            keyPassword keystoreAliasPSW
+            storeFile keyFile
+            storePassword keystorePSW
+        }
+        debug {
+            keyAlias keystoreAlias
+            keyPassword keystoreAliasPSW
+            storeFile keyFile
+            storePassword keystorePSW
+        }
     }
 
     buildTypes {
         release {
             minifyEnabled true
             shrinkResources true
+            zipAlignEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
 
         debug {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug
+        }
+    }
+
+    productFlavors {
+        common {}
+        xiaomi {}
+        yingyongbao {}
+    }
+
+    productFlavors.all {
+        flavor -> flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
+    }
+
+    android.applicationVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = "app-p2p-v${defaultConfig.versionName}.apk"
         }
     }
 
@@ -55,3 +109,16 @@ dependencies {
     implementation project(':common')
     implementation project(':okla-library')
 }
+
+/*
+ * 打开Terminal输入命令:
+ * 如果我们想打包xiaomi渠道的release版本，执行如下命令就好了：
+ * gradlew assemblexiaomiRelease
+ * 如果我们想打包xiaomi渠道的debug版本，执行如下命令就好了：
+ * gradlew assemblexiaomiDebug
+ * 如果我们只打xiaomi渠道版本，则：
+ * gradlew assemblexiaomi
+ * 此命令会生成xiaomi渠道的Release和Debug版本
+ * 同理我想打全部渠道Release版本：
+ * gradlew assembleRelease
+ */
