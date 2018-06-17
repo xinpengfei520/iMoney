@@ -1,4 +1,11 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.mob.sdk'
+
+MobSDK {
+    appKey "266ce6392d6fe"
+    appSecret "6d4da648f3c2eef26eb682641d414c1c"
+    SMSSDK {}
+}
 
 def keystoreFilepath = ''
 def keystorePSW = ''
@@ -102,6 +109,7 @@ dependencies {
     implementation rootProject.ext.dependencies.butterknife
     annotationProcessor rootProject.ext.dependencies.butterknife_compiler
     implementation rootProject.ext.dependencies.picasso
+    implementation rootProject.ext.dependencies.countdownview
     implementation rootProject.ext.dependencies.easypermissions
     implementation project(':GestureLock')
     implementation project(':MPChart_library')

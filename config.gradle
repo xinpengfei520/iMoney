@@ -7,6 +7,17 @@ ext {
             bintray    : 'com.jfrog.bintray'
     ]
 
+    android = [
+            applicationId    : "com.xpf.p2p",
+            compileSdkVersion: 26,
+
+            minSdkVersion    : 19,
+            targetSdkVersion : 26,
+
+            versionCode      : 1,
+            versionName      : "1.0",
+    ]
+
     dependencies = [
             junit                  : 'junit:junit:4.12',
             design                 : 'com.android.support:design:26.1.0',
@@ -38,18 +49,6 @@ ext {
             material_indicator     : 'com.github.ronaldsmartin:Material-ViewPagerIndicator:1.0.4'
 
     ]
-    android = [
-            applicationId    : "com.xpf.p2p",
-            compileSdkVersion: 26,
-
-            minSdkVersion    : 19,
-            targetSdkVersion : 26,
-
-            versionCode      : 1,
-            versionName      : "1.0",
-    ]
-
-
 
     bintray = [
             version       : "1.0.3",
