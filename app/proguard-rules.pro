@@ -168,7 +168,8 @@
 -keep class **.R$* {*;}
 -keep class **.R{*;}
 
--keep class com.mob.**{*;}
+-keep class com.mob.** { *; }
+-keep class cn.smssdk.** { *; }
 -dontwarn com.mob.**
 -dontwarn cn.sharesdk.**
 -dontwarn **.R$*
