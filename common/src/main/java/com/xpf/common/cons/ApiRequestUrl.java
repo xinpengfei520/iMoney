@@ -10,12 +10,12 @@ import com.xpf.common.BuildConfig;
 
 public class ApiRequestUrl {
 
-    //public static final String HOST = "192.168.31.193"; // 提供ip地址
-    //public static final String HOST = "10.0.2.2"; // 本地服务器地址
+    //public static final String HOST = "http://192.168.31.193"; // 提供ip地址
+    //public static final String HOST = "http://10.0.2.2"; // 本地服务器地址
     public static final String HOST = BuildConfig.HOST; // 本地服务器地址
 
     // 提供web应用的地址
-    public static final String BASE_URL = "http://" + HOST + ":8080/P2PInvest/";
+    public static final String BASE_URL = HOST + ":8080/P2PInvest/";
 
     private static final String WEB_ROOT = "WebRoot/";
     private static final String FILE = "file/";

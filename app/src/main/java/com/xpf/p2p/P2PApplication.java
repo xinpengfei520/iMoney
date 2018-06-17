@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Build;
 
+import com.mob.MobSDK;
 import com.xpf.common.CommonApplication;
 import com.xpf.common.cons.SpKey;
 import com.xpf.common.utils.LocaleUtils;
@@ -34,6 +35,9 @@ public class P2PApplication extends Application {
         // 设置出现未捕获异常时的处理类
         //CrashHandler.getInstance().init();
         changeAppLanguage();
+
+        // 初始化MobSDK
+        MobSDK.init(this);
     }
 
     public static Context getContext() {

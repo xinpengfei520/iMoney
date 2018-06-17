@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:drawable="@color/logintop" android:state_enabled="true">
+    <item android:drawable="@color/light_blue" android:state_enabled="true">
         <shape android:shape="rectangle">
             <corners android:radius="2dp" />
         </shape>
     </item>
-    <item android:drawable="@color/gray_f" android:state_enabled="false">
+    <item android:drawable="@color/gray_c" android:state_enabled="false">
         <shape android:shape="rectangle">
             <corners android:radius="2dp" />
         </shape>

@@ -46,4 +46,6 @@
     <string name="toast_exit_click_again">再点击一次返回键退出应用</string>
     <string name="marquee_text">兄弟们,为了金钱和女人,努力拼搏吧！！！</string>
     <string name="use_right_away">立即体验</string>
+    <string name="textview_send">发送</string>
+    <string name="resend">重新发送</string>
 </resources>

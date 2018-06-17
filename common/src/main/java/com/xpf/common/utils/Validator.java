@@ -1,4 +1,4 @@
-package com.anloq.utils;
+package com.xpf.common.utils;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

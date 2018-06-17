@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/login_background"
@@ -10,29 +11,64 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin">
 
-    <android.support.design.widget.TextInputLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:textColorHint="#FFFFFF">
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/log_ed_mob"
-            android:layout_width="match_parent"
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:background="@null"
-            android:gravity="center_vertical"
-            android:hint="@string/login_account"
-            android:inputType="phone"
-            android:maxLines="1"
-            android:singleLine="true"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp" />
+            android:layout_weight="1"
+            android:textColorHint="#FFFFFF">
 
-    </android.support.design.widget.TextInputLayout>
+            <EditText
+                android:id="@+id/log_ed_mob"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:hint="@string/login_account"
+                android:inputType="phone"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp" />
+        </android.support.design.widget.TextInputLayout>
+
+        <TextView
+            android:id="@+id/tvSendSmsCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/half_transparent"
+            android:padding="@dimen/padding_6dp"
+            android:text="@string/textview_send"
+            android:textColor="@color/white"
+            android:visibility="gone" />
+
+        <cn.iwgang.countdownview.CountdownView
+            android:id="@+id/countDownView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:visibility="gone"
+            app:isHideTimeBackground="true"
+            app:isShowDay="false"
+            app:isShowHour="false"
+            app:isShowMillisecond="false"
+            app:isShowMinute="false"
+            app:isShowSecond="true"
+            app:isTimeTextBold="false"
+            app:suffixGravity="bottom"
+            app:suffixSecond="S"
+            app:suffixTextSize="16sp"
+            app:timeTextColor="@android:color/white"
+            app:timeTextSize="16sp" />
+    </LinearLayout>
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
@@ -46,11 +82,10 @@
             android:id="@+id/log_ed_pad"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:background="@null"
             android:hint="@string/login_password"
-            android:inputType="textPassword"
+            android:inputType="number"
             android:maxLines="1"
             android:singleLine="true"
             android:textColor="#FFFFFF"
@@ -65,11 +100,11 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="30dp"
-        android:background="@drawable/btn_01"
+        android:background="@drawable/login_selector"
+        android:enabled="false"
         android:text="@string/login_login"
-        android:textColor="#ffffff"
-        android:textSize="16sp"
-        android:textStyle="bold" />
+        android:textColor="@drawable/textcolor_selector"
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/tvTestUse"
