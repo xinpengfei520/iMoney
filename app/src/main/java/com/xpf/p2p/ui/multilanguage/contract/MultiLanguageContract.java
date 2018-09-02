@@ -1,4 +1,4 @@
-package com.xpf.p2p.multilanguage.contract;
+package com.xpf.p2p.ui.multilanguage.contract;
 
 import com.xpf.p2p.multilanguage.listener.OnLanguageListener;
 import com.xpf.p2p.multilanguage.listener.OnLanguageSaveListener;

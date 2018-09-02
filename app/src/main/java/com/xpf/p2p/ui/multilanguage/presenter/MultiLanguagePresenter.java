@@ -1,8 +1,8 @@
-package com.xpf.p2p.multilanguage.presenter;
+package com.xpf.p2p.ui.multilanguage.presenter;
 
 import com.xpf.common.base.MvpBasePresenter;
-import com.xpf.p2p.multilanguage.contract.MultiLanguageContract;
-import com.xpf.p2p.multilanguage.model.MultiLanguageModel;
+import com.xpf.p2p.ui.multilanguage.contract.MultiLanguageContract;
+import com.xpf.p2p.ui.multilanguage.model.MultiLanguageModel;
 
 /**
  * Created by xpf on 2018/6/9 :)

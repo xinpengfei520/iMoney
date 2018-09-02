@@ -51,19 +51,33 @@
 	用记事本打开后查看《runtime name="Apache Tomcat v6.0"/》，看是否与你eclipse设置的tomcat版本一致，
 	如果不一致，则删除该内容即可。
 
-// TODO
+## TODO
  
  - 处理M动态权限;
  - xiaomi 5手机选择相册设置头像时的Crash；
- - 多语言；
- - 多渠道打包；
+ - 资产 Tab 顶部 Tab 处理；
+ - 沉浸式状态栏；
+ - 适配全面屏；
  - 生产环境配置；
+ - 完善更多页面内容；
+ - 服务端代码打成 war 包部署到阿里云；
+ - 将需要的信息建表并存入 MySQL 数据库；
+ - 图片存入七牛云图床；
+ - 和服务器交互数据加密、校验处理；
+ - ...
 
 ## Bugs Report
 
 If you find any bug when using this project, please report **[here](https://github.com/xinpengfei520/P2P/issues/new)**. Thanks for helping us making better.
 
 ## Change logs
+
+### 1.3.0
+
+ - update on 2018-09-02 bugs fix.
+ - Custom TitleBarLayout view.
+ - reconsituation login page whith MVP.
+ - optimized code.
 
 ### 1.2.0
 

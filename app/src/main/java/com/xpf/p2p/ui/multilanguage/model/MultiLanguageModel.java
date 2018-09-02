@@ -1,12 +1,12 @@
-package com.xpf.p2p.multilanguage.model;
+package com.xpf.p2p.ui.multilanguage.model;
 
 import com.xpf.common.cons.SpKey;
 import com.xpf.common.utils.LocaleUtils;
 import com.xpf.common.utils.SpUtil;
 import com.xpf.p2p.P2PApplication;
-import com.xpf.p2p.multilanguage.contract.MultiLanguageContract;
-import com.xpf.p2p.multilanguage.listener.OnLanguageListener;
-import com.xpf.p2p.multilanguage.listener.OnLanguageSaveListener;
+import com.xpf.p2p.ui.multilanguage.contract.MultiLanguageContract;
+import com.xpf.p2p.ui.multilanguage.listener.OnLanguageListener;
+import com.xpf.p2p.ui.multilanguage.listener.OnLanguageSaveListener;
 
 import java.util.Locale;
 

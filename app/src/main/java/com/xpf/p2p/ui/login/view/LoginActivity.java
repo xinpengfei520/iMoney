@@ -152,7 +152,6 @@ public class LoginActivity extends BaseActivity {
                     } else {
                         Toast.makeText(LoginActivity.this, "用户名不存在或密码不正确", Toast.LENGTH_SHORT).show();
                     }
-
                 }
 
                 // 4.连接失败
