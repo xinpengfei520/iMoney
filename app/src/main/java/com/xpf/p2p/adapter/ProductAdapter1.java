@@ -6,7 +6,7 @@ import android.widget.TextView;
 
 import com.xpf.common.bean.Product;
 import com.xpf.p2p.R;
-import com.xpf.p2p.ui.RoundProgress;
+import com.xpf.p2p.widget.RoundProgress;
 
 import java.util.List;
 

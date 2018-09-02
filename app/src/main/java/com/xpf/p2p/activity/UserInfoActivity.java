@@ -37,6 +37,11 @@ import butterknife.OnClick;
 import pub.devrel.easypermissions.AfterPermissionGranted;
 import pub.devrel.easypermissions.EasyPermissions;
 
+/**
+ * Created by x-sir on 2016/8/3 :)
+ * Function:用户信息展示页
+ * {@link # https://github.com/xinpengfei520/P2P}
+ */
 public class UserInfoActivity extends BaseActivity {
 
     private static final int CAMERA = 1;

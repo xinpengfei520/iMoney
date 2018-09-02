@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.xpf.p2p.ui.randomLayout.StellarMap
+    <com.xpf.p2p.widget.randomLayout.StellarMap
         android:id="@+id/stellarMap"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

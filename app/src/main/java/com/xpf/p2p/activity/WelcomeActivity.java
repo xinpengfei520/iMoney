@@ -13,6 +13,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
 import android.view.animation.RotateAnimation;
 import android.view.animation.ScaleAnimation;
@@ -27,10 +28,12 @@ import com.xpf.common.cons.ApiRequestUrl;
 import com.xpf.common.cons.SpKey;
 import com.xpf.common.utils.LogUtils;
 import com.xpf.common.utils.SpUtil;
+import com.xpf.common.utils.TimeUtil;
 import com.xpf.common.utils.ToastUtil;
 import com.xpf.common.utils.UIUtils;
 import com.xpf.p2p.P2PApplication;
 import com.xpf.p2p.R;
+import com.xpf.p2p.ui.login.view.LoginActivity;
 import com.xpf.p2p.utils.AppUtil;
 import com.xpf.p2p.utils.NetStateUtil;
 
@@ -45,6 +48,11 @@ import butterknife.ButterKnife;
 
 import static com.xpf.p2p.R.id.rl_welcome;
 
+/**
+ * Created by x-sir on 2016/8/3 :)
+ * Function:欢迎页（闪屏页）
+ * {@link # https://github.com/xinpengfei520/P2P}
+ */
 public class WelcomeActivity extends Activity {
 
     private static final int MESSAGE_LOGIN = 1;
@@ -105,7 +113,6 @@ public class WelcomeActivity extends Activity {
         setContentView(R.layout.activity_welcome);
         ButterKnife.bind(this);
         startAnimation(); // 启动动画
-        updateApp();      // 联网更新应用的操作
     }
 
     /**
@@ -126,6 +133,7 @@ public class WelcomeActivity extends Activity {
         new AlertDialog.Builder(this)
                 .setTitle("发现新版本可用")
                 .setMessage(updateInfo.desc)
+                .setCancelable(false)
                 .setPositiveButton("下载", (dialog, which) -> showDownLoad())
                 .setNegativeButton("取消", (dialog, which) -> toLoginPager()).show();
     }
@@ -256,6 +264,28 @@ public class WelcomeActivity extends Activity {
         animationSet.addAnimation(rotateAnimation);
 
         rlWelcome.startAnimation(animationSet);
+
+        animationSet.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                if (TimeUtil.isLoginValid()) {
+                    startActivity(new Intent(WelcomeActivity.this, MainActivity.class));
+                    finish();
+                } else {
+                    updateApp(); // 联网更新应用的操作
+                }
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
     }
 
     @Override

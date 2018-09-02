@@ -4,7 +4,7 @@ import com.loopj.android.http.RequestParams;
 import com.xpf.common.base.BaseFragment;
 import com.xpf.p2p.R;
 import com.xpf.p2p.adapter.StellerAdapter;
-import com.xpf.p2p.ui.randomLayout.StellarMap;
+import com.xpf.p2p.widget.randomLayout.StellarMap;
 
 import butterknife.BindView;
 

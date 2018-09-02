@@ -248,7 +248,7 @@
 
         </LinearLayout>
 
-        <com.xpf.p2p.ui.RoundProgress
+        <com.xpf.p2p.widget.RoundProgress
             android:id="@+id/p_progresss"
             android:layout_width="50dp"
             android:layout_height="50dp"

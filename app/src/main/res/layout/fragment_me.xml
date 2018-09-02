@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.xpf.p2p.ui.MyScrollView
+    <com.xpf.p2p.widget.MyScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -48,7 +48,7 @@
                     android:layout_below="@id/icon_time"
                     android:layout_marginTop="10dp"
                     android:gravity="center"
-                    android:text="Hi,wecome!"
+                    android:text="Hi,welcome!"
                     android:textColor="@color/white"
                     android:textSize="14sp" />
             </RelativeLayout>
@@ -134,6 +134,6 @@
         </LinearLayout>
 
 
-    </com.xpf.p2p.ui.MyScrollView>
+    </com.xpf.p2p.widget.MyScrollView>
 
 </LinearLayout>

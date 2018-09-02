@@ -1,4 +1,4 @@
-package com.xpf.p2p.multilanguage.view;
+package com.xpf.p2p.ui.multilanguage.view;
 
 import android.content.Intent;
 import android.view.View;

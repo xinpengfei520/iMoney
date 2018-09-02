@@ -22,6 +22,11 @@ import com.xpf.p2p.fragment.MoreFragment;
 import butterknife.BindView;
 import butterknife.OnClick;
 
+/**
+ * Created by x-sir on 2016/8/3 :)
+ * Function:主页面
+ * {@link # https://github.com/xinpengfei520/P2P}
+ */
 public class MainActivity extends BaseActivity {
 
     @BindView(R.id.iv_back)

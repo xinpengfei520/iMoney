@@ -1,13 +1,17 @@
 package com.xpf.common.base;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+
+import com.xpf.common.manager.ActivityManager;
+
+import butterknife.ButterKnife;
 
 /**
  * Created by xpf on 2017/7/7 :)
  * Function:Activity的基类
  */
-
 public abstract class MvpBaseActivity<V, T extends MvpBasePresenter<V>> extends Activity {
 
     public T mPresenter;
@@ -16,17 +20,12 @@ public abstract class MvpBaseActivity<V, T extends MvpBasePresenter<V>> extends 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        requestWindowFeature(Window.FEATURE_NO_TITLE);
-//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-//                WindowManager.LayoutParams.FLAG_FULLSCREEN);
-//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED,
-//                WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED);
-//        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON); // 保持手机屏幕常亮
-//        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN);
-//        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
         mPresenter = createPresenter();
         mPresenter.attachView((V) this);
-        bindView();
+        setContentView(getLayoutId());
+        ButterKnife.bind(this);
+        ActivityManager.getInstance().add(this);
+        initData();
     }
 
     /**
@@ -37,7 +36,40 @@ public abstract class MvpBaseActivity<V, T extends MvpBasePresenter<V>> extends 
     /**
      * 绑定视图让子Activity去实现
      */
-    protected abstract void bindView();
+    protected abstract int getLayoutId();
+
+    /**
+     * 初始化相关数据
+     */
+    protected abstract void initData();
+
+    /**
+     * 销毁当前的 activity，等同于 finish()
+     */
+    public void removeCurrentActivity() {
+        ActivityManager.getInstance().removeCurrent();
+    }
+
+    /**
+     * 启动新的 Activity
+     *
+     * @param activity aim activity
+     * @param bundle   pass bundle data if need.
+     */
+    protected void goToActivity(Class activity, Bundle bundle) {
+        Intent intent = new Intent(this, activity);
+        if (bundle != null && bundle.size() != 0) {
+            intent.putExtra("data", bundle);
+        }
+        startActivity(intent);
+    }
+
+    /**
+     * 销毁所有的 Activity，即退出 APP
+     */
+    protected void removeAll() {
+        ActivityManager.getInstance().removeAll();
+    }
 
     @Override
     protected void onDestroy() {

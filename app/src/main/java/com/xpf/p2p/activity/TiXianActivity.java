@@ -18,6 +18,11 @@ import com.xpf.p2p.R;
 import butterknife.BindView;
 import butterknife.OnClick;
 
+/**
+ * Created by x-sir on 2016/8/3 :)
+ * Function:提现页面
+ * {@link # https://github.com/xinpengfei520/P2P}
+ */
 public class TiXianActivity extends BaseActivity {
 
     @BindView(R.id.iv_back)

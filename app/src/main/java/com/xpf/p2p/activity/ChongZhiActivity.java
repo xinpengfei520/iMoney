@@ -1,5 +1,6 @@
 package com.xpf.p2p.activity;
 
+import android.annotation.SuppressLint;
 import android.os.Handler;
 import android.os.Message;
 import android.text.Editable;
@@ -31,10 +32,13 @@ import butterknife.BindView;
 import butterknife.OnClick;
 
 /**
- * 用户账户充值页面
+ * Created by x-sir on 2016/8/3 :)
+ * Function:用户账户充值页面
+ * {@link # https://github.com/xinpengfei520/P2P}
  */
 public class ChongZhiActivity extends BaseActivity {
 
+    private static final String TAG = "ChongZhiActivity";
     private static final String PARTNER = PayKeys.DEFAULT_PARTNER;
     private static final String SELLER = PayKeys.DEFAULT_SELLER;
     private static final String RSA_PRIVATE = PayKeys.PRIVATE;
@@ -57,6 +61,7 @@ public class ChongZhiActivity extends BaseActivity {
     @BindView(R.id.chongzhi_btn)
     Button chongzhiBtn;
 
+    @SuppressLint("HandlerLeak")
     private Handler mHandler = new Handler() {
         public void handleMessage(Message msg) {
             switch (msg.what) {

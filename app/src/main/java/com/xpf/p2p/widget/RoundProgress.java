@@ -1,4 +1,4 @@
-package com.xpf.p2p.ui;
+package com.xpf.p2p.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;

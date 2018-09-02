@@ -3,7 +3,7 @@
     android:id="@+id/llTitleBg"
     android:layout_width="match_parent"
     android:layout_height="60dp"
-    android:background="@color/wonders_rgb_color_1e90ff"
+    android:background="#1e90ff"
     android:gravity="center_vertical"
     android:orientation="horizontal">
 
@@ -11,8 +11,8 @@
         android:id="@+id/ivBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/wonders_margin_16dp"
-        android:src="@drawable/wonders_group_back_button" />
+        android:layout_marginStart="16dp"
+        android:src="@drawable/back_button" />
 
     <TextView
         android:id="@+id/tvTitleName"
@@ -21,14 +21,14 @@
         android:layout_weight="1"
         android:gravity="center"
         android:text="标题栏"
-        android:textColor="@color/wonders_rgb_color_ffffff"
-        android:textSize="@dimen/wonders_text_size_16sp" />
+        android:textColor="#ffffff"
+        android:textSize="16sp" />
 
     <ImageView
         android:id="@+id/ivMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/wonders_margin_16dp"
-        android:src="@drawable/wonders_group_menu"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/title_menu"
         android:visibility="invisible" />
 </LinearLayout>

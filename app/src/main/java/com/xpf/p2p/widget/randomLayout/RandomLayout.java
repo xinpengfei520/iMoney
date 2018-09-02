@@ -1,4 +1,4 @@
-package com.xpf.p2p.ui.randomLayout;
+package com.xpf.p2p.widget.randomLayout;
 
 import android.content.Context;
 import android.graphics.Rect;

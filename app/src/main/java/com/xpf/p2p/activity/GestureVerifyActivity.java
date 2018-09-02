@@ -19,6 +19,12 @@ import com.atguigu.gesturelock.widget.GestureContentView;
 import com.atguigu.gesturelock.widget.GestureDrawline;
 import com.xpf.p2p.R;
 
+/**
+ * Created by xpf on 2016/11/11 :)
+ * Wechat:18091383534
+ * Function:手势解锁页面
+ * {@link # https://github.com/xinpengfei520/P2P}
+ */
 public class GestureVerifyActivity extends Activity implements View.OnClickListener {
     /**
      * 手机号码

@@ -33,7 +33,6 @@ import butterknife.ButterKnife;
  * Wechat:18091383534
  * Function:
  */
-
 public class HomeFragment extends Fragment {
 
     @BindView(R.id.tv_home_rate)

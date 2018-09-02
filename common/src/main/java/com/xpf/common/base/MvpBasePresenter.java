@@ -32,4 +32,11 @@ public class MvpBasePresenter<T> {
     protected boolean isNonNull() {
         return mViewRef.get() != null;
     }
+
+    /**
+     * get view
+     */
+    protected T getView() {
+        return mViewRef.get();
+    }
 }

@@ -11,4 +11,12 @@
         <attr name="roundProgressColor" format="color" />
     </declare-styleable>
 
+    <declare-styleable name="TitleBarLayout">
+        <attr name="text" format="string" />
+        <attr name="android:textSize" />
+        <attr name="android:textColor" />
+        <attr name="titleBgColor" format="color" />
+        <attr name="menuVisible" format="boolean" />
+    </declare-styleable>
+
 </resources>

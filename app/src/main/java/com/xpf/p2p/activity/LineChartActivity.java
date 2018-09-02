@@ -21,7 +21,10 @@ import butterknife.BindView;
 import butterknife.OnClick;
 
 /**
- * 折线图页面
+ * Created by xpf on 2016/11/11 :)
+ * Wechat:18091383534
+ * Function:折线图页面
+ * {@link # https://github.com/xinpengfei520/P2P}
  */
 public class LineChartActivity extends BaseActivity {
 

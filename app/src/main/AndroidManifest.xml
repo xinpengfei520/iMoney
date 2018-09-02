@@ -42,7 +42,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.LoginActivity" />
+        <activity android:name=".ui.login.view.LoginActivity" />
         <activity android:name=".activity.UserInfoActivity" />
         <activity android:name=".activity.BarChartActivity" />
         <activity android:name=".activity.LineChartActivity" />
@@ -64,7 +64,7 @@
         <activity android:name=".activity.AccountSafeActivity" />
         <activity android:name=".activity.GestureEditActivity" />
         <activity android:name=".activity.GestureVerifyActivity" />
-        <activity android:name=".multilanguage.view.MultiLanguageActivity" />
+        <activity android:name=".ui.multilanguage.view.MultiLanguageActivity" />
         <activity
             android:name=".activity.GuideActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />

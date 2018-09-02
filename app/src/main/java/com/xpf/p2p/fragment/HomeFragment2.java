@@ -17,7 +17,7 @@ import com.xpf.common.bean.Index;
 import com.xpf.common.bean.Product;
 import com.xpf.common.cons.ApiRequestUrl;
 import com.xpf.p2p.R;
-import com.xpf.p2p.ui.RoundProgress;
+import com.xpf.p2p.widget.RoundProgress;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.Transformer;
@@ -51,7 +51,6 @@ public class HomeFragment2 extends BaseFragment {
         public void run() {
             roundprogress.setMax(100);
             roundprogress.setProgress(0);
-
             for (int i = 0; i < currentProgress; i++) {
                 roundprogress.setProgress(roundprogress.getProgress() + 1);
                 SystemClock.sleep(20);
@@ -110,14 +109,14 @@ public class HomeFragment2 extends BaseFragment {
             }
             banner.setImages(imageUrl);
             // 设置banner动画效果
-            banner.setBannerAnimation(Transformer.FlipHorizontal); // DepthPage
+            banner.setBannerAnimation(Transformer.ZoomOutSlide); // DepthPage
             // 设置标题集合（当banner样式有显示title时）
             String[] titles = new String[]{"深情不及久伴，加息2%", "乐享活计划", "破茧重生", "安心钱包计划"};
             banner.setBannerTitles(Arrays.asList(titles));
             // 设置自动轮播,默认为true
             banner.isAutoPlay(true);
             // 设置轮播时间
-            banner.setDelayTime(1500);
+            banner.setDelayTime(3000);
             // 设置指示器位置(当banner模式中有指示器时)
             banner.setIndicatorGravity(BannerConfig.RIGHT);
             // banner设置方法全部调用完毕时最后调用

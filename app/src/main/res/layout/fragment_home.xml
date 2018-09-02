@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.xpf.p2p.ui.MyScrollView
+    <com.xpf.p2p.widget.MyScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -79,7 +79,7 @@
                     android:textSize="15sp" />
             </LinearLayout>
 
-            <com.xpf.p2p.ui.RoundProgress
+            <com.xpf.p2p.widget.RoundProgress
                 android:id="@+id/roundprogress"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
@@ -133,6 +133,6 @@
                 android:text="@string/icbc" />
         </LinearLayout>
 
-    </com.xpf.p2p.ui.MyScrollView>
+    </com.xpf.p2p.widget.MyScrollView>
 
 </LinearLayout>

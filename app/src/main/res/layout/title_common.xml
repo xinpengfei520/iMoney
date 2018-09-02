@@ -20,7 +20,7 @@
         android:layout_centerInParent="true"
         android:text="首页"
         android:textColor="@android:color/white"
-        android:textSize="23sp" />
+        android:textSize="18sp" />
 
     <ImageView
         android:id="@+id/iv_setting"

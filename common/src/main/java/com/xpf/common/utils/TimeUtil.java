@@ -1,7 +1,11 @@
 package com.xpf.common.utils;
 
+import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.util.Log;
+
+import com.xpf.common.CommonApplication;
+import com.xpf.common.cons.SpKey;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -134,5 +138,22 @@ public class TimeUtil {
      */
     public static String getUmengFormatTime() {
         return sf.format(new Date());
+    }
+
+    /**
+     * 判断登录是否过期(默认保持登录为 7 天)
+     *
+     * @return
+     */
+    public static boolean isLoginValid() {
+        String timestamp = SpUtil.getInstance(CommonApplication.getContext()).getString(
+                SpKey.LOGIN_SUCCESS_TIMESTAMP, "");
+        if (!TextUtils.isEmpty(timestamp)) {
+            long curTime = System.currentTimeMillis();
+            long lastLoginTime = Long.parseLong(timestamp);
+            return (curTime - lastLoginTime) < (1000 * 60 * 60 * 24 * 7);
+        } else {
+            return false;
+        }
     }
 }

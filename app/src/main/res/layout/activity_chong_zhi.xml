@@ -6,7 +6,7 @@
 
     <include layout="@layout/title_common" />
 
-    <com.atguigu.p2p.ui.MyScrollView
+    <com.xpf.p2p.widget.MyScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -100,7 +100,6 @@
                     android:layout_toRightOf="@+id/yue_tv"
                     android:text="元"
                     android:textSize="11sp" />
-
             </RelativeLayout>
 
             <Button
@@ -132,13 +131,12 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginTop="10dp"
-                android:text="1、所有投资保证金将有第三方平台托管。\n2、线上、线下充值手续费全免。\n3、请注意您的银行卡充值限额，以免造成不便。\n4、如果充值进的没有及时到帐，请与客服联系。\n5、禁止信用卡套现、虚假交易等行为，已经发现将予以处罚,包括但不限于：限制收款、冻结账户，永久停止服务等。\n6、如果您的账户充值金额为用于投资在本平台的理财服务,3个月之后才能进行体现申请。\n7、如果已在手机客户端充过值，则电脑端或手机端体现都只能使用该银行卡。除非原卡丢失、损坏或停用，否则一经绑定银行卡，将不得更换。此情况下，请联系客服并提供由银行提供的书面证明材料。"
+                android:text="@string/invest_instruction"
                 android:textColor="#999"
                 android:textSize="13sp" />
-
         </LinearLayout>
 
-    </com.atguigu.p2p.ui.MyScrollView>
+    </com.xpf.p2p.widget.MyScrollView>
 
 
 </LinearLayout>

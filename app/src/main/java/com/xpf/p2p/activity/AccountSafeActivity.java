@@ -21,7 +21,9 @@ import butterknife.BindView;
 import butterknife.OnClick;
 
 /**
- * 账户安全页面
+ * Created by x-sir on 2016/8/3 :)
+ * Function:账户安全页面
+ * {@link # https://github.com/xinpengfei520/P2P}
  */
 public class AccountSafeActivity extends BaseActivity {
 

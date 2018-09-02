@@ -6,7 +6,7 @@ import android.widget.TextView;
 import com.loopj.android.http.RequestParams;
 import com.xpf.common.base.BaseFragment;
 import com.xpf.p2p.R;
-import com.xpf.p2p.multilanguage.view.MultiLanguageActivity;
+import com.xpf.p2p.ui.multilanguage.view.MultiLanguageActivity;
 
 import butterknife.BindView;
 import butterknife.OnClick;

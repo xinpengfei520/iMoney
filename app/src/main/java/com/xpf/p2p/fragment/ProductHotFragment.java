@@ -10,7 +10,7 @@ import com.loopj.android.http.RequestParams;
 import com.xpf.common.base.BaseFragment;
 import com.xpf.common.utils.UIUtils;
 import com.xpf.p2p.R;
-import com.xpf.p2p.ui.FlowLayout;
+import com.xpf.p2p.widget.FlowLayout;
 import com.xpf.p2p.utils.DrawUtils;
 
 import java.util.Random;

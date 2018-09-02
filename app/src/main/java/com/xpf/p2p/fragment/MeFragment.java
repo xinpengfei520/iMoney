@@ -18,6 +18,7 @@ import com.xpf.common.base.BaseFragment;
 import com.xpf.common.bean.User;
 import com.xpf.common.cons.SpKey;
 import com.xpf.common.utils.SpUtil;
+import com.xpf.common.utils.TimeUtil;
 import com.xpf.common.utils.UIUtils;
 import com.xpf.p2p.R;
 import com.xpf.p2p.activity.AccountSafeActivity;
@@ -25,9 +26,9 @@ import com.xpf.p2p.activity.BarChartActivity;
 import com.xpf.p2p.activity.ChongZhiActivity;
 import com.xpf.p2p.activity.GestureVerifyActivity;
 import com.xpf.p2p.activity.LineChartActivity;
-import com.xpf.p2p.activity.LoginActivity;
 import com.xpf.p2p.activity.PieChartActivity;
 import com.xpf.p2p.activity.TiXianActivity;
+import com.xpf.p2p.ui.login.view.LoginActivity;
 import com.xpf.p2p.utils.BitmapUtils;
 
 import java.io.File;
@@ -39,8 +40,8 @@ import butterknife.OnClick;
  * Created by xpf on 2016/11/11 :)
  * Wechat:18091383534
  * Function:我的资产页面
+ * {@link # https://github.com/xinpengfei520/P2P}
  */
-
 public class MeFragment extends BaseFragment {
 
     @BindView(R.id.imageView1)
@@ -85,11 +86,10 @@ public class MeFragment extends BaseFragment {
 
     private void isLogin() {
         // 在本应用中的sp存储的位置,是否已经保存了用户的登录信息
-        String userName = SpUtil.getInstance(mContext).getString(SpKey.UF_ACC, "");
-        if (TextUtils.isEmpty(userName)) {
-            login();  // 如果没有保存(没有登陆过)就显示AlertDialog
-        } else {
+        if (TimeUtil.isLoginValid()) {
             doUser(); // 如果保存了就读取sp中的用户信息,并显示在页面上
+        } else {
+            login();  // 如果没有保存(没有登陆过)就显示AlertDialog
         }
     }
 
@@ -112,24 +112,29 @@ public class MeFragment extends BaseFragment {
         // 读取数据,得到内存中的User对象
         User user = ((BaseActivity) this.getActivity()).readUser();
         // 一方面,显示用户名
-        textView11.setText(user.UF_ACC);
-        // 另一方面,加载显示用户头像
-        Picasso.with(getActivity()).load(user.UF_AVATAR_URL).transform(new Transformation() {
-            @Override
-            public Bitmap transform(Bitmap source) {
-                // 对Bitmap进行压缩处理
-                Bitmap zoom = BitmapUtils.zoom(source, UIUtils.dp2px(62), UIUtils.dp2px(62));
-                // 对Bitmap进行圆形处理
-                Bitmap circleBitmap = BitmapUtils.circleBitmap(zoom);
-                source.recycle(); // 回收,否则会出现内存泄漏
-                return circleBitmap;
-            }
+        if (!TextUtils.isEmpty(user.UF_ACC)) {
+            textView11.setText(user.UF_ACC);
+        }
 
-            @Override
-            public String key() {
-                return ""; // 此方法不能返回null否则报异常
-            }
-        }).into(imageView1);
+        if (!TextUtils.isEmpty(user.UF_AVATAR_URL)) {
+            // 另一方面,加载显示用户头像
+            Picasso.with(getActivity()).load(user.UF_AVATAR_URL).transform(new Transformation() {
+                @Override
+                public Bitmap transform(Bitmap source) {
+                    // 对Bitmap进行压缩处理
+                    Bitmap zoom = BitmapUtils.zoom(source, UIUtils.dp2px(62), UIUtils.dp2px(62));
+                    // 对Bitmap进行圆形处理
+                    Bitmap circleBitmap = BitmapUtils.circleBitmap(zoom);
+                    source.recycle(); // 回收,否则会出现内存泄漏
+                    return circleBitmap;
+                }
+
+                @Override
+                public String key() {
+                    return ""; // 此方法不能返回null否则报异常
+                }
+            }).into(imageView1);
+        }
 
         // 如果在本地发现了用户设置了手势密码,则在此需要验证
         boolean isOpen = SpUtil.getInstance(mContext).getBoolean(SpKey.GESTURE_IS_OPEN, false);

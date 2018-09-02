@@ -17,6 +17,7 @@ import com.xpf.common.utils.UIUtils;
 import com.xpf.p2p.P2PApplication;
 import com.xpf.p2p.R;
 import com.xpf.p2p.adapter.VpGuideAdapter;
+import com.xpf.p2p.ui.login.view.LoginActivity;
 
 import java.util.ArrayList;
 
@@ -25,8 +26,10 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
- * Created by x-sir :)
+ * Created by xpf on 2016/11/11 :)
+ * Wechat:18091383534
  * Function:引导页
+ * {@link # https://github.com/xinpengfei520/P2P}
  */
 public class GuideActivity extends AppCompatActivity {
 
