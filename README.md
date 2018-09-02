@@ -94,9 +94,9 @@ If you find any bug when using this project, please report **[here](https://gith
 
  - update on 2016-11-28 first commit.
 
-## 学习更多
+## 更多
 
-如果你想学习更多关于 Android 的技术，请扫描下面的微信公众号后回复 “加群”。
+如果你想学习更多关于 Android 的技术或者有问题想与我交流，请扫描下面的微信公众号后点击联系我 -> 个人微信，添加后可与我交流。
 
 ![image](https://github.com/xinpengfei520/P2P/blob/master/screenshot/official_account.jpg)
 
