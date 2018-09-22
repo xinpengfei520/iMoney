@@ -45,6 +45,7 @@ ext {
             butterknife                : 'com.jakewharton:butterknife:8.8.1',
             fragmentation              : 'me.yokeyword:fragmentation:1.2.4',
             fragmentation_core         : 'me.yokeyword:fragmentation-core:1.2.4',
+            bugly                      : 'com.tencent.bugly:crashreport:latest.release',
             constraint_layout          : 'com.android.support.constraint:constraint-layout:1.1.2',
             fragmentation_swipeback    : 'me.yokeyword:fragmentation-swipeback:1.2.4',
             eventbus_activity_scope    : 'me.yokeyword:eventbus-activity-scope:1.1.0',

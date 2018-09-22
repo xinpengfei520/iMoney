@@ -7,6 +7,7 @@ import android.content.res.Configuration;
 import android.os.Build;
 
 import com.mob.MobSDK;
+import com.tencent.bugly.crashreport.CrashReport;
 import com.xpf.common.CommonApplication;
 import com.xpf.common.cons.SpKey;
 import com.xpf.common.utils.LocaleUtils;
@@ -38,6 +39,15 @@ public class P2PApplication extends Application {
 
         // 初始化MobSDK
         MobSDK.init(this);
+
+        /*
+         * 第三个参数为SDK调试模式开关，调试模式的行为特性如下：
+         * 输出详细的Bugly SDK的Log；
+         * 每一条Crash都会被立即上报；
+         * 自定义日志将会在Logcat中输出。
+         * 建议在测试阶段建议设置成true，发布时设置为false。
+         */
+        CrashReport.initCrashReport(getApplicationContext(), "c84e7e9ad7", BuildConfig.DEBUG);
     }
 
     public static Context getContext() {

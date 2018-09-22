@@ -299,6 +299,9 @@
     <init>(java.lang.Throwable);
 }
 
+# bugly
+-dontwarn com.tencent.bugly.**
+-keep public class com.tencent.bugly.**{*;}
 
 #EventBus
 -keepclassmembers class ** {
