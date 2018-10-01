@@ -9,10 +9,10 @@ ext {
 
     android = [
             applicationId    : "com.xpf.p2p",
-            compileSdkVersion: 26,
+            compileSdkVersion: 27,
 
             minSdkVersion    : 19,
-            targetSdkVersion : 26,
+            targetSdkVersion : 27,
 
             versionCode      : 5,
             versionName      : "1.3.0",
@@ -20,10 +20,11 @@ ext {
 
     dependencies = [
             junit                      : 'junit:junit:4.12',
-            design                     : 'com.android.support:design:26.1.0',
-            support_v4                 : 'com.android.support:support-v4:27.0.1',
-            appcompat_v4               : 'com.android.support:support-v4:26.1.0',
-            appcompat_v7               : 'com.android.support:appcompat-v7:26.1.0',
+            design                     : 'com.android.support:design:27.1.1',
+            support_v4                 : 'com.android.support:support-v4:27.1.1',
+            appcompat_v4               : 'com.android.support:support-v4:27.1.1',
+            appcompat_v7               : 'com.android.support:appcompat-v7:27.1.1',
+            recyclerview               : 'com.android.support:recyclerview-v7:27.7.1',
             support_multidex           : 'com.android.support:multidex:1.0.3',
             espresso                   : 'com.android.support.test.espresso:espresso-core:2.2.2',
 
@@ -59,7 +60,6 @@ ext {
             connectionclass            : 'com.facebook.network.connectionclass:connectionclass:1.0.1',
             material_indicator         : 'com.github.ronaldsmartin:Material-ViewPagerIndicator:1.0.4',
             xrecyclerview              : 'com.jcodecraeer:xrecyclerview:1.3.2',
-            recyclerview               : 'com.android.support:recyclerview-v7:27.0.1',
             glide                      : 'com.github.bumptech.glide:glide:3.7.0',
             transformslibrary          : 'com.simplepeng.library:transformslibrary:1.0.0',
             flycoTabLayout             : 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar',
