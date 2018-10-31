@@ -1,23 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="50dp"
-    android:background="@android:color/holo_red_light">
+    android:layout_height="wrap_content"
+    android:background="@color/light_blue"
+    android:elevation="4dp"
+    android:fitsSystemWindows="true"
+    android:minHeight="?attr/actionBarSize"
+    android:orientation="horizontal"
+    android:paddingTop="36dp"
+    android:paddingBottom="8dp">
 
     <ImageView
         android:id="@+id/iv_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="10dp"
-        android:padding="5dp"
+        android:layout_marginStart="10dp"
+        android:padding="2dp"
         android:src="@drawable/left" />
 
     <TextView
         android:id="@+id/tv_title"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_weight="1"
+        android:gravity="center"
         android:text="首页"
         android:textColor="@android:color/white"
         android:textSize="18sp" />
@@ -26,10 +32,8 @@
         android:id="@+id/iv_setting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:layout_marginRight="10dp"
-        android:padding="5dp"
+        android:layout_marginEnd="10dp"
+        android:padding="2dp"
         android:src="@drawable/my_setting_icon" />
 
-</RelativeLayout>
+</LinearLayout>

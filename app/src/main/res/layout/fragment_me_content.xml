@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@color/my_title_bg"
+        android:gravity="center">
+
+        <RelativeLayout
+            android:id="@+id/icon_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="4dp">
+
+            <ImageView
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/my_user_bg_icon" />
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="62dp"
+                android:layout_height="62dp"
+                android:layout_centerInParent="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/my_user_default" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/icon_time"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="Hi,welcome!"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="学习提示:"
+            android:textColor="@android:color/holo_red_dark" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="充值我们将以集成支付宝sdk支付金额演示充值功能" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="提现业务:在p2p金融平台中,提现都不是实时到账的,而是审核提现,系统将会告知24小时内进行转账,如果未收到,请联系客服..." />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/recharge"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="9dp"
+            android:layout_weight="1"
+            android:src="@drawable/my_recharge_bg" />
+
+        <ImageView
+            android:id="@+id/withdraw"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="9dp"
+            android:layout_weight="1"
+            android:src="@drawable/my_withdraw_bg" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="#11000000" />
+
+    <!--充分使用textview属性代替LinearLayout布局-->
+
+    <TextView
+        android:id="@+id/ll_touzi"
+        style="@style/LoginStyle"
+        android:drawableLeft="@drawable/my_invest_manage"
+        android:text="投资管理" />
+
+    <TextView
+        android:id="@+id/ll_touzi_zhiguan"
+        style="@style/LoginStyle"
+        android:drawableLeft="@drawable/my_reward_manage"
+        android:text="投资管理(直观)" />
+
+    <TextView
+        android:id="@+id/ll_zichang"
+        style="@style/LoginStyle"
+        android:drawableLeft="@drawable/my_asset_manage"
+        android:text="资产管理" />
+
+    <TextView
+        android:id="@+id/ll_zhanquan"
+        style="@style/LoginStyle"
+        android:drawableLeft="@drawable/my_acount_safety"
+        android:text="账户安全" />
+
+</LinearLayout>

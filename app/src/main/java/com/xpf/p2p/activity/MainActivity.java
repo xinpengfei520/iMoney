@@ -104,8 +104,8 @@ public class MainActivity extends BaseActivity {
         switch (i) {
             case 0:
                 tvTitle.setText(getString(R.string.rb_home));
-                ivBack.setVisibility(View.GONE);
-                ivSetting.setVisibility(View.GONE);
+                ivBack.setVisibility(View.INVISIBLE);
+                ivSetting.setVisibility(View.INVISIBLE);
                 if (homeFragment == null) {
                     homeFragment = new HomeFragment2();
                     transaction.add(R.id.fl_main, homeFragment);
@@ -114,8 +114,8 @@ public class MainActivity extends BaseActivity {
                 break;
             case 1:
                 tvTitle.setText(getString(R.string.rb_invest));
-                ivSetting.setVisibility(View.GONE);
-                ivBack.setVisibility(View.GONE);
+                ivSetting.setVisibility(View.INVISIBLE);
+                ivBack.setVisibility(View.INVISIBLE);
                 if (investFragment == null) {
                     investFragment = new InvestFragment();
                     transaction.add(R.id.fl_main, investFragment);
@@ -125,7 +125,7 @@ public class MainActivity extends BaseActivity {
             case 2:
                 tvTitle.setText(getString(R.string.rb_my_assets));
                 ivSetting.setVisibility(View.VISIBLE);
-                ivBack.setVisibility(View.GONE);
+                ivBack.setVisibility(View.INVISIBLE);
                 if (meFragment == null) {
                     meFragment = new MeFragment();
                     transaction.add(R.id.fl_main, meFragment);
@@ -134,8 +134,8 @@ public class MainActivity extends BaseActivity {
                 break;
             case 3:
                 tvTitle.setText(getString(R.string.rb_more));
-                ivSetting.setVisibility(View.GONE);
-                ivBack.setVisibility(View.GONE);
+                ivSetting.setVisibility(View.INVISIBLE);
+                ivBack.setVisibility(View.INVISIBLE);
                 if (moreFragment == null) {
                     moreFragment = new MoreFragment();
                     transaction.add(R.id.fl_main, moreFragment);

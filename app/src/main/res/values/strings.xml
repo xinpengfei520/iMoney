@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">P2P</string>
+    <string name="app_name">iMoney</string>
     <string-array name="invest_tab">
         <item>全部理财</item>
         <item>推荐理财</item>

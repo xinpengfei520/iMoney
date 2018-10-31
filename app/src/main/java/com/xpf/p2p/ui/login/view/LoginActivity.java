@@ -63,7 +63,8 @@ public class LoginActivity extends MvpBaseActivity<LoginContract.IView,
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                tvSendSmsCode.setVisibility(charSequence.length() == 0 ? View.GONE : View.VISIBLE);
+                // 小细节，当用户输入完 11 位手机号码时，才显示发送验证码按钮
+                tvSendSmsCode.setVisibility(charSequence.length() != 11 ? View.GONE : View.VISIBLE);
             }
 
             @Override

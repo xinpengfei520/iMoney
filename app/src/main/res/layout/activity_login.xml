@@ -4,18 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/login_background"
+    android:fitsSystemWindows="true"
     android:gravity="center"
-    android:orientation="vertical"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin">
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
@@ -44,7 +41,6 @@
             android:id="@+id/tvSendSmsCode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/half_transparent"
             android:padding="@dimen/padding_6dp"
             android:text="@string/textview_send"
             android:textColor="@color/white"
@@ -55,6 +51,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/transparent"
+            android:padding="2dp"
             android:visibility="gone"
             app:isHideTimeBackground="true"
             app:isShowDay="false"
@@ -65,17 +62,26 @@
             app:isTimeTextBold="false"
             app:suffixGravity="bottom"
             app:suffixSecond="S"
+            app:suffixTextColor="@color/white"
             app:suffixTextSize="16sp"
             app:timeTextColor="@android:color/white"
             app:timeTextSize="16sp" />
     </LinearLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginRight="40dp"
+        android:background="@color/gray_d" />
+
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginLeft="40dp"
         android:layout_marginTop="20dp"
+        android:layout_marginRight="40dp"
         android:textColorHint="#FFFFFF">
 
         <EditText
@@ -93,13 +99,21 @@
 
     </android.support.design.widget.TextInputLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginRight="40dp"
+        android:background="@color/gray_d" />
+
     <Button
         android:id="@+id/log_log_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginLeft="40dp"
         android:layout_marginTop="30dp"
+        android:layout_marginRight="40dp"
         android:background="@drawable/login_selector"
         android:enabled="false"
         android:text="@string/login_login"
@@ -110,7 +124,8 @@
         android:id="@+id/tvTestUse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="8dp"
+        android:padding="10dp"
         android:text="@string/login_youke"
         android:textColor="@color/white" />
 </LinearLayout>

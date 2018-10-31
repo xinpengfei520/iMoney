@@ -8,43 +8,43 @@
     android:orientation="vertical"
     tools:context="com.xpf.p2p.ui.multilanguage.view.MultiLanguageActivity">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="@color/white"
-        android:elevation="6dp">
+        android:layout_height="wrap_content"
+        android:background="@color/light_blue"
+        android:elevation="4dp"
+        android:minHeight="?attr/actionBarSize"
+        android:orientation="horizontal"
+        android:paddingTop="36dp"
+        android:paddingBottom="8dp">
 
         <ImageView
             android:id="@+id/ivBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="6dp"
-            android:padding="4dp"
+            android:layout_marginStart="8dp"
+            android:padding="2dp"
             android:src="@drawable/back" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerInParent="true"
+            android:layout_weight="1"
+            android:gravity="center"
             android:text="@string/language_select"
-            android:textColor="@color/text_color_4f4f4f"
+            android:textColor="@color/white"
             android:textSize="18sp" />
 
         <TextView
             android:id="@+id/tvSave"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="@dimen/margin_20dp"
+            android:layout_marginEnd="@dimen/margin_16dp"
             android:text="@string/save_btn"
-            android:textColor="@color/text_color_4f4f4f"
+            android:textColor="@color/white"
             android:textSize="16sp" />
 
-    </RelativeLayout>
+    </LinearLayout>
 
     <RadioGroup
         android:id="@+id/rgLanguages"

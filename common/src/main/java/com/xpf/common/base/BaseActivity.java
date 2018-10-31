@@ -1,11 +1,12 @@
 package com.xpf.common.base;
 
 import android.annotation.SuppressLint;
+import android.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.AppCompatActivity;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.xpf.common.bean.User;
@@ -19,12 +20,16 @@ import butterknife.ButterKnife;
  * Function:提供通用的Activity的使用的基类,让MainActivity和LoginActivity继承它
  */
 
-public abstract class BaseActivity extends FragmentActivity {
+public abstract class BaseActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutId());
+        ActionBar actionBar = getActionBar();
+        if (actionBar != null) {
+            actionBar.hide();
+        }
         ButterKnife.bind(this);
         // 将当前的Activity添加到ActivityManager中
         ActivityManager.getInstance().add(this);

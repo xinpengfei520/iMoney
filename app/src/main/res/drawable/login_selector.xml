@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:drawable="@color/light_blue" android:state_enabled="true">
+    <item android:state_enabled="true">
         <shape android:shape="rectangle">
-            <corners android:radius="2dp" />
+            <corners android:radius="4dp" />
+            <solid android:color="@color/light_blue" />
         </shape>
     </item>
-    <item android:drawable="@color/gray_c" android:state_enabled="false">
+    <item android:state_enabled="false">
         <shape android:shape="rectangle">
-            <corners android:radius="2dp" />
+            <corners android:radius="4dp" />
+            <solid android:color="@color/gray_c" />
         </shape>
     </item>
 

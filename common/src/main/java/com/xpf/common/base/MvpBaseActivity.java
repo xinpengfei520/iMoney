@@ -1,8 +1,9 @@
 package com.xpf.common.base;
 
-import android.app.Activity;
+import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import com.xpf.common.manager.ActivityManager;
 
@@ -12,7 +13,7 @@ import butterknife.ButterKnife;
  * Created by xpf on 2017/7/7 :)
  * Function:Activity的基类
  */
-public abstract class MvpBaseActivity<V, T extends MvpBasePresenter<V>> extends Activity {
+public abstract class MvpBaseActivity<V, T extends MvpBasePresenter<V>> extends AppCompatActivity {
 
     public T mPresenter;
 
@@ -23,6 +24,10 @@ public abstract class MvpBaseActivity<V, T extends MvpBasePresenter<V>> extends 
         mPresenter = createPresenter();
         mPresenter.attachView((V) this);
         setContentView(getLayoutId());
+        ActionBar actionBar = getActionBar();
+        if (actionBar != null) {
+            actionBar.hide();
+        }
         ButterKnife.bind(this);
         ActivityManager.getInstance().add(this);
         initData();
