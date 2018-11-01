@@ -34,6 +34,7 @@ import com.xpf.common.utils.UIUtils;
 import com.xpf.p2p.P2PApplication;
 import com.xpf.p2p.R;
 import com.xpf.p2p.ui.login.view.LoginActivity;
+import com.xpf.p2p.ui.main.view.MainActivity;
 import com.xpf.p2p.utils.AppUtil;
 import com.xpf.p2p.utils.NetStateUtil;
 

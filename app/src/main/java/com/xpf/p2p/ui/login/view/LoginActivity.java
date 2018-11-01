@@ -1,5 +1,8 @@
 package com.xpf.p2p.ui.login.view;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -8,16 +11,21 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.xpf.common.base.MvpBaseActivity;
+import com.xpf.http.logger.XLog;
 import com.xpf.p2p.R;
-import com.xpf.p2p.activity.MainActivity;
 import com.xpf.p2p.ui.login.contract.LoginContract;
 import com.xpf.p2p.ui.login.presenter.LoginPresenter;
+import com.xpf.p2p.ui.main.view.MainActivity;
 
 import butterknife.BindView;
 import butterknife.OnClick;
 import cn.iwgang.countdownview.CountdownView;
 import cn.smssdk.SMSSDK;
 
+/**
+ * Created by x-sir on 2016/9/2 :)
+ * Function:登录页面
+ */
 public class LoginActivity extends MvpBaseActivity<LoginContract.IView,
         LoginPresenter<LoginContract.IView>> implements LoginContract.IView {
 
@@ -125,6 +133,16 @@ public class LoginActivity extends MvpBaseActivity<LoginContract.IView,
             case R.id.tvSendSmsCode:
                 mPresenter.sendSmsCode();
                 break;
+        }
+    }
+
+    public static void actionStart(Context context) {
+        if (context != null) {
+            Intent intent = new Intent(context, LoginActivity.class);
+            context.startActivity(intent);
+            ((Activity) context).finish();
+        } else {
+            XLog.e("context is null!");
         }
     }
 

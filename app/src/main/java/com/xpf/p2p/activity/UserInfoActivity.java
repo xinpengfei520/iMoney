@@ -26,6 +26,7 @@ import android.widget.TextView;
 import com.xpf.common.base.BaseActivity;
 import com.xpf.common.utils.UIUtils;
 import com.xpf.p2p.R;
+import com.xpf.p2p.ui.main.view.MainActivity;
 import com.xpf.p2p.utils.BitmapUtils;
 
 import java.io.File;

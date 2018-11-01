@@ -2,7 +2,6 @@ package com.xpf.http;
 
 import android.content.Context;
 
-import com.xpf.http.httpdns.OkHttpDns;
 import com.zhy.http.okhttp.OkHttpUtils;
 
 import java.security.KeyManagementException;
@@ -10,9 +9,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.cert.CertificateException;
 import java.util.concurrent.TimeUnit;
 
-import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLSession;
 import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
@@ -54,14 +51,14 @@ public class OklaClient {
         OkHttpClient okHttpClient = new OkHttpClient.Builder()
                 .connectTimeout(10000L, TimeUnit.MILLISECONDS)
                 .readTimeout(10000L, TimeUnit.MILLISECONDS)
-                .dns(OkHttpDns.getInstance(context))
-                .hostnameVerifier(new HostnameVerifier() {
-                    @Override
-                    public boolean verify(String hostname, SSLSession session) {
-                        return hostname.contains("domain.com");// 替换为自己api的域名
-                    }
-                })
-                .sslSocketFactory(getSSLSocketFactory())
+//                .dns(OkHttpDns.getInstance(context))
+//                .hostnameVerifier(new HostnameVerifier() {
+//                    @Override
+//                    public boolean verify(String hostname, SSLSession session) {
+//                        return hostname.contains("domain.com");// 替换为自己api的域名
+//                    }
+//                })
+//                .sslSocketFactory(getSSLSocketFactory())
                 .build();
 
         OkHttpUtils.initClient(okHttpClient);

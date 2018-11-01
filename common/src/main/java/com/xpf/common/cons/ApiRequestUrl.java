@@ -28,4 +28,7 @@ public class ApiRequestUrl {
     public static final String PRODUCT = BASE_URL + WEB_ROOT + FILE + "product" + JSON; // 访问“所有理财”的url
 
     public static final String UPDATE = BASE_URL + WEB_ROOT + "update" + JSON; // 访问服务器端当前应用的版本信息
+
+    // 蒲公英检查更新地址
+    public static final String PGYER_CHECK_UPDATE = "https://www.pgyer.com/apiv2/app/check";
 }

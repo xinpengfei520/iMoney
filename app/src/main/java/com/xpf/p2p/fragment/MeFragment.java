@@ -101,7 +101,8 @@ public class MeFragment extends BaseFragment {
                 .setPositiveButton("确定", (dialog, which) -> {
                     Toast.makeText(MeFragment.this.getActivity(), "请先登录", Toast.LENGTH_SHORT).show();
                     // 跳转到登录页面
-                    ((BaseActivity) MeFragment.this.getActivity()).goToActivity(LoginActivity.class, null);
+                    //((BaseActivity) MeFragment.this.getActivity()).goToActivity(LoginActivity.class, null);
+                    LoginActivity.actionStart(mContext);
                 })
                 .setCancelable(false) //设置按非dialog区域不取消dialog
                 .show();

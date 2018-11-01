@@ -113,6 +113,7 @@ dependencies {
     implementation rootProject.ext.dependencies.countdownview
     implementation rootProject.ext.dependencies.easypermissions
     implementation rootProject.ext.dependencies.bugly
+    implementation rootProject.ext.dependencies.gson
     implementation project(':GestureLock')
     implementation project(':MPChart_library')
     implementation project(':ViewPagerIndicator_library')
