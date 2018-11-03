@@ -25,6 +25,8 @@ import java.util.Locale;
 
 public class P2PApplication extends Application {
 
+    // TODO: 2018/11/1 1.接入蒲公英的意见反馈 2.计算个税（仿照小米计算器） 3.增加记账 4.更换启动页和图标
+
     private static Context mContext;  // 获取全局上下文
 
     @Override

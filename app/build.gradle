@@ -127,13 +127,13 @@ static def releaseTime() {
 
 /*
  * 打开Terminal输入命令:
- * 如果我们想打包xiaomi渠道的release版本，执行如下命令就好了：
- * ./gradlew assemblexiaomiRelease
- * 如果我们想打包xiaomi渠道的debug版本，执行如下命令就好了：
- * ./gradlew assemblexiaomiDebug
- * 如果我们只打xiaomi渠道版本，则：
- * ./gradlew assemblexiaomi
- * 此命令会生成xiaomi渠道的Release和Debug版本
- * 同理我想打全部渠道Release版本：
+ * 如果我们想打 pgyer 渠道的 release 版本，执行如下命令就好了：
+ * ./gradlew assemblepgyerRelease
+ * 如果我们想打包 pgyer 渠道的 debug 版本，执行如下命令就好了：
+ * ./gradlew assemblepgyerDebug
+ * 如果我们只打 pgyer 渠道版本，则：
+ * ./gradlew assemblepgyer
+ * 此命令会生成 pgyer 渠道的 Release 和 Debug 版本
+ * 同理我想打全部渠道 Release 版本：
  * ./gradlew assembleRelease
  */

@@ -113,7 +113,14 @@ public class WelcomeActivity extends Activity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_welcome);
         ButterKnife.bind(this);
+        initData();
         startAnimation(); // 启动动画
+    }
+
+    @SuppressLint("SetTextI18n")
+    private void initData() {
+        String versionName = AppUtil.getAppVersionName(this);
+        tvVersion.setText("当前版本:V" + versionName);
     }
 
     /**

@@ -4,7 +4,7 @@
     android:id="@+id/rl_welcome"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/start_background"
+    android:background="@color/white"
     tools:context="com.xpf.p2p.activity.WelcomeActivity">
 
     <ImageView
@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="120dp"
-        android:src="@drawable/app_icon" />
+        android:src="@drawable/welcome_app_icon" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -21,31 +21,19 @@
         android:layout_below="@id/iv_icon"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:text="@string/p2p_name"
-        android:textColor="@android:color/white"
+        android:text="@string/app_name"
+        android:textColor="@android:color/black"
         android:textSize="20sp" />
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/tv_version"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="60dp"
-        android:gravity="center_horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="当前版本:v"
-            android:textColor="@android:color/white"
-            android:textSize="12sp" />
-
-        <TextView
-            android:id="@+id/tv_version"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="1.0"
-            android:textColor="@android:color/white"
-            android:textSize="12sp" />
-    </LinearLayout>
+        android:gravity="center"
+        android:text="当前版本:V1.0"
+        android:textColor="@android:color/black"
+        android:textSize="12sp" />
 
 </RelativeLayout>
