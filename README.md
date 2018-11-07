@@ -52,6 +52,14 @@
 	用记事本打开后查看《runtime name="Apache Tomcat v6.0"/》，看是否与你eclipse设置的tomcat版本一致，
 	如果不一致，则删除该内容即可。
 
+## 三、IntelliJ IDEA 服务端代码
+
+由于之前的服务端代码是用 Eclipse 写的，现在全部迁移到的 IntelliJ IDEA 中来，如果还在用 Eclipse 的同学建议大家也换过来，可能刚开始不太适应，时间长了，你会发现 IntelliJ IDEA 是真的好用！需要安装教程的戳下面的链接：[IntelliJ IDEA安装教程](https://www.x-sir.com/2018/11/06/IntelliJ%20IDEA%20%E6%BF%80%E6%B4%BB%EF%BC%88%E6%9C%80%E6%96%B0%EF%BC%89/)
+
+下面的是服务端的代码实现 [不断更新ing...]
+
+[https://github.com/xinpengfei520/iMoneyJavaWeb](https://github.com/xinpengfei520/iMoneyJavaWeb)
+
 ## TODO
  
  - 处理M动态权限;
