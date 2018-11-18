@@ -27,33 +27,7 @@
  - 21.集成 Bugly。
  - 22.集成 UETool https://github.com/eleme/UETool
 
-## 二、服务端代码部署
-
-找到**Server**目录中的压缩文件
-
-	将文件解压后导入JavaEE版Eclipse中，然后在工程中右键点击build path--> Configure Build Path 
-	
-	重新配置本地的Tomcat服务器，如果有就先移除，然后点add Library --> Server RunTime--> 选择本地的Tomcat服务器，
-	
-	如果JRE配置有问题就同样配置一下本地的JRE环境，add Library --> JRE System Library 选择本地的jre,然后点击ok，
-	
-	右键点击工程Run As -->run On server ,如果还不行就clean 一下工程然后refresh工程在重新启动就ok
-
-解决方案有三种：
-
-	1、导入项目之前，请确认工作空间编码已设置为utf-8
-	window->Preferences->General->Wrokspace->Text file encoding->Other 选择UTF-8
-
-	2、导入后，由于开发环境中JRE以及Tomcat Library名称可能和源代码中的不一致，可能会出现Build Path的错误，
-	解决方法如下：
-	右键project->Build Path->Configure Build Path->选择Libraries tab页->删除带小红叉的Library->
-	点击Add Library->选择JRE System Library(删了Tomcat Library的话就选择Server Runtime)->选择一个JRE后->Finish
-	
-	3、进入项目包下的.settings目录，找到org.eclipse.wst.common.project.facet.core.xml文件，
-	用记事本打开后查看《runtime name="Apache Tomcat v6.0"/》，看是否与你eclipse设置的tomcat版本一致，
-	如果不一致，则删除该内容即可。
-
-## 三、IntelliJ IDEA 服务端代码
+## 二、IntelliJ IDEA 服务端代码
 
 由于之前的服务端代码是用 Eclipse 写的，现在全部迁移到的 IntelliJ IDEA 中来，如果还在用 Eclipse 的同学建议大家也换过来，可能刚开始不太适应，时间长了，你会发现 IntelliJ IDEA 是真的好用！需要安装教程的戳下面的链接：[安装教程](https://blog.csdn.net/xinpengfei521/article/details/83782062)
 
