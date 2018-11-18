@@ -25,6 +25,7 @@
  - 19.对Activity、Fragment实现对公共父类的抽取；  
  - 20.实现对APP界面使用权重、代码、布局、图片等进行适配；
  - 21.集成 Bugly。
+ - 22.集成 UETool https://github.com/eleme/UETool
 
 ## 二、服务端代码部署
 
@@ -54,7 +55,7 @@
 
 ## 三、IntelliJ IDEA 服务端代码
 
-由于之前的服务端代码是用 Eclipse 写的，现在全部迁移到的 IntelliJ IDEA 中来，如果还在用 Eclipse 的同学建议大家也换过来，可能刚开始不太适应，时间长了，你会发现 IntelliJ IDEA 是真的好用！需要安装教程的戳下面的链接：[IntelliJ IDEA安装教程](https://www.x-sir.com/2018/11/06/IntelliJ%20IDEA%20%E6%BF%80%E6%B4%BB%EF%BC%88%E6%9C%80%E6%96%B0%EF%BC%89/)
+由于之前的服务端代码是用 Eclipse 写的，现在全部迁移到的 IntelliJ IDEA 中来，如果还在用 Eclipse 的同学建议大家也换过来，可能刚开始不太适应，时间长了，你会发现 IntelliJ IDEA 是真的好用！需要安装教程的戳下面的链接：[安装教程](https://blog.csdn.net/xinpengfei521/article/details/83782062)
 
 下面的是服务端的代码实现 [不断更新ing...]
 

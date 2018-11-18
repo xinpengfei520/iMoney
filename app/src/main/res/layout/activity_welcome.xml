@@ -1,27 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/rl_welcome"
+    android:id="@+id/llWelcome"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
     tools:context="com.xpf.p2p.activity.WelcomeActivity">
 
     <ImageView
         android:id="@+id/iv_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="120dp"
         android:src="@drawable/welcome_app_icon" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/iv_icon"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:text="@string/app_name"
+        android:textColor="@android:color/black"
+        android:textSize="20sp" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="爱钱，更爱生活！"
         android:textColor="@android:color/black"
         android:textSize="20sp" />
 
@@ -29,11 +37,11 @@
         android:id="@+id/tv_version"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_marginTop="100dp"
         android:layout_marginBottom="60dp"
         android:gravity="center"
         android:text="当前版本:V1.0"
         android:textColor="@android:color/black"
         android:textSize="12sp" />
 
-</RelativeLayout>
+</LinearLayout>

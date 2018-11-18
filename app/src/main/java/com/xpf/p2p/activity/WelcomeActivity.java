@@ -11,13 +11,12 @@ import android.os.Handler;
 import android.os.Message;
 import android.view.Window;
 import android.view.WindowManager;
-import android.view.animation.AccelerateInterpolator;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
-import android.view.animation.RotateAnimation;
+import android.view.animation.DecelerateInterpolator;
 import android.view.animation.ScaleAnimation;
-import android.widget.RelativeLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
@@ -47,8 +46,6 @@ import java.net.URL;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-import static com.xpf.p2p.R.id.rl_welcome;
-
 /**
  * Created by x-sir on 2016/8/3 :)
  * Function:欢迎页（闪屏页）
@@ -64,8 +61,8 @@ public class WelcomeActivity extends Activity {
 
     @BindView(R.id.tv_version)
     TextView tvVersion;
-    @BindView(rl_welcome)
-    RelativeLayout rlWelcome;
+    @BindView(R.id.llWelcome)
+    LinearLayout llWelcome;
 
     private long startTime;
     private UpdateInfo updateInfo;
@@ -261,17 +258,18 @@ public class WelcomeActivity extends Activity {
         alphaAnimation.setFillAfter(true);
         scaleAnimation.setDuration(2000);
 
-        RotateAnimation rotateAnimation = new RotateAnimation(0, 360, RotateAnimation.RELATIVE_TO_SELF, 0.5f, RotateAnimation.RELATIVE_TO_SELF, 0.5f);
-        alphaAnimation.setFillAfter(true);
-        rotateAnimation.setDuration(2000);
-        rotateAnimation.setInterpolator(new AccelerateInterpolator()); // 使用窜改器设置动画的变化率
+//        RotateAnimation rotateAnimation = new RotateAnimation(0, 360, RotateAnimation.RELATIVE_TO_SELF, 0.5f, RotateAnimation.RELATIVE_TO_SELF, 0.5f);
+//        alphaAnimation.setFillAfter(true);
+//        rotateAnimation.setDuration(2000);
+//        rotateAnimation.setInterpolator(new AccelerateInterpolator()); // 使用窜改器设置动画的变化率
 
         AnimationSet animationSet = new AnimationSet(false);
         animationSet.addAnimation(alphaAnimation);
         animationSet.addAnimation(scaleAnimation);
-        animationSet.addAnimation(rotateAnimation);
+//        animationSet.addAnimation(rotateAnimation);
+        animationSet.setInterpolator(new DecelerateInterpolator());
 
-        rlWelcome.startAnimation(animationSet);
+        llWelcome.startAnimation(animationSet);
 
         animationSet.setAnimationListener(new Animation.AnimationListener() {
             @Override

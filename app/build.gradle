@@ -119,6 +119,8 @@ dependencies {
     implementation project(':ViewPagerIndicator_library')
     implementation project(':common')
     implementation project(':okla-library')
+    debugImplementation rootProject.ext.dependencies.uetool_debug
+    releaseImplementation rootProject.ext.dependencies.uetool_release
 }
 
 static def releaseTime() {

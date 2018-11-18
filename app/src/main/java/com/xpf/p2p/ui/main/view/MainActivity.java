@@ -30,6 +30,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import me.ele.uetool.UETool;
 import pub.devrel.easypermissions.AppSettingsDialog;
 import pub.devrel.easypermissions.EasyPermissions;
 
@@ -74,6 +75,12 @@ public class MainActivity extends MvpBaseActivity<MainContract.IView,
 
     @Override
     protected void initData() {
+        // 显示 UETool
+        UETool.showUETMenu();
+        // 显示 UETool 到 y 轴的坐标
+        //UETool.showUETMenu(100);
+        // 隐藏 UETool
+        //UETool.dismissUETMenu();
         handler = new Handler();
         // 默认选中“首页”
         rgMain.check(R.id.rb_home);

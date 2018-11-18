@@ -1,10 +1,12 @@
 package com.xpf.p2p;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Build;
+import android.os.Bundle;
 
 import com.mob.MobSDK;
 import com.tencent.bugly.crashreport.CrashReport;
@@ -14,8 +16,11 @@ import com.xpf.common.utils.LocaleUtils;
 import com.xpf.common.utils.SpUtil;
 import com.xpf.http.OklaClient;
 import com.xpf.http.logger.XLog;
+import com.xpf.p2p.uetool.FilterOutView;
 
 import java.util.Locale;
+
+import me.ele.uetool.UETool;
 
 /**
  * Created by xpf on 2016/11/11 :)
@@ -25,7 +30,7 @@ import java.util.Locale;
 
 public class P2PApplication extends Application {
 
-    // TODO: 2018/11/1 1.接入蒲公英的意见反馈 2.计算个税（仿照小米计算器） 3.增加记账 4.更换启动页和图标
+    // TODO: 2018/11/1 1.接入蒲公英的意见反馈 2.计算个税（仿照小米计算器） 3.增加记账
 
     private static Context mContext;  // 获取全局上下文
 
@@ -50,6 +55,60 @@ public class P2PApplication extends Application {
          * 建议在测试阶段建议设置成true，发布时设置为false。
          */
         CrashReport.initCrashReport(getApplicationContext(), "c84e7e9ad7", BuildConfig.DEBUG);
+
+        initUETool();
+    }
+
+    private void initUETool() {
+        UETool.putFilterClass(FilterOutView.class);
+        UETool.putAttrsProviderClass(CustomAttribution.class);
+
+        registerActivityLifecycleCallbacks(new ActivityLifecycleCallbacks() {
+
+            private int visibleActivityCount;
+            private int uetoolDismissY = -1;
+
+            @Override
+            public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
+
+            }
+
+            @Override
+            public void onActivityStarted(Activity activity) {
+                visibleActivityCount++;
+                if (visibleActivityCount == 1 && uetoolDismissY >= 0) {
+                    UETool.showUETMenu(uetoolDismissY);
+                }
+            }
+
+            @Override
+            public void onActivityResumed(Activity activity) {
+
+            }
+
+            @Override
+            public void onActivityPaused(Activity activity) {
+
+            }
+
+            @Override
+            public void onActivityStopped(Activity activity) {
+                visibleActivityCount--;
+                if (visibleActivityCount == 0) {
+                    uetoolDismissY = UETool.dismissUETMenu();
+                }
+            }
+
+            @Override
+            public void onActivitySaveInstanceState(Activity activity, Bundle outState) {
+
+            }
+
+            @Override
+            public void onActivityDestroyed(Activity activity) {
+
+            }
+        });
     }
 
     public static Context getContext() {

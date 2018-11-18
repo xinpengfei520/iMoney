@@ -7,7 +7,6 @@ import com.xpf.common.BuildConfig;
  * Wechat:18091383534
  * Function:提供当前应用访问服务器的请求地址
  */
-
 public class ApiRequestUrl {
 
     //public static final String HOST = "http://192.168.31.193"; // 提供ip地址
@@ -15,19 +14,19 @@ public class ApiRequestUrl {
     public static final String HOST = BuildConfig.HOST; // 本地服务器地址
 
     // 提供web应用的地址
-    public static final String BASE_URL = HOST + ":8080/P2PInvest/";
+    public static final String BASE_URL = HOST + ":8080/iMoneyJavaWeb/";
 
     private static final String WEB_ROOT = "WebRoot/";
     private static final String FILE = "file/";
     private static final String JSON = ".json";
 
-    public static final String INDEX = BASE_URL + WEB_ROOT + FILE + "index" + JSON; // 访问首页数据
+    public static final String INDEX = BASE_URL + "index"; // 访问首页数据
 
-    public static final String LOGIN = BASE_URL + WEB_ROOT + FILE + "login" + JSON; // 访问登录的url
+    public static final String LOGIN = BASE_URL + "login"; // 访问登录的url
 
-    public static final String PRODUCT = BASE_URL + WEB_ROOT + FILE + "product" + JSON; // 访问“所有理财”的url
+    public static final String PRODUCT = BASE_URL + "product"; // 访问“所有理财”的url
 
-    public static final String UPDATE = BASE_URL + WEB_ROOT + "update" + JSON; // 访问服务器端当前应用的版本信息
+    public static final String UPDATE = BASE_URL + "update"; // 访问服务器端当前应用的版本信息
 
     // 蒲公英检查更新地址
     public static final String PGYER_CHECK_UPDATE = "https://www.pgyer.com/apiv2/app/check";
