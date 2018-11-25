@@ -9,6 +9,7 @@ import android.os.Build;
 import android.os.Bundle;
 
 import com.mob.MobSDK;
+import com.squareup.leakcanary.LeakCanary;
 import com.tencent.bugly.crashreport.CrashReport;
 import com.xpf.common.CommonApplication;
 import com.xpf.common.cons.SpKey;
@@ -37,6 +38,7 @@ public class P2PApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        LeakCanary.install(this);
         mContext = this.getApplicationContext();
         CommonApplication.initialize(this);
         OklaClient.getInstance().init(this);
