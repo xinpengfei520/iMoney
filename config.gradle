@@ -97,7 +97,24 @@ ext {
             uetool_release             : 'me.ele:uetool-no-op:1.0.15',
             fresco                     : 'com.facebook.fresco:fresco:1.4.0',
             fresco_animated_gif        : 'com.facebook.fresco:animated-gif:1.4.0',
-            lottie                     : 'com.airbnb.android:lottie:2.8.0'
+            lottie                     : 'com.airbnb.android:lottie:2.8.0',
+            activitytaskview           : 'cc.rome753:activitytaskview:3.8.0',
+            debug_db                   : 'com.amitshekhar.android:debug-db:1.0.4',
+            swipebacklayout            : 'cn.bingoogolapple:bga-swipebacklayout:1.2.0@aar',
+            okhttp3_logger             : 'com.squareup.okhttp3:logging-interceptor:3.9.1',
+            dagger_compiler            : 'com.google.dagger:dagger-compiler:2.0.2',
+            dagger                     : 'com.google.dagger:dapger:2.0.2',
+            javax_annotation           : 'org.glassfish:javax.annotation:10.0-b28',
+            pathview                   : 'com.eftimoff:android-pathview:1.0.8@aar',
+            iconics_core               : 'com.mikepenz:iconics-core:3.0.0@aar',
+            iconics_views              : 'com.mikepenz:iconics-views:3.0.0@aar',
+            google_typeface            : 'com.mikepenz:google-material-typeface:3.0.1.2.original@aar',
+            avLoadingView              : 'com.wang.avi:library:2.1.3',
+            rxPermission               : 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.5@aar',
+            rxbinding3                 : 'com.jakewharton.rxbinding3:rxbinding:3.0.0-alpha1',
+            okhttp3Integration         : 'com.github.bumptech.glide:okhttp3-integration:1.4.0@aar',
+            glideTransformations       : 'jp.wasabeef:glide-transformations:2.0.1',
+            baseRecyclerView           : 'com.github.Cymchad:BaseRecyclerViewAdapterHelper:2.9.30'
     ]
 
     bintray = [

@@ -168,8 +168,9 @@
 -keep class **.R$* {*;}
 -keep class **.R{*;}
 
--keep class com.mob.** { *; }
--keep class cn.smssdk.** { *; }
+# mob sms sdk
+-keep class com.mob.**{*;}
+-keep class cn.smssdk.**{*;}
 -dontwarn com.mob.**
 -dontwarn cn.sharesdk.**
 -dontwarn **.R$*
@@ -503,7 +504,6 @@ public void xxxxxx(**);
 #小米push
 -keepclasseswithmembernames class com.xiaomi.**{*;}
 -keep public class * extends com.xiaomi.mipush.sdk.PushMessageReceiver
-
 
 #fresco
 # Do not strip any method/class that is annotated with @DoNotStrip

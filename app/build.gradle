@@ -1,11 +1,4 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.mob.sdk'
-
-MobSDK {
-    appKey "266ce6392d6fe"
-    appSecret "6d4da648f3c2eef26eb682641d414c1c"
-    SMSSDK {}
-}
 
 def keystoreFilepath = ''
 def keystorePSW = ''

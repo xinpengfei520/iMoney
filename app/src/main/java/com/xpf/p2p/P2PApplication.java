@@ -38,6 +38,7 @@ public class P2PApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+
         LeakCanary.install(this);
         mContext = this.getApplicationContext();
         CommonApplication.initialize(this);
@@ -47,7 +48,7 @@ public class P2PApplication extends Application {
         changeAppLanguage();
 
         // 初始化MobSDK
-        MobSDK.init(this);
+        MobSDK.init(this, "266ce6392d6fe", "6d4da648f3c2eef26eb682641d414c1c");
 
         /*
          * 第三个参数为SDK调试模式开关，调试模式的行为特性如下：
