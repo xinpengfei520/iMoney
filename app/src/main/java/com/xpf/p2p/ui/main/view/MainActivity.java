@@ -1,9 +1,6 @@
 package com.xpf.p2p.ui.main.view;
 
-import android.Manifest;
-import android.app.AlertDialog;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Handler;
 import android.support.v4.app.FragmentTransaction;
 import android.view.KeyEvent;
@@ -22,17 +19,13 @@ import com.xpf.p2p.fragment.HomeFragment2;
 import com.xpf.p2p.fragment.InvestFragment;
 import com.xpf.p2p.fragment.MeFragment;
 import com.xpf.p2p.fragment.MoreFragment;
-import com.xpf.p2p.service.DownLoadService;
 import com.xpf.p2p.ui.main.contract.MainContract;
 import com.xpf.p2p.ui.main.presenter.MainPresenter;
-
-import java.util.List;
+import com.xsir.pgyerappupdate.library.PgyerApi;
 
 import butterknife.BindView;
 import butterknife.OnClick;
 import me.ele.uetool.UETool;
-import pub.devrel.easypermissions.AppSettingsDialog;
-import pub.devrel.easypermissions.EasyPermissions;
 
 /**
  * Created by x-sir on 2016/8/3 :)
@@ -40,9 +33,7 @@ import pub.devrel.easypermissions.EasyPermissions;
  * {@link # https://github.com/xinpengfei520/P2P}
  */
 public class MainActivity extends MvpBaseActivity<MainContract.IView,
-        MainPresenter<MainContract.IView>> implements MainContract.IView, EasyPermissions.PermissionCallbacks {
-
-    private static final int RC_UPLOAD_PERM = 0x224;
+        MainPresenter<MainContract.IView>> implements MainContract.IView {
 
     @BindView(R.id.iv_back)
     ImageView ivBack;
@@ -87,7 +78,7 @@ public class MainActivity extends MvpBaseActivity<MainContract.IView,
         // 选中0视图
         setSelect(0);
         // 检查更新 APP
-        mPresenter.checkUpdate();
+        PgyerApi.checkUpdate(this);
     }
 
     @Override
@@ -215,59 +206,6 @@ public class MainActivity extends MvpBaseActivity<MainContract.IView,
         if (handler != null) {
             // 保证在activity退出前,移除所有未被执行的消息和回调方法,避免出现内存泄漏!
             handler.removeCallbacksAndMessages(null);
-        }
-    }
-
-    @Override
-    public void onUpdateResult(String url, String description) {
-        this.mDownloadUrl = url;
-        new AlertDialog.Builder(this)
-                .setTitle("有新版本了")
-                .setMessage(description)
-                .setPositiveButton("更新", (dialogInterface, i) -> downLoad())
-                .setNegativeButton("暂不更新", null)
-                .show();
-    }
-
-    public void downLoad() {
-        if (Build.VERSION.SDK_INT >= 23) {
-            String[] PERMISSIONS = {Manifest.permission.WRITE_EXTERNAL_STORAGE};
-            if (EasyPermissions.hasPermissions(this, PERMISSIONS)) {
-                startDownloadService();
-            } else {
-                EasyPermissions.requestPermissions(this, "需要读取存储和安装的权限",
-                        RC_UPLOAD_PERM, PERMISSIONS);
-            }
-        } else {
-            startDownloadService();
-        }
-    }
-
-    private void startDownloadService() {
-        String apkName = "iMoney_android_app";
-        DownLoadService.startAction(MainActivity.this, mDownloadUrl, apkName);
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        // Forward results to EasyPermissions
-        EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this);
-    }
-
-    @Override
-    public void onPermissionsGranted(int requestCode, List<String> perms) {
-        switch (requestCode) {
-            case RC_UPLOAD_PERM:
-                startDownloadService();
-                break;
-        }
-    }
-
-    @Override
-    public void onPermissionsDenied(int requestCode, List<String> perms) {
-        if (EasyPermissions.somePermissionPermanentlyDenied(this, perms)) {
-            new AppSettingsDialog.Builder(this).build().show();
         }
     }
 }

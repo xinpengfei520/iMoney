@@ -53,29 +53,17 @@ android {
             zipAlignEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
+            android.applicationVariants.all { variant ->
+                variant.outputs.all {
+                    outputFileName = getApkName()
+                }
+            }
         }
 
         debug {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.debug
-        }
-    }
-
-    productFlavors {
-        pgyer {}
-        common {}
-        xiaomi {}
-        yingyongbao {}
-    }
-
-    productFlavors.all {
-        flavor -> flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
-    }
-
-    android.applicationVariants.all { variant ->
-        variant.outputs.all {
-            outputFileName = "iMoney_android_V${defaultConfig.versionName}_${releaseTime()}.apk"
         }
     }
 
@@ -107,6 +95,7 @@ dependencies {
     implementation rootProject.ext.dependencies.easypermissions
     implementation rootProject.ext.dependencies.bugly
     implementation rootProject.ext.dependencies.gson
+    implementation rootProject.ext.dependencies.PgyerAppUpdate
     implementation project(':GestureLock')
     implementation project(':MPChart_library')
     implementation project(':ViewPagerIndicator_library')
@@ -115,11 +104,93 @@ dependencies {
     debugImplementation rootProject.ext.dependencies.leakcanary_android
     releaseImplementation rootProject.ext.dependencies.leakcanary_android_no_op
     debugImplementation rootProject.ext.dependencies.uetool_debug
+    debugImplementation rootProject.ext.dependencies.uetool_fresco
     releaseImplementation rootProject.ext.dependencies.uetool_release
+}
+
+def getApkFullPath() {
+    return rootDir.getAbsolutePath() + "/app/build/outputs/apk/release/" + getApkName()
+}
+
+def getApkName() {
+    return "iMoney_android_V${android.defaultConfig.versionName}-${releaseTime()}.apk"
 }
 
 static def releaseTime() {
     return new Date().format("yyyy-MM-dd", TimeZone.getTimeZone("UTC"))
+}
+
+def readProperties(key) {
+    File file = rootProject.file('local.properties')
+    if (file.exists()) {
+        InputStream inputStream = rootProject.file('local.properties').newDataInputStream()
+        Properties properties = new Properties()
+        properties.load(inputStream)
+
+        if (properties.containsKey(key)) {
+            return properties.getProperty(key)
+        }
+    }
+}
+
+static def getUpdateDescription() {
+    return '1.代码优化;\n2.bugs fix;\n3.为了更好的用户体验赶快更新吧;'
+}
+
+task("uploadApk") {
+    doLast {
+        def command = "curl -F \"file=@${getApkFullPath()}\" -F \"uKey=${readProperties('pgyer.userKey')}\" -F \"_api_key=${readProperties('pgyer.apiKey')}\" -F \"buildUpdateDescription=${getUpdateDescription()}\" https://www.pgyer.com/apiv2/app/upload"
+        println "command:" + command
+
+        try {
+            exec {
+                ExecSpec execSpec ->
+                    executable 'bash'
+                    args '-c', command
+            }
+            println "uploadApk success~"
+        } catch (Exception e) {
+            e.printStackTrace()
+        }
+    }
+}
+
+uploadApk.dependsOn("assembleRelease")
+
+task("installApk") {
+    doLast {
+        def command = "adb install -r ${getApkFullPath()}"
+        println "command:" + command
+
+        try {
+            exec {
+                ExecSpec execSpec ->
+                    executable 'bash'
+                    args '-c', command
+            }
+            println "installApk success"
+        } catch (Exception e) {
+            e.printStackTrace()
+        }
+    }
+}
+
+task("launchApp") {
+    doLast {
+        def command = "adb shell am start ${android.defaultConfig.applicationId}/.MainActivity"
+        println "command:" + command
+
+        try {
+            exec {
+                ExecSpec execSpec ->
+                    executable 'bash'
+                    args '-c', command
+            }
+            println "installApk success"
+        } catch (Exception e) {
+            e.printStackTrace()
+        }
+    }
 }
 
 /*
@@ -133,4 +204,12 @@ static def releaseTime() {
  * 此命令会生成 pgyer 渠道的 Release 和 Debug 版本
  * 同理我想打全部渠道 Release 版本：
  * ./gradlew assembleRelease
+ * 打包命令：
+ * ./gradlew assembleRelease
+ * 打包上传 APK:
+ * ./gradlew :app:uploadApk
+ * 安装 APK:
+ * ./gradlew :app:installApk
+ * 启动 APK:
+ * ./gradlew :app:launchApp
  */
