@@ -14,8 +14,8 @@ ext {
             minSdkVersion    : 19,
             targetSdkVersion : 27,
 
-            versionCode      : 11,
-            versionName      : "1.3.6",
+            versionCode      : 13,
+            versionName      : "1.3.8",
     ]
 
     dependencies = [
@@ -116,7 +116,7 @@ ext {
             okhttp3Integration         : 'com.github.bumptech.glide:okhttp3-integration:1.4.0@aar',
             glideTransformations       : 'jp.wasabeef:glide-transformations:2.0.1',
             baseRecyclerView           : 'com.github.Cymchad:BaseRecyclerViewAdapterHelper:2.9.30',
-            PgyerAppUpdate             : 'com.xsir:PgyerAndroidAppUpdate:0.8'
+            PgyerAppUpdate             : 'com.xsir:PgyerAndroidAppUpdate:0.9.8'
     ]
 
     bintray = [

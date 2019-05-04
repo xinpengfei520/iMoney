@@ -134,7 +134,7 @@ def readProperties(key) {
 }
 
 static def getUpdateDescription() {
-    return '1.代码优化;\n2.bugs fix;\n3.为了更好的用户体验赶快更新吧;'
+    return '1.代码优化;\n2.bugs fix;\n3.发布V1.3.8;'
 }
 
 task("uploadApk") {
@@ -194,16 +194,6 @@ task("launchApp") {
 }
 
 /*
- * 打开Terminal输入命令:
- * 如果我们想打 pgyer 渠道的 release 版本，执行如下命令就好了：
- * ./gradlew assemblepgyerRelease
- * 如果我们想打包 pgyer 渠道的 debug 版本，执行如下命令就好了：
- * ./gradlew assemblepgyerDebug
- * 如果我们只打 pgyer 渠道版本，则：
- * ./gradlew assemblepgyer
- * 此命令会生成 pgyer 渠道的 Release 和 Debug 版本
- * 同理我想打全部渠道 Release 版本：
- * ./gradlew assembleRelease
  * 打包命令：
  * ./gradlew assembleRelease
  * 打包上传 APK:

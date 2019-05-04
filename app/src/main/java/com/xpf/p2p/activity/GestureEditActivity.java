@@ -75,36 +75,29 @@ public class GestureEditActivity extends Activity implements View.OnClickListene
         mGestureContentView = new GestureContentView(this, false, "", new GestureDrawline.GestureCallBack() {
             @Override
             public void onGestureCodeInput(String inputCode) {
-
                 if (!isInputPassValidate(inputCode)) {
                     mTextTip.setText(Html.fromHtml("<font color='#c70c1e'>最少链接4个点, 请重新输入</font>"));
                     mGestureContentView.clearDrawlineState(0L);
-
                     return;
                 }
 
                 if (mIsFirstInput) {
                     mFirstPassword = inputCode;
-
                     updateCodeList(inputCode);
-
                     mGestureContentView.clearDrawlineState(0L);
                     mTextReset.setClickable(true);
                     mTextReset.setText(getString(R.string.reset_gesture_code));
                 } else {
 
                     if (inputCode.equals(mFirstPassword)) {
-
                         Toast.makeText(GestureEditActivity.this, "设置成功", Toast.LENGTH_SHORT).show();
                         mGestureContentView.clearDrawlineState(0L);
                         GestureEditActivity.this.finish();
                     } else {
                         mTextTip.setText(Html.fromHtml("<font color='#c70c1e'>与上一次绘制不一致，请重新绘制</font>"));
-
                         // 左右移动动画
                         Animation shakeAnimation = AnimationUtils.loadAnimation(GestureEditActivity.this, R.anim.shake);
                         mTextTip.startAnimation(shakeAnimation);
-
                         // 保持绘制的线，1.5秒后清除
                         mGestureContentView.clearDrawlineState(1300L);
                     }
@@ -136,7 +129,6 @@ public class GestureEditActivity extends Activity implements View.OnClickListene
     }
 
     private void updateCodeList(String inputCode) {
-
         // 更新选择的图案
         mLockIndicator.setPath(inputCode);
         mSharedPreferences.edit().putString("inputCode", inputCode).commit();
@@ -145,26 +137,21 @@ public class GestureEditActivity extends Activity implements View.OnClickListene
 
     @Override
     public void onClick(View v) {
-
         switch (v.getId()) {
             case R.id.text_cancel:
                 this.finish();
                 break;
-
             case R.id.text_reset:
                 mIsFirstInput = true;
                 updateCodeList("");
                 mTextTip.setText(getString(R.string.set_gesture_pattern));
                 break;
-
-
             default:
                 break;
         }
     }
 
     private boolean isInputPassValidate(String inputPassword) {
-
         if (TextUtils.isEmpty(inputPassword) || inputPassword.length() < 4) {
             return false;
         }
