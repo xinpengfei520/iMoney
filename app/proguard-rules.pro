@@ -66,9 +66,7 @@
     java.lang.Object writeReplace();
     java.lang.Object readResolve();
 }
--keep class **.R$* {
- *;
-}
+-keep class **.R$* {*;}
 
 -keepclassmembers class * {
     void *(*Event);
@@ -81,7 +79,8 @@
 -keep class * implements android.os.Parcelable {
   public static final android.os.Parcelable$Creator *;
 }
-#// natvie 方法不混淆
+
+# natvie 方法不混淆
 -keepclasseswithmembernames class * {
     native <methods>;
 }
@@ -225,7 +224,6 @@
 -dontwarn com.tencent.weibo.sdk.**
 -dontwarn com.facebook.**
 
-
 -keep enum com.facebook.**
 -keepattributes Exceptions,InnerClasses,Signature
 -keepattributes *Annotation*
@@ -277,12 +275,11 @@
  -dontwarn butterknife.internal.**
  -keep class **$$ViewBinder { *; }
  -keepclasseswithmembernames class * {
-  @butterknife.* <fields>;
+    @butterknife.* <fields>;
  }
  -keepclasseswithmembernames class * {
- @butterknife.* <methods>;
+    @butterknife.* <methods>;
  }
-
 
 #AndFix
 -keep class * extends java.lang.annotation.Annotation
@@ -309,16 +306,15 @@
     public void onEvent*(**);
 }
 -keepclassmembers class ** {
-public void xxxxxx(**);
+    public void xxxxxx(**);
 }
-
 
 ################gson##################
 -keep class com.google.gson.** {*;}
 -keep class com.google.**{*;}
 -keep class sun.misc.Unsafe { *; }
 -keep class com.google.gson.stream.** { *; }
--keep class com.google.gson.examples.android.model.** { *; }
+-keep class com.xpf.common.bean.** { *; }
 
 -keepclassmembers class * implements java.io.Serializable {
     static final long serialVersionUID;
@@ -337,7 +333,6 @@ public void xxxxxx(**);
 -keep class android.support.v4.app.** { *; }
 -keep interface android.support.v4.app.** { *; }
 -keep class android.support.v4.** { *; }
-
 
 # support-v7
 -dontwarn android.support.v7.**
@@ -514,7 +509,6 @@ public void xxxxxx(**);
 
 #如果用用到Gson解析包的，直接添加下面这几行就能成功混淆，不然会报错。
 #gson
-#-libraryjars libs/gson-2.2.2.jar
 -keepattributes Signature
 # Gson specific classes
 -keep class sun.misc.Unsafe { *; }
@@ -562,6 +556,4 @@ public void xxxxxx(**);
 #}
 
 #科大讯飞
-#由*	jp1017*贡献混淆代码
-#作者Github地址：hhttps://github.com/jp1017
 -keep class com.iflytek.** { *; }
