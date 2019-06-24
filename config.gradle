@@ -9,10 +9,10 @@ ext {
 
     android = [
             applicationId    : "com.xpf.p2p",
-            compileSdkVersion: 27,
+            compileSdkVersion: 28,
 
             minSdkVersion    : 19,
-            targetSdkVersion : 27,
+            targetSdkVersion : 28,
 
             versionCode      : 13,
             versionName      : "1.3.8",
@@ -20,11 +20,11 @@ ext {
 
     dependencies = [
             junit                      : 'junit:junit:4.12',
-            design                     : 'com.android.support:design:27.1.1',
-            support_v4                 : 'com.android.support:support-v4:27.1.1',
-            appcompat_v4               : 'com.android.support:support-v4:27.1.1',
-            appcompat_v7               : 'com.android.support:appcompat-v7:27.1.1',
-            recyclerview               : 'com.android.support:recyclerview-v7:27.7.1',
+            design                     : 'com.android.support:design:28.0.0',
+            support_v4                 : 'com.android.support:support-v4:28.0.0',
+            appcompat_v4               : 'com.android.support:support-v4:28.0.0',
+            appcompat_v7               : 'com.android.support:appcompat-v7:28.0.0',
+            recyclerview               : 'com.android.support:recyclerview-v7:28.0.0',
             support_multidex           : 'com.android.support:multidex:1.0.3',
             espresso                   : 'com.android.support.test.espresso:espresso-core:2.2.2',
 
@@ -93,9 +93,9 @@ ext {
             gyymz_videoplayLibrary     : 'com.github.gyymz1993:videoplayLibrary:v1.0.0',
             gyymz_baseLibrary          : 'com.github.gyymz1993:baseLibrary:v1.0.1',
             aliyun_oss                 : 'com.aliyun.dpa:oss-android-sdk:+',
-            uetool_debug               : 'me.ele:uetool:1.0.15',
-            uetool_release             : 'me.ele:uetool-no-op:1.0.15',
-            uetool_fresco              : 'me.ele:uetool-fresco:1.0.15',
+            uetool_debug               : 'me.ele:uetool:1.1.4',
+            uetool_release             : 'me.ele:uetool-no-op:1.1.4',
+            uetool_fresco              : 'me.ele:uetool-fresco:1.1.4',
             fresco                     : 'com.facebook.fresco:fresco:1.4.0',
             fresco_animated_gif        : 'com.facebook.fresco:animated-gif:1.4.0',
             lottie                     : 'com.airbnb.android:lottie:2.8.0',

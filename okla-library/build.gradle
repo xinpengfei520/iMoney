@@ -25,6 +25,7 @@ dependencies {
     implementation rootProject.ext.dependencies.appcompat_v7
     testImplementation rootProject.ext.dependencies.junit
     implementation rootProject.ext.dependencies.okhttputils
+    implementation rootProject.ext.dependencies.okhttp3
     implementation files('libs/alicloud-android-sdk-httpdns-1.0.10.jar')
     implementation files('libs/alicloud-android-utils-1.0.1.jar')
 }

@@ -20,6 +20,7 @@ if (keystoreFilepath) {
 }
 
 android {
+    useLibrary 'org.apache.http.legacy'
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     defaultConfig {
         applicationId rootProject.ext.android.applicationId

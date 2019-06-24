@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.xpf.p2p">
 
-    <!-- 配置应用所需权限 -->
     <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
@@ -24,10 +23,11 @@
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
 
-    <uses-permission android:name="android.permission.INTERNET" /> <!-- 网络权限 -->
-    <uses-permission android:name="android.permission.VIBRATE" /> <!-- 震动权限 -->
-    <uses-permission android:name="android.permission.CAMERA" /> <!-- 摄像头权限 -->
-    <uses-feature android:name="android.hardware.camera.autofocus" /> <!-- 自动聚焦权限 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature android:name="android.hardware.camera.autofocus" />
     <uses-permission android:name="android.permission.FLASHLIGHT" />
 
     <!-- 用于进行网络定位 -->
@@ -76,7 +76,8 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
         <activity android:name=".ui.main.view.MainActivity" />
         <activity
             android:name=".activity.WelcomeActivity"
@@ -124,6 +125,10 @@
         <meta-data
             android:name="PGYER_APP_KEY"
             android:value="83690c2bcf44f58758791a3023f91c91" />
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
     </application>
 
 </manifest>
