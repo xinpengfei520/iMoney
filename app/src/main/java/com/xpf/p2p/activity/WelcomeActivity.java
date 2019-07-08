@@ -283,7 +283,10 @@ public class WelcomeActivity extends Activity {
                     startActivity(new Intent(WelcomeActivity.this, MainActivity.class));
                     finish();
                 } else {
-                    updateApp(); // 联网更新应用的操作
+                    // 联网更新应用的操作
+                    //updateApp();
+                    // 跳转到登录页面
+                    handler.sendEmptyMessage(MESSAGE_LOGIN);
                 }
             }
 
