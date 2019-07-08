@@ -130,7 +130,6 @@ public class BarChartActivity extends BaseActivity {
     }
 
     private ArrayList<String> getMonths() {
-
         ArrayList<String> m = new ArrayList<String>();
         m.add("Jan");
         m.add("Feb");
@@ -144,7 +143,6 @@ public class BarChartActivity extends BaseActivity {
         m.add("Okt");
         m.add("Nov");
         m.add("Dec");
-
         return m;
     }
 }

@@ -17,6 +17,8 @@ import java.util.List;
 
 public class FlowLayout extends ViewGroup {
 
+    private static final String TAG = "FlowLayout";
+
     public FlowLayout(Context context) {
         this(context, null);
     }
@@ -33,7 +35,6 @@ public class FlowLayout extends ViewGroup {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-
         // 获取宽度和高度的数值,以及各自的设置模式
         int widthSize = MeasureSpec.getSize(widthMeasureSpec);
         int widthMode = MeasureSpec.getMode(widthMeasureSpec);
@@ -75,8 +76,8 @@ public class FlowLayout extends ViewGroup {
                 height += lineHeight;
             }
         }
-        Log.e("TAG", "width = " + width + ",height = " + height);
-        Log.e("TAG", "widthSize = " + widthSize + ",heightSize = " + heightSize);
+        Log.e(TAG, "width = " + width + ",height = " + height);
+        Log.e(TAG, "widthSize = " + widthSize + ",heightSize = " + heightSize);
 
         // 设置当前布局的宽高
         setMeasuredDimension(widthMode == MeasureSpec.EXACTLY ? widthSize : width, heightMode == MeasureSpec.EXACTLY ? heightSize : height);
@@ -88,9 +89,7 @@ public class FlowLayout extends ViewGroup {
     // 布局:给每一个子View布局:childView.layout(l,t,r,b)
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
-
         int width = this.getWidth();// 得到父视图的宽度
-
         int lineWidth = 0;
         int lineHeight = 0;
 
@@ -126,7 +125,7 @@ public class FlowLayout extends ViewGroup {
                 allHeights.add(lineHeight);
             }
         }
-        Log.e("TAG", "allViews.size = " + allViews.size() + ",allHeights.size = " + allHeights.size());
+        Log.e(TAG, "allViews.size = " + allViews.size() + ",allHeights.size = " + allHeights.size());
 
         // 二、遍历集合元素,调用元素的layout()
         int x = 0;
@@ -149,6 +148,7 @@ public class FlowLayout extends ViewGroup {
                 // 重新赋值x,y
                 x += childView.getMeasuredWidth() + mp.leftMargin + mp.rightMargin;
             }
+
             // 换行以后:
             x = 0;
             y += allHeights.get(i);
@@ -158,7 +158,6 @@ public class FlowLayout extends ViewGroup {
     // FlowLayout中有了如下的方法,在onMeasure()中可通过child就可以getLayoutParams(),返回MarginLayoutParams类对象,进而计算margin的值
     @Override
     public ViewGroup.LayoutParams generateLayoutParams(AttributeSet attrs) {
-        MarginLayoutParams mp = new MarginLayoutParams(getContext(), attrs);
-        return mp;
+        return new MarginLayoutParams(getContext(), attrs);
     }
 }

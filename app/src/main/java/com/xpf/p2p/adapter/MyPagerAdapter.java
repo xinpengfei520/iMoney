@@ -32,16 +32,17 @@ public class MyPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public CharSequence getPageTitle(int position) {
-        //方式一
+        // 方式一
         if (position == 0) {
             return "全部理财";
         } else if (position == 1) {
             return "推荐理财";
         } else if (position == 2) {
-            return "推荐理财";
+            return "热门理财";
         } else {
-            return "";
+            return "默认标题";
         }
+
         // 方式二
         // 从strings.xml中读取String构成的数组
         //return UIUtils.getStrArray(R.array.invest_tab)[position];
