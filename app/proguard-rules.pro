@@ -23,13 +23,12 @@
 -dontskipnonpubliclibraryclassmembers
 -printmapping proguardMapping.txt
 -optimizations !code/simplification/cast,!field/*,!class/merging/*
--keepattributes *Annotation*,InnerClasses
--keepattributes Signature
--keepattributes SourceFile,LineNumberTable
+-keepattributes *Annotation*,InnerClasses,Signature,SourceFile,LineNumberTable
 #----------------------------------------------------------------------------
 
 #---------------------------------默认保留区---------------------------------
-#继承activity,application,service,broadcastReceiver,contentprovider....不进行混淆
+
+# 继承activity,application,service,broadcastReceiver,contentprovider....不进行混淆
 -keep public class * extends android.app.Activity
 -keep public class * extends android.app.Application
 -keep public class * extends android.support.multidex.MultiDexApplication
@@ -53,7 +52,8 @@
     public <init>(android.content.Context, android.util.AttributeSet);
     public <init>(android.content.Context, android.util.AttributeSet, int);
 }
-#这个主要是在layout 中写的onclick方法android:onclick="onClick"，不进行混淆
+
+# 这个主要是在layout 中写的onclick方法android:onclick="onClick"，不进行混淆
 -keepclassmembers class * extends android.app.Activity {
    public void *(android.view.View);
 }
@@ -106,12 +106,12 @@
 #----------------------------------------------------------------------------
 #---------------------------------------------------------------------------------------------------
 #---------------------------------实体类---------------------------------
-#修改成你对应的包名
--keep class [com.xpf.p2p].** { *; }
+# 保持实体类不被混淆
+-keep class com.xpf.common.bean.**{*;}
 
 #---------------------------------第三方包-------------------------------
 
-#支付宝支付
+# 支付宝支付
 -keep class com.alipay.android.app.IAlixPay{*;}
 -keep class com.alipay.android.app.IAlixPay$Stub{*;}
 -keep class com.alipay.android.app.IRemoteServiceCallback{*;}
@@ -119,7 +119,7 @@
 -keep class com.alipay.sdk.app.PayTask{ public *;}
 -keep class com.alipay.sdk.app.AuthTask{ public *;}
 -keep public class * extends android.os.IInterface
-#微信支付
+# 微信支付
 -keep class com.tencent.mm.sdk.openapi.WXMediaMessage {*;}
 -keep class com.tencent.mm.sdk.openapi.** implements com.tencent.mm.sdk.openapi.WXMediaMessage$IMediaObject {*;}
 -keep class com.tencent.wxop.** { *; }
@@ -157,11 +157,11 @@
 -keep interface org.apache.http.**
 -dontwarn org.apache.**
 
-#okhttp3.x
+# okhttp3.x
 -dontwarn com.squareup.okhttp3.**
 -keep class com.squareup.okhttp3.** { *;}
 -dontwarn okio.**
-#sharesdk
+# sharesdk
 -keep class cn.sharesdk.**{*;}
 -keep class com.sina.**{*;}
 -keep class **.R$* {*;}
@@ -180,26 +180,27 @@
 ####################zxing#####################
 -keep class com.google.zxing.** {*;}
 -dontwarn com.google.zxing.**
-##百度定位
+# 百度定位
 -keep class com.baidu.** {*;}
 -keep class vi.com.** {*;}
 -dontwarn com.baidu.**
 
-## okhttp
+# okhttp
 -dontwarn com.squareup.okhttp.**
 -keep class com.squareup.okhttp.{*;}
-#retrofit
+
+# retrofit
 -dontwarn retrofit.**
 -keep class retrofit.** { *; }
 -keepattributes Signature
 -keepattributes Exceptions
 -dontwarn okio.**
 
-#recyclerview-animators
+# recyclerview-animators
 -keep class jp.wasabeef.** {*;}
 -dontwarn jp.wasabeef.*
 
-#multistateview
+# multistateview
 -keep class com.kennyc.view.** { *; }
 -dontwarn com.kennyc.view.*
 
@@ -207,15 +208,15 @@
 -dontwarn com.nostra13.universalimageloader.**
 -keep class com.nostra13.universalimageloader.** { *; }
 
-#ormlite
+# ormlite
 -keep class com.j256.**
 -keepclassmembers class com.j256.** { *; }
 -keep enum com.j256.**
 -keepclassmembers enum com.j256.** { *; }
 -keep interface com.j256.**
 -keepclassmembers interface com.j256.** { *; }
-#umeng
-# ========= 友盟 =================
+
+# umeng
 -dontshrink
 -dontoptimize
 -dontwarn com.google.android.maps.**
@@ -250,7 +251,8 @@
 
 -keep class im.yixin.sdk.api.YXMessage {*;}
 -keep class im.yixin.sdk.api.** implements im.yixin.sdk.api.YXMessage$YXMessageData{*;}
-#下面中括号的地方需要要填你的包名
+
+# 下面中括号的地方需要要填你的包名
 -keep public class [com.xpf.p2p].R$*{
     public static final int *;
 }
@@ -309,7 +311,7 @@
     public void xxxxxx(**);
 }
 
-################gson##################
+# gson
 -keep class com.google.gson.** {*;}
 -keep class com.google.**{*;}
 -keep class sun.misc.Unsafe { *; }
@@ -402,22 +404,12 @@
 
 #融云
 -keepclassmembers class fqcn.of.javascript.interface.for.webview {
- public *;
+    public *;
 }
 
 -keepattributes Exceptions,InnerClasses
-
 -keep class io.rong.** {*;}
-
 -keep class * implements io.rong.imlib.model.MessageContent{*;}
-
--keepattributes Signature
-
--keepattributes *Annotation*
-
--keep class sun.misc.Unsafe { *; }
-
--keep class com.google.gson.examples.android.model.** { *; }
 
 -keepclassmembers class * extends com.sea_monster.dao.AbstractDao {
  public static java.lang.String TABLENAME;
@@ -436,9 +428,6 @@
 #---------------------------------反射相关的类和方法-----------------------
 # 在这下面写反射相关的类和方法，没有就不用写！
 
-
-
-
 #---------------------------------与js互相调用的类------------------------
 # 在这下面写与js互相调用的类，没有就去掉这句话！
 
@@ -446,8 +435,6 @@
 # 在这下面写自定义View的类的类，没有就去掉这句话！
 
 #SuperID
-#由*郭宇翔*贡献混淆代码
-#作者Github地址：https://github.com/yourtion
 -keep class **.R$* {*;}
 -keep class com.isnc.facesdk.aty.**{*;}
 -keep class com.isnc.facesdk.**{*;}
@@ -506,14 +493,6 @@
 -keepclassmembers class * {
     @com.facebook.common.internal.DoNotStrip *;
 }
-
-#如果用用到Gson解析包的，直接添加下面这几行就能成功混淆，不然会报错。
-#gson
--keepattributes Signature
-# Gson specific classes
--keep class sun.misc.Unsafe { *; }
-# Application classes that will be serialized/deserialized over Gson
--keep class com.google.gson.examples.android.model.** { *; }
 
 #okhttputils
 -dontwarn com.zhy.http.**
