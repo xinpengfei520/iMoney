@@ -106,7 +106,7 @@ dependencies {
     implementation rootProject.ext.dependencies.gson
     implementation rootProject.ext.dependencies.PgyerAppUpdate
     implementation 'me.jessyan:autosize:1.1.2'
-    implementation 'io.reactivex.rxjava2:rxjava:2.2.8'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.11'
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
     implementation 'com.github.tbruyelle:rxpermissions:0.10.2'
     implementation project(':GestureLock')
@@ -153,18 +153,7 @@ static def getUpdateDescription() {
 task("uploadApk") {
     doLast {
         def command = "curl -F \"file=@${getApkFullPath()}\" -F \"uKey=${readProperties('pgyer.userKey')}\" -F \"_api_key=${readProperties('pgyer.apiKey')}\" -F \"buildUpdateDescription=${getUpdateDescription()}\" https://www.pgyer.com/apiv2/app/upload"
-        println "command:" + command
-
-        try {
-            exec {
-                ExecSpec execSpec ->
-                    executable 'bash'
-                    args '-c', command
-            }
-            println "uploadApk success~"
-        } catch (Exception e) {
-            e.printStackTrace()
-        }
+        executeCommand(command)
     }
 }
 
@@ -173,39 +162,29 @@ uploadApk.dependsOn("assembleRelease")
 task("installApk") {
     doLast {
         def command = "adb install -r ${getApkFullPath()}"
-        println "command:" + command
-
-        try {
-            exec {
-                ExecSpec execSpec ->
-                    executable 'bash'
-                    args '-c', command
-            }
-            println "installApk success"
-        } catch (Exception e) {
-            e.printStackTrace()
-        }
+        executeCommand(command)
     }
 }
 
 task("launchApp") {
     doLast {
         def command = "adb shell am start ${android.defaultConfig.applicationId}/.MainActivity"
-        println "command:" + command
-
-        try {
-            exec {
-                ExecSpec execSpec ->
-                    executable 'bash'
-                    args '-c', command
-            }
-            println "installApk success"
-        } catch (Exception e) {
-            e.printStackTrace()
-        }
+        executeCommand(command)
     }
 }
 
+def executeCommand(command){
+    println "command:" + command
+
+    try {
+        exec {
+            ExecSpec execSpec -> executable 'bash' args '-c', command
+        }
+        println "command execute success~"
+    } catch (Exception e) {
+        e.printStackTrace()
+    }
+}
 /*
  * 打包命令：
  * ./gradlew assembleRelease
