@@ -1,4 +1,5 @@
 *.iml
+*.txt
 /.gradle
 /local.properties
 /.idea
