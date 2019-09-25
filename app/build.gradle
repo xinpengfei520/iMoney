@@ -157,7 +157,7 @@ def readProperties(key) {
 }
 
 static def getUpdateDescription() {
-    return '1.代码优化;\n2.bugs fix;\n3.发布V1.4.1;'
+    return '1.GrowingIO;\n2.fixed bugs;\n3.发布V1.4.5;'
 }
 
 task("uploadApk") {

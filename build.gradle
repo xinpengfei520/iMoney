@@ -7,7 +7,8 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.5.0'
+        // 暂时不要升级 gradle 版本，因为 GrowingIO 会有问题
+        classpath 'com.android.tools.build:gradle:3.2.1'
         classpath 'com.tencent.bugly:symtabfileuploader:latest.release'
         classpath 'com.growingio.android:vds-gradle-plugin:autotrack-2.8.2'
 

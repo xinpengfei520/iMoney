@@ -6,3 +6,11 @@ file=/Users/pengfeixin/AndroidStudioProjects/P2P/app/build/outputs/mapping/relea
 sha1=fbb8879d618d8441d50838261db8c612954c4cf6
 appId=c84e7e9ad7
 
+file=/Users/pengfeixin/AndroidStudioProjects/P2P/app/build/outputs/mapping/release/mapping.txt
+sha1=207be810a47b52ec0e1077909cf2396f74cd73db
+appId=c84e7e9ad7
+
+file=/Users/pengfeixin/AndroidStudioProjects/P2P/app/build/outputs/mapping/release/mapping.txt
+sha1=3e9aed8a3146bb9a8230b8629eaf92906bb8c007
+appId=c84e7e9ad7
+
