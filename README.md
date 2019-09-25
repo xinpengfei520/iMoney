@@ -4,9 +4,9 @@
 
 <table>
     <tr>
-        <td><img src="https://github.com/xinpengfei520/iMoney/blob/master/screenshot/image1.png" border=0 width="108" height="234"></td>
-        <td><img src="https://github.com/xinpengfei520/iMoney/blob/master/screenshot/image1.png" border=0 width="108" height="234"></td>
-        <td><img src="https://github.com/xinpengfei520/iMoney/blob/master/screenshot/image1.png" border=0 width="108" height="234"></td>
+        <td><img src="https://github.com/xinpengfei520/iMoney/blob/master/screenshot/image1.png" border=0 width="216" height="468"></td>
+        <td><img src="https://github.com/xinpengfei520/iMoney/blob/master/screenshot/image2.png" border=0 width="216" height="468"></td>
+        <td><img src="https://github.com/xinpengfei520/iMoney/blob/master/screenshot/image3.png" border=0 width="216" height="468"></td>
     </tr>
 </table>
 
