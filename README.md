@@ -1,31 +1,34 @@
-# P2P金融 APP
+# iMoney 金融 APP
 
-![image](https://github.com/xinpengfei520/P2P/blob/master/screenshot/image.gif)
+[apk下载](https://www.pgyer.com/android_app_iMoney)
+
+![image](screenshot/image1.png) ![image](screenshot/image2.png) ![image](screenshot/image3.png)
 
 ## 一、主要技术点：  
 
- - 1.使用RadioGroup + Fragment + ViewPager搭建软件框架；  
+ - 1.使用 RadioGroup + Fragment + ViewPager 搭建软件框架；  
  - 2.实现带有回弹效果的MyScrollView；  
  - 3.实现流式布局和随机布局效果；  
  - 4.集成第三方的支付(支付宝)；  
- - 5.适配器Adapter的抽取；  
- - 6.实现APP下载更新；  
+ - 5.适配器 Adapter 的抽取；  
+ - 6.实现 APP 下载更新；  
  - 7.实现九宫格手势图案解锁功能，提高安全性；  
- - 8.实现登录，使用MD5对密码进行加密处理；  
+ - 8.实现登录，使用 MD5 对密码进行加密处理；  
  - 9.自定义圆形进度条效果，并绘制中间文本的百分比显示；  
- - 10.集成第三方Mp_Chart图表库显示各种不同风格的条形图，折线图，饼状图效果；  
+ - 10.集成第三方 Mp_Chart 图表库显示各种不同风格的条形图，折线图，饼状图效果；  
  - 11.实现用户头像切换，拍照或从图库中选择，并使用工具实现压缩和圆形处理；  
- - 12.使用ViewPagerIndicator库实现顶部标签页面切换；  
- - 13.使用LoadingPager实现页面加载帧动画效果；  
- - 14.使用TextView实现跑马灯文本效果；  
- - 15.assets目录引用外部字体库到项目中；  
- - 16.使用FastJson解析Json数据；  
- - 17.使用恶汉式单例模式，提供当前应用中所有创建的Activity的管理器，并对外提供添加、删除指定、删除当前、删除所有、返回栈大小的方法；  
- - 18.提供CrashHandler类提供一个全局未被捕获异常时显式捕获的工具类(恶汉式单例)；  
- - 19.对Activity、Fragment实现对公共父类的抽取；  
- - 20.实现对APP界面使用权重、代码、布局、图片等进行适配；
- - 21.集成 Bugly。
- - 22.集成 UETool https://github.com/eleme/UETool
+ - 12.使用 ViewPagerIndicator 库实现顶部标签页面切换；  
+ - 13.使用 LoadingPager 实现页面加载帧动画效果；  
+ - 14.使用 TextView 实现跑马灯文本效果；  
+ - 15.assets 目录引用外部字体库到项目中；  
+ - 16.使用 FastJson 解析 Json 数据；  
+ - 17.使用恶汉式单例模式，提供当前应用中所有创建的 Activity 的管理器，并对外提供添加、删除指定、删除当前、删除所有、返回栈大小的方法；  
+ - 18.提供 CrashHandler 类提供一个全局未被捕获异常时显式捕获的工具类(恶汉式单例)；  
+ - 19.对 Activity、Fragment 实现对公共父类的抽取；  
+ - 20.实现对 APP 界面使用权重、代码、布局、图片等进行适配；
+ - 21.集成 Bugly；
+ - 22.集成 UETool https://github.com/eleme/UETool；
+ - 23.集成 GrowingIO sdk；（https://www.growingio.com/projects/rREq8vyR/install_sdk）
 
 ## 二、IntelliJ IDEA 服务端代码
 
@@ -37,16 +40,9 @@
 
 ## TODO
  
- - 处理M动态权限;
- - xiaomi 5手机选择相册设置头像时的Crash；
- - 资产 Tab 顶部 Tab 处理；
- - 沉浸式状态栏；
- - 适配全面屏；
  - 生产环境配置；
  - 完善更多页面内容；
- - 服务端代码打成 war 包部署到阿里云；
  - 将需要的信息建表并存入 MySQL 数据库；
- - 图片存入七牛云图床；
  - 和服务器交互数据加密、校验处理；
  - ...
 
@@ -56,6 +52,13 @@ If you find any bug when using this project, please report **[here](https://gith
 
 ## Change logs
 
+### 1.4.5
+
+ - update on 2019-09-25 
+ - bugs fix.
+ - Integrated GrowingIO sdk.
+ - optimized code.
+ 
 ### 1.3.0
 
  - update on 2018-09-02 bugs fix.
@@ -82,7 +85,7 @@ If you find any bug when using this project, please report **[here](https://gith
 
 如果你想学习更多关于 Android 的技术或者有问题想与我交流，请扫描下面的微信公众号后点击联系我 -> 个人微信，添加后可与我交流。
 
-![image](https://github.com/xinpengfei520/P2P/blob/master/screenshot/official_account.jpg)
+![image](screenshot/official_account.jpg)
 
 ## LICENSE
 
