@@ -35,6 +35,7 @@
  - 21.集成 Bugly；
  - 22.集成 UETool https://github.com/eleme/UETool；
  - 23.集成 GrowingIO sdk；（https://www.growingio.com/projects/rREq8vyR/install_sdk）
+ - 24.集成 AndResGuard https://github.com/shwenzhang/AndResGuard
 
 ## 二、IntelliJ IDEA 服务端代码
 
@@ -58,6 +59,11 @@ If you find any bug when using this project, please report **[here](https://gith
 
 ## Change logs
 
+### 1.4.6
+
+ - 集成 AndResGuard；
+ - optimized code.
+ 
 ### 1.4.5
 
  - update on 2019-09-25 

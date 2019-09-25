@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.growingio.android'
 apply plugin: 'bugly'
+apply from: 'andResGuard.gradle'
 
 bugly {
     // 注册时分配的 App ID
@@ -183,7 +184,7 @@ task("launchApp") {
     }
 }
 
-def executeCommand(command){
+def executeCommand(command) {
     println "command:" + command
 
     try {
