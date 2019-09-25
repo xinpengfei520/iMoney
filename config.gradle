@@ -42,18 +42,18 @@ ext {
             litepal                    : 'org.litepal.android:core:1.6.1',
             gson                       : 'com.google.code.gson:gson:2.8.0',
             io_client                  : 'io.socket:socket.io-client:0.7.0',
-            easypermissions            : 'pub.devrel:easypermissions:1.0.1',
+            easypermissions            : 'pub.devrel:easypermissions:2.0.0',
             butterknife                : 'com.jakewharton:butterknife:8.8.1',
+            butterknife_compiler       : 'com.jakewharton:butterknife-compiler:8.8.1',
             fragmentation              : 'me.yokeyword:fragmentation:1.2.4',
             fragmentation_core         : 'me.yokeyword:fragmentation-core:1.2.4',
             bugly                      : 'com.tencent.bugly:crashreport:latest.release',
-            constraint_layout          : 'com.android.support.constraint:constraint-layout:1.1.2',
+            constraint_layout          : 'com.android.support.constraint:constraint-layout:1.1.3',
             fragmentation_swipeback    : 'me.yokeyword:fragmentation-swipeback:1.2.4',
             eventbus_activity_scope    : 'me.yokeyword:eventbus-activity-scope:1.1.0',
             picasso                    : 'com.squareup.picasso:picasso:2.5.2',
             umeng_analytics            : 'com.umeng.analytics:analytics:6.1.3',
             countdownview              : 'com.github.iwgang:countdownview:2.1.3',
-            butterknife_compiler       : 'com.jakewharton:butterknife-compiler:8.8.1',
             SocketclusterClientJava    : 'io.github.sac:SocketclusterClientJava:1.7.1',
             mqtt_client                : 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.1.0',
             mqtt_service               : 'org.eclipse.paho:org.eclipse.paho.android.service:1.1.1',
@@ -116,7 +116,7 @@ ext {
             okhttp3Integration         : 'com.github.bumptech.glide:okhttp3-integration:1.4.0@aar',
             glideTransformations       : 'jp.wasabeef:glide-transformations:2.0.1',
             baseRecyclerView           : 'com.github.Cymchad:BaseRecyclerViewAdapterHelper:2.9.30',
-            PgyerAppUpdate             : 'com.xsir:PgyerAndroidAppUpdate:0.9.8'
+            PgyerAppUpdate             : 'com.xsir:PgyerAndroidAppUpdate:1.0.0'
     ]
 
     bintray = [

@@ -2,12 +2,13 @@ package com.xpf.p2p;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.Application;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.multidex.MultiDexApplication;
 
+import com.growingio.android.sdk.collection.GrowingIO;
 import com.mob.MobSDK;
 import com.squareup.leakcanary.LeakCanary;
 import com.tencent.bugly.crashreport.CrashReport;
@@ -29,7 +30,7 @@ import me.ele.uetool.UETool;
  * Function:代表当前整个应用的实例
  */
 
-public class P2PApplication extends Application {
+public class P2PApplication extends MultiDexApplication {
 
     // TODO: 2018/11/1 1.接入蒲公英的意见反馈 2.计算个税（仿照小米计算器） 3.增加记账
 
@@ -38,9 +39,8 @@ public class P2PApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-
-        LeakCanary.install(this);
         mContext = this.getApplicationContext();
+        LeakCanary.install(this);
         CommonApplication.initialize(this);
         OklaClient.getInstance().init(this);
         // 设置出现未捕获异常时的处理类
@@ -60,6 +60,18 @@ public class P2PApplication extends Application {
         CrashReport.initCrashReport(getApplicationContext(), "c84e7e9ad7", BuildConfig.DEBUG);
 
         initUETool();
+
+        initGrowingIO();
+    }
+
+    private void initGrowingIO() {
+        GrowingIO.startWithConfiguration(this,
+                new com.growingio.android.sdk.collection.Configuration()
+                        .trackAllFragments()
+                        .setTestMode(BuildConfig.DEBUG)
+                        .setDebugMode(BuildConfig.DEBUG)
+                        .setChannel("pgyer")
+        );
     }
 
     private void initUETool() {

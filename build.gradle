@@ -9,6 +9,7 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:3.5.0'
         classpath 'com.tencent.bugly:symtabfileuploader:latest.release'
+        classpath 'com.growingio.android:vds-gradle-plugin:autotrack-2.8.2'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
