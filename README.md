@@ -2,7 +2,7 @@
 
 [apk下载](https://www.pgyer.com/android_app_iMoney)
 
-<p align="center">
+<p align="center" dir="rtl">
 	<img src="https://github.com/xinpengfei520/iMoney/blob/master/screenshot/image1.png" alt="Sample" width="108" height="234">
 	<p align="center">
 		<em>图片示例1</em>
