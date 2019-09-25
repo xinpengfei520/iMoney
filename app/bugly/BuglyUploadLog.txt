@@ -1,0 +1,8 @@
+file=/Users/pengfeixin/AndroidStudioProjects/P2P/app/build/outputs/mapping/release/mapping.txt
+sha1=21663bd7d82fd87342904fb8cbe7c4eab7367be8
+appId=c84e7e9ad7
+
+file=/Users/pengfeixin/AndroidStudioProjects/P2P/app/build/outputs/mapping/release/mapping.txt
+sha1=fbb8879d618d8441d50838261db8c612954c4cf6
+appId=c84e7e9ad7
+

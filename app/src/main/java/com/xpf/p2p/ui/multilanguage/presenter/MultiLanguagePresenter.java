@@ -2,7 +2,6 @@ package com.xpf.p2p.ui.multilanguage.presenter;
 
 import com.xpf.common.base.MvpBasePresenter;
 import com.xpf.p2p.ui.multilanguage.contract.MultiLanguageContract;
-import com.xpf.p2p.ui.multilanguage.listener.OnLanguageListener;
 import com.xpf.p2p.ui.multilanguage.model.MultiLanguageModel;
 
 /**
@@ -17,12 +16,9 @@ public class MultiLanguagePresenter<T extends MultiLanguageContract.IView>
 
     @Override
     public void getLanguageSetting() {
-        mModel.getLanguage(new OnLanguageListener() {
-            @Override
-            public void onSelected(int language) {
-                if (isNonNull()) {
-                    mViewRef.get().showLanguageSetting(language);
-                }
+        mModel.getLanguage(language -> {
+            if (isNonNull()) {
+                mViewRef.get().showLanguageSetting(language);
             }
         });
     }
