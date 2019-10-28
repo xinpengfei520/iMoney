@@ -22,6 +22,7 @@ import com.xpf.p2p.uetool.FilterOutView;
 
 import java.util.Locale;
 
+import cn.jpush.android.api.JPushInterface;
 import me.ele.uetool.UETool;
 
 /**
@@ -62,6 +63,13 @@ public class P2PApplication extends MultiDexApplication {
         initUETool();
 
         initGrowingIO();
+
+        initJPushSdk();
+    }
+
+    private void initJPushSdk() {
+        JPushInterface.setDebugMode(BuildConfig.DEBUG);
+        JPushInterface.init(this);
     }
 
     private void initGrowingIO() {
