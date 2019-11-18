@@ -45,6 +45,8 @@
     <color name="main_color">#7ED321</color>
     <color name="color_7ed321">#7ED321</color>
     <color name="color_94e738">#94E738</color>
+    <color name="rgb_color_18b670">#18B670</color>
+    <color name="rgb_color_00ff00">#00FF00</color>
     <color name="sup_color_green_pale">#A5FF50</color>
     <color name="sup_color_green_deep">#73C518</color>
     <color name="sup_color_red_pale">#FF5B7F</color>
@@ -63,6 +65,7 @@
     <color name="text_color_4f4f4f">#4F4F4F</color>
     <color name="text_color_bdbdbd">#BDBDBD</color>
     <color name="text_color_828282">#828282</color>
+
     <!--友盟-->
     <color name="umeng_socialize_comments_bg">#F4F4F4</color>
     <color name="umeng_socialize_color_group">#2c3035</color>

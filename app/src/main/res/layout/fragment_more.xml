@@ -4,32 +4,26 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <LinearLayout
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#FFFFFF"
+        android:max="100"
+        android:progress="0"
+        android:progressDrawable="@drawable/progressbar"
+        android:visibility="visible" />
+
+    <com.xpf.p2p.widget.MyTextView
+        android:id="@+id/tv_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical">
-
-        <!--<TextView-->
-        <!--android:id="@+id/tv_content"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:ellipsize="marquee"-->
-        <!--android:singleLine="true"-->
-        <!--android:text="@string/marquee_text"-->
-        <!--android:textColor="@color/title_text"-->
-        <!--android:textSize="40sp" />-->
-
-        <com.xpf.p2p.widget.MyTextView
-            android:id="@+id/tv_content"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ellipsize="marquee"
-            android:singleLine="true"
-            android:text="@string/marquee_text"
-            android:textColor="@color/title_text"
-            android:textSize="40sp" />
-
-    </LinearLayout>
+        android:ellipsize="marquee"
+        android:singleLine="true"
+        android:text="@string/marquee_text"
+        android:textColor="@color/title_text"
+        android:textSize="24sp" />
 
     <TextView
         android:id="@+id/tvLanguage"
@@ -38,5 +32,11 @@
         android:padding="@dimen/padding_10dp"
         android:text="@string/multi_language"
         android:textSize="@dimen/text_size_16sp" />
+
+    <WebView
+        android:id="@+id/webView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
 </LinearLayout>
