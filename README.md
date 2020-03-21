@@ -1,5 +1,6 @@
 # iMoney 金融 APP
 
+温馨提示：下载已失效！
 [apk下载](https://www.pgyer.com/android_app_iMoney)
 
 <table>
