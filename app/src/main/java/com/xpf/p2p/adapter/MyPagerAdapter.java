@@ -8,7 +8,6 @@ import java.util.List;
 
 /**
  * Created by xpf on 2018/6/10 :)
- * GitHub:xinpengfei520
  * Function:
  */
 public class MyPagerAdapter extends FragmentPagerAdapter {

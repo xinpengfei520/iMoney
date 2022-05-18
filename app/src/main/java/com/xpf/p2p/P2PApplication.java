@@ -27,13 +27,10 @@ import me.ele.uetool.UETool;
 
 /**
  * Created by xpf on 2016/11/11 :)
- * Wechat:18091383534
  * Function:代表当前整个应用的实例
  */
 
 public class P2PApplication extends MultiDexApplication {
-
-    // TODO: 2018/11/1 1.接入蒲公英的意见反馈 2.计算个税（仿照小米计算器） 3.增加记账
 
     private static Context mContext;  // 获取全局上下文
 

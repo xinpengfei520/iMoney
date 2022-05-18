@@ -30,7 +30,6 @@ import butterknife.ButterKnife;
 
 /**
  * Created by xpf on 2016/11/11 :)
- * Wechat:18091383534
  * Function:
  */
 public class HomeFragment extends Fragment {

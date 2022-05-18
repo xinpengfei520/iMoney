@@ -6,7 +6,6 @@ import com.xpf.p2p.ui.multilanguage.model.MultiLanguageModel;
 
 /**
  * Created by xpf on 2018/6/9 :)
- * GitHub:xinpengfei520
  * Function:
  */
 public class MultiLanguagePresenter<T extends MultiLanguageContract.IView>

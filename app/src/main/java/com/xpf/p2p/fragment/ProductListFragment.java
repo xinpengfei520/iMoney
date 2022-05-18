@@ -19,7 +19,6 @@ import butterknife.BindView;
 
 /**
  * Created by xpf on 2016/11/15 :)
- * Wechat:18091383534
  * Function:全部理财页面
  * 关于ListView使用的4个元素:①ListView ②集合数据 ③ Adapter ④ item_layout布局
  */

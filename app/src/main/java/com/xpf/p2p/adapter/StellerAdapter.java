@@ -14,7 +14,6 @@ import java.util.Random;
 
 /**
  * Created by xpf on 2017/12/9 :)
- * GitHub:xinpengfei520
  * Function:
  */
 

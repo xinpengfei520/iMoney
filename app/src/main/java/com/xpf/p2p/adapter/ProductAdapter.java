@@ -18,7 +18,6 @@ import butterknife.ButterKnife;
 
 /**
  * Created by xpf on 2016/11/15 :)
- * Wechat:18091383534
  * Function:全部理财页面数据的适配器
  */
 

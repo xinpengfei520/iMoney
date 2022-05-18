@@ -16,7 +16,6 @@ import butterknife.BindView;
 
 /**
  * Created by xpf on 2016/11/11 :)
- * Wechat:18091383534
  * Function:我要投资页面
  */
 

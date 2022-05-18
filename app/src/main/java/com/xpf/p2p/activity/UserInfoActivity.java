@@ -39,7 +39,7 @@ import pub.devrel.easypermissions.AfterPermissionGranted;
 import pub.devrel.easypermissions.EasyPermissions;
 
 /**
- * Created by x-sir on 2016/8/3 :)
+ * Created by Vance on 2016/8/3 :)
  * Function:用户信息展示页
  * {@link # https://github.com/xinpengfei520/P2P}
  */

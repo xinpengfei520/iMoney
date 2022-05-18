@@ -15,7 +15,6 @@ import butterknife.ButterKnife;
 
 /**
  * Created by xpf on 2016/11/15 :)
- * Wechat:18091383534
  * Function:继承父类并实现自己特有的getView()方法
  */
 

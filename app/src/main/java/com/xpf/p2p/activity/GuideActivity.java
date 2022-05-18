@@ -27,7 +27,6 @@ import butterknife.OnClick;
 
 /**
  * Created by xpf on 2016/11/11 :)
- * Wechat:18091383534
  * Function:引导页
  * {@link # https://github.com/xinpengfei520/P2P}
  */

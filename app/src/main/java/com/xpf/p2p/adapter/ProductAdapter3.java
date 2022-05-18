@@ -6,7 +6,6 @@ import java.util.List;
 
 /**
  * Created by xpf on 2016/11/15 :)
- * Wechat:18091383534
  * Function:继承父类并实现自己特有的getView()和viewHolder方法,使代码更精简
  */
 

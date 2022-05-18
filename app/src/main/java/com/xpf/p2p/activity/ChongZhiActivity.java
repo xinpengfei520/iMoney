@@ -32,7 +32,7 @@ import butterknife.BindView;
 import butterknife.OnClick;
 
 /**
- * Created by x-sir on 2016/8/3 :)
+ * Created by Vance on 2016/8/3 :)
  * Function:用户账户充值页面
  * {@link # https://github.com/xinpengfei520/P2P}
  */

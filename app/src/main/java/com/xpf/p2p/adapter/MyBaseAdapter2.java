@@ -8,7 +8,6 @@ import java.util.List;
 
 /**
  * Created by xpf on 2016/11/15 :)
- * Wechat:18091383534
  * Function:MyBaseAdapter2的基类,将布局和装配数据的方法暴露出去让子类自己去实现
  */
 

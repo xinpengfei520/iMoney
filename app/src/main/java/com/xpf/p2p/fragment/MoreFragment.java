@@ -21,7 +21,6 @@ import butterknife.OnClick;
 
 /**
  * Created by xpf on 2016/11/11 :)
- * Wechat:18091383534
  * Function:更多页面(跑马灯效果)
  */
 

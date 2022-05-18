@@ -12,7 +12,6 @@ import butterknife.BindView;
 
 /**
  * Created by xpf on 2016/11/15 :)
- * Wechat:18091383534
  * Function:BaseHolder的实现类
  */
 

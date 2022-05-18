@@ -12,7 +12,6 @@ import java.util.Locale;
 
 /**
  * Created by xpf on 2018/6/9 :)
- * GitHub:xinpengfei520
  * Function:
  */
 public class MultiLanguageModel implements MultiLanguageContract.IModel {

@@ -8,7 +8,6 @@ import java.util.List;
 
 /**
  * Created by xpf on 2016/11/15 :)
- * Wechat:18091383534
  * Function:MyBaseAdapter3的基类
  */
 

@@ -31,7 +31,6 @@ import butterknife.BindView;
 
 /**
  * Created by xpf on 2016/11/11 :)
- * Wechat:18091383534
  * Function:使用Banner实现图片的轮番显示的效果,替换ViewPager + CirclePagerIndicator
  */
 

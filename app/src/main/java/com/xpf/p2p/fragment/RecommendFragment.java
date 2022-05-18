@@ -10,7 +10,6 @@ import butterknife.BindView;
 
 /**
  * Created by xpf on 2016/11/15 :)
- * Wechat:18091383534
  * Function:推荐理财页面
  * 总结:关于布局中视图的添加的方式:
  * 1.如果在布局文件中：直接在其内部声明子标签即可

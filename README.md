@@ -1,8 +1,5 @@
 # iMoney 金融 APP
 
-温馨提示：下载已失效！
-[apk下载](https://www.pgyer.com/android_app_iMoney)
-
 <table>
     <tr>
         <td><img src="https://github.com/xinpengfei520/iMoney/blob/master/screenshot/image1.png" border=0 width="216" height="468"></td>
@@ -47,12 +44,12 @@
 [https://github.com/xinpengfei520/iMoneyJavaWeb](https://github.com/xinpengfei520/iMoneyJavaWeb)
 
 ## TODO
- 
- - 生产环境配置；
- - 完善更多页面内容；
+
  - 将需要的信息建表并存入 MySQL 数据库；
  - 和服务器交互数据加密、校验处理；
- - ...
+ - 接入蒲公英的意见反馈；
+ - 计算个税（仿照小米计算器）；
+ - 增加记账；
 
 ## Bugs Report
 
@@ -103,7 +100,7 @@ If you find any bug when using this project, please report **[here](https://gith
 ## LICENSE
 
 ```
-   Copyright (C) 2016 x-sir
+   Copyright (C) 2016 Vance
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.

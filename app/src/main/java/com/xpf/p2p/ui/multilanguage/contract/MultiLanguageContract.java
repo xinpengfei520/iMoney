@@ -5,7 +5,6 @@ import com.xpf.p2p.ui.multilanguage.listener.OnLanguageSaveListener;
 
 /**
  * Created by xpf on 2018/6/9 :)
- * GitHub:xinpengfei520
  * Function:
  */
 public interface MultiLanguageContract {

@@ -6,7 +6,6 @@ import butterknife.ButterKnife;
 
 /**
  * Created by xpf on 2016/11/15 :)
- * Wechat:18091383534
  * Function:创建一个ViewHolder的基类,将加载的布局和装配数据全部暴露出去
  */
 
