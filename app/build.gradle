@@ -10,25 +10,6 @@ bugly {
     appKey = '17ec4880-a08f-4bcd-9e69-46b96e639047'
 }
 
-def keystoreFilepath = ''
-def keystorePSW = ''
-def keystoreAlias = ''
-def keystoreAliasPSW = ''
-// default keystore file, PLZ config file path in local.properties
-def keyFile = file('s.keystore.temp')
-
-Properties properties = new Properties()
-// local.properties file in the root director
-properties.load(project.rootProject.file('local.properties').newDataInputStream())
-keystoreFilepath = properties.getProperty("keystore.path")
-
-if (keystoreFilepath) {
-    keystorePSW = properties.getProperty("keystore.password")
-    keystoreAlias = properties.getProperty("keystore.alias")
-    keystoreAliasPSW = properties.getProperty("keystore.alias_password")
-    keyFile = file(keystoreFilepath)
-}
-
 android {
     useLibrary 'org.apache.http.legacy'
     compileSdkVersion rootProject.ext.android.compileSdkVersion
@@ -58,16 +39,16 @@ android {
 
     signingConfigs {
         release {
-            keyAlias keystoreAlias
-            keyPassword keystoreAliasPSW
-            storeFile keyFile
-            storePassword keystorePSW
+            keyAlias "android"
+            keyPassword "android"
+            storeFile file("./android.jks")
+            storePassword "android"
         }
         debug {
-            keyAlias keystoreAlias
-            keyPassword keystoreAliasPSW
-            storeFile keyFile
-            storePassword keystorePSW
+            keyAlias "android"
+            keyPassword "android"
+            storeFile file("./android.jks")
+            storePassword "android"
         }
     }
 
@@ -124,7 +105,7 @@ dependencies {
     implementation rootProject.ext.dependencies.gson
     implementation rootProject.ext.dependencies.PgyerAppUpdate
     implementation 'com.android.support:multidex:1.0.3'
-    implementation 'me.jessyan:autosize:1.1.2'
+    implementation 'me.jessyan:autosize:1.2.1'
     implementation 'io.reactivex.rxjava2:rxjava:2.2.11'
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
     implementation 'com.github.tbruyelle:rxpermissions:0.10.2'
@@ -155,24 +136,11 @@ static def releaseTime() {
     return new Date().format("yyyy-MM-dd", TimeZone.getTimeZone("UTC"))
 }
 
-def readProperties(key) {
-    File file = rootProject.file('local.properties')
-    if (file.exists()) {
-        InputStream inputStream = rootProject.file('local.properties').newDataInputStream()
-        Properties properties = new Properties()
-        properties.load(inputStream)
-
-        if (properties.containsKey(key)) {
-            return properties.getProperty(key)
-        }
-    }
-}
-
 static def getUpdateDescription() {
     return '1.GrowingIO;\n2.fixed bugs;\n3.发布V1.4.5;'
 }
 
-task("uploadApk") {
+tasks.register('uploadApk') {
     doLast {
         def command = "curl -F \"file=@${getApkFullPath()}\" -F \"uKey=${readProperties('pgyer.userKey')}\" -F \"_api_key=${readProperties('pgyer.apiKey')}\" -F \"buildUpdateDescription=${getUpdateDescription()}\" https://www.pgyer.com/apiv2/app/upload"
         executeCommand(command)
@@ -181,14 +149,14 @@ task("uploadApk") {
 
 uploadApk.dependsOn("assembleRelease")
 
-task("installApk") {
+tasks.register('installApk') {
     doLast {
         def command = "adb install -r ${getApkFullPath()}"
         executeCommand(command)
     }
 }
 
-task("launchApp") {
+tasks.register('launchApp') {
     doLast {
         def command = "adb shell am start ${android.defaultConfig.applicationId}/.MainActivity"
         executeCommand(command)

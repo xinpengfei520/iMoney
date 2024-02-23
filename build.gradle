@@ -3,15 +3,16 @@ apply from: "config.gradle"
 
 buildscript {
     repositories {
-        google()
         jcenter()
+        google()
+        mavenCentral()
     }
     dependencies {
         // 暂时不要升级 gradle 版本，因为 GrowingIO 会有问题
-        classpath 'com.android.tools.build:gradle:3.2.1'
+        classpath 'com.android.tools.build:gradle:4.2.1'
         classpath 'com.tencent.bugly:symtabfileuploader:latest.release'
         classpath 'com.growingio.android:vds-gradle-plugin:autotrack-2.8.2'
-        classpath 'com.tencent.mm:AndResGuard-gradle-plugin:1.2.17'
+        classpath 'com.tencent.mm:AndResGuard-gradle-plugin:1.2.21'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -20,9 +21,11 @@ buildscript {
 
 allprojects {
     repositories {
-        google()
+        mavenCentral()
         jcenter()
+        google()
         maven { url "https://jitpack.io" }
+        maven {url 'https://repo1.maven.org/maven2/' }
         flatDir { dirs 'libs' }
     }
 }

@@ -36,8 +36,8 @@ public class HomeFragment extends Fragment {
 
     @BindView(R.id.tv_home_rate)
     TextView tvHomeRate;
-    @BindView(R.id.viewpager)
-    ViewPager viewpager;
+//    @BindView(R.id.viewpager)
+//    ViewPager viewpager;
 //    @BindView(R.id.cp_home)
 //    CirclePageIndicator cpHome;
     private Index index;
@@ -71,7 +71,7 @@ public class HomeFragment extends Fragment {
                 index.images = images;
 
                 // 2.设置ViewPager,加载显示图片
-                viewpager.setAdapter(new MyPagerAdapter());
+//                viewpager.setAdapter(new MyPagerAdapter());
 //                cpHome.setViewPager(viewpager);
 
                 //3.根据得到的产品的数据，更新界面中的产品展示

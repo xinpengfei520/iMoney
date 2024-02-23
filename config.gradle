@@ -38,7 +38,7 @@ ext {
             zxing_core                 : 'com.google.zxing:core:3.3.0',
             zxingscanner               : 'com.mylhyl:zxingscanner:1.6.0',
             eventbus                   : 'org.greenrobot:eventbus:3.0.0',
-            banner                     : 'com.youth.banner:banner:1.4.2',
+            banner                     : 'com.youth.banner:banner:1.4.10',
             litepal                    : 'org.litepal.android:core:1.6.1',
             gson                       : 'com.google.code.gson:gson:2.8.0',
             io_client                  : 'io.socket:socket.io-client:0.7.0',
