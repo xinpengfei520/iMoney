@@ -96,7 +96,7 @@ public class MeFragment extends BaseFragment {
     private void login() {
         new AlertDialog.Builder(getActivity())
                 .setTitle("登录")
-                .setMessage("2B请先登录！")
+                .setMessage("请先登录！")
                 .setPositiveButton("确定", (dialog, which) -> {
                     Toast.makeText(MeFragment.this.getActivity(), "请先登录", Toast.LENGTH_SHORT).show();
                     // 跳转到登录页面
@@ -179,6 +179,8 @@ public class MeFragment extends BaseFragment {
                 break;
             case R.id.ll_zhanquan:
                 ((BaseActivity) this.getActivity()).goToActivity(AccountSafeActivity.class, null);
+                break;
+            default:
                 break;
         }
     }

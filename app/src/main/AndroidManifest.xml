@@ -24,9 +24,11 @@
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.CAMERA" />
 
     <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
 
     <uses-permission android:name="android.permission.FLASHLIGHT" />
 
@@ -86,10 +88,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.main.view.MainActivity" />
+        <activity
+            android:name=".ui.main.view.MainActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activity.WelcomeActivity"
-            android:launchMode="singleTask">
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -103,13 +108,27 @@
                 <category android:name="android.intent.category.BROWSABLE" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.login.view.LoginActivity" />
-        <activity android:name=".activity.UserInfoActivity" />
-        <activity android:name=".activity.BarChartActivity" />
-        <activity android:name=".activity.LineChartActivity" />
-        <activity android:name=".activity.PieChartActivity" />
-        <activity android:name=".activity.TiXianActivity" />
-        <activity android:name=".activity.ChongZhiActivity" />
+        <activity
+            android:name=".ui.login.view.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.UserInfoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.BarChartActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.LineChartActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.PieChartActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.TiXianActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ChongZhiActivity"
+            android:screenOrientation="portrait" />
 
         <!-- 支付宝相关页面的注册 -->
         <activity
@@ -122,11 +141,19 @@
             android:configChanges="orientation|keyboardHidden|navigation"
             android:exported="false"
             android:screenOrientation="behind" />
-        <activity android:name=".activity.AccountSafeActivity" />
-        <activity android:name=".activity.GestureEditActivity" />
-        <activity android:name=".activity.GestureVerifyActivity" />
+        <activity
+            android:name=".activity.AccountSafeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.GestureEditActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.GestureVerifyActivity"
+            android:screenOrientation="portrait" />
         <activity android:name=".ui.multilanguage.view.MultiLanguageActivity" />
-        <activity android:name=".activity.GuideActivity" />
+        <activity
+            android:name=".activity.GuideActivity"
+            android:screenOrientation="portrait" />
 
         <meta-data
             android:name="UMENG_CHANNEL"
@@ -171,7 +198,9 @@
         </service>
 
         <!-- jpush -->
-        <activity android:name=".jpush.TestActivity" />
+        <activity
+            android:name=".jpush.TestActivity"
+            android:screenOrientation="portrait" />
 
         <!-- User defined. For test only 用户自定义的广播接收器 -->
         <receiver

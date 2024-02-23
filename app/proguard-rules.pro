@@ -570,3 +570,6 @@
 -keep class androidx.viewpager.widget.ViewPager$**{
   *;
 }
+
+# XXPermissions
+-keep class com.hjq.permissions.** {*;}
