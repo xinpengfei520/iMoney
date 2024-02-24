@@ -2,6 +2,7 @@
 apply from: "config.gradle"
 
 buildscript {
+    ext.kotlin_version = '1.8.10'
     repositories {
         jcenter()
         google()
@@ -10,6 +11,7 @@ buildscript {
     dependencies {
         // 暂时不要升级 gradle 版本，因为 GrowingIO 会有问题
         classpath 'com.android.tools.build:gradle:4.2.1'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath 'com.tencent.bugly:symtabfileuploader:latest.release'
         classpath 'com.growingio.android:vds-gradle-plugin:autotrack-2.8.2'
         classpath 'com.tencent.mm:AndResGuard-gradle-plugin:1.2.21'

@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.growingio.android'
 apply plugin: 'bugly'
+apply plugin: 'kotlin-android'
 apply from: 'andResGuard.gradle'
 
 bugly {
@@ -77,6 +78,13 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
+    kotlinOptions {
+        jvmTarget = '1.8'
+        freeCompilerArgs += [
+                "-Xjvm-default=all",
+        ]
+    }
+
     lintOptions {
         abortOnError false
         disable 'ProtectedPermissions'
@@ -114,8 +122,7 @@ dependencies {
     implementation project(':ViewPagerIndicator_library')
     implementation project(':common')
     implementation project(':okla-library')
-    debugImplementation rootProject.ext.dependencies.leakcanary_android
-    releaseImplementation rootProject.ext.dependencies.leakcanary_android_no_op
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.12'
     debugImplementation rootProject.ext.dependencies.uetool_debug
     debugImplementation rootProject.ext.dependencies.uetool_fresco
     releaseImplementation rootProject.ext.dependencies.uetool_release

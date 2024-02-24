@@ -62,8 +62,6 @@ ext {
             glide                      : 'com.github.bumptech.glide:glide:3.7.0',
             transformslibrary          : 'com.simplepeng.library:transformslibrary:1.0.0',
             flycoTabLayout             : 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar',
-            leakcanary_android         : 'com.squareup.leakcanary:leakcanary-android:1.5.1',
-            leakcanary_android_no_op   : 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.1',
             // And ProGuard rules for RxJava!
             rxjava_proguard            : 'com.artemzin.rxjava:proguard-rules:1.3.3.0',
             androlog                   : 'de.akquinet.android.androlog:androlog-project:1.0.1',

@@ -10,7 +10,6 @@ import android.support.multidex.MultiDexApplication;
 
 import com.growingio.android.sdk.collection.GrowingIO;
 import com.mob.MobSDK;
-import com.squareup.leakcanary.LeakCanary;
 import com.tencent.bugly.crashreport.CrashReport;
 import com.xpf.common.CommonApplication;
 import com.xpf.common.cons.SpKey;
@@ -38,7 +37,6 @@ public class P2PApplication extends MultiDexApplication {
     public void onCreate() {
         super.onCreate();
         mContext = this.getApplicationContext();
-        LeakCanary.install(this);
         CommonApplication.initialize(this);
         OklaClient.getInstance().init(this);
         // 设置出现未捕获异常时的处理类
