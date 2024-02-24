@@ -17,13 +17,17 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.hjq.permissions.OnPermissionCallback;
+import com.hjq.permissions.XXPermissions;
 import com.xpf.common.base.BaseActivity;
+import com.xpf.common.utils.ToastUtil;
 import com.xpf.common.utils.UIUtils;
 import com.xpf.p2p.R;
 import com.xpf.p2p.ui.main.view.MainActivity;
@@ -32,11 +36,10 @@ import com.xpf.p2p.utils.BitmapUtils;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-import pub.devrel.easypermissions.AfterPermissionGranted;
-import pub.devrel.easypermissions.EasyPermissions;
 
 /**
  * Created by Vance on 2016/8/3 :)
@@ -61,11 +64,6 @@ public class UserInfoActivity extends BaseActivity {
     @BindView(R.id.logout)
     Button logout;
 
-    private String[] perms = {
-            Manifest.permission.READ_EXTERNAL_STORAGE,
-            Manifest.permission.WRITE_EXTERNAL_STORAGE,
-            Manifest.permission.CAMERA};
-
     @Override
     protected void initData() {
         tvTitle.setText("用户信息");
@@ -84,35 +82,46 @@ public class UserInfoActivity extends BaseActivity {
                 removeCurrentActivity();
                 break;
             case R.id.tv_icon:
-                if (EasyPermissions.hasPermissions(this, perms)) {
-                    changeIcon();
-                } else {
-                    EasyPermissions.requestPermissions(this, "应用程序需要这些权限", 520, perms);
-                }
+                requestPermissions();
                 break;
             case R.id.logout: // 退出登录的回调
                 logout(view);
                 break;
+            default:
+                break;
         }
     }
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        // Forward results to EasyPermissions
-        EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this);
-    }
+    private void requestPermissions() {
+        String[] perms = {
+                Manifest.permission.READ_EXTERNAL_STORAGE,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.CAMERA};
 
-    @AfterPermissionGranted(520)
-    private void methodRequiresTwoPermission() {
-        if (EasyPermissions.hasPermissions(this, perms)) {
-            // Already have permission, do the thing
-            changeIcon();
-        } else {
-            // Do not have permissions, request them now
-            EasyPermissions.requestPermissions(this, "请求相机和相册权限",
-                    520, perms);
-        }
+        XXPermissions.with(this)
+                .permission(perms)
+                .request(new OnPermissionCallback() {
+
+                    @Override
+                    public void onGranted(@NonNull List<String> permissions, boolean allGranted) {
+                        if (!allGranted) {
+                            ToastUtil.show(getApplicationContext(),"获取部分权限成功，但部分权限未正常授予");
+                            return;
+                        }
+                        changeIcon();
+                    }
+
+                    @Override
+                    public void onDenied(@NonNull List<String> permissions, boolean doNotAskAgain) {
+                        if (doNotAskAgain) {
+                            ToastUtil.show(getApplicationContext(),"被永久拒绝授权，请手动授予权限");
+                            // 如果是被永久拒绝就跳转到应用权限系统设置页面
+                            XXPermissions.startPermissionActivity(UserInfoActivity.this, permissions);
+                        } else {
+                            ToastUtil.show(getApplicationContext(),"获取权限失败");
+                        }
+                    }
+                });
     }
 
     private void logout(View view) {

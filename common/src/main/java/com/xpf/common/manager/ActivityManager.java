@@ -6,7 +6,7 @@ import java.util.Stack;
 
 /**
  * Created by xpf on 2016/11/12 :)
- * Wechat:18091383534
+ * Wechat:vancexin
  * Function:提供当前应用中所有创建的Activity的管理器(单例:饿汉式,懒汉式)
  * 涉及到activity的添加、删除指定、删除当前、删除所有、返回栈大小的方法
  */

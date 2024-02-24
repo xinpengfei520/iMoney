@@ -42,7 +42,6 @@ ext {
             litepal                    : 'org.litepal.android:core:1.6.1',
             gson                       : 'com.google.code.gson:gson:2.8.0',
             io_client                  : 'io.socket:socket.io-client:0.7.0',
-            easypermissions            : 'pub.devrel:easypermissions:2.0.0',
             butterknife                : 'com.jakewharton:butterknife:8.8.1',
             butterknife_compiler       : 'com.jakewharton:butterknife-compiler:8.8.1',
             fragmentation              : 'me.yokeyword:fragmentation:1.2.4',

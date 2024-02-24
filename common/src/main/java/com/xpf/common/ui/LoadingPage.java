@@ -16,7 +16,7 @@ import com.xpf.common.utils.UIUtils;
 
 /**
  * Created by xpf on 2016/11/14 :)
- * Wechat:18091383534
+ * Wechat:vancexin
  * Function:联网加载的公共页面
  */
 

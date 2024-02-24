@@ -4,7 +4,7 @@ import com.xpf.common.BuildConfig;
 
 /**
  * Created by xpf on 2016/11/12 :)
- * Wechat:18091383534
+ * Wechat:vancexin
  * Function:提供当前应用访问服务器的请求地址
  */
 public class ApiRequestUrl {

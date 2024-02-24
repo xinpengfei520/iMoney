@@ -32,8 +32,7 @@ android {
                 JPUSH_CHANNEL: "developer-default"
         ]
         ndk {
-            abiFilters 'armeabi-v7a'
-            //'armeabi',, 'arm64-v8a',
+            abiFilters 'armeabi-v7a', 'arm64-v8a'
         }
     }
 
@@ -100,7 +99,6 @@ dependencies {
     annotationProcessor rootProject.ext.dependencies.butterknife_compiler
     implementation rootProject.ext.dependencies.picasso
     implementation rootProject.ext.dependencies.countdownview
-    implementation rootProject.ext.dependencies.easypermissions
     implementation rootProject.ext.dependencies.bugly
     implementation rootProject.ext.dependencies.gson
     implementation rootProject.ext.dependencies.PgyerAppUpdate

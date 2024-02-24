@@ -11,7 +11,7 @@ import java.util.List;
 
 /**
  * Created by xpf on 2016/11/16 :)
- * Wechat:18091383534
+ * Wechat:vancexin
  * Function:自定义流式布局效果
  */
 

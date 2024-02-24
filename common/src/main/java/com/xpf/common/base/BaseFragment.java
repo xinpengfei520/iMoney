@@ -18,7 +18,7 @@ import butterknife.ButterKnife;
 
 /**
  * Created by xpf on 2016/11/14 :)
- * Wechat:18091383534
+ * Wechat:vancexin
  * Function:各个Fragment类的基类,其他都要继承它
  */
 

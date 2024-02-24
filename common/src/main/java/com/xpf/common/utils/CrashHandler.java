@@ -10,7 +10,7 @@ import com.xpf.common.manager.ActivityManager;
 
 /**
  * Created by xpf on 2016/11/12 :)
- * Wechat:18091383534
+ * Wechat:vancexin
  * Function:提供一个出现未被捕获异常时,显式捕获的类(单例)
  */
 

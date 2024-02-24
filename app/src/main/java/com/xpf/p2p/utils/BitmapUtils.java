@@ -9,7 +9,7 @@ import android.graphics.PorterDuffXfermode;
 
 /**
  * Created by xpf on 2016/11/18 :)
- * Wechat:18091383534
+ * Wechat:vancexin
  * Function:Bitmap对象的处理类
  */
 public class BitmapUtils {

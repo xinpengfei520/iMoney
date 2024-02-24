@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 
 /**
  * Created by xpf on 2016/11/19 :)
- * Wechat:18091383534
+ * Wechat:vancexin
  * Function:自定义TextView跑马灯效果
  */
 

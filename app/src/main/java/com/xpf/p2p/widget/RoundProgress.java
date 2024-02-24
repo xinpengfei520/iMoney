@@ -15,7 +15,7 @@ import com.xpf.p2p.R;
 
 /**
  * Created by xpf on 2016/11/12 :)
- * Wechat:18091383534
+ * Wechat:vancexin
  * Function:自定义圆环进度的动态更新显示
  */
 

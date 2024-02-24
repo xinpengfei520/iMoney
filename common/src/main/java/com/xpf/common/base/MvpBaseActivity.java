@@ -61,7 +61,7 @@ public abstract class MvpBaseActivity<V, T extends MvpBasePresenter<V>> extends 
      * @param activity aim activity
      * @param bundle   pass bundle data if need.
      */
-    protected void goToActivity(Class activity, Bundle bundle) {
+    public void goToActivity(Class activity, Bundle bundle) {
         Intent intent = new Intent(this, activity);
         if (bundle != null && bundle.size() != 0) {
             intent.putExtra("data", bundle);

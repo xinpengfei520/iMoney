@@ -8,7 +8,7 @@ import com.xpf.common.CommonApplication;
 
 /**
  * Created by xpf on 2016/11/12 :)
- * Wechat:18091383534
+ * Wechat:vancexin
  * Function:获取ui操作的相关工具类
  */
 

@@ -15,6 +15,7 @@ import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Transformation;
 import com.xpf.common.base.BaseActivity;
 import com.xpf.common.base.BaseFragment;
+import com.xpf.common.base.MvpBaseActivity;
 import com.xpf.common.bean.User;
 import com.xpf.common.cons.SpKey;
 import com.xpf.common.utils.SpUtil;
@@ -30,6 +31,7 @@ import com.xpf.p2p.activity.PieChartActivity;
 import com.xpf.p2p.activity.TiXianActivity;
 import com.xpf.p2p.ui.login.view.LoginActivity;
 import com.xpf.p2p.utils.BitmapUtils;
+import com.xpf.p2p.utils.UserInfoUtils;
 
 import java.io.File;
 
@@ -110,7 +112,10 @@ public class MeFragment extends BaseFragment {
     // 得到了本地的登录信息,加载显示
     private void doUser() {
         // 读取数据,得到内存中的User对象
-        User user = ((BaseActivity) this.getActivity()).readUser();
+        User user = UserInfoUtils.readUser(getContext());
+        if (user == null) {
+            return;
+        }
         // 一方面,显示用户名
         if (!TextUtils.isEmpty(user.UF_ACC)) {
             textView11.setText(user.UF_ACC);
@@ -139,7 +144,9 @@ public class MeFragment extends BaseFragment {
         // 如果在本地发现了用户设置了手势密码,则在此需要验证
         boolean isOpen = SpUtil.getInstance(mContext).getBoolean(SpKey.GESTURE_IS_OPEN, false);
         if (isOpen) {
-            ((BaseActivity) this.getActivity()).goToActivity(GestureVerifyActivity.class, null);
+            if (this.getActivity() instanceof MvpBaseActivity) {
+                ((MvpBaseActivity<?, ?>) this.getActivity()).goToActivity(GestureVerifyActivity.class, null);
+            }
         }
     }
 
