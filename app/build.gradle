@@ -12,11 +12,11 @@ bugly {
 
 android {
     useLibrary 'org.apache.http.legacy'
-    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    compileSdk rootProject.ext.android.compileSdk
     defaultConfig {
         applicationId rootProject.ext.android.applicationId
-        minSdkVersion rootProject.ext.android.minSdkVersion
-        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        minSdk rootProject.ext.android.minSdk
+        targetSdk rootProject.ext.android.targetSdk
         versionCode rootProject.ext.android.versionCode
         versionName rootProject.ext.android.versionName
         flavorDimensions "versionCode"
