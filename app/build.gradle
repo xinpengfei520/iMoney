@@ -134,7 +134,7 @@ def getApkFullPath() {
 }
 
 def getApkName() {
-    return "iMoney_android_V${android.defaultConfig.versionName}-${releaseTime()}.apk"
+    return "iMoney_android_V${android.defaultConfig.versionName}_${android.defaultConfig.versionCode}_${releaseTime()}.apk"
 }
 
 static def releaseTime() {

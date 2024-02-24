@@ -1,3 +1,7 @@
+def cmd = 'git rev-list HEAD --count'
+def gitVersion = cmd.execute([], rootDir).text.trim().toInteger()
+println("gitVersion: " + gitVersion)
+
 ext {
 
     plugins = [
@@ -8,14 +12,14 @@ ext {
     ]
 
     android = [
-            applicationId    : "com.xpf.p2p",
-            compileSdk: 28,
+            applicationId: "com.xpf.p2p",
+            compileSdk   : 28,
 
-            minSdk    : 19,
-            targetSdk : 28,
+            minSdk       : 19,
+            targetSdk    : 28,
 
-            versionCode      : 21,
-            versionName      : "1.4.6",
+            versionCode  : gitVersion,
+            versionName  : "1.4.6",
     ]
 
     dependencies = [
