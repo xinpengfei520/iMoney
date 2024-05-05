@@ -4,8 +4,8 @@ name: Android CI & Create Release
 on:
   push:
     # 根据branch或者tags来触发
-    #branches:
-      #- master
+    branches:
+      - master
 
     tags:
       - "v*"
@@ -23,7 +23,6 @@ on:
 # 一次持续集成的运行，可以完成多个任务(下面就build)
 jobs:
   builds:
-    # 构建的系统(ubuntu、windows、macos)
     runs-on: ubuntu-latest
 
     # 可以依赖其他job
@@ -36,12 +35,12 @@ jobs:
     # 操作步骤(按顺序执行)
     steps:
       - uses: actions/checkout@v3
-      # 设置Java运行环境(temurin是开源jdk)，可以设置为: 1.8
+      # 设置 Java8 运行环境(temurin是开源jdk)
       - name: set up JDK 1.8
         uses: actions/setup-java@v3
         with:
           distribution: temurin
-          java-version: 1.8
+          java-version: 8
 
       # 设置gradle环境(比如: 6.5)、打包命令
       - uses: gradle/gradle-build-action@v2
