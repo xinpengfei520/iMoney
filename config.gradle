@@ -19,7 +19,7 @@ ext {
             targetSdk    : 28,
 
             versionCode  : gitVersion,
-            versionName  : "1.4.8",
+            versionName  : "1.4.9",
     ]
 
     dependencies = [
