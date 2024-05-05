@@ -17,20 +17,18 @@ jobs:
 
     # 操作步骤(按顺序执行)
     steps:
-      - uses: actions/checkout@v3
-      # 设置 Java8 运行环境(temurin是开源jdk)
-      - name: Set up Gradle JDK 11
+      - uses: actions/checkout@v4
+      # 设置 Java 运行环境(temurin是开源jdk)
+      - name: Set up Gradle JDK
         uses: actions/setup-java@v3
         with:
           distribution: temurin
           java-version: 11
 
-      # 设置 gradle 7.5 环境(跟工程 gradle目录下的版本要一致)
-      - name: Download Gradle Tool & run assembleRelease
-        uses: gradle/gradle-build-action@v2
-        with:
-          gradle-version: 7.5
-          arguments: assembleRelease
+      - name: Setup Gradle Tool
+        uses: gradle/actions/setup-gradle@v3
+      - name: AssembleRelease with Gradle
+        run: ./gradlew assembleRelease
 
       - name: Upload Apk To Release Assets
         uses: ncipollo/release-action@v1
