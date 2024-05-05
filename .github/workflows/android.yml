@@ -48,31 +48,7 @@ jobs:
           gradle-version: 7.5
           arguments: assembleRelease
 
-      # 签名apk
-      - uses: r0adkll/sign-android-release@v1
-        name: Sign app APK
-        id: sign_app
-        with:
-          releaseDirectory: app/build/outputs/apk/release
-          signingKeyBase64: ${{ secrets.SIGNING_KEY }}
-          alias: ${{ secrets.ALIAS }}
-          keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
-          keyPassword: ${{ secrets.KEY_PASSWORD }}
-        # 还能设置build-tools version，29.0.3好像不支持了
-        env:
-          # override default build-tools version (29.0.3) -- optional
-          BUILD_TOOLS_VERSION: "28.0.3"
-
-      # build-tools可能不存在，用step查看下支持哪些
-      - run: ls /usr/local/lib/android/sdk/build-tools/
-
-      # 重命名apk
-      # GITHUB_REF_NAME是“触发workflow的分支或tag名称”
-      - run: mv ${{steps.sign_app.outputs.signedReleaseFile}} iMoney_android_$GITHUB_REF_NAME.apk
-        # 可以指定shell命令的执行目录
-        # working-directory: ./temp
-        # 只当shell的类型
-        # shell: bash
+      - run: cd app/build/outputs/apk/release
 
       # 发布
       - uses: ncipollo/release-action@v1
