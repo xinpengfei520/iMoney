@@ -6,25 +6,11 @@ on:
     # 根据 tags 来触发(release-action action 必须要推送标签才能执行成功)
     tags:
       - "v*"
-    # 忽略的标签类型，不触发构建流程(和tags不能同时写)
-    # tags-ignore:
-    #   - "d*"
-
-  # strategy:
-  # 矩阵使用: ${{ matrix.os }}
-  # 下面两个矩阵，会代码就会执行 2 * 3 = 6次
-  # matrix:
-  #  os: [ubuntu-16.04, ubuntu-18.04]
-  #  node: [6, 8, 10]
 
 # 一次持续集成的运行，可以完成多个任务(下面就build)
 jobs:
   builds:
     runs-on: ubuntu-latest
-
-    # 可以依赖其他job
-    # needs: xxxJob、[job1, job2]
-
     # 构建权限，ncipollo/release-action需要使用
     permissions:
       contents: write
@@ -40,19 +26,18 @@ jobs:
           java-version: 11
 
       # 设置 gradle 7.5 环境(跟工程 gradle目录下的版本要一致)
-      - uses: gradle/gradle-build-action@v2
+      - name: Download Gradle Tool & run assembleRelease
+        uses: gradle/gradle-build-action@v2
         with:
           gradle-version: 7.5
           arguments: assembleRelease
 
-      - run: cd app/build/outputs/apk/release
-
-      # 发布
-      - uses: ncipollo/release-action@v1
+      - name: Upload Apk To Release Assets
+        uses: ncipollo/release-action@v1
         with:
-          # 要包含到Release Assets中的文件
-          artifacts: "*.apk"
+          # 要上传到 Release Assets 中的 apk 文件
+          artifacts: "app/build/outputs/apk/release/*.apk"
           # 会使用一个临时的token来创建Release
           token: ${{ github.token }}
-          # 自动生成一些变化列表之类的内容。
+          # 自动生成一些变化列表之类的内容
           generateReleaseNotes: true
