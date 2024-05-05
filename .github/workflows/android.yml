@@ -1,0 +1,84 @@
+name: Android CI & Create Release
+
+# 触发条件: 这里是push以”v“开头的tag触发
+on:
+  push:
+    # 根据branch或者tags来触发
+    #branches:
+      #- master
+
+    tags:
+      - "v*"
+    # 忽略的标签类型，不触发构建流程(和tags不能同时写)
+    # tags-ignore:
+    #   - "d*"
+
+  # strategy:
+  # 矩阵使用: ${{ matrix.os }}
+  # 下面两个矩阵，会代码就会执行 2 * 3 = 6次
+  # matrix:
+  #  os: [ubuntu-16.04, ubuntu-18.04]
+  #  node: [6, 8, 10]
+
+# 一次持续集成的运行，可以完成多个任务(下面就build)
+jobs:
+  builds:
+    # 构建的系统(ubuntu、windows、macos)
+    runs-on: ubuntu-latest
+
+    # 可以依赖其他job
+    # needs: xxxJob、[job1, job2]
+
+    # 构建权限，ncipollo/release-action需要使用
+    permissions:
+      contents: write
+
+    # 操作步骤(按顺序执行)
+    steps:
+      - uses: actions/checkout@v3
+      - name: set up JDK 1.8
+        uses: actions/setup-java@v3
+        with:
+          java-version: 1.8
+
+      # 设置gradle环境(比如: 6.5)、打包命令
+      - uses: gradle/gradle-build-action@v2
+        with:
+          gradle-version: current
+          arguments: assembleRelease
+
+      # 签名apk
+      - uses: r0adkll/sign-android-release@v1
+        name: Sign app APK
+        id: sign_app
+        with:
+          releaseDirectory: app/build/outputs/apk/release
+          signingKeyBase64: ${{ secrets.SIGNING_KEY }}
+          alias: ${{ secrets.ALIAS }}
+          keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
+          keyPassword: ${{ secrets.KEY_PASSWORD }}
+        # 还能设置build-tools version，29.0.3好像不支持了
+        env:
+          # override default build-tools version (29.0.3) -- optional
+          BUILD_TOOLS_VERSION: "28.0.3"
+
+      # build-tools可能不存在，用step查看下支持哪些
+      - run: ls /usr/local/lib/android/sdk/build-tools/
+
+      # 重命名apk
+      # GITHUB_REF_NAME是“触发workflow的分支或tag名称”
+      - run: mv ${{steps.sign_app.outputs.signedReleaseFile}} iMoney_android_$GITHUB_REF_NAME.apk
+        # 可以指定shell命令的执行目录
+        # working-directory: ./temp
+        # 只当shell的类型
+        # shell: bash
+
+      # 发布
+      - uses: ncipollo/release-action@v1
+        with:
+          # 要包含到Release Assets中的文件
+          artifacts: "*.apk"
+          # 会使用一个临时的token来创建Release
+          token: ${{ github.token }}
+          # 自动生成一些变化列表之类的内容。
+          generateReleaseNotes: true
