@@ -3,10 +3,7 @@ name: Android CI & Create Release
 # 触发条件: 这里是push以”v“开头的tag触发
 on:
   push:
-    # 根据branch或者tags来触发
-    branches:
-      - master
-
+    # 根据 tags 来触发(release-action action 必须要推送标签才能执行成功)
     tags:
       - "v*"
     # 忽略的标签类型，不触发构建流程(和tags不能同时写)
