@@ -42,10 +42,10 @@ jobs:
           distribution: temurin
           java-version: 8
 
-      # 设置gradle环境(比如: 6.5)、打包命令
+      # 设置 gradle 7.5 环境(跟工程 gradle目录下的版本要一致)
       - uses: gradle/gradle-build-action@v2
         with:
-          gradle-version: current
+          gradle-version: 7.5
           arguments: assembleRelease
 
       # 签名apk
