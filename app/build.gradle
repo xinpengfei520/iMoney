@@ -1,7 +1,10 @@
-apply plugin: 'com.android.application'
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
 //apply plugin: 'com.growingio.android'
-//apply plugin: 'bugly'
-apply plugin: 'kotlin-android'
+apply plugin: 'bugly'
 
 //bugly {
 //    // 注册时分配的 App ID
