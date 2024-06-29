@@ -94,27 +94,27 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation rootProject.ext.dependencies.design
-    implementation rootProject.ext.dependencies.constraint_layout
-    androidTestImplementation(rootProject.ext.dependencies.espresso, {
+    implementation 'com.android.support:design:28.0.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    testImplementation rootProject.ext.dependencies.junit
-    implementation rootProject.ext.dependencies.appcompat_v4
-    implementation rootProject.ext.dependencies.appcompat_v7
-    implementation rootProject.ext.dependencies.banner
-    implementation rootProject.ext.dependencies.butterknife
-    annotationProcessor rootProject.ext.dependencies.butterknife_compiler
-    implementation rootProject.ext.dependencies.picasso
-    implementation rootProject.ext.dependencies.countdownview
-    implementation rootProject.ext.dependencies.bugly
-    implementation rootProject.ext.dependencies.gson
-    implementation rootProject.ext.dependencies.PgyerAppUpdate
+    testImplementation 'junit:junit:4.12'
+    implementation 'com.android.support:support-v4:28.0.0'
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.youth.banner:banner:1.4.10'
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+    implementation 'com.github.iwgang:countdownview:2.1.3'
+    implementation 'com.tencent.bugly:crashreport:latest.release'
+    implementation 'com.google.code.gson:gson:2.10.1'
+    implementation 'com.xsir:PgyerAndroidAppUpdate:1.0.0'
     implementation 'com.android.support:multidex:1.0.3'
     implementation 'me.jessyan:autosize:1.2.1'
     implementation 'io.reactivex.rxjava2:rxjava:2.2.11'
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
-    implementation 'com.github.getActivity:XXPermissions:18.6'
+    implementation 'com.github.getActivity:XXPermissions:18.63'
     implementation 'cn.jiguang.sdk:jpush:3.3.6'
     implementation 'cn.jiguang.sdk:jcore:2.1.6'
     implementation project(':GestureLock')
@@ -123,9 +123,9 @@ dependencies {
     implementation project(':common')
     implementation project(':okla-library')
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.12'
-    debugImplementation rootProject.ext.dependencies.uetool_debug
-    debugImplementation rootProject.ext.dependencies.uetool_fresco
-    releaseImplementation rootProject.ext.dependencies.uetool_release
+    debugImplementation 'me.ele:uetool:1.1.4'
+    debugImplementation 'me.ele:uetool-fresco:1.1.4'
+    releaseImplementation 'me.ele:uetool-no-op:1.1.4'
     implementation 'com.growingio.android:vds-android-agent:autotrack-2.8.2@aar'
 }
 
