@@ -15,8 +15,6 @@ import com.xpf.p2p.adapter.ProductAdapter;
 
 import java.util.List;
 
-import butterknife.BindView;
-
 /**
  * Created by xpf on 2016/11/15 :)
  * Function:全部理财页面
@@ -25,7 +23,6 @@ import butterknife.BindView;
 
 public class ProductListFragment extends BaseFragment {
 
-    @BindView(R.id.product_listview)
     ListView product_listview;
     private List<Product> products;
     private static final String TAG = ProductListFragment.class.getSimpleName();
@@ -47,6 +44,7 @@ public class ProductListFragment extends BaseFragment {
 
     @Override
     protected void initData(String content) { // content即为响应成功情况下,返回的product.json数据
+        product_listview = (ListView) mView.findViewById(R.id.product_listview);
         if (!TextUtils.isEmpty(content)) {
             LogUtils.json(TAG, content);
             // 解析json数据

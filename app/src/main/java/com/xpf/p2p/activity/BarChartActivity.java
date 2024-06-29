@@ -17,8 +17,6 @@ import com.xpf.p2p.R;
 
 import java.util.ArrayList;
 
-import butterknife.BindView;
-import butterknife.OnClick;
 
 /**
  * Created by xpf on 2016/11/11 :)
@@ -27,22 +25,24 @@ import butterknife.OnClick;
  */
 public class BarChartActivity extends BaseActivity {
 
-    @BindView(R.id.iv_back)
     ImageView ivBack;
-    @BindView(R.id.tv_title)
     TextView tvTitle;
-    @BindView(R.id.iv_setting)
     ImageView ivSetting;
-    @BindView(R.id.barChart)
     BarChart barChart;
 
     private Typeface mTf;
 
     @Override
     protected void initData() {
+        ivBack = (ImageView) findViewById(R.id.iv_back);
+        tvTitle = (TextView) findViewById(R.id.tv_title);
+        ivSetting = (ImageView) findViewById(R.id.iv_setting);
+        barChart = (BarChart) findViewById(R.id.barChart);
         ivBack.setVisibility(View.VISIBLE);
         ivSetting.setVisibility(View.GONE);
         tvTitle.setText("柱状图");
+
+        ivBack.setOnClickListener(v -> removeCurrentActivity());
 
         //初始化字体库
         mTf = Typeface.createFromAsset(getAssets(), "OpenSans-Regular.ttf");
@@ -90,19 +90,6 @@ public class BarChartActivity extends BaseActivity {
     @Override
     protected int getLayoutId() {
         return R.layout.activity_bar_chart;
-    }
-
-    @OnClick({R.id.iv_back, R.id.iv_setting, R.id.barChart})
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.iv_back:
-                removeCurrentActivity();
-                break;
-            case R.id.iv_setting:
-                break;
-            case R.id.barChart:
-                break;
-        }
     }
 
     /**

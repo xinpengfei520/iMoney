@@ -6,8 +6,6 @@ import com.xpf.p2p.R;
 import com.xpf.p2p.adapter.StellerAdapter;
 import com.xpf.p2p.widget.randomLayout.StellarMap;
 
-import butterknife.BindView;
-
 /**
  * Created by xpf on 2016/11/15 :)
  * Function:推荐理财页面
@@ -18,7 +16,6 @@ import butterknife.BindView;
 
 public class RecommendFragment extends BaseFragment {
 
-    @BindView(R.id.stellarMap)
     StellarMap stellarMap;
 
     @Override
@@ -38,6 +35,7 @@ public class RecommendFragment extends BaseFragment {
 
     @Override
     protected void initData(String content) {
+        stellarMap = (StellarMap) mView.findViewById(R.id.stellarMap);
         StellerAdapter stellerAdapter = new StellerAdapter(mContext);
         // 加载显示
         stellarMap.setAdapter(stellerAdapter);

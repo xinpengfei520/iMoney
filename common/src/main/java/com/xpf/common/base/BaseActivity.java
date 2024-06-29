@@ -3,11 +3,11 @@ package com.xpf.common.base;
 import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.xpf.common.manager.ActivityManager;
 
-import butterknife.ButterKnife;
 
 /**
  * Created by xpf on 2016/11/16 :)
@@ -25,7 +25,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         if (actionBar != null) {
             actionBar.hide();
         }
-        ButterKnife.bind(this);
+        //ButterKnife.bind(this);
         // 将当前的Activity添加到ActivityManager中
         ActivityManager.getInstance().add(this);
         initData();

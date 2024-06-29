@@ -17,8 +17,6 @@ import com.xpf.p2p.R;
 
 import java.util.ArrayList;
 
-import butterknife.BindView;
-import butterknife.OnClick;
 
 /**
  * Created by xpf on 2016/11/11 :)
@@ -27,22 +25,23 @@ import butterknife.OnClick;
  */
 public class LineChartActivity extends BaseActivity {
 
-    @BindView(R.id.iv_back)
     ImageView ivBack;
-    @BindView(R.id.tv_title)
     TextView tvTitle;
-    @BindView(R.id.iv_setting)
     ImageView ivSetting;
-    @BindView(R.id.lineChart)
     LineChart lineChart;
 
     private Typeface mTf;
 
     @Override
     protected void initData() {
+        ivBack = (ImageView) findViewById(R.id.iv_back);
+        tvTitle = (TextView) findViewById(R.id.tv_title);
+        ivSetting = (ImageView) findViewById(R.id.iv_setting);
+        lineChart = (LineChart) findViewById(R.id.lineChart);
         ivBack.setVisibility(View.VISIBLE);
         tvTitle.setText("折线图");
         ivSetting.setVisibility(View.GONE);
+        ivBack.setOnClickListener(v -> removeCurrentActivity());
 
         // 加载本地的字体库
         mTf = Typeface.createFromAsset(getAssets(), "OpenSans-Regular.ttf");
@@ -87,11 +86,6 @@ public class LineChartActivity extends BaseActivity {
     @Override
     protected int getLayoutId() {
         return R.layout.activity_line_chart;
-    }
-
-    @OnClick(R.id.iv_back)
-    public void onClick() {
-        removeCurrentActivity();
     }
 
     /**

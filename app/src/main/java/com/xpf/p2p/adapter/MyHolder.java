@@ -8,8 +8,6 @@ import com.xpf.common.utils.UIUtils;
 import com.xpf.p2p.R;
 import com.xpf.p2p.widget.RoundProgress;
 
-import butterknife.BindView;
-
 /**
  * Created by xpf on 2016/11/15 :)
  * Function:BaseHolder的实现类
@@ -17,23 +15,23 @@ import butterknife.BindView;
 
 public class MyHolder extends BaseHolder<Product> {
 
-    @BindView(R.id.p_name)
     TextView pName;
-    @BindView(R.id.p_money)
     TextView pMoney;
-    @BindView(R.id.p_yearlv)
     TextView pYearlv;
-    @BindView(R.id.p_suodingdays)
     TextView pSuodingdays;
-    @BindView(R.id.p_minzouzi)
     TextView pMinzouzi;
-    @BindView(R.id.p_minnum)
     TextView pMinnum;
-    @BindView(R.id.p_progresss)
     RoundProgress pProgresss;
 
     @Override
     protected void refreshData() {
+        pName = (TextView) getRootView().findViewById(R.id.p_name);
+        pMoney = (TextView) getRootView().findViewById(R.id.p_money);
+        pYearlv = (TextView) getRootView().findViewById(R.id.p_yearlv);
+        pSuodingdays = (TextView) getRootView().findViewById(R.id.p_suodingdays);
+        pMinzouzi = (TextView) getRootView().findViewById(R.id.p_minzouzi);
+        pMinnum = (TextView) getRootView().findViewById(R.id.p_minnum);
+        pProgresss = (RoundProgress) getRootView().findViewById(R.id.p_progresss);
         Product data = getData();
         pName.setText(data.name);
         pMinnum.setText(data.memberNum);

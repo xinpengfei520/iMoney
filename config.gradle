@@ -13,10 +13,10 @@ ext {
 
     android = [
             applicationId: "com.xpf.p2p",
-            compileSdk   : 28,
+            compileSdk   : 34,
 
-            minSdk       : 19,
-            targetSdk    : 28,
+            minSdk       : 24,
+            targetSdk    : 29,
 
             versionCode  : gitVersion,
             versionName  : "1.4.10",

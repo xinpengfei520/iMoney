@@ -6,7 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 
-import com.growingio.android.sdk.utils.LogUtil;
+
+import com.xpf.common.utils.LogUtils;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -32,34 +33,34 @@ public class MyReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         try {
             Bundle bundle = intent.getExtras();
-            LogUtil.i(TAG, "[MyReceiver] onReceive - " + intent.getAction() + ", extras: " + printBundle(bundle));
+            LogUtils.i(TAG, "[MyReceiver] onReceive - " + intent.getAction() + ", extras: " + printBundle(bundle));
 
             if (JPushInterface.ACTION_REGISTRATION_ID.equals(intent.getAction())) {
                 String regId = bundle.getString(JPushInterface.EXTRA_REGISTRATION_ID);
-                LogUtil.i(TAG, "[MyReceiver] 接收Registration Id : " + regId);
+                LogUtils.i(TAG, "[MyReceiver] 接收Registration Id : " + regId);
                 // send the Registration Id to your server...
 
             } else if (JPushInterface.ACTION_MESSAGE_RECEIVED.equals(intent.getAction())) {
-                LogUtil.i(TAG, "[MyReceiver] 接收到推送下来的自定义消息: " + bundle.getString(JPushInterface.EXTRA_MESSAGE));
+                LogUtils.i(TAG, "[MyReceiver] 接收到推送下来的自定义消息: " + bundle.getString(JPushInterface.EXTRA_MESSAGE));
                 processCustomMessage(context, bundle);
 
             } else if (JPushInterface.ACTION_NOTIFICATION_RECEIVED.equals(intent.getAction())) {
-                LogUtil.i(TAG, "[MyReceiver] 接收到推送下来的通知");
+                LogUtils.i(TAG, "[MyReceiver] 接收到推送下来的通知");
                 int notificationId = bundle.getInt(JPushInterface.EXTRA_NOTIFICATION_ID);
-                LogUtil.i(TAG, "[MyReceiver] 接收到推送下来的通知的ID: " + notificationId);
+                LogUtils.i(TAG, "[MyReceiver] 接收到推送下来的通知的ID: " + notificationId);
 
             } else if (JPushInterface.ACTION_NOTIFICATION_OPENED.equals(intent.getAction())) {
-                LogUtil.i(TAG, "[MyReceiver] 用户点击打开了通知");
+                LogUtils.i(TAG, "[MyReceiver] 用户点击打开了通知");
 
             } else if (JPushInterface.ACTION_RICHPUSH_CALLBACK.equals(intent.getAction())) {
-                LogUtil.i(TAG, "[MyReceiver] 用户收到到RICH PUSH CALLBACK: " + bundle.getString(JPushInterface.EXTRA_EXTRA));
+                LogUtils.i(TAG, "[MyReceiver] 用户收到到RICH PUSH CALLBACK: " + bundle.getString(JPushInterface.EXTRA_EXTRA));
                 //在这里根据 JPushInterface.EXTRA_EXTRA 的内容处理代码，比如打开新的Activity， 打开一个网页等..
 
             } else if (JPushInterface.ACTION_CONNECTION_CHANGE.equals(intent.getAction())) {
                 boolean connected = intent.getBooleanExtra(JPushInterface.EXTRA_CONNECTION_CHANGE, false);
-                LogUtil.e(TAG, "[MyReceiver]" + intent.getAction() + " connected state change to " + connected);
+                LogUtils.e(TAG, "[MyReceiver]" + intent.getAction() + " connected state change to " + connected);
             } else {
-                LogUtil.i(TAG, "[MyReceiver] Unhandled intent - " + intent.getAction());
+                LogUtils.i(TAG, "[MyReceiver] Unhandled intent - " + intent.getAction());
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -82,7 +83,7 @@ public class MyReceiver extends BroadcastReceiver {
                 sb.append("\nkey:" + key + ", value:" + bundle.getBoolean(key));
             } else if (key.equals(JPushInterface.EXTRA_EXTRA)) {
                 if (TextUtils.isEmpty(bundle.getString(JPushInterface.EXTRA_EXTRA))) {
-                    LogUtil.i(TAG, "This message has no Extra data");
+                    LogUtils.i(TAG, "This message has no Extra data");
                     continue;
                 }
 
@@ -96,7 +97,7 @@ public class MyReceiver extends BroadcastReceiver {
                                 myKey + " - " + json.optString(myKey) + "]");
                     }
                 } catch (JSONException e) {
-                    LogUtil.e(TAG, "Get message extra JSON error!");
+                    LogUtils.e(TAG, "Get message extra JSON error!");
                 }
 
             } else {

@@ -27,7 +27,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import butterknife.BindView;
 
 /**
  * Created by xpf on 2016/11/11 :)
@@ -36,11 +35,8 @@ import butterknife.BindView;
 
 public class HomeFragment2 extends BaseFragment {
 
-    @BindView(R.id.banner)
     Banner banner;
-    @BindView(R.id.tv_home_rate)
     TextView tvHomeRate;
-    @BindView(R.id.roundprogress)
     RoundProgress roundprogress;
     private Index index;
 
@@ -76,6 +72,10 @@ public class HomeFragment2 extends BaseFragment {
 
     @Override
     protected void initData(String content) {
+        banner = (Banner) mView.findViewById(R.id.banner);
+        tvHomeRate = (TextView) mView.findViewById(R.id.tv_home_rate);
+        roundprogress = (RoundProgress) mView.findViewById(R.id.roundprogress);
+
         if (!TextUtils.isEmpty(content)) {
             // 1.使用fastJson解析数据,并封装数据到java对象中
             JSONObject jsonObject = JSON.parseObject(content);
@@ -97,7 +97,7 @@ public class HomeFragment2 extends BaseFragment {
                 @Override
                 public void displayImage(Context context, Object path, ImageView imageView) {
                     // Picasso加载图片简单用法
-                    Picasso.with(context).load((String) path).into(imageView);
+                    Picasso.get().load((String) path).into(imageView);
                 }
             });
             // 设置图片url集合:imageUrl

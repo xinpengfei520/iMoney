@@ -10,7 +10,7 @@ buildscript {
     }
     dependencies {
         // 暂时不要升级 gradle 版本，因为 GrowingIO 会有问题
-        classpath 'com.android.tools.build:gradle:7.4.2'
+        classpath 'com.android.tools.build:gradle:8.5.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         //classpath 'com.tencent.bugly:symtabfileuploader:latest.release'
         classpath 'com.growingio.android:vds-gradle-plugin:autotrack-2.8.2'

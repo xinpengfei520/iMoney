@@ -1,8 +1,9 @@
 package com.xpf.p2p.widget;
 
 import android.content.Context;
-import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
+
+import androidx.appcompat.widget.AppCompatTextView;
 
 /**
  * Created by xpf on 2016/11/19 :)

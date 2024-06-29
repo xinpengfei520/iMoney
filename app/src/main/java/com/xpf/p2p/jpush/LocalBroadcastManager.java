@@ -8,7 +8,7 @@ import android.net.Uri;
 import android.os.Handler;
 import android.os.Message;
 
-import com.growingio.android.sdk.utils.LogUtil;
+import com.xpf.common.utils.LogUtils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -125,13 +125,13 @@ public final class LocalBroadcastManager {
             Set categories = intent.getCategories();
             boolean debug = (intent.getFlags() & 8) != 0;
             if (debug) {
-                LogUtil.v(TAG, "Resolving type " + type + " scheme " + scheme + " of intent " + intent);
+                LogUtils.v(TAG, "Resolving type " + type + " scheme " + scheme + " of intent " + intent);
             }
 
             ArrayList entries = (ArrayList) this.mActions.get(intent.getAction());
             if (entries != null) {
                 if (debug) {
-                    LogUtil.v(TAG, "Action list: " + entries);
+                    LogUtils.v(TAG, "Action list: " + entries);
                 }
 
                 ArrayList receivers = null;
@@ -140,18 +140,18 @@ public final class LocalBroadcastManager {
                 for (i = 0; i < entries.size(); ++i) {
                     LocalBroadcastManager.ReceiverRecord receiver = (LocalBroadcastManager.ReceiverRecord) entries.get(i);
                     if (debug) {
-                        LogUtil.v(TAG, "Matching against filter " + receiver.filter);
+                        LogUtils.v(TAG, "Matching against filter " + receiver.filter);
                     }
 
                     if (receiver.broadcasting) {
                         if (debug) {
-                            LogUtil.v(TAG, "  Filter\'s target already added");
+                            LogUtils.v(TAG, "  Filter\'s target already added");
                         }
                     } else {
                         int match = receiver.filter.match(action, type, scheme, data, categories, "LocalBroadcastManager");
                         if (match >= 0) {
                             if (debug) {
-                                LogUtil.v(TAG, "  Filter matched!  match=0x" + Integer.toHexString(match));
+                                LogUtils.v(TAG, "  Filter matched!  match=0x" + Integer.toHexString(match));
                             }
 
                             if (receivers == null) {
@@ -179,7 +179,7 @@ public final class LocalBroadcastManager {
                                     reason = "unknown reason";
                             }
 
-                            LogUtil.v(TAG, "Filter did not match: " + reason);
+                            LogUtils.v(TAG, "Filter did not match: " + reason);
                         }
                     }
                 }

@@ -2,14 +2,15 @@ package com.xpf.p2p.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
 
 import com.xpf.common.cons.SpKey;
 import com.xpf.common.utils.SpUtil;
@@ -21,9 +22,6 @@ import com.xpf.p2p.ui.login.view.LoginActivity;
 
 import java.util.ArrayList;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 /**
  * Created by xpf on 2016/11/11 :)
@@ -32,15 +30,10 @@ import butterknife.OnClick;
  */
 public class GuideActivity extends AppCompatActivity {
 
-    @BindView(R.id.viewPager)
     ViewPager viewPager;
-    @BindView(R.id.llPointGroup)
     LinearLayout llPointGroup;
-    @BindView(R.id.ivRedPoint)
     ImageView ivRedPoint;
-    @BindView(R.id.rlPoints)
     RelativeLayout rlPoints;
-    @BindView(R.id.tvRightAway)
     TextView tvRightAway;
     // 两点间的间距
     private int leftMarg;
@@ -53,7 +46,15 @@ public class GuideActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guide);
-        ButterKnife.bind(this);
+        viewPager = findViewById(R.id.viewPager);
+        llPointGroup = findViewById(R.id.llPointGroup);
+        ivRedPoint = findViewById(R.id.ivRedPoint);
+        rlPoints = findViewById(R.id.rlPoints);
+        tvRightAway = findViewById(R.id.tvRightAway);
+        tvRightAway.setOnClickListener(v -> {
+            startActivity(new Intent(GuideActivity.this, LoginActivity.class));
+            finish();
+        });
         initData();
         initImageViewList();
     }
@@ -100,12 +101,6 @@ public class GuideActivity extends AppCompatActivity {
         ivRedPoint.getViewTreeObserver().addOnGlobalLayoutListener(new MyOnGlobalLayoutListener());
         // 监听viewPager页面滑动的百分比
         viewPager.addOnPageChangeListener(new MyOnPageChangeListener());
-    }
-
-    @OnClick(R.id.tvRightAway)
-    public void onViewClicked() {
-        startActivity(new Intent(GuideActivity.this, LoginActivity.class));
-        finish();
     }
 
     class MyOnPageChangeListener implements ViewPager.OnPageChangeListener {

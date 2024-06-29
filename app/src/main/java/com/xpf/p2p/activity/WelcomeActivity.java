@@ -43,8 +43,6 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * Created by x-sir on 2016/8/3 :)
@@ -59,10 +57,8 @@ public class WelcomeActivity extends Activity {
     private static final int WHAT_DOWNLOAD_APK_SUCCESS = 4;
     private static final String TAG = WelcomeActivity.class.getSimpleName();
 
-    @BindView(R.id.tv_version)
-    TextView tvVersion;
-    @BindView(R.id.llWelcome)
-    LinearLayout llWelcome;
+    private TextView tvVersion;
+    private LinearLayout llWelcome;
 
     private long startTime;
     private UpdateInfo updateInfo;
@@ -109,7 +105,8 @@ public class WelcomeActivity extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_welcome);
-        ButterKnife.bind(this);
+        tvVersion = findViewById(R.id.tv_version);
+        llWelcome = findViewById(R.id.llWelcome);
         initData();
         startAnimation(); // 启动动画
     }

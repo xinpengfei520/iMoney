@@ -17,12 +17,13 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
-import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
 
 import com.hjq.permissions.OnPermissionCallback;
 import com.hjq.permissions.XXPermissions;
@@ -38,8 +39,6 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.OnClick;
 
 /**
  * Created by Vance on 2016/8/3 :)
@@ -51,45 +50,31 @@ public class UserInfoActivity extends BaseActivity {
     private static final int CAMERA = 1;
     private static final int PICTURE = 2;
 
-    @BindView(R.id.iv_back)
     ImageView ivBack;
-    @BindView(R.id.tv_title)
     TextView tvTitle;
-    @BindView(R.id.iv_setting)
     ImageView ivSetting;
-    @BindView(R.id.iv_icon)
     ImageView ivIcon;
-    @BindView(R.id.tv_icon)
     TextView tvIcon;
-    @BindView(R.id.logout)
     Button logout;
 
     @Override
     protected void initData() {
+        ivBack = findViewById(R.id.iv_back);
+        tvTitle = findViewById(R.id.tv_title);
+        ivSetting = findViewById(R.id.iv_setting);
+        ivIcon = findViewById(R.id.iv_icon);
+        logout = findViewById(R.id.logout);
         tvTitle.setText("用户信息");
         ivSetting.setVisibility(View.GONE);
+
+        ivBack.setOnClickListener(v -> removeCurrentActivity());
+        tvIcon.setOnClickListener(v -> requestPermissions());
+        logout.setOnClickListener(this::logout);
     }
 
     @Override
     protected int getLayoutId() {
         return R.layout.activity_user_info;
-    }
-
-    @OnClick({R.id.iv_back, R.id.tv_icon, R.id.logout})
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.iv_back: // 返回按钮退出
-                removeCurrentActivity();
-                break;
-            case R.id.tv_icon:
-                requestPermissions();
-                break;
-            case R.id.logout: // 退出登录的回调
-                logout(view);
-                break;
-            default:
-                break;
-        }
     }
 
     private void requestPermissions() {
@@ -105,7 +90,7 @@ public class UserInfoActivity extends BaseActivity {
                     @Override
                     public void onGranted(@NonNull List<String> permissions, boolean allGranted) {
                         if (!allGranted) {
-                            ToastUtil.show(getApplicationContext(),"获取部分权限成功，但部分权限未正常授予");
+                            ToastUtil.show(getApplicationContext(), "获取部分权限成功，但部分权限未正常授予");
                             return;
                         }
                         changeIcon();
@@ -114,11 +99,11 @@ public class UserInfoActivity extends BaseActivity {
                     @Override
                     public void onDenied(@NonNull List<String> permissions, boolean doNotAskAgain) {
                         if (doNotAskAgain) {
-                            ToastUtil.show(getApplicationContext(),"被永久拒绝授权，请手动授予权限");
+                            ToastUtil.show(getApplicationContext(), "被永久拒绝授权，请手动授予权限");
                             // 如果是被永久拒绝就跳转到应用权限系统设置页面
                             XXPermissions.startPermissionActivity(UserInfoActivity.this, permissions);
                         } else {
-                            ToastUtil.show(getApplicationContext(),"获取权限失败");
+                            ToastUtil.show(getApplicationContext(), "获取权限失败");
                         }
                     }
                 });
@@ -287,8 +272,9 @@ public class UserInfoActivity extends BaseActivity {
             }
         } else if ("content".equalsIgnoreCase(uri.getScheme())) {
             // Return the remote address
-            if (isGooglePhotosUri(uri))
+            if (isGooglePhotosUri(uri)) {
                 return uri.getLastPathSegment();
+            }
             return getDataColumn(this, uri, null, null);
         }
         // File
@@ -309,8 +295,9 @@ public class UserInfoActivity extends BaseActivity {
                 return cursor.getString(index);
             }
         } finally {
-            if (cursor != null)
+            if (cursor != null) {
                 cursor.close();
+            }
         }
         return null;
     }

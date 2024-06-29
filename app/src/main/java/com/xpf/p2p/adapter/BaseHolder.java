@@ -2,7 +2,6 @@ package com.xpf.p2p.adapter;
 
 import android.view.View;
 
-import butterknife.ButterKnife;
 
 /**
  * Created by xpf on 2016/11/15 :)
@@ -17,7 +16,6 @@ public abstract class BaseHolder<T> {
     public BaseHolder() {
         rootView = initView();
         rootView.setTag(this);
-        ButterKnife.bind(this, rootView);
     }
 
     public View getRootView() {

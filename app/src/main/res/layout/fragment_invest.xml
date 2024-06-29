@@ -11,7 +11,7 @@
         android:background="#FF0000"
         android:theme="@style/Theme.PageIndicatorDefaults" />
 
-    <android.support.v4.view.ViewPager
+    <androidx.viewpager.widget.ViewPager
         android:id="@+id/invest_viewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

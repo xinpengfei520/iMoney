@@ -2,19 +2,18 @@ package com.xpf.common.base;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
 import com.loopj.android.http.RequestParams;
 import com.xpf.common.cons.ResultState;
 import com.xpf.common.ui.LoadingPage;
 import com.xpf.common.utils.UIUtils;
-
-import butterknife.ButterKnife;
 
 /**
  * Created by xpf on 2016/11/14 :)
@@ -26,20 +25,20 @@ public abstract class BaseFragment extends Fragment {
 
     public LoadingPage loadingPage;
     protected Context mContext;
+    protected View mView;
 
     // 返回一个关联的布局文件生成的视图
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         // 方式一:使用Application的实例作为Context的对象
-        View view = UIUtils.getView(getLayoutId());
-        ButterKnife.bind(this, view);
+        mView = UIUtils.getView(getLayoutId());
         mContext = getActivity();
         String url = getUrl();
         if (TextUtils.isEmpty(url)) {
             // 初始化页面数据
             initData(null);
-            return view;
+            return mView;
         } else {
             loadingPage = new LoadingPage(getActivity()) {
 
@@ -50,7 +49,7 @@ public abstract class BaseFragment extends Fragment {
 
                 @Override
                 protected void onSuccess(ResultState resultState, View view_success) {
-                    ButterKnife.bind(BaseFragment.this, view_success); // 别忘了绑定布局
+                    //ButterKnife.bind(BaseFragment.this, view_success); // 别忘了绑定布局
                     initData(resultState.getContent());
                 }
 

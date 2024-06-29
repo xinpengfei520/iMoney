@@ -17,8 +17,6 @@ import com.xpf.p2p.ui.login.contract.LoginContract;
 import com.xpf.p2p.ui.login.presenter.LoginPresenter;
 import com.xpf.p2p.ui.main.view.MainActivity;
 
-import butterknife.BindView;
-import butterknife.OnClick;
 import cn.iwgang.countdownview.CountdownView;
 import cn.smssdk.SMSSDK;
 
@@ -29,18 +27,12 @@ import cn.smssdk.SMSSDK;
 public class LoginActivity extends MvpBaseActivity<LoginContract.IView,
         LoginPresenter<LoginContract.IView>> implements LoginContract.IView {
 
-    @BindView(R.id.log_ed_mob)
-    EditText logEdMob;
-    @BindView(R.id.tvTestUse)
-    TextView tvTestUse;
-    @BindView(R.id.log_ed_pad)
-    EditText logEdPad;
-    @BindView(R.id.log_log_btn)
-    Button logLogBtn;
-    @BindView(R.id.tvSendSmsCode)
-    TextView tvSendSmsCode;
-    @BindView(R.id.countDownView)
-    CountdownView countDownView;
+    private EditText logEdMob;
+    private TextView tvTestUse;
+    private EditText logEdPad;
+    private Button logLogBtn;
+    private TextView tvSendSmsCode;
+    private CountdownView countDownView;
 
     @Override
     protected LoginPresenter<LoginContract.IView> createPresenter() {
@@ -54,10 +46,19 @@ public class LoginActivity extends MvpBaseActivity<LoginContract.IView,
 
     @Override
     protected void initData() {
+        logEdMob = findViewById(R.id.log_ed_mob);
+        tvTestUse = findViewById(R.id.tvTestUse);
+        logEdPad = findViewById(R.id.log_ed_pad);
+        logLogBtn = findViewById(R.id.log_log_btn);
+        tvSendSmsCode = findViewById(R.id.tvSendSmsCode);
+        countDownView = findViewById(R.id.countDownView);
         initListener();
     }
 
     private void initListener() {
+        logLogBtn.setOnClickListener(v -> mPresenter.verifySmsCode());
+        tvTestUse.setOnClickListener(v -> loginSuccess());
+        tvSendSmsCode.setOnClickListener(v -> mPresenter.sendSmsCode());
         countDownView.setOnCountdownEndListener(cv -> {
             countDownView.setVisibility(View.GONE);
             tvSendSmsCode.setVisibility(View.VISIBLE);
@@ -119,21 +120,6 @@ public class LoginActivity extends MvpBaseActivity<LoginContract.IView,
     public void loginSuccess() {
         goToActivity(MainActivity.class, null);
         removeCurrentActivity();
-    }
-
-    @OnClick({R.id.log_log_btn, R.id.tvTestUse, R.id.tvSendSmsCode})
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.log_log_btn:
-                mPresenter.verifySmsCode();
-                break;
-            case R.id.tvTestUse:
-                loginSuccess();
-                break;
-            case R.id.tvSendSmsCode:
-                mPresenter.sendSmsCode();
-                break;
-        }
     }
 
     public static void actionStart(Context context) {

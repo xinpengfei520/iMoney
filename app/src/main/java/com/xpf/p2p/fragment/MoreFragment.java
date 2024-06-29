@@ -16,8 +16,6 @@ import com.xpf.common.base.BaseFragment;
 import com.xpf.p2p.R;
 import com.xpf.p2p.ui.multilanguage.view.MultiLanguageActivity;
 
-import butterknife.BindView;
-import butterknife.OnClick;
 
 /**
  * Created by xpf on 2016/11/11 :)
@@ -26,13 +24,9 @@ import butterknife.OnClick;
 
 public class MoreFragment extends BaseFragment {
 
-    @BindView(R.id.tv_content)
     TextView tvContent;
-    @BindView(R.id.tvLanguage)
     TextView tvLanguage;
-    @BindView(R.id.webView)
     WebView webView;
-    @BindView(R.id.progressBar)
     ProgressBar progressBar;
     private static final String TAG = "MoreFragment";
 
@@ -53,6 +47,17 @@ public class MoreFragment extends BaseFragment {
 
     @Override
     protected void initData(String content) {
+        tvContent = mView.findViewById(R.id.tv_content);
+        tvLanguage = mView.findViewById(R.id.tvLanguage);
+        webView = mView.findViewById(R.id.webView);
+        progressBar = mView.findViewById(R.id.progressBar);
+        tvLanguage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(mContext, MultiLanguageActivity.class));
+            }
+        });
+
         /*// 方式一:
         tvContent.setFocusable(true); // 获取焦点
         tvContent.setFocusableInTouchMode(true);
@@ -92,10 +97,5 @@ public class MoreFragment extends BaseFragment {
         });
 
         webView.loadUrl("https://github.com/xinpengfei520/iMoney");
-    }
-
-    @OnClick(R.id.tvLanguage)
-    public void onViewClicked() {
-        startActivity(new Intent(mContext, MultiLanguageActivity.class));
     }
 }

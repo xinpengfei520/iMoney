@@ -17,9 +17,6 @@ import android.widget.ToggleButton;
 import com.xpf.common.base.BaseActivity;
 import com.xpf.p2p.R;
 
-import butterknife.BindView;
-import butterknife.OnClick;
-
 /**
  * Created by x-sir on 2016/8/3 :)
  * Function:账户安全页面
@@ -27,26 +24,32 @@ import butterknife.OnClick;
  */
 public class AccountSafeActivity extends BaseActivity {
 
-    @BindView(R.id.iv_back)
     ImageView ivBack;
-    @BindView(R.id.tv_title)
     TextView tvTitle;
-    @BindView(R.id.iv_setting)
     ImageView ivSetting;
-    @BindView(R.id.togglebutton)
     ToggleButton togglebutton;
-    @BindView(R.id.btn_resetGesture)
     Button btnResetGesture;
-    @BindView(R.id.activity_account_safe)
     LinearLayout activityAccountSafe;
 
     private SharedPreferences sp;
 
     @Override
     protected void initData() {
+        ivBack = (ImageView) findViewById(R.id.iv_back);
+        tvTitle = (TextView) findViewById(R.id.tv_title);
+        ivSetting = (ImageView) findViewById(R.id.iv_setting);
+        togglebutton = (ToggleButton) findViewById(R.id.togglebutton);
+        btnResetGesture = (Button) findViewById(R.id.btn_resetGesture);
+        activityAccountSafe = (LinearLayout) findViewById(R.id.activity_account_safe);
         ivBack.setVisibility(View.VISIBLE);
         ivSetting.setVisibility(View.GONE);
         tvTitle.setText("账户安全设置");
+
+        ivBack.setOnClickListener(v -> removeCurrentActivity());
+        btnResetGesture.setOnClickListener(v -> {
+            // 给页面中的“button”设置重置密码的点击事件
+            goToActivity(GestureEditActivity.class, null);
+        });
 
         sp = this.getSharedPreferences("secret_protect", Context.MODE_PRIVATE);
         // 读取当前的toggleButton的状态并显示
@@ -109,20 +112,5 @@ public class AccountSafeActivity extends BaseActivity {
     @Override
     protected int getLayoutId() {
         return R.layout.activity_account_safe;
-    }
-
-    @OnClick({R.id.iv_back, R.id.togglebutton, R.id.btn_resetGesture})
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.iv_back:
-                removeCurrentActivity();
-                break;
-            case R.id.togglebutton:
-                break;
-            case R.id.btn_resetGesture:
-                // 给页面中的“button”设置重置密码的点击事件
-                goToActivity(GestureEditActivity.class, null);
-                break;
-        }
     }
 }

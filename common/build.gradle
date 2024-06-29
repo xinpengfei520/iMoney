@@ -1,6 +1,7 @@
 apply plugin: 'com.android.library'
 
 android {
+    namespace 'com.xpf.common'
     compileSdk rootProject.ext.android.compileSdk
     defaultConfig {
         minSdk rootProject.ext.android.minSdk
@@ -27,20 +28,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-
 }
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation rootProject.ext.dependencies.appcompat_v4
-    implementation rootProject.ext.dependencies.appcompat_v7
-    testImplementation rootProject.ext.dependencies.junit
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    implementation rootProject.ext.dependencies.gson
-    implementation rootProject.ext.dependencies.logger
-    implementation rootProject.ext.dependencies.butterknife
-    annotationProcessor rootProject.ext.dependencies.butterknife_compiler
+    implementation "androidx.appcompat:appcompat:1.7.0"
+    implementation 'com.google.code.gson:gson:2.10.1'
+    implementation 'com.orhanobut:logger:2.2.0'
     api files('libs/android-async-http-master.jar')
 }
 

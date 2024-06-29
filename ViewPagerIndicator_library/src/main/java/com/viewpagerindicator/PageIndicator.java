@@ -17,7 +17,7 @@
 
 package com.viewpagerindicator;
 
-import android.support.v4.view.ViewPager;
+import androidx.viewpager.widget.ViewPager;
 
 /**
  * A PageIndicator is responsible to show an visual indicator on the total views
@@ -60,4 +60,8 @@ public interface PageIndicator extends ViewPager.OnPageChangeListener {
      * Notify the indicator that the fragment list has changed.
      */
     void notifyDataSetChanged();
+
+    void onPageScrollStateChanged(int state);
+
+    void onPageScrolled(int position, float positionOffset, int positionOffsetPixels);
 }

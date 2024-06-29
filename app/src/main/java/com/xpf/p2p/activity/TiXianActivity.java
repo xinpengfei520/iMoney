@@ -15,9 +15,6 @@ import com.xpf.common.base.BaseActivity;
 import com.xpf.common.utils.UIUtils;
 import com.xpf.p2p.R;
 
-import butterknife.BindView;
-import butterknife.OnClick;
-
 /**
  * Created by x-sir on 2016/8/3 :)
  * Function:提现页面
@@ -25,34 +22,48 @@ import butterknife.OnClick;
  */
 public class TiXianActivity extends BaseActivity {
 
-    @BindView(R.id.iv_back)
     ImageView ivBack;
-    @BindView(R.id.tv_title)
     TextView tvTitle;
-    @BindView(R.id.iv_setting)
     ImageView ivSetting;
-    @BindView(R.id.account_zhifubao)
     TextView accountZhifubao;
-    @BindView(R.id.select_bank)
     RelativeLayout selectBank;
-    @BindView(R.id.chongzhi_text)
     TextView chongzhiText;
-    @BindView(R.id.view)
     View view;
-    @BindView(R.id.input_money)
     EditText inputMoney;
-    @BindView(R.id.chongzhi_text2)
     TextView chongzhiText2;
-    @BindView(R.id.textView5)
     TextView textView5;
-    @BindView(R.id.btn_tixian)
     Button btnTixian;
 
     @Override
     protected void initData() {
+        ivBack = (ImageView) findViewById(R.id.iv_back);
+        tvTitle = (TextView) findViewById(R.id.tv_title);
+        ivSetting = (ImageView) findViewById(R.id.iv_setting);
+        accountZhifubao = (TextView) findViewById(R.id.account_zhifubao);
+        selectBank = (RelativeLayout) findViewById(R.id.select_bank);
+        chongzhiText = (TextView) findViewById(R.id.chongzhi_text);
+        view = (View) findViewById(R.id.view);
+        inputMoney = (EditText) findViewById(R.id.input_money);
+        chongzhiText2 = (TextView) findViewById(R.id.chongzhi_text2);
+        textView5 = (TextView) findViewById(R.id.textView5);
+        btnTixian = (Button) findViewById(R.id.btn_tixian);
+
         ivBack.setVisibility(View.VISIBLE);
         tvTitle.setText("提现");
         ivSetting.setVisibility(View.GONE);
+
+        ivBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                removeCurrentActivity(); // 结束当前的activity
+            }
+        });
+        btnTixian.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                withdraw(); // 提现
+            }
+        });
 
         btnTixian.setClickable(false);
         //给 EditText设置文本内容变化的监听
@@ -89,18 +100,6 @@ public class TiXianActivity extends BaseActivity {
     @Override
     protected int getLayoutId() {
         return R.layout.activity_ti_xian;
-    }
-
-    @OnClick({R.id.iv_back, R.id.btn_tixian})
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.iv_back:
-                removeCurrentActivity(); // 结束当前的activity
-                break;
-            case R.id.btn_tixian:
-                withdraw(); // 提现
-                break;
-        }
     }
 
     private void withdraw() {

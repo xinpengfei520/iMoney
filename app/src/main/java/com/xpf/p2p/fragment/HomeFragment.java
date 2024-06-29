@@ -1,16 +1,16 @@
 package com.xpf.p2p.fragment;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.PagerAdapter;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
@@ -25,18 +25,14 @@ import com.xpf.p2p.R;
 
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
 /**
  * Created by xpf on 2016/11/11 :)
  * Function:
  */
 public class HomeFragment extends Fragment {
 
-    @BindView(R.id.tv_home_rate)
     TextView tvHomeRate;
-//    @BindView(R.id.viewpager)
+    //    @BindView(R.id.viewpager)
 //    ViewPager viewpager;
 //    @BindView(R.id.cp_home)
 //    CirclePageIndicator cpHome;
@@ -46,7 +42,7 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = View.inflate(getActivity(), R.layout.fragment_home, null);
-        ButterKnife.bind(this, view);
+        tvHomeRate = (TextView) view.findViewById(R.id.tv_home_rate);
         initData();  // 初始化页面数据
         return view;
     }
@@ -107,7 +103,7 @@ public class HomeFragment extends Fragment {
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             // 加载具体的图片
             String imaurl = index.images.get(position).IMAURL;
-            Picasso.with(getActivity()).load(imaurl).into(imageView);
+            Picasso.get().load(imaurl).into(imageView);
             // 添加到当前的container中
             container.addView(imageView);
 

@@ -1,7 +1,6 @@
 package com.xpf.p2p.ui.multilanguage.view;
 
 import android.content.Intent;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -14,23 +13,15 @@ import com.xpf.p2p.activity.WelcomeActivity;
 import com.xpf.p2p.ui.multilanguage.contract.MultiLanguageContract;
 import com.xpf.p2p.ui.multilanguage.presenter.MultiLanguagePresenter;
 
-import butterknife.BindView;
-import butterknife.OnClick;
 
 public class MultiLanguageActivity extends MvpBaseActivity<MultiLanguageContract.IView,
         MultiLanguagePresenter<MultiLanguageContract.IView>> implements MultiLanguageContract.IView {
 
-    @BindView(R.id.ivBack)
     ImageView ivBack;
-    @BindView(R.id.tvSave)
     TextView tvSave;
-    @BindView(R.id.rbSimpleChinese)
     RadioButton rbSimpleChinese;
-    @BindView(R.id.rbFantiChinese)
     RadioButton rbFantiChinese;
-    @BindView(R.id.rbEnglish)
     RadioButton rbEnglish;
-    @BindView(R.id.rgLanguages)
     RadioGroup rgLanguages;
     private int mCurrentLanguage = 0;
 
@@ -46,11 +37,21 @@ public class MultiLanguageActivity extends MvpBaseActivity<MultiLanguageContract
 
     @Override
     protected void initData() {
+        ivBack = findViewById(R.id.ivBack);
+        tvSave = findViewById(R.id.tvSave);
+        rbSimpleChinese = findViewById(R.id.rbSimpleChinese);
+        rbFantiChinese = findViewById(R.id.rbFantiChinese);
+        rbEnglish = findViewById(R.id.rbEnglish);
+        rgLanguages = findViewById(R.id.rgLanguages);
         initListener();
         mPresenter.getLanguageSetting();
     }
 
     private void initListener() {
+        ivBack.setOnClickListener(v -> finish());
+        tvSave.setOnClickListener(v -> {
+            mPresenter.saveSetting(mCurrentLanguage);
+        });
         rgLanguages.setOnCheckedChangeListener((group, checkedId) -> {
             switch (checkedId) {
                 case R.id.rbSimpleChinese:
@@ -64,18 +65,6 @@ public class MultiLanguageActivity extends MvpBaseActivity<MultiLanguageContract
                     break;
             }
         });
-    }
-
-    @OnClick({R.id.ivBack, R.id.tvSave})
-    public void onViewClicked(View view) {
-        switch (view.getId()) {
-            case R.id.ivBack:
-                finish();
-                break;
-            case R.id.tvSave:
-                mPresenter.saveSetting(mCurrentLanguage);
-                break;
-        }
     }
 
     @Override

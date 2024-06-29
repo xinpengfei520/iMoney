@@ -1,9 +1,10 @@
 package com.xpf.p2p.uetool;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatTextView;
 
 public class CustomView extends AppCompatTextView {
 

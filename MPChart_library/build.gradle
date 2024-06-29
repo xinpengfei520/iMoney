@@ -1,6 +1,7 @@
 apply plugin: 'com.android.library'
 
 android {
+    namespace = "com.github.mikephil.charting"
     compileSdk rootProject.ext.android.compileSdk
     defaultConfig {
         minSdk rootProject.ext.android.minSdk

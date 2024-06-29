@@ -6,9 +6,10 @@ import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.multidex.MultiDexApplication;
 
-import com.growingio.android.sdk.collection.GrowingIO;
+import androidx.multidex.MultiDexApplication;
+
+//import com.growingio.android.sdk.collection.GrowingIO;
 import com.mob.MobSDK;
 import com.tencent.bugly.crashreport.CrashReport;
 import com.xpf.common.CommonApplication;
@@ -57,7 +58,7 @@ public class P2PApplication extends MultiDexApplication {
 
         initUETool();
 
-        initGrowingIO();
+//        initGrowingIO();
 
         initJPushSdk();
     }
@@ -67,15 +68,15 @@ public class P2PApplication extends MultiDexApplication {
         JPushInterface.init(this);
     }
 
-    private void initGrowingIO() {
-        GrowingIO.startWithConfiguration(this,
-                new com.growingio.android.sdk.collection.Configuration()
-                        .trackAllFragments()
-                        .setTestMode(BuildConfig.DEBUG)
-                        .setDebugMode(BuildConfig.DEBUG)
-                        .setChannel("pgyer")
-        );
-    }
+//    private void initGrowingIO() {
+//        GrowingIO.startWithConfiguration(this,
+//                new com.growingio.android.sdk.collection.Configuration()
+//                        .trackAllFragments()
+//                        .setTestMode(BuildConfig.DEBUG)
+//                        .setDebugMode(BuildConfig.DEBUG)
+//                        .setChannel("pgyer")
+//        );
+//    }
 
     private void initUETool() {
         UETool.putFilterClass(FilterOutView.class);

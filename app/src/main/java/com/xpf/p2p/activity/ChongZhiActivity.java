@@ -28,8 +28,6 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.Random;
 
-import butterknife.BindView;
-import butterknife.OnClick;
 
 /**
  * Created by Vance on 2016/8/3 :)
@@ -44,21 +42,13 @@ public class ChongZhiActivity extends BaseActivity {
     private static final String RSA_PRIVATE = PayKeys.PRIVATE;
     private static final int SDK_PAY_FLAG = 1;
 
-    @BindView(R.id.iv_back)
     ImageView ivBack;
-    @BindView(R.id.tv_title)
     TextView tvTitle;
-    @BindView(R.id.iv_setting)
     ImageView ivSetting;
-    @BindView(R.id.chongzhi_text)
     TextView chongzhiText;
-    @BindView(R.id.chongzhi_et)
     EditText chongzhiEt;
-    @BindView(R.id.chongzhi_text2)
     TextView chongzhiText2;
-    @BindView(R.id.yue_tv)
     TextView yueTv;
-    @BindView(R.id.chongzhi_btn)
     Button chongzhiBtn;
 
     @SuppressLint("HandlerLeak")
@@ -94,10 +84,26 @@ public class ChongZhiActivity extends BaseActivity {
 
     @Override
     protected void initData() {
+        ivBack = findViewById(R.id.iv_back);
+        tvTitle = findViewById(R.id.tv_title);
+        ivSetting = findViewById(R.id.iv_setting);
+        chongzhiText = findViewById(R.id.chongzhi_text);
+        chongzhiEt = findViewById(R.id.chongzhi_et);
+        chongzhiText2 = findViewById(R.id.chongzhi_text2);
+        yueTv = findViewById(R.id.yue_tv);
+        chongzhiBtn = findViewById(R.id.chongzhi_btn);
+
         ivBack.setVisibility(View.VISIBLE);
         tvTitle.setText("充值");
         ivSetting.setVisibility(View.GONE);
         chongzhiBtn.setClickable(false); // 默认充值按钮不可点击
+
+        ivBack.setOnClickListener(v -> {
+            removeCurrentActivity(); // 销毁当前的activity
+        });
+        chongzhiBtn.setOnClickListener(v -> {
+            recharge(); // 充值
+        });
 
         // 给EditText设置文本内容变化的监听
         chongzhiEt.addTextChangedListener(new TextWatcher() {
@@ -134,18 +140,6 @@ public class ChongZhiActivity extends BaseActivity {
     @Override
     protected int getLayoutId() {
         return R.layout.activity_chong_zhi;
-    }
-
-    @OnClick({R.id.iv_back, R.id.chongzhi_btn})
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.iv_back:
-                removeCurrentActivity(); // 销毁当前的activity
-                break;
-            case R.id.chongzhi_btn:
-                recharge(); // 充值
-                break;
-        }
     }
 
     private void recharge() {

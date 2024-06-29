@@ -14,7 +14,6 @@ import com.xpf.p2p.widget.FlowLayout;
 
 import java.util.Random;
 
-import butterknife.BindView;
 
 /**
  * Created by xpf on 2016/11/15 :)
@@ -23,7 +22,6 @@ import butterknife.BindView;
 
 public class ProductHotFragment extends BaseFragment {
 
-    @BindView(R.id.flow_layout)
     FlowLayout flowLayout;
 
     private String[] mData = new String[]{"新手计划", "乐享活系列90天计划", "钱包", "30天理财计划(加息2%)",
@@ -47,6 +45,7 @@ public class ProductHotFragment extends BaseFragment {
 
     @Override
     protected void initData(String content) {
+        flowLayout = (FlowLayout) mView.findViewById(R.id.flow_layout);
         Random random = new Random();
 
         for (String text : mData) {

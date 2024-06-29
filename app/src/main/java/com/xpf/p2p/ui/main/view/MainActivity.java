@@ -2,7 +2,6 @@ package com.xpf.p2p.ui.main.view;
 
 import android.content.Intent;
 import android.os.Handler;
-import android.support.v4.app.FragmentTransaction;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -10,6 +9,8 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+
+import androidx.fragment.app.FragmentTransaction;
 
 import com.xpf.common.base.MvpBaseActivity;
 import com.xpf.common.utils.ToastUtil;
@@ -23,8 +24,6 @@ import com.xpf.p2p.ui.main.contract.MainContract;
 import com.xpf.p2p.ui.main.presenter.MainPresenter;
 import com.xsir.pgyerappupdate.library.PgyerApi;
 
-import butterknife.BindView;
-import butterknife.OnClick;
 import me.ele.uetool.UETool;
 
 /**
@@ -35,23 +34,14 @@ import me.ele.uetool.UETool;
 public class MainActivity extends MvpBaseActivity<MainContract.IView,
         MainPresenter<MainContract.IView>> implements MainContract.IView {
 
-    @BindView(R.id.iv_back)
     ImageView ivBack;
-    @BindView(R.id.tv_title)
     TextView tvTitle;
-    @BindView(R.id.iv_setting)
     ImageView ivSetting;
-    @BindView(R.id.fl_main)
     FrameLayout flMain;
-    @BindView(R.id.rb_home)
     RadioButton rbHome;
-    @BindView(R.id.rb_invest)
     RadioButton rbInvest;
-    @BindView(R.id.rb_assets)
     RadioButton rbAssets;
-    @BindView(R.id.rb_more)
     RadioButton rbMore;
-    @BindView(R.id.rg_main)
     RadioGroup rgMain;
 
     private HomeFragment2 homeFragment;
@@ -66,6 +56,47 @@ public class MainActivity extends MvpBaseActivity<MainContract.IView,
 
     @Override
     protected void initData() {
+        ivBack = (ImageView) findViewById(R.id.iv_back);
+        tvTitle = (TextView) findViewById(R.id.tv_title);
+        ivSetting = (ImageView) findViewById(R.id.iv_setting);
+        flMain = (FrameLayout) findViewById(R.id.fl_main);
+        rbHome = (RadioButton) findViewById(R.id.rb_home);
+        rbInvest = (RadioButton) findViewById(R.id.rb_invest);
+        rbAssets = (RadioButton) findViewById(R.id.rb_assets);
+        rbMore = (RadioButton) findViewById(R.id.rb_more);
+        rgMain = (RadioGroup) findViewById(R.id.rg_main);
+
+        ivSetting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, UserInfoActivity.class));
+            }
+        });
+        rbHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setSelect(0);
+            }
+        });
+        rbInvest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setSelect(1);
+            }
+        });
+        rbAssets.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setSelect(2);
+            }
+        });
+        rbMore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setSelect(3);
+            }
+        });
+
         // 显示 UETool
         UETool.showUETMenu();
         // 显示 UETool 到 y 轴的坐标
@@ -89,29 +120,6 @@ public class MainActivity extends MvpBaseActivity<MainContract.IView,
     @Override
     protected int getLayoutId() {
         return R.layout.activity_main;
-    }
-
-    @OnClick({R.id.iv_back, R.id.iv_setting, R.id.rb_home, R.id.rb_invest, R.id.rb_assets, R.id.rb_more})
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.iv_back:
-                break;
-            case R.id.iv_setting:
-                startActivity(new Intent(MainActivity.this, UserInfoActivity.class));
-                break;
-            case R.id.rb_home:
-                setSelect(0);
-                break;
-            case R.id.rb_invest:
-                setSelect(1);
-                break;
-            case R.id.rb_assets:
-                setSelect(2);
-                break;
-            case R.id.rb_more:
-                setSelect(3);
-                break;
-        }
     }
 
     /**

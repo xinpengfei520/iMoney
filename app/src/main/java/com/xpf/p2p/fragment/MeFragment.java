@@ -22,12 +22,8 @@ import com.xpf.common.utils.SpUtil;
 import com.xpf.common.utils.TimeUtil;
 import com.xpf.common.utils.UIUtils;
 import com.xpf.p2p.R;
-import com.xpf.p2p.activity.AccountSafeActivity;
-import com.xpf.p2p.activity.BarChartActivity;
 import com.xpf.p2p.activity.ChongZhiActivity;
 import com.xpf.p2p.activity.GestureVerifyActivity;
-import com.xpf.p2p.activity.LineChartActivity;
-import com.xpf.p2p.activity.PieChartActivity;
 import com.xpf.p2p.activity.TiXianActivity;
 import com.xpf.p2p.ui.login.view.LoginActivity;
 import com.xpf.p2p.utils.BitmapUtils;
@@ -35,8 +31,6 @@ import com.xpf.p2p.utils.UserInfoUtils;
 
 import java.io.File;
 
-import butterknife.BindView;
-import butterknife.OnClick;
 
 /**
  * Created by xpf on 2016/11/11 :)
@@ -45,23 +39,14 @@ import butterknife.OnClick;
  */
 public class MeFragment extends BaseFragment {
 
-    @BindView(R.id.imageView1)
     ImageView imageView1;
-    @BindView(R.id.icon_time)
     RelativeLayout iconTime;
-    @BindView(R.id.textView11)
     TextView textView11;
-    @BindView(R.id.recharge)
     ImageView recharge;
-    @BindView(R.id.withdraw)
     ImageView withdraw;
-    @BindView(R.id.ll_touzi)
     TextView llTouzi;
-    @BindView(R.id.ll_touzi_zhiguan)
     TextView llTouziZhiguan;
-    @BindView(R.id.ll_zichang)
     TextView llZichang;
-    @BindView(R.id.ll_zhanquan)
     TextView llZhanquan;
     private static final String TAG = MeFragment.class.getSimpleName();
 
@@ -82,6 +67,41 @@ public class MeFragment extends BaseFragment {
 
     @Override
     protected void initData(String content) {
+        imageView1 = (ImageView) mView.findViewById(R.id.imageView1);
+        iconTime = (RelativeLayout) mView.findViewById(R.id.icon_time);
+        textView11 = (TextView) mView.findViewById(R.id.textView11);
+        recharge = (ImageView) mView.findViewById(R.id.recharge);
+        withdraw = (ImageView) mView.findViewById(R.id.withdraw);
+        llTouzi = (TextView) mView.findViewById(R.id.ll_touzi);
+        llTouziZhiguan = (TextView) mView.findViewById(R.id.ll_touzi_zhiguan);
+        llZichang = (TextView) mView.findViewById(R.id.ll_zichang);
+        llZhanquan = (TextView) mView.findViewById(R.id.ll_zhanquan);
+
+        recharge.setOnClickListener(v -> {
+            // 跳转到充值页面
+            ((BaseActivity) getActivity()).goToActivity(ChongZhiActivity.class, null);
+        });
+        withdraw.setOnClickListener(v -> {
+            // 跳转到提现页面
+            ((BaseActivity) getActivity()).goToActivity(TiXianActivity.class, null);
+        });
+        llTouzi.setOnClickListener(v -> {
+            // 跳转到充值页面
+            ((BaseActivity) getActivity()).goToActivity(ChongZhiActivity.class, null);
+        });
+        llTouziZhiguan.setOnClickListener(v -> {
+            // 跳转到充值页面
+            ((BaseActivity) getActivity()).goToActivity(ChongZhiActivity.class, null);
+        });
+        llZichang.setOnClickListener(v -> {
+            // 跳转到充值页面
+            ((BaseActivity) getActivity()).goToActivity(ChongZhiActivity.class, null);
+        });
+        llZhanquan.setOnClickListener(v -> {
+            // 跳转到充值页面
+            ((BaseActivity) getActivity()).goToActivity(ChongZhiActivity.class, null);
+        });
+
         isLogin(); // 判断是否需要显示需要登录的提示
     }
 
@@ -123,7 +143,7 @@ public class MeFragment extends BaseFragment {
 
         if (!TextUtils.isEmpty(user.UF_AVATAR_URL)) {
             // 另一方面,加载显示用户头像
-            Picasso.with(getActivity()).load(user.UF_AVATAR_URL).transform(new Transformation() {
+            Picasso.get().load(user.UF_AVATAR_URL).transform(new Transformation() {
                 @Override
                 public Bitmap transform(Bitmap source) {
                     // 对Bitmap进行压缩处理
@@ -163,32 +183,6 @@ public class MeFragment extends BaseFragment {
             // 存储--->内存
             Bitmap bitmap = BitmapFactory.decodeFile(filePath);
             imageView1.setImageBitmap(bitmap);
-        }
-    }
-
-    @OnClick({R.id.recharge, R.id.withdraw, R.id.ll_touzi, R.id.ll_touzi_zhiguan, R.id.ll_zichang, R.id.ll_zhanquan})
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.recharge:
-                ((BaseActivity) this.getActivity()).goToActivity(ChongZhiActivity.class, null);
-                break;
-            case R.id.withdraw:
-                ((BaseActivity) this.getActivity()).goToActivity(TiXianActivity.class, null);
-                break;
-            case R.id.ll_touzi:
-                ((BaseActivity) this.getActivity()).goToActivity(LineChartActivity.class, null);
-                break;
-            case R.id.ll_touzi_zhiguan:
-                ((BaseActivity) this.getActivity()).goToActivity(BarChartActivity.class, null);
-                break;
-            case R.id.ll_zichang:
-                ((BaseActivity) this.getActivity()).goToActivity(PieChartActivity.class, null);
-                break;
-            case R.id.ll_zhanquan:
-                ((BaseActivity) this.getActivity()).goToActivity(AccountSafeActivity.class, null);
-                break;
-            default:
-                break;
         }
     }
 }

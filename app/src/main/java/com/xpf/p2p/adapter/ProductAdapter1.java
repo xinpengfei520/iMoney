@@ -10,9 +10,6 @@ import com.xpf.p2p.widget.RoundProgress;
 
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
 /**
  * Created by xpf on 2016/11/15 :)
  * Function:继承父类并实现自己特有的getView()方法
@@ -51,23 +48,22 @@ public class ProductAdapter1 extends MyBaseAdapter1<Product> {
     }
 
     static class ViewHolder {
-        @BindView(R.id.p_name)
         TextView pName;
-        @BindView(R.id.p_money)
         TextView pMoney;
-        @BindView(R.id.p_yearlv)
         TextView pYearlv;
-        @BindView(R.id.p_suodingdays)
         TextView pSuodingdays;
-        @BindView(R.id.p_minzouzi)
         TextView pMinzouzi;
-        @BindView(R.id.p_minnum)
         TextView pMinnum;
-        @BindView(R.id.p_progresss)
         RoundProgress pProgresss;
 
         ViewHolder(View view) {
-            ButterKnife.bind(this, view);
+            pName = (TextView) view.findViewById(R.id.p_name);
+            pMoney = (TextView) view.findViewById(R.id.p_money);
+            pYearlv = (TextView) view.findViewById(R.id.p_yearlv);
+            pSuodingdays = (TextView) view.findViewById(R.id.p_suodingdays);
+            pMinzouzi = (TextView) view.findViewById(R.id.p_minzouzi);
+            pMinnum = (TextView) view.findViewById(R.id.p_minnum);
+            pProgresss = (RoundProgress) view.findViewById(R.id.p_progresss);
         }
     }
 }

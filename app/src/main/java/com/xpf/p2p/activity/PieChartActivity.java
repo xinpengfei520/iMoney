@@ -18,8 +18,6 @@ import com.xpf.p2p.R;
 
 import java.util.ArrayList;
 
-import butterknife.BindView;
-import butterknife.OnClick;
 
 /**
  * Created by xpf on 2016/11/11 :)
@@ -28,22 +26,23 @@ import butterknife.OnClick;
  */
 public class PieChartActivity extends BaseActivity {
 
-    @BindView(R.id.iv_back)
-    ImageView ivBack;
-    @BindView(R.id.tv_title)
-    TextView tvTitle;
-    @BindView(R.id.iv_setting)
-    ImageView ivSetting;
-    @BindView(R.id.pieChart)
-    PieChart pieChart;
+    private ImageView ivBack;
+    private TextView tvTitle;
+    private ImageView ivSetting;
+    private PieChart pieChart;
 
     private Typeface mTf;
 
     @Override
     protected void initData() {
+        ivBack = (ImageView) findViewById(R.id.iv_back);
+        tvTitle = (TextView) findViewById(R.id.tv_title);
+        pieChart = (PieChart) findViewById(R.id.pieChart);
         ivBack.setVisibility(View.VISIBLE);
         ivSetting.setVisibility(View.GONE);
         tvTitle.setText("饼状图");
+
+        ivBack.setOnClickListener(v -> removeCurrentActivity());
 
         // 初始化字体库
         mTf = Typeface.createFromAsset(getAssets(), "OpenSans-Regular.ttf");
@@ -92,11 +91,6 @@ public class PieChartActivity extends BaseActivity {
     @Override
     protected int getLayoutId() {
         return R.layout.activity_pie_chart;
-    }
-
-    @OnClick(R.id.iv_back)
-    public void onClick() {
-        removeCurrentActivity();
     }
 
     /**

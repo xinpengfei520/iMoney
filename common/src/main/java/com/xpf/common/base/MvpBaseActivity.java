@@ -3,11 +3,11 @@ package com.xpf.common.base;
 import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.xpf.common.manager.ActivityManager;
 
-import butterknife.ButterKnife;
 
 /**
  * Created by xpf on 2017/7/7 :)
@@ -28,7 +28,6 @@ public abstract class MvpBaseActivity<V, T extends MvpBasePresenter<V>> extends 
         if (actionBar != null) {
             actionBar.hide();
         }
-        ButterKnife.bind(this);
         ActivityManager.getInstance().add(this);
         initData();
     }

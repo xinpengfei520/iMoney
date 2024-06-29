@@ -1,7 +1,8 @@
 package com.xpf.p2p.fragment;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
+
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 
 import com.loopj.android.http.RequestParams;
 import com.viewpagerindicator.TabPageIndicator;
@@ -12,7 +13,6 @@ import com.xpf.p2p.adapter.MyPagerAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindView;
 
 /**
  * Created by xpf on 2016/11/11 :)
@@ -21,9 +21,7 @@ import butterknife.BindView;
 
 public class InvestFragment extends BaseFragment {
 
-    @BindView(R.id.tab_indicator)
     TabPageIndicator tabIndicator;
-    @BindView(R.id.invest_viewPager)
     ViewPager mViewPager;
     private MyPagerAdapter mAdapter;
     private List<Fragment> mFragments = new ArrayList<>();
@@ -45,6 +43,8 @@ public class InvestFragment extends BaseFragment {
 
     @Override
     protected void initData(String content) {
+        tabIndicator = (TabPageIndicator) mView.findViewById(R.id.tab_indicator);
+        mViewPager = (ViewPager) mView.findViewById(R.id.invest_viewPager);
         initFragments();
         setViewPagerAdapter();
     }
