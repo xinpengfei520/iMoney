@@ -7,11 +7,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 import com.xpf.common.base.BaseActivity;
 import com.xpf.p2p.R;
 
@@ -46,7 +48,9 @@ public class LineChartActivity extends BaseActivity {
         // 加载本地的字体库
         mTf = Typeface.createFromAsset(getAssets(), "OpenSans-Regular.ttf");
         // 设置图表的描述
-        lineChart.setDescription("我的资产的变化情况");
+        Description description = new Description();
+        description.setText("我的资产的变化情况");
+        lineChart.setDescription(description);
         // 是否设置网格背景
         lineChart.setDrawGridBackground(false);
 
@@ -116,7 +120,8 @@ public class LineChartActivity extends BaseActivity {
         ArrayList<LineDataSet> sets = new ArrayList<LineDataSet>();
         sets.add(d1);
 
-        LineData cd = new LineData(getMonths(), sets);
+        //LineData cd = new LineData(getMonths(), sets);
+        LineData cd = new LineData((ILineDataSet) sets);
         return cd;
     }
 

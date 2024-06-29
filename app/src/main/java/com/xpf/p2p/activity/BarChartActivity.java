@@ -6,11 +6,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.xpf.common.base.BaseActivity;
 import com.xpf.p2p.R;
@@ -47,7 +49,9 @@ public class BarChartActivity extends BaseActivity {
         //初始化字体库
         mTf = Typeface.createFromAsset(getAssets(), "OpenSans-Regular.ttf");
         //图表的描述
-        barChart.setDescription("三星note7爆炸事件关注度");
+        Description description = new Description();
+        description.setText("三星note7爆炸事件关注度");
+        barChart.setDescription(description);
         //设置网格背景
         barChart.setDrawGridBackground(false);
         //是否设置阴影的显示
@@ -105,13 +109,13 @@ public class BarChartActivity extends BaseActivity {
 
         BarDataSet d = new BarDataSet(entries, "New DataSet ");
         // 设置柱状图之间的间距
-        d.setBarSpacePercent(20f);
+        //d.setBarSpacePercent(20f);
         // 设置显示的柱状图的颜色
         d.setColors(ColorTemplate.VORDIPLOM_COLORS);
         // 设置高亮的透明度：当点击柱状图时显示的透明度
         d.setHighLightAlpha(255);
 
-        BarData cd = new BarData(getMonths(), d);
+        BarData cd = new BarData(d);
         return cd;
     }
 

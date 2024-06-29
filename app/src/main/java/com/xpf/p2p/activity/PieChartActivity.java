@@ -7,10 +7,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
+import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.formatter.PercentFormatter;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.xpf.common.base.BaseActivity;
@@ -47,7 +49,9 @@ public class PieChartActivity extends BaseActivity {
         // 初始化字体库
         mTf = Typeface.createFromAsset(getAssets(), "OpenSans-Regular.ttf");
 
-        pieChart.setDescription("目前android市场的占比情况");
+        Description description = new Description();
+        description.setText("目前android市场的占比情况");
+        pieChart.setDescription(description);
         // 设置内部圆的半径
         pieChart.setHoleRadius(52f);
         // 设置包裹内部圆的半径
@@ -77,7 +81,7 @@ public class PieChartActivity extends BaseActivity {
         //获取图示的说明结构
         Legend l = pieChart.getLegend();
         //设置显示的位置
-        l.setPosition(Legend.LegendPosition.RIGHT_OF_CHART);
+        //l.setPosition(Legend.LegendPosition.RIGHT_OF_CHART);
         //设置几项说明在Y轴方向的间距
         l.setYEntrySpace(10f);
         //设置第一项距离y轴顶部的间距
@@ -98,10 +102,10 @@ public class PieChartActivity extends BaseActivity {
      */
     private PieData generateDataPie() {
 
-        ArrayList<Entry> entries = new ArrayList<Entry>();
+        ArrayList<PieEntry> entries = new ArrayList<PieEntry>();
 
         for (int i = 0; i < 4; i++) {
-            entries.add(new Entry((int) (Math.random() * 70) + 30, i));
+            entries.add(new PieEntry((int) (Math.random() * 70) + 30, i));
         }
 
         PieDataSet d = new PieDataSet(entries, "");
@@ -111,7 +115,8 @@ public class PieChartActivity extends BaseActivity {
         // 设置各个扇形部分的颜色
         d.setColors(ColorTemplate.VORDIPLOM_COLORS);
 
-        PieData cd = new PieData(getQuarters(), d);
+        //PieData cd = new PieData(getQuarters(), d);
+        PieData cd = new PieData(d);
         return cd;
     }
 
