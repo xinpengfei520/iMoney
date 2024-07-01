@@ -129,7 +129,7 @@ dependencies {
     debugImplementation 'me.ele:uetool:1.1.4'
     debugImplementation 'me.ele:uetool-fresco:1.1.4'
     releaseImplementation 'me.ele:uetool-no-op:1.1.4'
-//    implementation 'com.growingio.android:vds-android-agent:autotrack-2.8.2@aar'
+    implementation 'com.growingio.android:vds-android-agent:autotrack-2.8.2@aar'
 }
 
 def getApkFullPath() {
@@ -173,7 +173,6 @@ tasks.register('launchApp') {
 
 def executeCommand(command) {
     println "command:" + command
-
     try {
         exec {
             ExecSpec execSpec -> executable 'bash' args '-c', command
