@@ -230,7 +230,7 @@ public class WelcomeActivity extends Activity {
             client.post(updateUrl, new AsyncHttpResponseHandler() {
                 @Override
                 public void onSuccess(String json) {
-                    LogUtils.json(TAG, json);
+                    LogUtils.d(TAG, json);
                     // 使用fastJson解析json数据
                     updateInfo = JSON.parseObject(json, UpdateInfo.class);
                     handler.sendEmptyMessage(WHAT_DOWNLOAD_VERSION_SUCCESS);

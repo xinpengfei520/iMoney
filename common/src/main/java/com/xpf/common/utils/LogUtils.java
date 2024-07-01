@@ -57,47 +57,4 @@ public class LogUtils {
             Log.wtf(TAG, message);
         }
     }
-
-    public static void eLogging(String TAG, String message) {
-        if (mDebug) {
-            com.orhanobut.logger.Logger.t(TAG).e(message);
-        }
-    }
-
-
-    public static void iLogging(String TAG, String message) {
-        if (mDebug) {
-            com.orhanobut.logger.Logger.t(TAG).i(message);
-        }
-    }
-
-    public static void dLogging(String TAG, String message) {
-        if (mDebug) {
-            com.orhanobut.logger.Logger.t(TAG).d(message);
-        }
-    }
-
-    public static void vLogging(String TAG, String message) {
-        if (mDebug) {
-            com.orhanobut.logger.Logger.t(TAG).v(message);
-        }
-    }
-
-    public static void wLogging(String TAG, String message) {
-        if (mDebug) {
-            com.orhanobut.logger.Logger.t(TAG).w(message);
-        }
-    }
-
-    public static void wtfLogging(String TAG, String message) {
-        if (mDebug) {
-            com.orhanobut.logger.Logger.t(TAG).wtf(message);
-        }
-    }
-
-    public static void json(String TAG, String json) {
-        if (mDebug) {
-            com.orhanobut.logger.Logger.t(TAG).json(json);
-        }
-    }
 }

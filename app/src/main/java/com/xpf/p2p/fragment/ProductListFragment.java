@@ -44,9 +44,9 @@ public class ProductListFragment extends BaseFragment {
 
     @Override
     protected void initData(String content) { // content即为响应成功情况下,返回的product.json数据
-        product_listview = (ListView) mView.findViewById(R.id.product_listview);
+        product_listview = mView.findViewById(R.id.product_listview);
         if (!TextUtils.isEmpty(content)) {
-            LogUtils.json(TAG, content);
+            LogUtils.d(TAG, content);
             // 解析json数据
             JSONObject jsonObject = JSON.parseObject(content);
             boolean isSuccess = jsonObject.getBoolean("success");
@@ -62,7 +62,7 @@ public class ProductListFragment extends BaseFragment {
     }
 
     private void setAdapter() {
-        if (products != null && products.size() > 0) {
+        if (products != null && !products.isEmpty()) {
             // 创建Adapter的实例并显示列表
             product_listview.setAdapter(new ProductAdapter(products));
 
