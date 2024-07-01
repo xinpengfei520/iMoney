@@ -1,4 +1,4 @@
-package com.atguigu.p2p;
+package com.xpf.p2p;
 
 import org.junit.Test;
 
