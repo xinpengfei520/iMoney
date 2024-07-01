@@ -12,10 +12,9 @@ import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
-import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
 import com.github.mikephil.charting.utils.ColorTemplate;
-import com.xpf.common.base.BaseActivity;
 import com.xpf.p2p.R;
+import com.xpf.p2p.base.BaseActivity;
 
 import java.util.ArrayList;
 
@@ -36,10 +35,10 @@ public class BarChartActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        ivBack = (ImageView) findViewById(R.id.iv_back);
-        tvTitle = (TextView) findViewById(R.id.tv_title);
-        ivSetting = (ImageView) findViewById(R.id.iv_setting);
-        barChart = (BarChart) findViewById(R.id.barChart);
+        ivBack = findViewById(R.id.iv_back);
+        tvTitle = findViewById(R.id.tv_title);
+        ivSetting = findViewById(R.id.iv_setting);
+        barChart = findViewById(R.id.barChart);
         ivBack.setVisibility(View.VISIBLE);
         ivSetting.setVisibility(View.GONE);
         tvTitle.setText("柱状图");

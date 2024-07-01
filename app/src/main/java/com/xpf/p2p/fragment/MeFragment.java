@@ -4,7 +4,6 @@ import android.app.AlertDialog;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.text.TextUtils;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -13,20 +12,20 @@ import android.widget.Toast;
 import com.loopj.android.http.RequestParams;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Transformation;
-import com.xpf.common.base.BaseActivity;
-import com.xpf.common.base.BaseFragment;
-import com.xpf.common.base.MvpBaseActivity;
-import com.xpf.common.bean.User;
-import com.xpf.common.cons.SpKey;
-import com.xpf.common.utils.SpUtil;
-import com.xpf.common.utils.TimeUtil;
-import com.xpf.common.utils.UIUtils;
 import com.xpf.p2p.R;
 import com.xpf.p2p.activity.ChongZhiActivity;
 import com.xpf.p2p.activity.GestureVerifyActivity;
 import com.xpf.p2p.activity.TiXianActivity;
+import com.xpf.p2p.base.BaseActivity;
+import com.xpf.p2p.base.BaseFragment;
+import com.xpf.p2p.base.MvpBaseActivity;
+import com.xpf.p2p.constants.SpKey;
+import com.xpf.p2p.entity.User;
 import com.xpf.p2p.ui.login.view.LoginActivity;
 import com.xpf.p2p.utils.BitmapUtils;
+import com.xpf.p2p.utils.SpUtil;
+import com.xpf.p2p.utils.TimeUtil;
+import com.xpf.p2p.utils.UIUtils;
 import com.xpf.p2p.utils.UserInfoUtils;
 
 import java.io.File;
@@ -67,15 +66,15 @@ public class MeFragment extends BaseFragment {
 
     @Override
     protected void initData(String content) {
-        imageView1 = (ImageView) mView.findViewById(R.id.imageView1);
-        iconTime = (RelativeLayout) mView.findViewById(R.id.icon_time);
-        textView11 = (TextView) mView.findViewById(R.id.textView11);
-        recharge = (ImageView) mView.findViewById(R.id.recharge);
-        withdraw = (ImageView) mView.findViewById(R.id.withdraw);
-        llTouzi = (TextView) mView.findViewById(R.id.ll_touzi);
-        llTouziZhiguan = (TextView) mView.findViewById(R.id.ll_touzi_zhiguan);
-        llZichang = (TextView) mView.findViewById(R.id.ll_zichang);
-        llZhanquan = (TextView) mView.findViewById(R.id.ll_zhanquan);
+        imageView1 = mView.findViewById(R.id.imageView1);
+        iconTime = mView.findViewById(R.id.icon_time);
+        textView11 = mView.findViewById(R.id.textView11);
+        recharge = mView.findViewById(R.id.recharge);
+        withdraw = mView.findViewById(R.id.withdraw);
+        llTouzi = mView.findViewById(R.id.ll_touzi);
+        llTouziZhiguan = mView.findViewById(R.id.ll_touzi_zhiguan);
+        llZichang = mView.findViewById(R.id.ll_zichang);
+        llZhanquan = mView.findViewById(R.id.ll_zhanquan);
 
         recharge.setOnClickListener(v -> {
             // 跳转到充值页面

@@ -1,6 +1,6 @@
 package com.xpf.p2p.ui.main.presenter;
 
-import com.xpf.common.base.MvpBasePresenter;
+import com.xpf.p2p.base.MvpBasePresenter;
 import com.xpf.p2p.ui.main.contract.MainContract;
 import com.xpf.p2p.ui.main.model.MainModel;
 

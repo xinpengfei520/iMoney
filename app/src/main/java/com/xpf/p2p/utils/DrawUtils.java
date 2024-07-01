@@ -4,7 +4,6 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.StateListDrawable;
 
-import com.xpf.common.utils.UIUtils;
 
 /**
  * DrawUtils绘制矩形的工具类
@@ -15,7 +14,7 @@ public class DrawUtils {
     public static GradientDrawable getDrawable(int rgb, float radius) {
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setColor(rgb);  //填充颜色
-        gradientDrawable.setGradientType(GradientDrawable.RECTANGLE); // shape矩形
+        gradientDrawable.setGradientType(GradientDrawable.LINEAR_GRADIENT); // shape矩形
         gradientDrawable.setCornerRadius(radius);  //四周圆角半径
         gradientDrawable.setStroke(UIUtils.dp2px(1), rgb); //边框厚度与颜色
         return gradientDrawable;

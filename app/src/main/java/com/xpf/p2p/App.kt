@@ -5,18 +5,20 @@ import android.app.Activity
 import android.content.Context
 import android.content.res.Configuration
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.os.Process
 import androidx.multidex.MultiDexApplication
 import cn.jpush.android.api.JPushInterface
 import com.growingio.android.sdk.collection.GrowingIO
 import com.mob.MobSDK
 import com.tencent.bugly.crashreport.CrashReport
-import com.xpf.common.CommonApplication
-import com.xpf.common.cons.SpKey
-import com.xpf.common.utils.LocaleUtils
-import com.xpf.common.utils.SpUtil
 import com.xpf.http.OklaClient
 import com.xpf.http.logger.XLog
+import com.xpf.p2p.constants.SpKey
 import com.xpf.p2p.uetool.FilterOutView
+import com.xpf.p2p.utils.LocaleUtils
+import com.xpf.p2p.utils.SpUtil
 import me.ele.uetool.UETool
 import java.util.Locale
 
@@ -29,7 +31,10 @@ class App : MultiDexApplication() {
     override fun onCreate() {
         super.onCreate()
         context = this.applicationContext
-        CommonApplication.initialize(this)
+        mHandler = Handler(Looper.getMainLooper())
+        mainThread = Thread.currentThread() // 当前用于初始化Application的线程，即为主线程
+        mainThreadId = Process.myTid() /* 获取当前主线程的id */
+
         OklaClient.getInstance().init(this)
         // 设置出现未捕获异常时的处理类
         //CrashHandler.getInstance().init();
@@ -157,5 +162,8 @@ class App : MultiDexApplication() {
     companion object {
         @SuppressLint("StaticFieldLeak")
         var context: Context? = null
+        var mHandler: Handler? = null
+        var mainThread: Thread? = null // 获取主线程
+        var mainThreadId: Int = -1 // 获取主线程的id
     }
 }

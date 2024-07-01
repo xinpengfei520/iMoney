@@ -14,8 +14,8 @@ import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
-import com.xpf.common.base.BaseActivity;
 import com.xpf.p2p.R;
+import com.xpf.p2p.base.BaseActivity;
 
 import java.util.ArrayList;
 
@@ -36,10 +36,10 @@ public class LineChartActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        ivBack = (ImageView) findViewById(R.id.iv_back);
-        tvTitle = (TextView) findViewById(R.id.tv_title);
-        ivSetting = (ImageView) findViewById(R.id.iv_setting);
-        lineChart = (LineChart) findViewById(R.id.lineChart);
+        ivBack = findViewById(R.id.iv_back);
+        tvTitle = findViewById(R.id.tv_title);
+        ivSetting = findViewById(R.id.iv_setting);
+        lineChart = findViewById(R.id.lineChart);
         ivBack.setVisibility(View.VISIBLE);
         tvTitle.setText("折线图");
         ivSetting.setVisibility(View.GONE);

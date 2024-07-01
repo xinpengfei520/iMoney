@@ -8,7 +8,8 @@ import android.net.Uri;
 import android.os.Handler;
 import android.os.Message;
 
-import com.xpf.common.utils.LogUtils;
+
+import com.xpf.p2p.utils.LogUtils;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -4,7 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.xpf.common.bean.User;
+import com.xpf.p2p.entity.User;
 
 /**
  * UserInfoUtils

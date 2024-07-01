@@ -14,8 +14,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
-import com.xpf.common.base.BaseActivity;
 import com.xpf.p2p.R;
+import com.xpf.p2p.base.BaseActivity;
 
 /**
  * Created by x-sir on 2016/8/3 :)

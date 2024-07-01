@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 
 
-import com.xpf.common.utils.LogUtils;
+import com.xpf.p2p.utils.LogUtils;
 
 import org.json.JSONException;
 import org.json.JSONObject;

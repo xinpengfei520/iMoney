@@ -63,6 +63,10 @@ android {
             zipAlignEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
+            // API HOST(生产环境：pro 研发环境：dev 测试环境：test)
+            buildConfigField 'String', 'HOST', getHOST('pro')
+            // Log日志开关，false不显示log，true显示log
+            buildConfigField "boolean", "ENABLE_DEBUG", "false"
             android.applicationVariants.all { variant ->
                 variant.outputs.all {
                     outputFileName = getApkName()
@@ -72,6 +76,10 @@ android {
 
         debug {
             minifyEnabled false
+            // API HOST(生产环境：pro 研发环境：dev 测试环境：test)
+            buildConfigField 'String', 'HOST', getHOST('pro')
+            // Log日志开关，false不显示log，true显示log
+            buildConfigField "boolean", "ENABLE_DEBUG", "true"
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.debug
         }
@@ -120,13 +128,12 @@ dependencies {
     implementation 'cn.jiguang.sdk:jcore:2.1.6'
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
     implementation 'com.github.hackware1993:MagicIndicator:1.7.0'
-    implementation project(':common')
-    implementation project(':okla-library')
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.12'
     debugImplementation 'me.ele:uetool:1.1.4'
     debugImplementation 'me.ele:uetool-fresco:1.1.4'
     releaseImplementation 'me.ele:uetool-no-op:1.1.4'
     implementation 'com.growingio.android:vds-android-agent:autotrack-2.8.2@aar'
+    implementation project(':okla-library')
 }
 
 def getApkFullPath() {
@@ -166,6 +173,21 @@ tasks.register('launchApp') {
         def command = "adb shell am start ${android.defaultConfig.applicationId}/.MainActivity"
         executeCommand(command)
     }
+}
+
+// 获取API HOST
+@SuppressWarnings("GroovyVariableNotAssigned")
+def getHOST(String env) {
+    def HOST
+    def Properties props = new Properties()
+    def propFile = file('src/main/env/' + env + '/config.properties')
+    if (propFile.canRead()) {
+        props.load(new FileInputStream(propFile))
+        if (props != null) {
+            HOST = props['HOST']
+        }
+    }
+    HOST
 }
 
 def executeCommand(command) {

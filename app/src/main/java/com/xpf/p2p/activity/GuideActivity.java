@@ -12,13 +12,13 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
-import com.xpf.common.cons.SpKey;
-import com.xpf.common.utils.SpUtil;
-import com.xpf.common.utils.UIUtils;
 import com.xpf.p2p.App;
 import com.xpf.p2p.R;
 import com.xpf.p2p.adapter.VpGuideAdapter;
+import com.xpf.p2p.constants.SpKey;
 import com.xpf.p2p.ui.login.view.LoginActivity;
+import com.xpf.p2p.utils.SpUtil;
+import com.xpf.p2p.utils.UIUtils;
 
 import java.util.ArrayList;
 

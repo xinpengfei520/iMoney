@@ -6,10 +6,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.loopj.android.http.RequestParams;
-import com.xpf.common.base.BaseFragment;
-import com.xpf.common.utils.UIUtils;
 import com.xpf.p2p.R;
+import com.xpf.p2p.base.BaseFragment;
 import com.xpf.p2p.utils.DrawUtils;
+import com.xpf.p2p.utils.UIUtils;
 import com.xpf.p2p.widget.FlowLayout;
 
 import java.util.Random;

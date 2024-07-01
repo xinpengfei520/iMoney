@@ -8,9 +8,9 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import com.loopj.android.http.RequestParams;
-import com.xpf.common.base.BaseFragment;
 import com.xpf.p2p.R;
 import com.xpf.p2p.adapter.MyPagerAdapter;
+import com.xpf.p2p.base.BaseFragment;
 
 import net.lucode.hackware.magicindicator.MagicIndicator;
 import net.lucode.hackware.magicindicator.ViewPagerHelper;

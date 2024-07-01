@@ -2,16 +2,16 @@ package com.xpf.p2p.ui.login.presenter;
 
 import android.text.TextUtils;
 
-import com.xpf.common.base.MvpBasePresenter;
-import com.xpf.common.utils.LogUtils;
-import com.xpf.common.utils.ToastUtil;
-import com.xpf.common.utils.UIUtils;
-import com.xpf.common.utils.Validator;
 import com.xpf.p2p.App;
+import com.xpf.p2p.base.MvpBasePresenter;
 import com.xpf.p2p.ui.login.contract.LoginContract;
 import com.xpf.p2p.ui.login.listener.OnSmsSendListener;
 import com.xpf.p2p.ui.login.listener.OnSmsVerifyListener;
 import com.xpf.p2p.ui.login.model.LoginModel;
+import com.xpf.p2p.utils.LogUtils;
+import com.xpf.p2p.utils.ToastUtil;
+import com.xpf.p2p.utils.UIUtils;
+import com.xpf.p2p.utils.Validator;
 
 /**
  * Created by x-sir on 2018/9/2 :)

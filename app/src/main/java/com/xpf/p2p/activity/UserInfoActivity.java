@@ -27,12 +27,12 @@ import androidx.annotation.NonNull;
 
 import com.hjq.permissions.OnPermissionCallback;
 import com.hjq.permissions.XXPermissions;
-import com.xpf.common.base.BaseActivity;
-import com.xpf.common.utils.ToastUtil;
-import com.xpf.common.utils.UIUtils;
 import com.xpf.p2p.R;
+import com.xpf.p2p.base.BaseActivity;
 import com.xpf.p2p.ui.main.view.MainActivity;
 import com.xpf.p2p.utils.BitmapUtils;
+import com.xpf.p2p.utils.ToastUtil;
+import com.xpf.p2p.utils.UIUtils;
 
 import java.io.File;
 import java.io.FileNotFoundException;

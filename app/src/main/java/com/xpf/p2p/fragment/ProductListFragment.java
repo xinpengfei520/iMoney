@@ -6,12 +6,12 @@ import android.widget.ListView;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.loopj.android.http.RequestParams;
-import com.xpf.common.base.BaseFragment;
-import com.xpf.common.bean.Product;
-import com.xpf.common.cons.ApiRequestUrl;
-import com.xpf.common.utils.LogUtils;
 import com.xpf.p2p.R;
 import com.xpf.p2p.adapter.ProductAdapter;
+import com.xpf.p2p.base.BaseFragment;
+import com.xpf.p2p.constants.ApiRequestUrl;
+import com.xpf.p2p.entity.Product;
+import com.xpf.p2p.utils.LogUtils;
 
 import java.util.List;
 

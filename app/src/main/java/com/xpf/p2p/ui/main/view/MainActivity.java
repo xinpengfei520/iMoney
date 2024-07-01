@@ -12,16 +12,16 @@ import android.widget.TextView;
 
 import androidx.fragment.app.FragmentTransaction;
 
-import com.xpf.common.base.MvpBaseActivity;
-import com.xpf.common.utils.ToastUtil;
 import com.xpf.p2p.R;
 import com.xpf.p2p.activity.UserInfoActivity;
+import com.xpf.p2p.base.MvpBaseActivity;
 import com.xpf.p2p.fragment.HomeFragment2;
 import com.xpf.p2p.fragment.InvestFragment;
 import com.xpf.p2p.fragment.MeFragment;
 import com.xpf.p2p.fragment.MoreFragment;
 import com.xpf.p2p.ui.main.contract.MainContract;
 import com.xpf.p2p.ui.main.presenter.MainPresenter;
+import com.xpf.p2p.utils.ToastUtil;
 import com.xsir.pgyerappupdate.library.PgyerApi;
 
 import me.ele.uetool.UETool;

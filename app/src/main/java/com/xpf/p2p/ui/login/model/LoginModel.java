@@ -1,12 +1,12 @@
 package com.xpf.p2p.ui.login.model;
 
-import com.xpf.common.cons.SpKey;
-import com.xpf.common.utils.LogUtils;
-import com.xpf.common.utils.SpUtil;
 import com.xpf.p2p.App;
+import com.xpf.p2p.constants.SpKey;
 import com.xpf.p2p.ui.login.contract.LoginContract;
 import com.xpf.p2p.ui.login.listener.OnSmsSendListener;
 import com.xpf.p2p.ui.login.listener.OnSmsVerifyListener;
+import com.xpf.p2p.utils.LogUtils;
+import com.xpf.p2p.utils.SpUtil;
 
 import cn.smssdk.EventHandler;
 import cn.smssdk.SMSSDK;

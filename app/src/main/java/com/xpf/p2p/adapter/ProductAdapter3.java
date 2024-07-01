@@ -1,6 +1,6 @@
 package com.xpf.p2p.adapter;
 
-import com.xpf.common.bean.Product;
+import com.xpf.p2p.entity.Product;
 
 import java.util.List;
 

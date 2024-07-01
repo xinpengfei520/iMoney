@@ -6,9 +6,9 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.xpf.common.bean.Product;
-import com.xpf.common.utils.UIUtils;
 import com.xpf.p2p.R;
+import com.xpf.p2p.entity.Product;
+import com.xpf.p2p.utils.UIUtils;
 import com.xpf.p2p.widget.RoundProgress;
 
 import java.util.List;

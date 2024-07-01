@@ -6,12 +6,12 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
-import com.xpf.common.base.MvpBaseActivity;
-import com.xpf.common.utils.ToastUtil;
 import com.xpf.p2p.R;
 import com.xpf.p2p.activity.WelcomeActivity;
+import com.xpf.p2p.base.MvpBaseActivity;
 import com.xpf.p2p.ui.multilanguage.contract.MultiLanguageContract;
 import com.xpf.p2p.ui.multilanguage.presenter.MultiLanguagePresenter;
+import com.xpf.p2p.utils.ToastUtil;
 
 
 public class MultiLanguageActivity extends MvpBaseActivity<MultiLanguageContract.IView,

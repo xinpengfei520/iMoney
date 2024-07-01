@@ -17,11 +17,11 @@ import com.alibaba.fastjson.JSONObject;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.squareup.picasso.Picasso;
-import com.xpf.common.bean.Image;
-import com.xpf.common.bean.Index;
-import com.xpf.common.bean.Product;
-import com.xpf.common.cons.ApiRequestUrl;
 import com.xpf.p2p.R;
+import com.xpf.p2p.constants.ApiRequestUrl;
+import com.xpf.p2p.entity.Image;
+import com.xpf.p2p.entity.Index;
+import com.xpf.p2p.entity.Product;
 
 import java.util.List;
 

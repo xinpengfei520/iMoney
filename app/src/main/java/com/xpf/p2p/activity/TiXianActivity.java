@@ -11,9 +11,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.xpf.common.base.BaseActivity;
-import com.xpf.common.utils.UIUtils;
 import com.xpf.p2p.R;
+import com.xpf.p2p.base.BaseActivity;
+import com.xpf.p2p.utils.UIUtils;
 
 /**
  * Created by x-sir on 2016/8/3 :)

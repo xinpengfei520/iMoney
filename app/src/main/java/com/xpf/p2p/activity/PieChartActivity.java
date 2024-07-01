@@ -9,14 +9,13 @@ import android.widget.TextView;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.Legend;
-import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.formatter.PercentFormatter;
 import com.github.mikephil.charting.utils.ColorTemplate;
-import com.xpf.common.base.BaseActivity;
 import com.xpf.p2p.R;
+import com.xpf.p2p.base.BaseActivity;
 
 import java.util.ArrayList;
 
@@ -37,9 +36,9 @@ public class PieChartActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        ivBack = (ImageView) findViewById(R.id.iv_back);
-        tvTitle = (TextView) findViewById(R.id.tv_title);
-        pieChart = (PieChart) findViewById(R.id.pieChart);
+        ivBack = findViewById(R.id.iv_back);
+        tvTitle = findViewById(R.id.tv_title);
+        pieChart = findViewById(R.id.pieChart);
         ivBack.setVisibility(View.VISIBLE);
         ivSetting.setVisibility(View.GONE);
         tvTitle.setText("饼状图");

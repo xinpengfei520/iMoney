@@ -14,7 +14,7 @@ import android.text.TextUtils;
 import android.widget.Toast;
 
 
-import com.xpf.common.utils.LogUtils;
+import com.xpf.p2p.utils.LogUtils;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

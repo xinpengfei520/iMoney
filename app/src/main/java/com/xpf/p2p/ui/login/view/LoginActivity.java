@@ -10,9 +10,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.xpf.common.base.MvpBaseActivity;
 import com.xpf.http.logger.XLog;
 import com.xpf.p2p.R;
+import com.xpf.p2p.base.MvpBaseActivity;
 import com.xpf.p2p.ui.login.contract.LoginContract;
 import com.xpf.p2p.ui.login.presenter.LoginPresenter;
 import com.xpf.p2p.ui.main.view.MainActivity;
