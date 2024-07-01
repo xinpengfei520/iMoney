@@ -15,9 +15,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.atguigu.gesturelock.widget.GestureContentView;
-import com.atguigu.gesturelock.widget.GestureDrawline;
 import com.xpf.p2p.R;
+import com.xpf.p2p.widget.GestureContentView;
+import com.xpf.p2p.widget.GestureDrawline;
 
 /**
  * Created by xpf on 2016/11/11 :)

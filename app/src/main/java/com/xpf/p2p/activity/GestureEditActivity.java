@@ -14,10 +14,10 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.atguigu.gesturelock.widget.GestureContentView;
-import com.atguigu.gesturelock.widget.GestureDrawline;
-import com.atguigu.gesturelock.widget.LockIndicator;
 import com.xpf.p2p.R;
+import com.xpf.p2p.widget.GestureContentView;
+import com.xpf.p2p.widget.GestureDrawline;
+import com.xpf.p2p.widget.LockIndicator;
 
 /**
  * Created by xpf on 2016/11/11 :)
@@ -62,13 +62,13 @@ public class GestureEditActivity extends Activity implements View.OnClickListene
     }
 
     private void setUpViews() {
-        mTextTitle = (TextView) findViewById(R.id.text_title);
-        mTextCancel = (TextView) findViewById(R.id.text_cancel);
-        mTextReset = (TextView) findViewById(R.id.text_reset);
+        mTextTitle = findViewById(R.id.text_title);
+        mTextCancel = findViewById(R.id.text_cancel);
+        mTextReset = findViewById(R.id.text_reset);
         mTextReset.setClickable(false);
-        mLockIndicator = (LockIndicator) findViewById(R.id.lock_indicator);
-        mTextTip = (TextView) findViewById(R.id.text_tip);
-        mGestureContainer = (FrameLayout) findViewById(R.id.gesture_container);
+        mLockIndicator = findViewById(R.id.lock_indicator);
+        mTextTip = findViewById(R.id.text_tip);
+        mGestureContainer = findViewById(R.id.gesture_container);
         mSharedPreferences = this.getSharedPreferences("secret_protect", Context.MODE_PRIVATE);
         // 初始化一个显示各个点的viewGroup
         mGestureContentView = new GestureContentView(this, false, "", new GestureDrawline.GestureCallBack() {
