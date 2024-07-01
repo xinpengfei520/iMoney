@@ -84,10 +84,11 @@ public class LockIndicator extends View {
 
     @Override
     protected void onMeasure(int paramInt1, int paramInt2) {
-        if (patternPressed != null)
+        if (patternPressed != null) {
             setMeasuredDimension(numColum * patternHeight + this.g
                     * (-1 + numColum), numRow * patternWidth + this.f
                     * (-1 + numRow));
+        }
     }
 
     /**

@@ -4,12 +4,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.viewpagerindicator.TabPageIndicator
+    <net.lucode.hackware.magicindicator.MagicIndicator
         android:id="@+id/tab_indicator"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#FF0000"
-        android:theme="@style/Theme.PageIndicatorDefaults" />
+        android:layout_height="40dp"
+        android:background="#FF0000" />
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/invest_viewPager"

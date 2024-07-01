@@ -121,8 +121,8 @@ dependencies {
     implementation 'cn.jiguang.sdk:jpush:3.3.6'
     implementation 'cn.jiguang.sdk:jcore:2.1.6'
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+    implementation 'com.github.hackware1993:MagicIndicator:1.7.0'
     implementation project(':GestureLock')
-    implementation project(':ViewPagerIndicator_library')
     implementation project(':common')
     implementation project(':okla-library')
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.12'
