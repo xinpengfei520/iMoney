@@ -73,13 +73,13 @@ public class ProductAdapter extends BaseAdapter {
         Product product = list.get(position);
 
         // 装配数据
-        holder.pName.setText(product.name);
-        holder.pMoney.setText(product.money);
-        holder.pYearlv.setText(product.yearRate);
-        holder.pMinnum.setText(product.memberNum);
-        holder.pMinzouzi.setText(product.minTouMoney);
-        holder.pSuodingdays.setText(product.suodingDays);
-        holder.pProgresss.setProgress(Integer.parseInt(product.progress));
+        holder.pName.setText(product.getName());
+        holder.pMoney.setText(product.getMoney());
+        holder.pYearlv.setText(product.getYearRate());
+        holder.pMinnum.setText(product.getMemberNum());
+        holder.pMinzouzi.setText(product.getMinTouMoney());
+        holder.pSuodingdays.setText(product.getSuodingDays());
+        holder.pProgresss.setProgress(Integer.parseInt(product.getProgress()));
 
         return convertView;
     }

@@ -21,7 +21,7 @@ public class CustomAttribution implements IAttrs {
         List<Item> items = new ArrayList<>();
         if (element.getView() instanceof CustomView) {
             CustomView view = (CustomView) element.getView();
-            items.add(new TextItem("More", view.getMoreAttribution()));
+            items.add(new TextItem("More", view.moreAttribution));
         }
         return items;
     }

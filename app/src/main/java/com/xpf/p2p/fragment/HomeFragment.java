@@ -63,15 +63,15 @@ public class HomeFragment extends Fragment {
                 List<Image> images = JSON.parseArray(imageArr, Image.class);
 
                 index = new Index();
-                index.product = product;
-                index.images = images;
+                index.setProduct(product);
+                index.setImages(images);
 
                 // 2.设置ViewPager,加载显示图片
 //                viewpager.setAdapter(new MyPagerAdapter());
 //                cpHome.setViewPager(viewpager);
 
                 //3.根据得到的产品的数据，更新界面中的产品展示
-                String yearRate = index.product.yearRate;
+                String yearRate = index.getProduct().getYearRate();
                 tvHomeRate.setText(yearRate + "%");
             }
 
@@ -86,7 +86,7 @@ public class HomeFragment extends Fragment {
 
         @Override
         public int getCount() {
-            return index.images == null ? 0 : index.images.size();
+            return index.getImages() == null ? 0 : index.getImages().size();
         }
 
         // 判断视图是否由集合中的数据创建
@@ -102,7 +102,7 @@ public class HomeFragment extends Fragment {
             ImageView imageView = new ImageView(getActivity());
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             // 加载具体的图片
-            String imaurl = index.images.get(position).IMAURL;
+            String imaurl = index.getImages().get(position).getIMAURL();
             Picasso.get().load(imaurl).into(imageView);
             // 添加到当前的container中
             container.addView(imageView);

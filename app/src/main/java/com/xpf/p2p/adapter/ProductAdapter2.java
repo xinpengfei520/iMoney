@@ -23,7 +23,7 @@ public class ProductAdapter2 extends MyBaseAdapter2<Product> {
 
     @Override
     protected void setData(View convertView, Product product) {
-        ((TextView) convertView.findViewById(R.id.p_name)).setText(product.name);
+        ((TextView) convertView.findViewById(R.id.p_name)).setText(product.getName());
 
         // 一共需要提供7项的赋值此方法会产生过多的findviewById操作
         Log.e("TAG", "setData()");

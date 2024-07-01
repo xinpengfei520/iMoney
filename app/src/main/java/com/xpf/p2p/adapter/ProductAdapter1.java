@@ -36,13 +36,13 @@ public class ProductAdapter1 extends MyBaseAdapter1<Product> {
         Product product = list.get(position);
 
         // 装配数据
-        holder.pMinnum.setText(product.memberNum);
-        holder.pMinzouzi.setText(product.minTouMoney);
-        holder.pMoney.setText(product.money);
-        holder.pName.setText(product.name);
-        holder.pProgresss.setProgress(Integer.parseInt(product.progress));
-        holder.pSuodingdays.setText(product.suodingDays);
-        holder.pYearlv.setText(product.yearRate);
+        holder.pMinnum.setText(product.getMemberNum());
+        holder.pMinzouzi.setText(product.getMinTouMoney());
+        holder.pMoney.setText(product.getMoney());
+        holder.pName.setText(product.getName());
+        holder.pProgresss.setProgress(Integer.parseInt(product.getProgress()));
+        holder.pSuodingdays.setText(product.getSuodingDays());
+        holder.pYearlv.setText(product.getYearRate());
 
         return convertView;
     }

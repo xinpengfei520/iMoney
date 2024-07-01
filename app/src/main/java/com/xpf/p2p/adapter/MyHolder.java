@@ -33,13 +33,13 @@ public class MyHolder extends BaseHolder<Product> {
         pMinnum = (TextView) getRootView().findViewById(R.id.p_minnum);
         pProgresss = (RoundProgress) getRootView().findViewById(R.id.p_progresss);
         Product data = getData();
-        pName.setText(data.name);
-        pMinnum.setText(data.memberNum);
-        pMoney.setText(data.money);
-        pYearlv.setText(data.yearRate);
-        pSuodingdays.setText(data.suodingDays);
-        pMinzouzi.setText(data.minTouMoney);
-        pProgresss.setProgress(Integer.parseInt(data.progress));
+        pName.setText(data.getName());
+        pMinnum.setText(data.getMemberNum());
+        pMoney.setText(data.getMoney());
+        pYearlv.setText(data.getYearRate());
+        pSuodingdays.setText(data.getSuodingDays());
+        pMinzouzi.setText(data.getMinTouMoney());
+        pProgresss.setProgress(Integer.parseInt(data.getProgress()));
     }
 
     @Override

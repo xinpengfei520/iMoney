@@ -86,8 +86,8 @@ public class HomeFragment2 extends BaseFragment {
             List<Image> images = JSON.parseArray(imageArr, Image.class);
 
             index = new Index();
-            index.product = product;
-            index.images = images;
+            index.setProduct(product);
+            index.setImages(images);
 
             // 2.设置Banner,加载显示图片
             // 设置banner样式
@@ -103,8 +103,8 @@ public class HomeFragment2 extends BaseFragment {
             // 设置图片url集合:imageUrl
             List<String> imageUrl = new ArrayList<String>(images.size());
             for (int i = 0; i < images.size(); i++) {
-                imageUrl.add(images.get(i).IMAURL);
-                Log.e("TAG", "url = " + images.get(i).IMAURL);
+                imageUrl.add(images.get(i).getIMAURL());
+                Log.e("TAG", "url = " + images.get(i).getIMAURL());
             }
             banner.setImages(imageUrl);
             // 设置banner动画效果
@@ -122,10 +122,10 @@ public class HomeFragment2 extends BaseFragment {
             banner.start();
 
             // 3.根据得到的产品的数据，更新界面中的产品展示
-            String yearRate = index.product.yearRate;
+            String yearRate = index.getProduct().getYearRate();
             tvHomeRate.setText(yearRate + "%");
 
-            currentProgress = Integer.parseInt(index.product.progress);
+            currentProgress = Integer.parseInt(index.getProduct().getProgress());
             new Thread(runnable).start();
         }
     }
