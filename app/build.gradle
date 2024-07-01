@@ -24,7 +24,7 @@ android {
         versionCode rootProject.ext.android.versionCode
         versionName rootProject.ext.android.versionName
         flavorDimensions "versionCode"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
         resValue("string", "growingio_project_id", "9addc2e4f77786ba")
         resValue("string", "growingio_url_scheme", "growing.2724aa529418df26")
@@ -102,9 +102,7 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation("com.google.android.material:material:1.12.0")
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
     testImplementation 'junit:junit:4.13.2'
     implementation "androidx.appcompat:appcompat:1.7.0"
     implementation 'com.youth.banner:banner:1.4.10'
@@ -113,7 +111,7 @@ dependencies {
     implementation 'com.tencent.bugly:crashreport:latest.release'
     implementation 'com.google.code.gson:gson:2.10.1'
     implementation 'com.xsir:PgyerAndroidAppUpdate:1.0.0'
-    implementation 'com.android.support:multidex:1.0.3'
+    implementation 'androidx.multidex:multidex:2.0.1'
     implementation 'me.jessyan:autosize:1.2.1'
     implementation 'io.reactivex.rxjava2:rxjava:2.2.11'
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
