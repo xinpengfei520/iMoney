@@ -1,11 +1,9 @@
 package com.xpf.p2p.ui.login.model;
 
-import android.os.SystemClock;
-
 import com.xpf.common.cons.SpKey;
 import com.xpf.common.utils.LogUtils;
 import com.xpf.common.utils.SpUtil;
-import com.xpf.p2p.P2PApplication;
+import com.xpf.p2p.App;
 import com.xpf.p2p.ui.login.contract.LoginContract;
 import com.xpf.p2p.ui.login.listener.OnSmsSendListener;
 import com.xpf.p2p.ui.login.listener.OnSmsVerifyListener;
@@ -81,7 +79,7 @@ public class LoginModel implements LoginContract.IModel {
      */
     private void saveLoginState() {
         long millis = System.currentTimeMillis();
-        SpUtil.getInstance(P2PApplication.getContext()).save(
+        SpUtil.getInstance(App.Companion.getContext()).save(
                 SpKey.LOGIN_SUCCESS_TIMESTAMP, String.valueOf(millis));
     }
 }

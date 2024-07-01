@@ -15,7 +15,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.xpf.common.cons.SpKey;
 import com.xpf.common.utils.SpUtil;
 import com.xpf.common.utils.UIUtils;
-import com.xpf.p2p.P2PApplication;
+import com.xpf.p2p.App;
 import com.xpf.p2p.R;
 import com.xpf.p2p.adapter.VpGuideAdapter;
 import com.xpf.p2p.ui.login.view.LoginActivity;
@@ -144,6 +144,6 @@ public class GuideActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        SpUtil.getInstance(P2PApplication.getContext()).save(SpKey.IS_NEED_GUIDE, false);
+        SpUtil.getInstance(App.Companion.getContext()).save(SpKey.IS_NEED_GUIDE, false);
     }
 }

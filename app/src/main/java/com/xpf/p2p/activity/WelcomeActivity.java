@@ -30,7 +30,7 @@ import com.xpf.common.utils.SpUtil;
 import com.xpf.common.utils.TimeUtil;
 import com.xpf.common.utils.ToastUtil;
 import com.xpf.common.utils.UIUtils;
-import com.xpf.p2p.P2PApplication;
+import com.xpf.p2p.App;
 import com.xpf.p2p.R;
 import com.xpf.p2p.ui.login.view.LoginActivity;
 import com.xpf.p2p.ui.main.view.MainActivity;
@@ -70,7 +70,7 @@ public class WelcomeActivity extends Activity {
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case MESSAGE_LOGIN:
-                    boolean aBoolean = SpUtil.getInstance(P2PApplication.getContext())
+                    boolean aBoolean = SpUtil.getInstance(App.Companion.getContext())
                             .getBoolean(SpKey.IS_NEED_GUIDE, true);
                     if (aBoolean) {
                         startActivity(new Intent(WelcomeActivity.this, GuideActivity.class));
