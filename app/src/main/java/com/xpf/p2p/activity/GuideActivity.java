@@ -26,7 +26,7 @@ import java.util.ArrayList;
 /**
  * Created by xpf on 2016/11/11 :)
  * Function:引导页
- * {@link # https://github.com/xinpengfei520/P2P}
+ * {@link # <a href="https://github.com/xinpengfei520/P2P">...</a>}
  */
 public class GuideActivity extends AppCompatActivity {
 
@@ -135,7 +135,7 @@ public class GuideActivity extends AppCompatActivity {
 
         @Override
         public void onGlobalLayout() {
-            ivRedPoint.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+            ivRedPoint.getViewTreeObserver().addOnGlobalLayoutListener(this);
             // 间距 = 第一个点距离左边距离 - 第0个点距离左边距离
             leftMarg = llPointGroup.getChildAt(1).getLeft() - llPointGroup.getChildAt(0).getLeft();
         }

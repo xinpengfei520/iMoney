@@ -98,36 +98,34 @@ public class LineChartActivity extends BaseActivity {
      * @return
      */
     private LineData generateDataLine() {
-
-        ArrayList<Entry> e1 = new ArrayList<Entry>();
+        ArrayList<Entry> entries = new ArrayList<>();
 
         // 定义y轴显示的数据(随机生成),真实项目数据来自服务器
         for (int i = 0; i < 12; i++) {
-            e1.add(new Entry((int) (Math.random() * 65) + 40, i));
+            entries.add(new Entry((int) (Math.random() * 65) + 40, i));
         }
 
         // 获取折线1的数据集
-        LineDataSet d1 = new LineDataSet(e1, "New DataSet 1");
+        LineDataSet lineDataSet = new LineDataSet(entries, "New DataSet 1");
         // 设置折线的宽度
-        d1.setLineWidth(2.5f);
+        lineDataSet.setLineWidth(2.5f);
         // 设置圆圈的半径
-        d1.setCircleSize(4.5f);
+        lineDataSet.setCircleRadius(4.5f);
         // 设置选中圆圈时x,y轴线高亮的颜色
-        d1.setHighLightColor(Color.rgb(244, 117, 117));
+        lineDataSet.setHighLightColor(Color.rgb(244, 117, 117));
         // 设置小圆圈是否显示数据
-        d1.setDrawValues(false);
+        lineDataSet.setDrawValues(false);
 
-        ArrayList<LineDataSet> sets = new ArrayList<LineDataSet>();
-        sets.add(d1);
+        ArrayList<ILineDataSet> sets = new ArrayList<>();
+        sets.add(lineDataSet);
 
-        //LineData cd = new LineData(getMonths(), sets);
-        LineData cd = new LineData((ILineDataSet) sets);
-        return cd;
+        //LineData lineData = new LineData(getMonths(), sets);
+        LineData lineData = new LineData(sets);
+        return lineData;
     }
 
     private ArrayList<String> getMonths() {
-
-        ArrayList<String> m = new ArrayList<String>();
+        ArrayList<String> m = new ArrayList<>();
         m.add("Jan");
         m.add("Feb");
         m.add("Mar");
@@ -140,7 +138,6 @@ public class LineChartActivity extends BaseActivity {
         m.add("Okt");
         m.add("Nov");
         m.add("Dec");
-
         return m;
     }
 }

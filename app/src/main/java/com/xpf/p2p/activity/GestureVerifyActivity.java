@@ -22,7 +22,7 @@ import com.xpf.p2p.R;
 /**
  * Created by xpf on 2016/11/11 :)
  * Function:手势解锁页面
- * {@link # https://github.com/xinpengfei520/P2P}
+ * {@link # <a href="https://github.com/xinpengfei520/P2P">...</a>}
  */
 public class GestureVerifyActivity extends Activity implements View.OnClickListener {
     /**
@@ -51,13 +51,9 @@ public class GestureVerifyActivity extends Activity implements View.OnClickListe
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_gesture_verify);
-
         ObtainExtraData();
-
         setUpViews();
-
         setUpListeners();
     }
 
@@ -68,15 +64,15 @@ public class GestureVerifyActivity extends Activity implements View.OnClickListe
     }
 
     private void setUpViews() {
-        mTopLayout = (RelativeLayout) findViewById(R.id.top_layout);
-        mTextTitle = (TextView) findViewById(R.id.text_title);
-        mTextCancel = (TextView) findViewById(R.id.text_cancel);
-        mImgUserLogo = (ImageView) findViewById(R.id.user_logo);
-        mTextPhoneNumber = (TextView) findViewById(R.id.text_phone_number);
-        mTextTip = (TextView) findViewById(R.id.text_tip);
-        mGestureContainer = (FrameLayout) findViewById(R.id.gesture_container);
-        mTextForget = (TextView) findViewById(R.id.text_forget_gesture);
-        mTextOther = (TextView) findViewById(R.id.text_other_account);
+        mTopLayout = findViewById(R.id.top_layout);
+        mTextTitle = findViewById(R.id.text_title);
+        mTextCancel = findViewById(R.id.text_cancel);
+        mImgUserLogo = findViewById(R.id.user_logo);
+        mTextPhoneNumber = findViewById(R.id.text_phone_number);
+        mTextTip = findViewById(R.id.text_tip);
+        mGestureContainer = findViewById(R.id.gesture_container);
+        mTextForget = findViewById(R.id.text_forget_gesture);
+        mTextOther = findViewById(R.id.text_other_account);
 
         String inputCode = mSharedPreferences.getString("inputCode", "1235789");
         // 初始化一个显示各个点的viewGroup
@@ -122,7 +118,6 @@ public class GestureVerifyActivity extends Activity implements View.OnClickListe
     }
 
     private String getProtectedMobile(String phoneNumber) {
-
         if (TextUtils.isEmpty(phoneNumber) || phoneNumber.length() < 11) {
             return "";
         }
@@ -131,14 +126,12 @@ public class GestureVerifyActivity extends Activity implements View.OnClickListe
         builder.append(phoneNumber.subSequence(0, 3));
         builder.append("****");
         builder.append(phoneNumber.subSequence(7, 11));
-
         return builder.toString();
     }
 
 
     @Override
     public void onClick(View v) {
-
         switch (v.getId()) {
             case R.id.text_cancel:
                 this.finish();

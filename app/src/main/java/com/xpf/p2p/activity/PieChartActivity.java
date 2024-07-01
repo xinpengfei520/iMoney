@@ -101,33 +101,29 @@ public class PieChartActivity extends BaseActivity {
      * generates a random ChartData object with just one DataSet
      */
     private PieData generateDataPie() {
-
-        ArrayList<PieEntry> entries = new ArrayList<PieEntry>();
+        ArrayList<PieEntry> entries = new ArrayList<>();
 
         for (int i = 0; i < 4; i++) {
             entries.add(new PieEntry((int) (Math.random() * 70) + 30, i));
         }
 
-        PieDataSet d = new PieDataSet(entries, "");
-
+        PieDataSet pieDataSet = new PieDataSet(entries, "");
         // 设置各个扇形部分之间的间距
-        d.setSliceSpace(12f);
+        pieDataSet.setSliceSpace(12f);
         // 设置各个扇形部分的颜色
-        d.setColors(ColorTemplate.VORDIPLOM_COLORS);
+        pieDataSet.setColors(ColorTemplate.VORDIPLOM_COLORS);
 
-        //PieData cd = new PieData(getQuarters(), d);
-        PieData cd = new PieData(d);
-        return cd;
+        //PieData pieData = new PieData(getQuarters(), pieDataSet);
+        PieData pieData = new PieData(pieDataSet);
+        return pieData;
     }
 
     private ArrayList<String> getQuarters() {
-
-        ArrayList<String> q = new ArrayList<String>();
+        ArrayList<String> q = new ArrayList<>();
         q.add("三星");
         q.add("apple");
         q.add("华为");
         q.add("oppo");
-
         return q;
     }
 }

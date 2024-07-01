@@ -18,7 +18,7 @@ import com.xpf.p2p.R;
 /**
  * Created by x-sir on 2016/8/3 :)
  * Function:提现页面
- * {@link # https://github.com/xinpengfei520/P2P}
+ * {@link # <a href="https://github.com/xinpengfei520/P2P">...</a>}
  */
 public class TiXianActivity extends BaseActivity {
 
@@ -36,33 +36,27 @@ public class TiXianActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        ivBack = (ImageView) findViewById(R.id.iv_back);
-        tvTitle = (TextView) findViewById(R.id.tv_title);
-        ivSetting = (ImageView) findViewById(R.id.iv_setting);
-        accountZhifubao = (TextView) findViewById(R.id.account_zhifubao);
-        selectBank = (RelativeLayout) findViewById(R.id.select_bank);
-        chongzhiText = (TextView) findViewById(R.id.chongzhi_text);
-        view = (View) findViewById(R.id.view);
-        inputMoney = (EditText) findViewById(R.id.input_money);
-        chongzhiText2 = (TextView) findViewById(R.id.chongzhi_text2);
-        textView5 = (TextView) findViewById(R.id.textView5);
-        btnTixian = (Button) findViewById(R.id.btn_tixian);
+        ivBack = findViewById(R.id.iv_back);
+        tvTitle = findViewById(R.id.tv_title);
+        ivSetting = findViewById(R.id.iv_setting);
+        accountZhifubao = findViewById(R.id.account_zhifubao);
+        selectBank = findViewById(R.id.select_bank);
+        chongzhiText = findViewById(R.id.chongzhi_text);
+        view = findViewById(R.id.view);
+        inputMoney = findViewById(R.id.input_money);
+        chongzhiText2 = findViewById(R.id.chongzhi_text2);
+        textView5 = findViewById(R.id.textView5);
+        btnTixian = findViewById(R.id.btn_tixian);
 
         ivBack.setVisibility(View.VISIBLE);
         tvTitle.setText("提现");
         ivSetting.setVisibility(View.GONE);
 
-        ivBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                removeCurrentActivity(); // 结束当前的activity
-            }
+        ivBack.setOnClickListener(v -> {
+            removeCurrentActivity(); // 结束当前的activity
         });
-        btnTixian.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                withdraw(); // 提现
-            }
+        btnTixian.setOnClickListener(v -> {
+            withdraw(); // 提现
         });
 
         btnTixian.setClickable(false);
@@ -108,11 +102,6 @@ public class TiXianActivity extends BaseActivity {
         Toast.makeText(TiXianActivity.this, "您的提现请求发送成功,请您稍后查询到账信息", Toast.LENGTH_SHORT).show();
 
         // 页面显示2秒以后，自动关闭
-        UIUtils.getHandler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                removeCurrentActivity();
-            }
-        }, 2000);
+        UIUtils.getHandler().postDelayed(this::removeCurrentActivity, 2000);
     }
 }
