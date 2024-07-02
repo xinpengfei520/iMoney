@@ -52,7 +52,7 @@
         android:id="@+id/floatingActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_16dp"
+        android:layout_margin="@dimen/dp_16"
         android:contentDescription="@null"
         android:src="@drawable/icon_sms"
         app:layout_anchor="@id/appBar"

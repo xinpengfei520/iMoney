@@ -29,9 +29,9 @@
         android:id="@+id/tvLanguage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/padding_10dp"
+        android:padding="@dimen/dp_10"
         android:text="@string/multi_language"
-        android:textSize="@dimen/text_size_16sp" />
+        android:textSize="@dimen/dp_16" />
 
     <WebView
         android:id="@+id/webView"

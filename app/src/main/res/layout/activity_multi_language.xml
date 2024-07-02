@@ -39,7 +39,7 @@
             android:id="@+id/tvSave"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/margin_16dp"
+            android:layout_marginEnd="@dimen/dp_16"
             android:text="@string/save_btn"
             android:textColor="@color/white"
             android:textSize="16sp" />

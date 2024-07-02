@@ -41,7 +41,7 @@
             android:id="@+id/tvSendSmsCode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="@dimen/padding_6dp"
+            android:padding="@dimen/dp_6"
             android:text="@string/textview_send"
             android:textColor="@color/white"
             android:visibility="gone" />
