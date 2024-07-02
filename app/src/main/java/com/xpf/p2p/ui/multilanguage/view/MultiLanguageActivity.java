@@ -53,16 +53,12 @@ public class MultiLanguageActivity extends MvpBaseActivity<MultiLanguageContract
             mPresenter.saveSetting(mCurrentLanguage);
         });
         rgLanguages.setOnCheckedChangeListener((group, checkedId) -> {
-            switch (checkedId) {
-                case R.id.rbSimpleChinese:
-                    mCurrentLanguage = 0;
-                    break;
-                case R.id.rbFantiChinese:
-                    mCurrentLanguage = 1;
-                    break;
-                case R.id.rbEnglish:
-                    mCurrentLanguage = 2;
-                    break;
+            if (checkedId == R.id.rbSimpleChinese) {
+                mCurrentLanguage = 0;
+            } else if (checkedId == R.id.rbFantiChinese) {
+                mCurrentLanguage = 1;
+            } else if (checkedId == R.id.rbEnglish) {
+                mCurrentLanguage = 2;
             }
         });
     }
@@ -78,6 +74,8 @@ public class MultiLanguageActivity extends MvpBaseActivity<MultiLanguageContract
                 break;
             case 2:
                 rgLanguages.check(R.id.rbEnglish);
+                break;
+            default:
                 break;
         }
     }

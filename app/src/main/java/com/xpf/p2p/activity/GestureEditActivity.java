@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.text.Html;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
@@ -22,9 +21,9 @@ import com.xpf.p2p.widget.LockIndicator;
 /**
  * Created by xpf on 2016/11/11 :)
  * Function:手势解锁页面
- * {@link # https://github.com/xinpengfei520/P2P}
+ * {@link # <a href="https://github.com/xinpengfei520/P2P">...</a>}
  */
-public class GestureEditActivity extends Activity implements View.OnClickListener {
+public class GestureEditActivity extends Activity {
     /**
      * 手机号码
      */
@@ -58,7 +57,6 @@ public class GestureEditActivity extends Activity implements View.OnClickListene
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gesture_edit);
         setUpViews();
-        setUpListeners();
     }
 
     private void setUpViews() {
@@ -70,6 +68,14 @@ public class GestureEditActivity extends Activity implements View.OnClickListene
         mTextTip = findViewById(R.id.text_tip);
         mGestureContainer = findViewById(R.id.gesture_container);
         mSharedPreferences = this.getSharedPreferences("secret_protect", Context.MODE_PRIVATE);
+
+        mTextCancel.setOnClickListener(v -> GestureEditActivity.this.finish());
+        mTextReset.setOnClickListener(v -> {
+            mIsFirstInput = true;
+            updateCodeList("");
+            mTextTip.setText(getString(R.string.set_gesture_pattern));
+        });
+
         // 初始化一个显示各个点的viewGroup
         mGestureContentView = new GestureContentView(this, false, "", new GestureDrawline.GestureCallBack() {
             @Override
@@ -122,11 +128,6 @@ public class GestureEditActivity extends Activity implements View.OnClickListene
         updateCodeList("");
     }
 
-    private void setUpListeners() {
-        mTextCancel.setOnClickListener(this);
-        mTextReset.setOnClickListener(this);
-    }
-
     private void updateCodeList(String inputCode) {
         // 更新选择的图案
         mLockIndicator.setPath(inputCode);
@@ -134,27 +135,7 @@ public class GestureEditActivity extends Activity implements View.OnClickListene
         Log.e("TAG", "inputCode = " + inputCode);
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.text_cancel:
-                this.finish();
-                break;
-            case R.id.text_reset:
-                mIsFirstInput = true;
-                updateCodeList("");
-                mTextTip.setText(getString(R.string.set_gesture_pattern));
-                break;
-            default:
-                break;
-        }
-    }
-
     private boolean isInputPassValidate(String inputPassword) {
-        if (TextUtils.isEmpty(inputPassword) || inputPassword.length() < 4) {
-            return false;
-        }
-
-        return true;
+        return !TextUtils.isEmpty(inputPassword) && inputPassword.length() >= 4;
     }
 }

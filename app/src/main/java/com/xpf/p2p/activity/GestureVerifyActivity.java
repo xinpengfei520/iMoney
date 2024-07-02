@@ -24,7 +24,7 @@ import com.xpf.p2p.widget.GestureDrawline;
  * Function:手势解锁页面
  * {@link # <a href="https://github.com/xinpengfei520/P2P">...</a>}
  */
-public class GestureVerifyActivity extends Activity implements View.OnClickListener {
+public class GestureVerifyActivity extends Activity {
     /**
      * 手机号码
      */
@@ -54,7 +54,6 @@ public class GestureVerifyActivity extends Activity implements View.OnClickListe
         setContentView(R.layout.activity_gesture_verify);
         ObtainExtraData();
         setUpViews();
-        setUpListeners();
     }
 
     private void ObtainExtraData() {
@@ -73,6 +72,7 @@ public class GestureVerifyActivity extends Activity implements View.OnClickListe
         mGestureContainer = findViewById(R.id.gesture_container);
         mTextForget = findViewById(R.id.text_forget_gesture);
         mTextOther = findViewById(R.id.text_other_account);
+        mTextCancel.setOnClickListener(v -> GestureVerifyActivity.this.finish());
 
         String inputCode = mSharedPreferences.getString("inputCode", "1235789");
         // 初始化一个显示各个点的viewGroup
@@ -111,12 +111,6 @@ public class GestureVerifyActivity extends Activity implements View.OnClickListe
         mGestureContentView.setParentView(mGestureContainer);
     }
 
-    private void setUpListeners() {
-        mTextCancel.setOnClickListener(this);
-        mTextForget.setOnClickListener(this);
-        mTextOther.setOnClickListener(this);
-    }
-
     private String getProtectedMobile(String phoneNumber) {
         if (TextUtils.isEmpty(phoneNumber) || phoneNumber.length() < 11) {
             return "";
@@ -127,18 +121,5 @@ public class GestureVerifyActivity extends Activity implements View.OnClickListe
         builder.append("****");
         builder.append(phoneNumber.subSequence(7, 11));
         return builder.toString();
-    }
-
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.text_cancel:
-                this.finish();
-                break;
-
-            default:
-                break;
-        }
     }
 }
