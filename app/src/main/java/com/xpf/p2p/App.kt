@@ -10,7 +10,8 @@ import android.os.Looper
 import android.os.Process
 import androidx.multidex.MultiDexApplication
 import cn.jpush.android.api.JPushInterface
-import com.growingio.android.sdk.collection.GrowingIO
+import com.growingio.android.sdk.autotrack.AutotrackConfiguration
+import com.growingio.android.sdk.autotrack.GrowingAutotracker
 import com.mob.MobSDK
 import com.tencent.bugly.crashreport.CrashReport
 import com.xpf.http.OklaClient
@@ -63,14 +64,19 @@ class App : MultiDexApplication() {
     }
 
     private fun initGrowingIO() {
-        GrowingIO.startWithConfiguration(
-            this,
-            com.growingio.android.sdk.collection.Configuration()
-                .trackAllFragments()
-                .setTestMode(BuildConfig.DEBUG)
-                .setDebugMode(BuildConfig.DEBUG)
-                .setChannel("pgyer")
-        )
+        // Config GrowingIO
+        // YourAccountId eg:0a1b4118dd954ec3bcc69da5138bdb96
+        // Your URLScheme eg:growing.xxxxxxxxxxx
+        // YourServerHost eg:http://106.75.81.105:8080
+        // YourDatasourceId eg: 11223344aabbcc
+        val sConfiguration = AutotrackConfiguration("Your AccountId", "Your URLScheme")
+            .setDataCollectionServerHost("Your ServerHost")
+            .setDataSourceId("Your DataSourceId")
+            .setDebugEnabled(BuildConfig.DEBUG)
+            .setAndroidIdEnabled(true)
+            .setRequireAppProcessesEnabled(true)
+            .setDataCollectionEnabled(true)
+        GrowingAutotracker.startWithConfiguration(this, sConfiguration)
     }
 
     private fun initUETool() {

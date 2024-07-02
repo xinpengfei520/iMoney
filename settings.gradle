@@ -1,5 +1,7 @@
 pluginManagement {
     repositories {
+        // 添加 gradle plugin 依赖的仓库地址
+        gradlePluginPortal()
         maven { url 'https://jitpack.io' }
         maven { url 'https://maven.aliyun.com/repository/public' }
         maven { url 'https://maven.aliyun.com/repository/google' }
