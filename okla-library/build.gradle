@@ -1,6 +1,7 @@
 apply plugin: 'com.android.library'
 
 android {
+    namespace 'com.xpf.http'
     compileSdk rootProject.ext.android.compileSdk
     defaultConfig {
         minSdk rootProject.ext.android.minSdk
@@ -13,7 +14,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    namespace 'com.xpf.http'
 }
 
 dependencies {
