@@ -31,7 +31,7 @@ android {
         minSdk = 24
         targetSdk = 29
         versionCode = getVersionCode()
-        versionName = "1.4.13"
+        versionName = "1.4.14"
         flavorDimensions.add("versionCode")
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled = true
