@@ -1,0 +1,195 @@
+[versions]
+agp = "8.5.0"
+androidGifDrawable = "1.2.25"
+androidxMaterial = "1.5.3"
+baserecyclerviewadapterhelper = "4.0.1"
+constraintlayout = "2.1.4"
+fastjson = "1.1.72.android"
+emoji2 = "1.2.0"
+emoji2Views = "1.2.0"
+gsonfactory = "8.0"
+kotlin = "1.8.10"
+coreKtx = "1.12.0"
+junit = "4.13.2"
+junitVersion = "1.1.5"
+espressoCore = "3.5.1"
+qiniuQplayer2 = "1.4.0"
+qiniuAndroidSdk = "8.7.0"
+tencentLibpag = "4.2.80"
+lifecycleRuntimeKtx = "2.7.0"
+lifecycleCommonJava8 = "2.8.2"
+lifecycleViewmodelKtx = "2.8.2"
+lifecycleExtensions = "2.2.0"
+activityCompose = "1.8.0"
+composeBom = "2023.08.00"
+appcompat = "1.7.0"
+preferenceKtx = "1.2.1"
+lifecycleViewmodelCompose = "2.7.0"
+material = "1.12.0"
+
+activityKtx = "1.9.0"
+fragmentKtx = "1.6.2"
+
+annotation = "1.8.0"
+
+kotlinxCoroutinesAndroid = "1.8.0"
+kotlinxCoroutinesCore = "1.8.0"
+
+recyclerview = "1.3.2"
+ksp = "1.8.10-1.0.9"
+room = "2.5.2"
+autotracker = "4.3.0"
+
+brv = "1.5.8"
+gk_basepopup = "3.2.1"
+easywindow = "10.6"
+mmkv = "1.3.2"
+xxpermissions = "18.6"
+xwidget = "5.1.0"
+rxjava = "3.1.6"
+rxandroid = "3.0.2"
+
+# 吐司
+toaster = "12.6"
+
+# 网络请求
+okhttp = "4.11.0"
+retrofit = "2.9.0"
+loggingInterceptor = "4.11.0"
+alibabaDns = "2.2.5"
+gson = "2.10.1"
+okio = "3.7.0"
+glide = "4.16.0"
+pictureselector = "v3.10.7"
+circleimageview = "3.1.0"
+flexbox = "3.0.0"
+blurkit = "1.1.1"
+zxing = "4.3.0"
+banner = "2.2.2"
+leakcanary = "2.12"
+# 组件间通信
+liveEventBus = "1.8.0"
+# 刷新库
+refreshLayout = "2.1.0"
+flycoTabLayout = "3.0.0"
+nicedialog = "1.3.3"
+camera = "1.3.1"
+
+# umeng
+umengCommon = "9.6.5"
+umengAsms = "1.8.0"
+umengApm = "1.9.4"
+
+
+[libraries]
+android-gif-drawable = { module = "pl.droidsonroids.gif:android-gif-drawable", version.ref = "androidGifDrawable" }
+androidx-annotation = { group = "androidx.annotation", name = "annotation", version.ref = "annotation" }
+androidx-compose-material-material = { module = "androidx.compose.material:material", version.ref = "androidxMaterial" }
+androidx-constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintlayout" }
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-emoji2-views = { module = "androidx.emoji2:emoji2-views", version.ref = "emoji2Views" }
+androidx-emoji2 = { module = "androidx.emoji2:emoji2", version.ref = "emoji2" }
+androidx-emoji2-views-helper = { module = "androidx.emoji2:emoji2-views-helper", version.ref = "emoji2" }
+androidx-lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycleViewmodelCompose" }
+baserecyclerviewadapterhelper = { module = "io.github.cymchad:BaseRecyclerViewAdapterHelper", version.ref = "baserecyclerviewadapterhelper" }
+fastjson = { module = "com.alibaba:fastjson", version.ref = "fastjson" }
+gsonfactory = { module = "com.github.getActivity:GsonFactory", version.ref = "gsonfactory" }
+tencent-mmkv = { module = "com.tencent:mmkv", version.ref = "mmkv" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
+androidx-lifecycle-common-java8 = { group = "androidx.lifecycle", name = "lifecycle-common-java8", version.ref = "lifecycleCommonJava8" }
+androidx-lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycleViewmodelKtx" }
+androidx-lifecycle-extensions = { group = "androidx.lifecycle", name = "lifecycle-extensions", version.ref = "lifecycleExtensions" }
+androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
+androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
+androidx-ui = { group = "androidx.compose.ui", name = "ui" }
+androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
+androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+androidx-preference-ktx = { group = "androidx.preference", name = "preference-ktx", version.ref = "preferenceKtx" }
+tencent-libpag = { module = "com.tencent.tav:libpag", version.ref = "tencentLibpag" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+androidx-recyclerview = { group = "androidx.recyclerview", name = "recyclerview", version.ref = "recyclerview" }
+
+kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "kotlinxCoroutinesAndroid" }
+kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "kotlinxCoroutinesCore" }
+androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
+androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
+androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
+androidx-activity-ktx = { group = "androidx.activity", name = "activity-ktx", version.ref = "activityKtx" }
+androidx-fragment-ktx = { group = "androidx.fragment", name = "fragment-ktx", version.ref = "fragmentKtx" }
+nicedialog = { module = "com.github.michaellee123:NiceDialog", version.ref = "nicedialog" }
+converter-scalars = { module = "com.squareup.retrofit2:converter-scalars", version.ref = "retrofit" }
+alibaba-dns = { module = "com.alibaba.pdns:alidns-android-sdk", version.ref = "alibabaDns" }
+
+# camera
+androidx-camera-camera2 = { group = "androidx.camera", name = "camera-camera2", version.ref = "camera" }
+androidx-camera-lifecycle = { group = "androidx.camera", name = "camera-lifecycle", version.ref = "camera" }
+androidx-camera-view = { group = "androidx.camera", name = "camera-view", version.ref = "camera" }
+androidx-camera-core = { group = "androidx.camera", name = "camera-core", version.ref = "camera" }
+androidx-camera-extensions = { group = "androidx.camera", name = "camera-extensions", version.ref = "camera" }
+
+#官方库
+okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
+retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+retrofit-converter-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit" }
+loggingInterceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "loggingInterceptor" }
+gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
+okio = { group = "com.squareup.okio", name = "okio", version.ref = "okio" }
+glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide" }
+pictureselector = { group = "io.github.lucksiege", name = "pictureselector", version.ref = "pictureselector" }
+circleimageview = { group = "de.hdodenhof", name = "circleimageview", version.ref = "circleimageview" }
+flexbox = { group = "com.google.android.flexbox", name = "flexbox", version.ref = "flexbox" }
+blurkit = { group = "io.alterac.blurkit", name = "blurkit", version.ref = "blurkit" }
+zxing-android-embedded = { group = "com.journeyapps", name = "zxing-android-embedded", version.ref = "zxing" }
+banner = { group = "io.github.youth5201314", name = "banner", version.ref = "banner" }
+leakcanary = { group = "com.squareup.leakcanary", name = "leakcanary-android", version.ref = "leakcanary" }
+
+
+xwidget = { group = "com.gitee.pichs", name = "xwidget", version.ref = "xwidget" }
+rxjava = { group = "io.reactivex.rxjava3", name = "rxjava", version.ref = "rxjava" }
+rxandroid = { group = "io.reactivex.rxjava3", name = "rxandroid", version.ref = "rxandroid" }
+
+brv = { group = "com.github.liangjingkanji", name = "BRV", version.ref = "brv" }
+basepopup = { group = "io.github.razerdp", name = "BasePopup", version.ref = "gk_basepopup" }
+easywindow = { group = "com.github.getActivity", name = "EasyWindow", version.ref = "easywindow" }
+xxpermissions = { group = "com.github.getActivity", name = "XXPermissions", version.ref = "xxpermissions" }
+
+toaster = { group = "com.github.getActivity", name = "Toaster", version.ref = "toaster" }
+#组件间通信
+liveEventBus = { group = "io.github.jeremyliao", name = "live-event-bus-x", version.ref = "liveEventBus" }
+#核心必须依赖
+refreshLayoutKernel = { group = "io.github.scwang90", name = "refresh-layout-kernel", version.ref = "refreshLayout" }
+#经典刷新头
+refreshHeaderClassics = { group = "io.github.scwang90", name = "refresh-header-classics", version.ref = "refreshLayout" }
+#经典加载
+refreshFooterClassics = { group = "io.github.scwang90", name = "refresh-footer-classics", version.ref = "refreshLayout" }
+#虚拟刷新头
+refreshHeaderFalsify = { group = "io.github.scwang90", name = "refresh-header-falsify", version.ref = "refreshLayout" }
+#谷歌刷新头
+refreshHeaderMaterial = { group = "io.github.scwang90", name = "refresh-header-material", version.ref = "refreshLayout" }
+flycoTabLayout = { group = "io.github.h07000223", name = "flycoTabLayout", version.ref = "flycoTabLayout" }
+
+# umeng
+umeng-common = { group = "com.umeng.umsdk", name = "common", version.ref = "umengCommon" }
+umeng-asms = { group = "com.umeng.umsdk", name = "asms", version.ref = "umengAsms" }
+umeng-apm = { group = "com.umeng.umsdk", name = "apm", version.ref = "umengApm" }
+
+## 七牛
+qiniu-qplayer2-core = { module = "com.qiniu:qplayer2-core", version.ref = "qiniuQplayer2" }
+qiniu-qplayer2-ext = { module = "com.qiniu:qplayer2-ext", version.ref = "qiniuQplayer2" }
+qiniu-android-sdk = { module = "com.qiniu:qiniu-android-sdk", version.ref = "qiniuAndroidSdk" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+android-library = { id = "com.android.library", version.ref = "agp" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+androidx-room = { id = "androidx.room", version.ref = "room" }
+autotracker = { id = "com.growingio.android.autotracker", version.ref = "autotracker" }

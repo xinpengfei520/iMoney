@@ -7,10 +7,10 @@ import java.util.Locale
 import java.util.Properties
 
 plugins {
-    id("com.android.application")
-    id("org.jetbrains.kotlin.android")
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.jetbrains.kotlin.android)
     // 使用 GrowingIO 无埋点 SDK 插件
-    id("com.growingio.android.autotracker")
+    alias(libs.plugins.autotracker)
 }
 
 //apply plugin: "bugly"
@@ -32,7 +32,7 @@ android {
         targetSdk = 29
         versionCode = getVersionCode()
         versionName = "1.4.13"
-        flavorDimensions("versionCode")
+        flavorDimensions.add("versionCode")
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled = true
         resValue("string", "growingio_project_id", "9addc2e4f77786ba")
@@ -67,7 +67,6 @@ android {
         release {
             isMinifyEnabled = true
             isShrinkResources = true
-            isZipAlignEnabled = true
             proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
             signingConfig = signingConfigs.getByName("release")
             // API HOST(生产环境：pro 研发环境：dev 测试环境：test)
