@@ -1,5 +1,10 @@
 # iMoney 金融 APP
 
+![Version](https://img.shields.io/github/v/release/xinpengfei520/iMoney?label=version)
+![Stars](https://img.shields.io/github/stars/xinpengfei520/iMoney)
+![Forks](https://img.shields.io/github/forks/xinpengfei520/iMoney)
+![License](https://img.shields.io/github/license/xinpengfei520/iMoney)
+
 <table>
     <tr>
         <td><img src="https://github.com/xinpengfei520/iMoney/blob/master/screenshot/image1.png" border=0 width="216" height="468"></td>
@@ -7,6 +12,10 @@
         <td><img src="https://github.com/xinpengfei520/iMoney/blob/master/screenshot/image3.png" border=0 width="216" height="468"></td>
     </tr>
 </table>
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=xinpengfei520/iMoney&type=Date)](https://star-history.com/#xinpengfei520/iMoney&Date)
 
 ## 一、主要技术点：  
 
