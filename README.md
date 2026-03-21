@@ -1,5 +1,7 @@
 # iMoney 金融 APP
 
+**中文 | [English](README_EN.md)**
+
 ![Version](https://img.shields.io/github/v/release/xinpengfei520/iMoney?label=version)
 ![Stars](https://img.shields.io/github/stars/xinpengfei520/iMoney)
 ![Forks](https://img.shields.io/github/forks/xinpengfei520/iMoney)
