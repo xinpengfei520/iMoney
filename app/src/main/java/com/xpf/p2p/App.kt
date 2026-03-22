@@ -42,7 +42,7 @@ class App : MultiDexApplication() {
         changeAppLanguage()
 
         // 初始化MobSDK
-        MobSDK.init(this, "266ce6392d6fe", "6d4da648f3c2eef26eb682641d414c1c")
+        MobSDK.init(this, BuildConfig.MOB_APP_KEY, BuildConfig.MOB_APP_SECRET)
 
         /*
          * 第三个参数为SDK调试模式开关，调试模式的行为特性如下：
@@ -51,7 +51,7 @@ class App : MultiDexApplication() {
          * 自定义日志将会在Logcat中输出。
          * 建议在测试阶段建议设置成true，发布时设置为false。
          */
-        CrashReport.initCrashReport(applicationContext, "c84e7e9ad7", BuildConfig.DEBUG)
+        CrashReport.initCrashReport(applicationContext, BuildConfig.BUGLY_APP_ID, BuildConfig.DEBUG)
 
         initUETool()
         initGrowingIO()
@@ -166,8 +166,9 @@ class App : MultiDexApplication() {
     }
 
     companion object {
-        @SuppressLint("StaticFieldLeak")
-        var context: Context? = null
+        // 使用 applicationContext 不会导致内存泄漏
+        lateinit var context: Context
+            private set
         var mHandler: Handler? = null
         var mainThread: Thread? = null // 获取主线程
         var mainThreadId: Int = -1 // 获取主线程的id

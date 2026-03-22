@@ -1,9 +1,9 @@
 package com.xpf.p2p.base;
 
-import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.xpf.p2p.utils.ActivityManager;
@@ -21,11 +21,10 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutId());
-        ActionBar actionBar = getActionBar();
+        ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.hide();
         }
-        //ButterKnife.bind(this);
         // 将当前的Activity添加到ActivityManager中
         ActivityManager.getInstance().add(this);
         initData();

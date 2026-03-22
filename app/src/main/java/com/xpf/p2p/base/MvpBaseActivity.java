@@ -1,9 +1,9 @@
 package com.xpf.p2p.base;
 
-import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.xpf.p2p.utils.ActivityManager;
@@ -24,7 +24,7 @@ public abstract class MvpBaseActivity<V, T extends MvpBasePresenter<V>> extends 
         mPresenter = createPresenter();
         mPresenter.attachView((V) this);
         setContentView(getLayoutId());
-        ActionBar actionBar = getActionBar();
+        ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.hide();
         }

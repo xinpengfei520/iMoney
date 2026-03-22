@@ -1,6 +1,5 @@
 package com.xpf.p2p.utils;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 
@@ -32,14 +31,13 @@ public class SpUtil {
      * @param key   键
      * @param value 值
      */
-    @SuppressLint("ApplySharedPref")
     public void save(String key, Object value) {
         if (value instanceof String) {
-            mSp.edit().putString(key, (String) value).commit();
+            mSp.edit().putString(key, (String) value).apply();
         } else if (value instanceof Boolean) {
-            mSp.edit().putBoolean(key, (Boolean) value).commit();
+            mSp.edit().putBoolean(key, (Boolean) value).apply();
         } else if (value instanceof Integer) {
-            mSp.edit().putInt(key, (Integer) value).commit();
+            mSp.edit().putInt(key, (Integer) value).apply();
         }
     }
 
@@ -79,9 +77,8 @@ public class SpUtil {
     /**
      * 清除所有保存的数据
      */
-    @SuppressLint("ApplySharedPref")
     public void clearAll() {
-        mSp.edit().clear().commit();// 清空sp存储的数据(xxx.xml仍然存在，但是内部没有数据)
+        mSp.edit().clear().apply();
     }
 
 }

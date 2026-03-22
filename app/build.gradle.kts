@@ -13,6 +13,12 @@ plugins {
     alias(libs.plugins.autotracker)
 }
 
+// 从 local.properties 读取敏感配置
+val localProperties = Properties().apply {
+    val file = rootProject.file("local.properties")
+    if (file.exists()) load(FileInputStream(file))
+}
+
 //apply plugin: "bugly"
 //
 //bugly {
@@ -29,19 +35,28 @@ android {
     defaultConfig {
         applicationId = "com.xpf.p2p"
         minSdk = 24
-        targetSdk = 29
+        targetSdk = 34
         versionCode = getVersionCode()
         versionName = "1.4.14"
         flavorDimensions.add("versionCode")
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled = true
-        resValue("string", "growingio_project_id", "9addc2e4f77786ba")
-        resValue("string", "growingio_url_scheme", "growing.2724aa529418df26")
+        resValue("string", "growingio_project_id", localProperties.getProperty("GROWINGIO_PROJECT_ID", ""))
+        resValue("string", "growingio_url_scheme", localProperties.getProperty("GROWINGIO_URL_SCHEME", ""))
         // 增加 gioenable 的配置
         resValue("string", "growingio_enable", "true")
-        manifestPlaceholders["JPUSH_APPKEY"] = "069229aa6eb2056acb0fa7e1"
+        manifestPlaceholders["JPUSH_APPKEY"] = localProperties.getProperty("JPUSH_APPKEY", "")
         manifestPlaceholders["JPUSH_PKGNAME"] = "com.xpf.p2p"
         manifestPlaceholders["JPUSH_CHANNEL"] = "developer-default"
+        manifestPlaceholders["PGYER_API_KEY"] = localProperties.getProperty("PGYER_API_KEY", "")
+        manifestPlaceholders["PGYER_APP_KEY"] = localProperties.getProperty("PGYER_APP_KEY", "")
+
+        // 将密钥注入 BuildConfig，供运行时使用
+        buildConfigField("String", "MOB_APP_KEY", "\"${localProperties.getProperty("MOB_APP_KEY", "")}\"")
+        buildConfigField("String", "MOB_APP_SECRET", "\"${localProperties.getProperty("MOB_APP_SECRET", "")}\"")
+        buildConfigField("String", "BUGLY_APP_ID", "\"${localProperties.getProperty("BUGLY_APP_ID", "")}\"")
+        buildConfigField("String", "PGYER_API_KEY", "\"${localProperties.getProperty("PGYER_API_KEY", "")}\"")
+        buildConfigField("String", "PGYER_APP_KEY", "\"${localProperties.getProperty("PGYER_APP_KEY", "")}\"")
         ndk {
             abiFilters.add("armeabi-v7a")
             abiFilters.add("arm64-v8a")
@@ -50,16 +65,16 @@ android {
 
     signingConfigs {
         create("release") {
-            keyAlias = "android"
-            keyPassword = "android"
+            keyAlias = localProperties.getProperty("KEYSTORE_KEY_ALIAS", "android")
+            keyPassword = localProperties.getProperty("KEYSTORE_KEY_PASSWORD", "")
             storeFile = file("./android.jks")
-            storePassword = "android"
+            storePassword = localProperties.getProperty("KEYSTORE_STORE_PASSWORD", "")
         }
         getByName("debug") {
-            keyAlias = "android"
-            keyPassword = "android"
+            keyAlias = localProperties.getProperty("KEYSTORE_KEY_ALIAS", "android")
+            keyPassword = localProperties.getProperty("KEYSTORE_KEY_PASSWORD", "")
             storeFile = file("./android.jks")
-            storePassword = "android"
+            storePassword = localProperties.getProperty("KEYSTORE_STORE_PASSWORD", "")
         }
     }
 
