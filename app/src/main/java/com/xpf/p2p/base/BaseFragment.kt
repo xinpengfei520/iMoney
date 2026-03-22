@@ -17,8 +17,11 @@ import com.xpf.p2p.widget.LoadingPage
  */
 abstract class BaseFragment : Fragment() {
 
+    @JvmField
     var loadingPage: LoadingPage? = null
+    @JvmField
     protected var mContext: Context? = null
+    @JvmField
     protected var mView: View? = null
 
     override fun onCreateView(
