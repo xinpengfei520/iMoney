@@ -134,6 +134,12 @@ dependencies {
     implementation("io.reactivex.rxjava2:rxjava:2.2.11")
     implementation("io.reactivex.rxjava2:rxandroid:2.1.1")
     implementation("com.github.getActivity:XXPermissions:18.63")
+    // ViewModel + LiveData
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.2")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.8.2")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.2")
+    implementation("androidx.activity:activity-ktx:1.9.0")
+    implementation("androidx.fragment:fragment-ktx:1.6.2")
     implementation("cn.jiguang.sdk:jpush:3.3.6")
     implementation("cn.jiguang.sdk:jcore:2.1.6")
     implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
