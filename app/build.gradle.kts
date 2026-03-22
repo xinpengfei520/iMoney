@@ -148,8 +148,6 @@ dependencies {
     debugImplementation("com.github.eleme.UETool:uetool:1.3.4")
     debugImplementation("com.github.eleme.UETool:uetool-base:1.3.4")
     releaseImplementation("com.github.eleme.UETool:uetool-no-op:1.3.4")
-    // if you want to show more attrs about Fresco"s DraweeView
-    debugImplementation("com.github.eleme.UETool:uetool-fresco:1.3.4")
     // Import the BoM for the GrowingIO platform
     implementation(platform("com.growingio.android:autotracker-bom:4.3.0"))
     //GrowingIO 无埋点 SDK
