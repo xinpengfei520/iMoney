@@ -109,6 +109,7 @@ class LoginActivity : BaseVmActivity<LoginViewModel>() {
     }
 
     companion object {
+        @JvmStatic
         fun actionStart(context: Context?) {
             if (context != null) {
                 context.startActivity(Intent(context, LoginActivity::class.java))
