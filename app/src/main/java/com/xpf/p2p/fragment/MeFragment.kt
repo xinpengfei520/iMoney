@@ -114,7 +114,7 @@ class MeFragment : BaseFragment() {
             Picasso.get().load(user.UF_AVATAR_URL).transform(object : Transformation {
                 override fun transform(source: Bitmap): Bitmap {
                     val zoom = BitmapUtils.zoom(source, UIUtils.dp2px(62).toFloat(), UIUtils.dp2px(62).toFloat())
-                    val circleBitmap = BitmapUtils.circleBitmap(zoom)
+                    val circleBitmap = BitmapUtils.circleBitmap(zoom!!)
                     source.recycle()
                     return circleBitmap
                 }

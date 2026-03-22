@@ -18,7 +18,7 @@ abstract class BaseVmActivity<VM : ViewModel> : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(getLayoutId())
         supportActionBar?.hide()
-        ActivityManager.getInstance().add(this)
+        ActivityManager.instance.add(this)
         viewModel = ViewModelProvider(this)[getViewModelClass()]
         initView()
         observeData()
@@ -37,10 +37,10 @@ abstract class BaseVmActivity<VM : ViewModel> : AppCompatActivity() {
     protected open fun observeData() {}
 
     fun removeCurrentActivity() {
-        ActivityManager.getInstance().removeCurrent()
+        ActivityManager.instance.removeCurrent()
     }
 
     fun removeAll() {
-        ActivityManager.getInstance().removeAll()
+        ActivityManager.instance.removeAll()
     }
 }

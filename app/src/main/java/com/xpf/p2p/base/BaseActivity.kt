@@ -15,7 +15,7 @@ abstract class BaseActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(getLayoutId())
         supportActionBar?.hide()
-        ActivityManager.getInstance().add(this)
+        ActivityManager.instance.add(this)
         initData()
     }
 
@@ -24,7 +24,7 @@ abstract class BaseActivity : AppCompatActivity() {
     protected abstract fun getLayoutId(): Int
 
     fun removeCurrentActivity() {
-        ActivityManager.getInstance().removeCurrent()
+        ActivityManager.instance.removeCurrent()
     }
 
     fun goToActivity(activity: Class<*>, bundle: Bundle? = null) {
@@ -36,6 +36,6 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     fun removeAll() {
-        ActivityManager.getInstance().removeAll()
+        ActivityManager.instance.removeAll()
     }
 }

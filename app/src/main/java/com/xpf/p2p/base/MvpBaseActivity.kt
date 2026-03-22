@@ -20,7 +20,7 @@ abstract class MvpBaseActivity<V, T : MvpBasePresenter<V>> : AppCompatActivity()
         mPresenter.attachView(this as V)
         setContentView(getLayoutId())
         supportActionBar?.hide()
-        ActivityManager.getInstance().add(this)
+        ActivityManager.instance.add(this)
         initData()
     }
 
@@ -31,7 +31,7 @@ abstract class MvpBaseActivity<V, T : MvpBasePresenter<V>> : AppCompatActivity()
     protected abstract fun initData()
 
     fun removeCurrentActivity() {
-        ActivityManager.getInstance().removeCurrent()
+        ActivityManager.instance.removeCurrent()
     }
 
     fun goToActivity(activity: Class<*>, bundle: Bundle? = null) {
@@ -43,7 +43,7 @@ abstract class MvpBaseActivity<V, T : MvpBasePresenter<V>> : AppCompatActivity()
     }
 
     protected fun removeAll() {
-        ActivityManager.getInstance().removeAll()
+        ActivityManager.instance.removeAll()
     }
 
     override fun onDestroy() {

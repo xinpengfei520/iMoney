@@ -143,7 +143,7 @@ class UserInfoActivity : BaseActivity() {
             val pathResult = getPath(selectedImage!!)
             val decodeFile = BitmapFactory.decodeFile(pathResult)
             val zoomBitmap = BitmapUtils.zoom(decodeFile, UIUtils.dp2px(62).toFloat(), UIUtils.dp2px(62).toFloat())
-            val circleImage = BitmapUtils.circleBitmap(zoomBitmap)
+            val circleImage = BitmapUtils.circleBitmap(zoomBitmap!!)
             ivIcon.setImageBitmap(circleImage)
             try {
                 saveImage(circleImage)

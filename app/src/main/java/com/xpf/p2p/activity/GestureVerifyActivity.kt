@@ -57,7 +57,7 @@ class GestureVerifyActivity : Activity() {
         mTextOther = findViewById(R.id.text_other_account)
         mTextCancel.setOnClickListener { finish() }
 
-        val inputCode = mSharedPreferences.getString("inputCode", "1235789")
+        val inputCode = mSharedPreferences.getString("inputCode", "1235789") ?: "1235789"
         mGestureContentView = GestureContentView(this, true, inputCode,
             object : GestureDrawline.GestureCallBack {
                 override fun onGestureCodeInput(inputCode: String) {}

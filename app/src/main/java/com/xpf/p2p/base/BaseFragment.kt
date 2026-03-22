@@ -36,7 +36,7 @@ abstract class BaseFragment : Fragment() {
             initData(null)
             mView
         } else {
-            loadingPage = object : LoadingPage(activity) {
+            loadingPage = object : LoadingPage(activity!!) {
                 override fun layoutId(): Int = getLayoutId()
 
                 override fun onSuccess(resultState: ResultState, view_success: View) {
