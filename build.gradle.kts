@@ -14,5 +14,3 @@ plugins {
     // 添加GrowingIO 无埋点 SDK 插件
     alias(libs.plugins.autotracker) apply false
 }
-
-apply("${project.rootDir}/config.gradle")

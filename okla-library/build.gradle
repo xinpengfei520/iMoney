@@ -2,10 +2,10 @@ apply plugin: 'com.android.library'
 
 android {
     namespace 'com.xpf.http'
-    compileSdk rootProject.ext.android.compileSdk
+    compileSdk 34
     defaultConfig {
-        minSdk rootProject.ext.android.minSdk
-        targetSdk rootProject.ext.android.targetSdk
+        minSdk 24
+        targetSdk 34
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
