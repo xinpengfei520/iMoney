@@ -127,7 +127,7 @@ class ChongZhiActivity : BaseActivity() {
 
     fun getSignType(): String = "sign_type=\"RSA\""
 
-    fun sign(content: String): String = SignUtils.sign(content, RSA_PRIVATE)
+    fun sign(content: String): String = SignUtils.sign(content, RSA_PRIVATE)!!
 
     fun getOrderInfo(subject: String, body: String, price: String): String {
         var orderInfo = "partner=\"$PARTNER\""
