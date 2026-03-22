@@ -19,18 +19,8 @@ val localProperties = Properties().apply {
     if (file.exists()) load(FileInputStream(file))
 }
 
-//apply plugin: "bugly"
-//
-//bugly {
-//    // 注册时分配的 App ID
-//    appId = "c84e7e9ad7"
-//    // 注册时分配的 App Key
-//    appKey = "17ec4880-a08f-4bcd-9e69-46b96e639047"
-//}
-
 android {
     namespace = "com.xpf.p2p"
-    useLibrary("org.apache.http.legacy")
     compileSdk = 34
     defaultConfig {
         applicationId = "com.xpf.p2p"
