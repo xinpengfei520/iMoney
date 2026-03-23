@@ -10,7 +10,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import cn.iwgang.countdownview.CountdownView
-import com.xpf.http.logger.XLog
+import com.xpf.p2p.utils.LogUtils
 import com.xpf.p2p.R
 import com.xpf.p2p.base.BaseVmActivity
 import com.xpf.p2p.ui.login.LoginViewModel
@@ -115,7 +115,7 @@ class LoginActivity : BaseVmActivity<LoginViewModel>() {
                 context.startActivity(Intent(context, LoginActivity::class.java))
                 (context as? Activity)?.finish()
             } else {
-                XLog.e("context is null!")
+                LogUtils.e("LoginActivity", "context is null!")
             }
         }
     }

@@ -19,8 +19,11 @@ import android.view.animation.ScaleAnimation
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.alibaba.fastjson.JSON
-import com.loopj.android.http.AsyncHttpClient
-import com.loopj.android.http.AsyncHttpResponseHandler
+import com.xpf.p2p.network.RetrofitClient
+import okhttp3.ResponseBody
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import com.xpf.p2p.App
 import com.xpf.p2p.R
 import com.xpf.p2p.constants.ApiRequestUrl
@@ -182,16 +185,21 @@ class WelcomeActivity : Activity() {
             toLoginPager()
         } else {
             val updateUrl = ApiRequestUrl.UPDATE
-            val client = AsyncHttpClient()
-            client.post(updateUrl, object : AsyncHttpResponseHandler() {
-                override fun onSuccess(json: String) {
-                    LogUtils.d(TAG, json)
-                    updateInfo = JSON.parseObject(json, UpdateInfo::class.java)
-                    handler.sendEmptyMessage(WHAT_DOWNLOAD_VERSION_SUCCESS)
+            RetrofitClient.apiService.post(updateUrl).enqueue(object : Callback<ResponseBody> {
+                override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+                    val json = response.body()?.string()
+                    if (json != null) {
+                        LogUtils.d(TAG, json)
+                        updateInfo = JSON.parseObject(json, UpdateInfo::class.java)
+                        handler.sendEmptyMessage(WHAT_DOWNLOAD_VERSION_SUCCESS)
+                    } else {
+                        ToastUtil.show(this@WelcomeActivity, "联网获取更新数据失败!")
+                        toLoginPager()
+                    }
                 }
 
-                override fun onFailure(error: Throwable, content: String?) {
-                    LogUtils.e(TAG, "Throwable:${error.message},content:$content")
+                override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                    LogUtils.e(TAG, "Throwable:${t.message}")
                     ToastUtil.show(this@WelcomeActivity, "联网获取更新数据失败!")
                     toLoginPager()
                 }

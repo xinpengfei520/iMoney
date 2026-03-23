@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.loopj.android.http.RequestParams
 import com.xpf.p2p.constants.ResultState
 import com.xpf.p2p.utils.UIUtils
 import com.xpf.p2p.widget.LoadingPage
@@ -43,7 +42,7 @@ abstract class BaseFragment : Fragment() {
                     initData(resultState.content)
                 }
 
-                override fun params(): RequestParams? = getParams()
+                override fun params(): Map<String, String>? = getParams()
 
                 override fun url(): String = getUrl()
             }
@@ -55,7 +54,7 @@ abstract class BaseFragment : Fragment() {
 
     protected abstract fun getUrl(): String
 
-    protected abstract fun getParams(): RequestParams?
+    protected abstract fun getParams(): Map<String, String>?
 
     protected abstract fun initData(content: String?)
 

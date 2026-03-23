@@ -14,8 +14,7 @@ import com.growingio.android.sdk.autotrack.AutotrackConfiguration
 import com.growingio.android.sdk.autotrack.GrowingAutotracker
 import com.mob.MobSDK
 import com.tencent.bugly.crashreport.CrashReport
-import com.xpf.http.OklaClient
-import com.xpf.http.logger.XLog
+import com.xpf.p2p.utils.LogUtils
 import com.xpf.p2p.constants.SpKey
 import com.xpf.p2p.uetool.FilterOutView
 import com.xpf.p2p.utils.LocaleUtils
@@ -36,7 +35,6 @@ class App : MultiDexApplication() {
         mainThread = Thread.currentThread() // 当前用于初始化Application的线程，即为主线程
         mainThreadId = Process.myTid() /* 获取当前主线程的id */
 
-        OklaClient.getInstance().init(this)
         // 设置出现未捕获异常时的处理类
         //CrashHandler.getInstance().init();
         changeAppLanguage()
@@ -138,7 +136,7 @@ class App : MultiDexApplication() {
 
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
-        XLog.i("onConfigurationChanged")
+        LogUtils.i(TAG, "onConfigurationChanged")
         setLanguage(newConfig)
     }
 
@@ -166,6 +164,7 @@ class App : MultiDexApplication() {
     }
 
     companion object {
+        private const val TAG = "App"
         // 使用 applicationContext 不会导致内存泄漏
         lateinit var context: Context
             private set

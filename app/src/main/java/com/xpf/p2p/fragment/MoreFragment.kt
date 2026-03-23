@@ -9,7 +9,6 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.ProgressBar
 import android.widget.TextView
-import com.loopj.android.http.RequestParams
 import com.xpf.p2p.R
 import com.xpf.p2p.base.BaseFragment
 import com.xpf.p2p.ui.multilanguage.view.MultiLanguageActivity
@@ -29,7 +28,7 @@ class MoreFragment : BaseFragment() {
 
     override fun getUrl(): String = ""
 
-    override fun getParams(): RequestParams? = null
+    override fun getParams(): Map<String, String>? = null
 
     override fun initData(content: String?) {
         tvContent = mView!!.findViewById(R.id.tv_content)

@@ -6,12 +6,14 @@ import android.util.AttributeSet
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
-import com.loopj.android.http.AsyncHttpClient
-import com.loopj.android.http.AsyncHttpResponseHandler
-import com.loopj.android.http.RequestParams
 import com.xpf.p2p.R
 import com.xpf.p2p.constants.ResultState
+import com.xpf.p2p.network.RetrofitClient
 import com.xpf.p2p.utils.UIUtils
+import okhttp3.ResponseBody
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 /**
  * Created by xpf on 2016/11/14 :)
@@ -91,11 +93,16 @@ abstract class LoadingPage @JvmOverloads constructor(
 
     private fun sendHttpRequest() {
         val requestUrl = url()
-        val params = params()
         if (!TextUtils.isEmpty(requestUrl)) {
-            val client = AsyncHttpClient()
-            client.get(requestUrl, params, object : AsyncHttpResponseHandler() {
-                override fun onSuccess(content: String?) {
+            val queryParams = params()
+            val call = if (queryParams.isNullOrEmpty()) {
+                RetrofitClient.apiService.get(requestUrl!!)
+            } else {
+                RetrofitClient.apiService.get(requestUrl!!, queryParams)
+            }
+            call.enqueue(object : Callback<ResponseBody> {
+                override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+                    val content = response.body()?.string()
                     if (TextUtils.isEmpty(content)) {
                         mResultState = ResultState.EMPTY
                         mResultState!!.content = ""
@@ -106,7 +113,7 @@ abstract class LoadingPage @JvmOverloads constructor(
                     loadPage()
                 }
 
-                override fun onFailure(error: Throwable?, content: String?) {
+                override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
                     mResultState = ResultState.ERROR
                     mResultState!!.content = ""
                     loadPage()
@@ -134,7 +141,7 @@ abstract class LoadingPage @JvmOverloads constructor(
 
     protected abstract fun onSuccess(resultState: ResultState, view_success: View)
 
-    protected abstract fun params(): RequestParams?
+    protected abstract fun params(): Map<String, String>?
 
     protected abstract fun url(): String?
 

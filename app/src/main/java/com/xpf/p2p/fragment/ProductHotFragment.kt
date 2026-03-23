@@ -4,7 +4,6 @@ import android.graphics.Color
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
-import com.loopj.android.http.RequestParams
 import com.xpf.p2p.R
 import com.xpf.p2p.base.BaseFragment
 import com.xpf.p2p.utils.DrawUtils
@@ -30,7 +29,7 @@ class ProductHotFragment : BaseFragment() {
 
     override fun getUrl(): String = ""
 
-    override fun getParams(): RequestParams? = null
+    override fun getParams(): Map<String, String>? = null
 
     override fun initData(content: String?) {
         flowLayout = mView!!.findViewById(R.id.flow_layout)

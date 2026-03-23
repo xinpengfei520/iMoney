@@ -1,6 +1,5 @@
 package com.xpf.p2p.fragment
 
-import com.loopj.android.http.RequestParams
 import com.xpf.p2p.R
 import com.xpf.p2p.adapter.StellerAdapter
 import com.xpf.p2p.base.BaseFragment
@@ -18,7 +17,7 @@ class RecommendFragment : BaseFragment() {
 
     override fun getUrl(): String = ""
 
-    override fun getParams(): RequestParams = RequestParams()
+    override fun getParams(): Map<String, String> = emptyMap()
 
     override fun initData(content: String?) {
         stellarMap = mView!!.findViewById(R.id.stellarMap)

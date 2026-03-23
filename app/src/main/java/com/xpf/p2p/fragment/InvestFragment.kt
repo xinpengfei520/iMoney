@@ -4,7 +4,6 @@ import android.content.Context
 import android.graphics.Color
 import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
-import com.loopj.android.http.RequestParams
 import com.xpf.p2p.R
 import com.xpf.p2p.adapter.MyPagerAdapter
 import com.xpf.p2p.base.BaseFragment
@@ -33,7 +32,7 @@ class InvestFragment : BaseFragment() {
 
     override fun getUrl(): String = ""
 
-    override fun getParams(): RequestParams? = null
+    override fun getParams(): Map<String, String>? = null
 
     override fun initData(content: String?) {
         tabIndicator = mView!!.findViewById(R.id.tab_indicator)

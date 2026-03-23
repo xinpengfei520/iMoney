@@ -7,7 +7,6 @@ import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
 import com.alibaba.fastjson.JSON
-import com.loopj.android.http.RequestParams
 import com.squareup.picasso.Picasso
 import com.xpf.p2p.R
 import com.xpf.p2p.base.BaseFragment
@@ -47,7 +46,7 @@ class HomeFragment2 : BaseFragment() {
 
     override fun getUrl(): String = ApiRequestUrl.INDEX
 
-    override fun getParams(): RequestParams = RequestParams()
+    override fun getParams(): Map<String, String> = emptyMap()
 
     override fun initData(content: String?) {
         banner = mView!!.findViewById(R.id.banner)

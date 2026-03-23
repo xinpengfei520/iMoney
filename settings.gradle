@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "iMoney"
-include ':app', ':okla-library'
+include ':app'

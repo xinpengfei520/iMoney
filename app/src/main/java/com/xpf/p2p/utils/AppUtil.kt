@@ -3,7 +3,7 @@ package com.xpf.p2p.utils
 import android.content.Context
 import android.content.pm.PackageManager
 import android.view.WindowManager
-import com.xpf.http.logger.XLog
+import com.xpf.p2p.utils.LogUtils
 
 /**
  * Created by xpf on 2017/12/5 :)
@@ -41,7 +41,7 @@ object AppUtil {
             }
         } catch (e: Exception) {
             e.printStackTrace()
-            XLog.e("Exception$e")
+            LogUtils.e("AppUtil", "Exception$e")
         }
         return versioncode
     }
@@ -54,7 +54,7 @@ object AppUtil {
                 .packageManager
                 .getPackageInfo(ctx.packageName, 0)
             localVersion = packageInfo.versionName
-            XLog.d("本软件的版本号。。$localVersion")
+            LogUtils.d("AppUtil", "本软件的版本号。。$localVersion")
         } catch (e: PackageManager.NameNotFoundException) {
             e.printStackTrace()
         }

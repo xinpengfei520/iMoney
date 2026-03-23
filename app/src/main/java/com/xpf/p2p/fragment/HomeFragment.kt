@@ -10,8 +10,11 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.PagerAdapter
 import com.alibaba.fastjson.JSON
-import com.loopj.android.http.AsyncHttpClient
-import com.loopj.android.http.AsyncHttpResponseHandler
+import com.xpf.p2p.network.RetrofitClient
+import okhttp3.ResponseBody
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import com.squareup.picasso.Picasso
 import com.xpf.p2p.R
 import com.xpf.p2p.constants.ApiRequestUrl
@@ -40,9 +43,9 @@ class HomeFragment : Fragment() {
     }
 
     private fun initData() {
-        val client = AsyncHttpClient()
-        client.post(ApiRequestUrl.INDEX, object : AsyncHttpResponseHandler() {
-            override fun onSuccess(content: String) {
+        RetrofitClient.apiService.post(ApiRequestUrl.INDEX).enqueue(object : Callback<ResponseBody> {
+            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+                val content = response.body()?.string() ?: return
                 val jsonObject = JSON.parseObject(content)
                 val proInfo = jsonObject.getString("proInfo")
                 val product = JSON.parseObject(proInfo, Product::class.java)
@@ -59,7 +62,7 @@ class HomeFragment : Fragment() {
                 tvHomeRate.text = "$yearRate%"
             }
 
-            override fun onFailure(error: Throwable, content: String?) {
+            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
                 Toast.makeText(activity, "获取服务器数据失败", Toast.LENGTH_SHORT).show()
             }
         })

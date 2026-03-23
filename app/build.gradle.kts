@@ -152,7 +152,8 @@ dependencies {
     implementation(platform("com.growingio.android:autotracker-bom:4.3.0"))
     //GrowingIO 无埋点 SDK
     implementation("com.growingio.android:autotracker")
-    implementation(project(":okla-library"))
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
+    implementation("com.squareup.retrofit2:retrofit:2.11.0")
 }
 
 fun getApkFullPath(): String {

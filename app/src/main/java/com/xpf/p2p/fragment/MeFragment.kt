@@ -8,7 +8,6 @@ import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
 import android.widget.Toast
-import com.loopj.android.http.RequestParams
 import com.squareup.picasso.Picasso
 import com.squareup.picasso.Transformation
 import com.xpf.p2p.R
@@ -48,7 +47,7 @@ class MeFragment : BaseFragment() {
 
     override fun getUrl(): String = ""
 
-    override fun getParams(): RequestParams? = null
+    override fun getParams(): Map<String, String>? = null
 
     override fun initData(content: String?) {
         imageView1 = mView!!.findViewById(R.id.imageView1)

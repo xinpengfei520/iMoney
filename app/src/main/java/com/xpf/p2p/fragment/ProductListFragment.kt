@@ -3,7 +3,6 @@ package com.xpf.p2p.fragment
 import android.text.TextUtils
 import android.widget.ListView
 import com.alibaba.fastjson.JSON
-import com.loopj.android.http.RequestParams
 import com.xpf.p2p.R
 import com.xpf.p2p.adapter.ProductAdapter
 import com.xpf.p2p.base.BaseFragment
@@ -24,7 +23,7 @@ class ProductListFragment : BaseFragment() {
 
     override fun getUrl(): String = ApiRequestUrl.PRODUCT
 
-    override fun getParams(): RequestParams? = null
+    override fun getParams(): Map<String, String>? = null
 
     override fun initData(content: String?) {
         productListview = mView!!.findViewById(R.id.product_listview)
