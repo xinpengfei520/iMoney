@@ -68,6 +68,16 @@ If you find any bug when using this project, please report **[here](https://gith
 
 ## Change logs
 
+### 2.0.0
+
+ - update on 2026-03-23
+ - 全面重构：将所有 Java 文件转换为 Kotlin
+ - 架构升级：base 层及登录/首页/多语言模块迁移至 MVVM 架构
+ - 升级 Gradle 构建配置为 Kotlin DSL（build.gradle.kts）
+ - 引入 libs.versions.toml 版本目录管理插件版本
+ - 新增项目开发架构文档
+ - optimized code.
+
 ### 1.4.6
 
  - 集成 AndResGuard；
