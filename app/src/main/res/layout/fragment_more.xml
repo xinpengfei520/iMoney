@@ -8,7 +8,7 @@
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
-        android:layout_height="2dp"
+        android:layout_height="@dimen/dp_2"
         android:background="#FFFFFF"
         android:max="100"
         android:progress="0"
@@ -23,7 +23,7 @@
         android:singleLine="true"
         android:text="@string/marquee_text"
         android:textColor="@color/title_text"
-        android:textSize="24sp" />
+        android:textSize="@dimen/dp_24" />
 
     <TextView
         android:id="@+id/tvLanguage"
@@ -36,7 +36,7 @@
     <WebView
         android:id="@+id/webView"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="@dimen/dp_0"
         android:layout_weight="1" />
 
 </LinearLayout>

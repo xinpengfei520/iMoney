@@ -8,7 +8,7 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="@dimen/dp_1"
         android:background="@color/divider_line" />
 
     <LinearLayout
@@ -21,16 +21,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="15dp">
+            android:padding="@dimen/dp_15">
 
             <TextView
                 android:id="@+id/p_name"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/dp_0"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="超级新手计划"
                 android:textColor="#333333"
-                android:textSize="16sp" />
+                android:textSize="@dimen/dp_16" />
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -41,9 +41,9 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
+            android:layout_height="@dimen/dp_1"
+            android:layout_marginLeft="@dimen/dp_15"
+            android:layout_marginRight="@dimen/dp_15"
             android:background="@color/divider_line" />
     </LinearLayout>
 
@@ -52,10 +52,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="15dp">
+        android:padding="@dimen/dp_15">
 
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="@dimen/dp_0"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical">
@@ -66,42 +66,42 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/dp_0"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="left"
                     android:text="产品金额"
                     android:textColor="@color/product_detail_common"
-                    android:textSize="12sp" />
+                    android:textSize="@dimen/dp_12" />
 
                 <TextView
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/dp_0"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="预期年利率"
                     android:textColor="@color/product_detail_common"
-                    android:textSize="12sp" />
+                    android:textSize="@dimen/dp_12" />
 
                 <TextView
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/dp_0"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="right"
                     android:text="锁定期"
                     android:textColor="@color/product_detail_common"
-                    android:textSize="12sp" />
+                    android:textSize="@dimen/dp_12" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="@dimen/dp_5"
                 android:orientation="horizontal">
 
 
                 <LinearLayout
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/dp_0"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="left">
@@ -112,7 +112,7 @@
                         android:layout_height="wrap_content"
                         android:text="10"
                         android:textColor="@color/product_red_common"
-                        android:textSize="14sp"
+                        android:textSize="@dimen/dp_14"
                         android:textStyle="bold" />
 
                     <TextView
@@ -120,11 +120,11 @@
                         android:layout_height="wrap_content"
                         android:text="万"
                         android:textColor="@color/product_detail_common"
-                        android:textSize="12sp" />
+                        android:textSize="@dimen/dp_12" />
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/dp_0"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center">
@@ -135,7 +135,7 @@
                         android:layout_height="wrap_content"
                         android:text="8.00"
                         android:textColor="@color/product_red_common"
-                        android:textSize="14sp"
+                        android:textSize="@dimen/dp_14"
                         android:textStyle="bold" />
 
                     <TextView
@@ -143,11 +143,11 @@
                         android:layout_height="wrap_content"
                         android:text="%"
                         android:textColor="@color/product_detail_common"
-                        android:textSize="12sp" />
+                        android:textSize="@dimen/dp_12" />
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/dp_0"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="right">
@@ -158,7 +158,7 @@
                         android:layout_height="wrap_content"
                         android:text="30"
                         android:textColor="@color/product_red_common"
-                        android:textSize="14sp"
+                        android:textSize="@dimen/dp_14"
                         android:textStyle="bold" />
 
                     <TextView
@@ -166,82 +166,82 @@
                         android:layout_height="wrap_content"
                         android:text="天"
                         android:textColor="@color/product_detail_common"
-                        android:textSize="12sp" />
+                        android:textSize="@dimen/dp_12" />
                 </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="@dimen/dp_5"
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/dp_0"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="left">
 
                     <TextView
-                        android:layout_width="1dp"
-                        android:layout_height="12dp"
+                        android:layout_width="@dimen/dp_1"
+                        android:layout_height="@dimen/dp_12"
                         android:background="@color/divider_line" />
 
                     <TextView
                         android:id="@+id/p_minzouzi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="4dp"
+                        android:layout_marginLeft="@dimen/dp_4"
                         android:drawableLeft="@drawable/manage_list_count"
-                        android:drawablePadding="4dp"
+                        android:drawablePadding="@dimen/dp_4"
                         android:text="100起"
                         android:textColor="@color/product_detail_common"
-                        android:textSize="12sp" />
+                        android:textSize="@dimen/dp_12" />
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/dp_0"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center">
 
                     <TextView
-                        android:layout_width="1dp"
-                        android:layout_height="12dp"
+                        android:layout_width="@dimen/dp_1"
+                        android:layout_height="@dimen/dp_12"
                         android:background="@color/divider_line" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="4dp"
+                        android:layout_marginLeft="@dimen/dp_4"
                         android:drawableLeft="@drawable/manage_list_guarantee"
-                        android:drawablePadding="4dp"
+                        android:drawablePadding="@dimen/dp_4"
                         android:text="本息保障"
                         android:textColor="@color/product_detail_common"
-                        android:textSize="12sp" />
+                        android:textSize="@dimen/dp_12" />
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/dp_0"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="right">
 
                     <TextView
-                        android:layout_width="1dp"
-                        android:layout_height="12dp"
+                        android:layout_width="@dimen/dp_1"
+                        android:layout_height="@dimen/dp_12"
                         android:background="@color/divider_line" />
 
                     <TextView
                         android:id="@+id/p_minnum"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="4dp"
+                        android:layout_marginLeft="@dimen/dp_4"
                         android:drawableLeft="@drawable/manage_list_member"
-                        android:drawablePadding="4dp"
+                        android:drawablePadding="@dimen/dp_4"
                         android:text="100"
                         android:textColor="@color/product_detail_common"
-                        android:textSize="12sp" />
+                        android:textSize="@dimen/dp_12" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -250,19 +250,19 @@
 
         <com.xpf.p2p.widget.RoundProgress
             android:id="@+id/p_progresss"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="20dp"
+            android:layout_width="@dimen/dp_50"
+            android:layout_height="@dimen/dp_50"
+            android:layout_marginLeft="@dimen/dp_20"
             app:roundColor="@android:color/darker_gray"
             app:roundProgressColor="#18B4ED"
-            app:roundWidth="5dp"
+            app:roundWidth="@dimen/dp_5"
             app:textColor="#18b4ed"
-            app:textSize="12sp" />
+            app:textSize="@dimen/dp_12" />
     </LinearLayout>
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="@dimen/dp_1"
         android:background="@color/divider_line" />
 
 </LinearLayout>

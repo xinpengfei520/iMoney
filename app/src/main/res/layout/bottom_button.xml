@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:paddingBottom="4dp">
+    android:paddingBottom="@dimen/dp_4">
 
     <View
         android:layout_width="match_parent"
@@ -14,13 +14,13 @@
         android:id="@+id/rg_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="@dimen/dp_4"
         android:background="#F6F6F6"
         android:orientation="horizontal">
 
         <RadioButton
             android:id="@+id/rb_home"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/dp_0"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:button="@null"
@@ -28,11 +28,11 @@
             android:gravity="center"
             android:text="首页"
             android:textColor="@drawable/rb_textcolor_selector"
-            android:textSize="15sp" />
+            android:textSize="@dimen/dp_15" />
 
         <RadioButton
             android:id="@+id/rb_invest"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/dp_0"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:button="@null"
@@ -40,11 +40,11 @@
             android:gravity="center"
             android:text="投资"
             android:textColor="@drawable/rb_textcolor_selector"
-            android:textSize="15sp" />
+            android:textSize="@dimen/dp_15" />
 
         <RadioButton
             android:id="@+id/rb_assets"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/dp_0"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:button="@null"
@@ -52,11 +52,11 @@
             android:gravity="center"
             android:text="资产"
             android:textColor="@drawable/rb_textcolor_selector"
-            android:textSize="15sp" />
+            android:textSize="@dimen/dp_15" />
 
         <RadioButton
             android:id="@+id/rb_more"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/dp_0"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:button="@null"
@@ -64,7 +64,7 @@
             android:gravity="center"
             android:text="更多"
             android:textColor="@drawable/rb_textcolor_selector"
-            android:textSize="15sp" />
+            android:textSize="@dimen/dp_15" />
     </RadioGroup>
 
 </LinearLayout>

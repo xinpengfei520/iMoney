@@ -15,7 +15,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="15dp">
+            android:paddingBottom="@dimen/dp_15">
 
             <ImageView
                 android:id="@+id/iv_icon"
@@ -23,7 +23,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/dp_10"
                 android:src="@drawable/my_user_default" />
 
             <TextView
@@ -33,30 +33,30 @@
                 android:layout_below="@id/iv_icon"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
-                android:layout_marginBottom="15dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginBottom="@dimen/dp_15"
+                android:layout_marginTop="@dimen/dp_5"
                 android:text="更换头像"
                 android:textColor="#00baff"
-                android:textSize="14sp" />
+                android:textSize="@dimen/dp_14" />
         </RelativeLayout>
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="1dp"
+            android:layout_height="@dimen/dp_1"
             android:background="?android:listDivider" />
 
         <Button
             android:id="@+id/logout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginLeft="@dimen/dp_20"
+            android:layout_marginRight="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_15"
             android:background="@drawable/btn_01"
             android:gravity="center"
             android:text="退出登录"
             android:textColor="#ffffff"
-            android:textSize="15sp" />
+            android:textSize="@dimen/dp_15" />
     </LinearLayout>
 
 </LinearLayout>

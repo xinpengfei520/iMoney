@@ -21,7 +21,7 @@
             android:gravity="center"
             android:text="@string/setup_gesture_code"
             android:textColor="#000000"
-            android:textSize="20sp" />
+            android:textSize="@dimen/dp_20" />
 
         <TextView
             android:id="@+id/text_cancel"
@@ -32,7 +32,7 @@
             android:gravity="right"
             android:text="取消"
             android:textColor="@color/gesture_cancel_text_color"
-            android:textSize="18sp" />
+            android:textSize="@dimen/dp_18" />
     </RelativeLayout>
 
     <LinearLayout
@@ -90,7 +90,7 @@
             android:gravity="center"
             android:text="@string/forget_gesture_code"
             android:textColor="#E7E7E6"
-            android:textSize="16sp" />
+            android:textSize="@dimen/dp_16" />
 
         <TextView
             android:id="@+id/text_other_account"
@@ -100,7 +100,7 @@
             android:gravity="center"
             android:text="@string/use_other_account_login"
             android:textColor="#E7E7E6"
-            android:textSize="16sp" />
+            android:textSize="@dimen/dp_16" />
     </LinearLayout>
 
 </RelativeLayout>

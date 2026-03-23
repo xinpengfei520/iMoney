@@ -68,6 +68,12 @@ If you find any bug when using this project, please report **[here](https://gith
 
 ## Change logs
 
+### 2.0.3
+
+ - update on 2026-03-23
+ - 网络层重构：移除 okla-library 模块和 AsyncHttpClient，替换为 OkHttp + Retrofit
+ - 修复 CI 流水线：调整 Maven 仓库优先级，注入签名密钥
+
 ### 2.0.0
 
  - update on 2026-03-23

@@ -7,7 +7,7 @@
     <net.lucode.hackware.magicindicator.MagicIndicator
         android:id="@+id/tab_indicator"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="@dimen/dp_40"
         android:background="#FF0000" />
 
     <androidx.viewpager.widget.ViewPager

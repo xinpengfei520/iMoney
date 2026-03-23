@@ -20,7 +20,7 @@
             android:layout_centerInParent="true"
             android:gravity="center"
             android:text="@string/setup_gesture_code"
-            android:textSize="20sp"
+            android:textSize="@dimen/dp_20"
             android:textColor="#ffffff" />
 
         <TextView
@@ -31,7 +31,7 @@
             android:layout_centerVertical="true"
             android:gravity="right"
             android:text="取消"
-            android:textSize="18sp"
+            android:textSize="@dimen/dp_18"
             android:textColor="@color/gesture_cancel_text_color" />
     </RelativeLayout>
 

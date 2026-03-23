@@ -6,7 +6,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="@dimen/dp_100"
         android:background="@color/my_title_bg"
         android:gravity="center">
 
@@ -15,18 +15,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="4dp">
+            android:layout_marginTop="@dimen/dp_4">
 
             <ImageView
-                android:layout_width="64dp"
-                android:layout_height="64dp"
+                android:layout_width="@dimen/dp_64"
+                android:layout_height="@dimen/dp_64"
                 android:scaleType="fitXY"
                 android:src="@drawable/my_user_bg_icon" />
 
             <ImageView
                 android:id="@+id/imageView1"
-                android:layout_width="62dp"
-                android:layout_height="62dp"
+                android:layout_width="@dimen/dp_62"
+                android:layout_height="@dimen/dp_62"
                 android:layout_centerInParent="true"
                 android:scaleType="fitXY"
                 android:src="@drawable/my_user_default" />
@@ -37,17 +37,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/icon_time"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="@dimen/dp_10"
             android:gravity="center"
             android:text="Hi,welcome!"
             android:textColor="@color/white"
-            android:textSize="14sp" />
+            android:textSize="@dimen/dp_14" />
     </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_margin="@dimen/dp_10"
         android:orientation="vertical">
 
         <TextView
@@ -59,42 +59,42 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="@dimen/dp_5"
             android:text="充值我们将以集成支付宝sdk支付金额演示充值功能" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="@dimen/dp_5"
             android:text="提现业务:在p2p金融平台中,提现都不是实时到账的,而是审核提现,系统将会告知24小时内进行转账,如果未收到,请联系客服..." />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_margin="@dimen/dp_10"
         android:gravity="center">
 
         <ImageView
             android:id="@+id/recharge"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/dp_0"
             android:layout_height="wrap_content"
-            android:layout_marginRight="9dp"
+            android:layout_marginRight="@dimen/dp_9"
             android:layout_weight="1"
             android:src="@drawable/my_recharge_bg" />
 
         <ImageView
             android:id="@+id/withdraw"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/dp_0"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="9dp"
+            android:layout_marginLeft="@dimen/dp_9"
             android:layout_weight="1"
             android:src="@drawable/my_withdraw_bg" />
     </LinearLayout>
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="10dp"
+        android:layout_height="@dimen/dp_10"
         android:background="#11000000" />
 
     <!--充分使用textview属性代替LinearLayout布局-->

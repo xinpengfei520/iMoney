@@ -11,13 +11,13 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
+        android:layout_marginLeft="@dimen/dp_40"
+        android:layout_marginRight="@dimen/dp_40"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="0dp"
+            android:layout_width="@dimen/dp_0"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textColorHint="#FFFFFF">
@@ -34,7 +34,7 @@
                 android:maxLines="1"
                 android:singleLine="true"
                 android:textColor="#FFFFFF"
-                android:textSize="16sp" />
+                android:textSize="@dimen/dp_16" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -51,7 +51,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/transparent"
-            android:padding="2dp"
+            android:padding="@dimen/dp_2"
             android:visibility="gone"
             app:isHideTimeBackground="true"
             app:isShowDay="false"
@@ -63,25 +63,25 @@
             app:suffixGravity="bottom"
             app:suffixSecond="S"
             app:suffixTextColor="@color/white"
-            app:suffixTextSize="16sp"
+            app:suffixTextSize="@dimen/dp_16"
             app:timeTextColor="@android:color/white"
-            app:timeTextSize="16sp" />
+            app:timeTextSize="@dimen/dp_16" />
     </LinearLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1px"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginRight="40dp"
+        android:layout_marginLeft="@dimen/dp_40"
+        android:layout_marginTop="@dimen/dp_4"
+        android:layout_marginRight="@dimen/dp_40"
         android:background="@color/gray_d" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="40dp"
+        android:layout_marginLeft="@dimen/dp_40"
+        android:layout_marginTop="@dimen/dp_20"
+        android:layout_marginRight="@dimen/dp_40"
         android:textColorHint="#FFFFFF">
 
         <EditText
@@ -95,37 +95,37 @@
             android:maxLines="1"
             android:singleLine="true"
             android:textColor="#FFFFFF"
-            android:textSize="16sp" />
+            android:textSize="@dimen/dp_16" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1px"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginRight="40dp"
+        android:layout_marginLeft="@dimen/dp_40"
+        android:layout_marginTop="@dimen/dp_4"
+        android:layout_marginRight="@dimen/dp_40"
         android:background="@color/gray_d" />
 
     <Button
         android:id="@+id/log_log_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginRight="40dp"
+        android:layout_marginLeft="@dimen/dp_40"
+        android:layout_marginTop="@dimen/dp_30"
+        android:layout_marginRight="@dimen/dp_40"
         android:background="@drawable/login_selector"
         android:enabled="false"
         android:text="@string/login_login"
         android:textColor="@drawable/textcolor_selector"
-        android:textSize="16sp" />
+        android:textSize="@dimen/dp_16" />
 
     <TextView
         android:id="@+id/tvTestUse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:padding="10dp"
+        android:layout_marginTop="@dimen/dp_8"
+        android:padding="@dimen/dp_10"
         android:text="@string/login_youke"
         android:textColor="@color/white" />
 </LinearLayout>

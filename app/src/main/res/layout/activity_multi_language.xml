@@ -12,28 +12,28 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/light_blue"
-        android:elevation="4dp"
+        android:elevation="@dimen/dp_4"
         android:minHeight="?attr/actionBarSize"
         android:orientation="horizontal"
-        android:paddingTop="36dp"
-        android:paddingBottom="8dp">
+        android:paddingTop="@dimen/dp_36"
+        android:paddingBottom="@dimen/dp_8">
 
         <ImageView
             android:id="@+id/ivBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:padding="2dp"
+            android:layout_marginStart="@dimen/dp_8"
+            android:padding="@dimen/dp_2"
             android:src="@drawable/back" />
 
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="@dimen/dp_0"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
             android:text="@string/language_select"
             android:textColor="@color/white"
-            android:textSize="18sp" />
+            android:textSize="@dimen/dp_18" />
 
         <TextView
             android:id="@+id/tvSave"
@@ -42,7 +42,7 @@
             android:layout_marginEnd="@dimen/dp_16"
             android:text="@string/save_btn"
             android:textColor="@color/white"
-            android:textSize="16sp" />
+            android:textSize="@dimen/dp_16" />
 
     </LinearLayout>
 
@@ -50,7 +50,7 @@
         android:id="@+id/rgLanguages"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_margin="@dimen/dp_10"
         android:background="@color/white">
 
         <RadioButton
@@ -60,14 +60,14 @@
             android:background="@drawable/white_shape_4dp_normal"
             android:button="@null"
             android:drawableRight="@drawable/rg_checked_selector"
-            android:padding="10dp"
+            android:padding="@dimen/dp_10"
             android:text="简体中文"
             android:textColor="@color/gray_a"
-            android:textSize="16sp" />
+            android:textSize="@dimen/dp_16" />
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="4dp"
+            android:layout_height="@dimen/dp_4"
             android:background="@color/gray_bg" />
 
         <RadioButton
@@ -77,14 +77,14 @@
             android:background="@drawable/white_shape_4dp_normal"
             android:button="@null"
             android:drawableRight="@drawable/rg_checked_selector"
-            android:padding="10dp"
+            android:padding="@dimen/dp_10"
             android:text="繁體中文"
             android:textColor="@color/gray_a"
-            android:textSize="16sp" />
+            android:textSize="@dimen/dp_16" />
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="4dp"
+            android:layout_height="@dimen/dp_4"
             android:background="@color/gray_bg" />
 
         <RadioButton
@@ -94,10 +94,10 @@
             android:background="@drawable/white_shape_4dp_normal"
             android:button="@null"
             android:drawableRight="@drawable/rg_checked_selector"
-            android:padding="10dp"
+            android:padding="@dimen/dp_10"
             android:text="English"
             android:textColor="@color/gray_a"
-            android:textSize="16sp" />
+            android:textSize="@dimen/dp_16" />
     </RadioGroup>
 
 </LinearLayout>
