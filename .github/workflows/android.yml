@@ -1,6 +1,6 @@
 name: Android CI & Create Release
 
-# 触发条件: 这里是push以”v“开头的tag触发
+# 触发条件: 这里是push以"v"开头的tag触发
 on:
   push:
     # 根据 tags 来触发(release-action action 必须要推送标签才能执行成功)
@@ -24,6 +24,11 @@ jobs:
         with:
           distribution: temurin
           java-version: 17
+
+      - name: Create local.properties
+        run: |
+          echo "KEYSTORE_STORE_PASSWORD=${{ secrets.KEYSTORE_STORE_PASSWORD }}" >> local.properties
+          echo "KEYSTORE_KEY_PASSWORD=${{ secrets.KEYSTORE_KEY_PASSWORD }}" >> local.properties
 
       - name: Setup Gradle Tool
         uses: gradle/actions/setup-gradle@v3
