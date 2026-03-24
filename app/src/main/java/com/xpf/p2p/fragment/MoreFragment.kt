@@ -2,27 +2,21 @@ package com.xpf.p2p.fragment
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.net.Uri
 import android.view.View
-import android.webkit.WebChromeClient
-import android.webkit.WebSettings
-import android.webkit.WebView
-import android.webkit.WebViewClient
-import android.widget.ProgressBar
+import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import com.xpf.p2p.R
 import com.xpf.p2p.base.BaseFragment
 import com.xpf.p2p.ui.multilanguage.view.MultiLanguageActivity
+import com.xpf.p2p.utils.AppUtil
 
 /**
  * Created by xpf on 2016/11/11 :)
- * Function:更多页面(跑马灯效果)
+ * Function:更多页面
  */
 class MoreFragment : BaseFragment() {
-
-    private lateinit var tvContent: TextView
-    private lateinit var tvLanguage: TextView
-    private lateinit var webView: WebView
-    private lateinit var progressBar: ProgressBar
 
     override fun getLayoutId(): Int = R.layout.fragment_more
 
@@ -30,43 +24,48 @@ class MoreFragment : BaseFragment() {
 
     override fun getParams(): Map<String, String>? = null
 
+    @SuppressLint("SetTextI18n")
     override fun initData(content: String?) {
-        tvContent = mView!!.findViewById(R.id.tv_content)
-        tvLanguage = mView!!.findViewById(R.id.tvLanguage)
-        webView = mView!!.findViewById(R.id.webView)
-        progressBar = mView!!.findViewById(R.id.progressBar)
-        tvLanguage.setOnClickListener {
+        val view = mView ?: return
+
+        // 版本号
+        val tvVersion = view.findViewById<TextView>(R.id.tv_version)
+        tvVersion.text = "V${AppUtil.getAppVersionName(activity!!)}"
+
+        // 多语言
+        view.findViewById<LinearLayout>(R.id.item_language).setOnClickListener {
             startActivity(Intent(mContext, MultiLanguageActivity::class.java))
         }
 
-        initWebView()
-    }
-
-    @SuppressLint("SetJavaScriptEnabled")
-    private fun initWebView() {
-        webView.settings.javaScriptEnabled = true
-        webView.settings.cacheMode = WebSettings.LOAD_DEFAULT
-        webView.settings.domStorageEnabled = true
-        webView.settings.blockNetworkImage = false
-        webView.settings.mixedContentMode = WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE
-
-        webView.webChromeClient = object : WebChromeClient() {
-            override fun onProgressChanged(view: WebView, newProgress: Int) {
-                super.onProgressChanged(view, newProgress)
-                progressBar.progress = newProgress
-                if (newProgress == 100) {
-                    progressBar.visibility = View.GONE
-                }
-            }
-        }
-        webView.webViewClient = object : WebViewClient() {
-            @Deprecated("Deprecated in Java")
-            override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
-                view.loadUrl(url)
-                return true
-            }
+        // 消息通知
+        view.findViewById<LinearLayout>(R.id.item_notification).setOnClickListener {
+            Toast.makeText(activity, "敬请期待", Toast.LENGTH_SHORT).show()
         }
 
-        webView.loadUrl("https://github.com/xinpengfei520/iMoney")
+        // 安全中心
+        view.findViewById<LinearLayout>(R.id.item_security).setOnClickListener {
+            Toast.makeText(activity, "敬请期待", Toast.LENGTH_SHORT).show()
+        }
+
+        // 清除缓存
+        view.findViewById<LinearLayout>(R.id.item_clear_cache).setOnClickListener {
+            Toast.makeText(activity, "缓存已清除", Toast.LENGTH_SHORT).show()
+        }
+
+        // 检查更新
+        view.findViewById<LinearLayout>(R.id.item_check_update).setOnClickListener {
+            Toast.makeText(activity, "当前已是最新版本", Toast.LENGTH_SHORT).show()
+        }
+
+        // 关于我们
+        view.findViewById<LinearLayout>(R.id.item_about).setOnClickListener {
+            Toast.makeText(activity, "敬请期待", Toast.LENGTH_SHORT).show()
+        }
+
+        // GitHub
+        view.findViewById<LinearLayout>(R.id.item_github).setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/xinpengfei520/iMoney"))
+            startActivity(intent)
+        }
     }
 }
