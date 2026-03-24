@@ -11,10 +11,8 @@
             <certificates src="system" />
         </trust-anchors>
     </base-config>
-    <!-- 如需允许特定域名使用 HTTP，在此添加 domain-config -->
-    <!--
+    <!-- 允许 GrowingIO 使用明文 HTTP -->
     <domain-config cleartextTrafficPermitted="true">
-        <domain includeSubdomains="true">your.dev.server.com</domain>
+        <domain includeSubdomains="true">growingio.com</domain>
     </domain-config>
-    -->
 </network-security-config>

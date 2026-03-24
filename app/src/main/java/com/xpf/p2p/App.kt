@@ -62,14 +62,13 @@ class App : MultiDexApplication() {
     }
 
     private fun initGrowingIO() {
-        // Config GrowingIO
-        // YourAccountId eg:0a1b4118dd954ec3bcc69da5138bdb96
-        // Your URLScheme eg:growing.xxxxxxxxxxx
-        // YourServerHost eg:http://106.75.81.105:8080
-        // YourDatasourceId eg: 11223344aabbcc
-        val sConfiguration = AutotrackConfiguration("Your AccountId", "Your URLScheme")
-            .setDataCollectionServerHost("Your ServerHost")
-            .setDataSourceId("Your DataSourceId")
+        val projectId = getString(R.string.growingio_project_id)
+        val urlScheme = getString(R.string.growingio_url_scheme)
+        if (projectId.isBlank() || urlScheme.isBlank()) return
+
+        val sConfiguration = AutotrackConfiguration(projectId, urlScheme)
+            .setDataCollectionServerHost(BuildConfig.GROWINGIO_SERVER_HOST)
+            .setDataSourceId(BuildConfig.GROWINGIO_DATASOURCE_ID)
             .setDebugEnabled(BuildConfig.DEBUG)
             .setAndroidIdEnabled(true)
             .setRequireAppProcessesEnabled(true)

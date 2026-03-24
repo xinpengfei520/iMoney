@@ -47,6 +47,8 @@ android {
         buildConfigField("String", "BUGLY_APP_ID", "\"${localProperties.getProperty("BUGLY_APP_ID", "")}\"")
         buildConfigField("String", "PGYER_API_KEY", "\"${localProperties.getProperty("PGYER_API_KEY", "")}\"")
         buildConfigField("String", "PGYER_APP_KEY", "\"${localProperties.getProperty("PGYER_APP_KEY", "")}\"")
+        buildConfigField("String", "GROWINGIO_SERVER_HOST", "\"${localProperties.getProperty("GROWINGIO_SERVER_HOST", "")}\"")
+        buildConfigField("String", "GROWINGIO_DATASOURCE_ID", "\"${localProperties.getProperty("GROWINGIO_DATASOURCE_ID", "")}\"")
         ndk {
             abiFilters.add("armeabi-v7a")
             abiFilters.add("arm64-v8a")
