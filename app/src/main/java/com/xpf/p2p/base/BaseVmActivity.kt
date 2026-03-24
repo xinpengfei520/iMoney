@@ -1,10 +1,13 @@
 package com.xpf.p2p.base
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.xpf.p2p.R
 import com.xpf.p2p.utils.ActivityManager
+import com.xpf.p2p.utils.StatusBarUtils
 
 /**
  * MVVM Activity 基类
@@ -18,6 +21,8 @@ abstract class BaseVmActivity<VM : ViewModel> : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(getLayoutId())
         supportActionBar?.hide()
+        StatusBarUtils.setImmersiveStatusBar(this)
+        setupStatusBarSpace()
         ActivityManager.instance.add(this)
         viewModel = ViewModelProvider(this)[getViewModelClass()]
         initView()
@@ -42,5 +47,11 @@ abstract class BaseVmActivity<VM : ViewModel> : AppCompatActivity() {
 
     fun removeAll() {
         ActivityManager.instance.removeAll()
+    }
+
+    private fun setupStatusBarSpace() {
+        findViewById<View?>(R.id.status_bar_space)?.let {
+            it.layoutParams.height = StatusBarUtils.getStatusBarHeight(this)
+        }
     }
 }

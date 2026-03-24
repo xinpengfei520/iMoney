@@ -2,8 +2,11 @@ package com.xpf.p2p.base
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.xpf.p2p.R
 import com.xpf.p2p.utils.ActivityManager
+import com.xpf.p2p.utils.StatusBarUtils
 
 /**
  * MVP Activity 基类（Kotlin 版本）
@@ -20,6 +23,8 @@ abstract class MvpBaseActivity<V, T : MvpBasePresenter<V>> : AppCompatActivity()
         mPresenter.attachView(this as V)
         setContentView(getLayoutId())
         supportActionBar?.hide()
+        StatusBarUtils.setImmersiveStatusBar(this)
+        setupStatusBarSpace()
         ActivityManager.instance.add(this)
         initData()
     }
@@ -49,5 +54,11 @@ abstract class MvpBaseActivity<V, T : MvpBasePresenter<V>> : AppCompatActivity()
     override fun onDestroy() {
         super.onDestroy()
         mPresenter.detachView()
+    }
+
+    private fun setupStatusBarSpace() {
+        findViewById<View?>(R.id.status_bar_space)?.let {
+            it.layoutParams.height = StatusBarUtils.getStatusBarHeight(this)
+        }
     }
 }

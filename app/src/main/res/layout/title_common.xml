@@ -2,38 +2,49 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/light_blue"
-    android:elevation="@dimen/dp_4"
-    android:fitsSystemWindows="true"
-    android:minHeight="?attr/actionBarSize"
-    android:orientation="horizontal"
-    android:paddingTop="@dimen/dp_36"
-    android:paddingBottom="@dimen/dp_8">
+    android:background="@color/title_back"
+    android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/iv_back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dp_10"
-        android:padding="@dimen/dp_2"
-        android:src="@drawable/left" />
+    <!-- 状态栏占位 -->
+    <View
+        android:id="@+id/status_bar_space"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_0" />
 
-    <TextView
-        android:id="@+id/tv_title"
-        android:layout_width="@dimen/dp_0"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:text="首页"
-        android:textColor="@android:color/white"
-        android:textSize="@dimen/dp_18" />
+    <!-- 标题栏内容 -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_48"
+        android:gravity="center_vertical">
 
-    <ImageView
-        android:id="@+id/iv_setting"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/dp_10"
-        android:padding="@dimen/dp_2"
-        android:src="@drawable/my_setting_icon" />
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="@dimen/dp_48"
+            android:layout_height="@dimen/dp_48"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:padding="@dimen/dp_14"
+            android:src="@drawable/left" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="首页"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/dp_18"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/iv_setting"
+            android:layout_width="@dimen/dp_48"
+            android:layout_height="@dimen/dp_48"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:padding="@dimen/dp_14"
+            android:src="@drawable/my_setting_icon" />
+
+    </RelativeLayout>
 
 </LinearLayout>

@@ -2,8 +2,11 @@ package com.xpf.p2p.base
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.xpf.p2p.R
 import com.xpf.p2p.utils.ActivityManager
+import com.xpf.p2p.utils.StatusBarUtils
 
 /**
  * 通用 Activity 基类（Kotlin 版本）
@@ -15,6 +18,8 @@ abstract class BaseActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(getLayoutId())
         supportActionBar?.hide()
+        StatusBarUtils.setImmersiveStatusBar(this)
+        setupStatusBarSpace()
         ActivityManager.instance.add(this)
         initData()
     }
@@ -37,5 +42,11 @@ abstract class BaseActivity : AppCompatActivity() {
 
     fun removeAll() {
         ActivityManager.instance.removeAll()
+    }
+
+    private fun setupStatusBarSpace() {
+        findViewById<View?>(R.id.status_bar_space)?.let {
+            it.layoutParams.height = StatusBarUtils.getStatusBarHeight(this)
+        }
     }
 }

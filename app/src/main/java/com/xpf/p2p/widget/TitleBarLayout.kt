@@ -6,10 +6,12 @@ import android.graphics.Color
 import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.LayoutInflater
+import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.xpf.p2p.R
+import com.xpf.p2p.utils.StatusBarUtils
 
 /**
  * Created by x-sir on 2018/9/2 :)
@@ -53,6 +55,12 @@ class TitleBarLayout @JvmOverloads constructor(
         tvTitleName.setTextColor(mTextColor)
         llTitleBg.setBackgroundColor(mTitleBgColor)
         ivMenu.visibility = if (mMenuVisible) VISIBLE else INVISIBLE
+
+        // 设置状态栏占位高度
+        val statusBarSpace = findViewById<View>(R.id.statusBarSpace)
+        if (context is Activity) {
+            statusBarSpace.layoutParams.height = StatusBarUtils.getStatusBarHeight(context as Activity)
+        }
 
         ivBack.setOnClickListener { (context as Activity).finish() }
         ivMenu.setOnClickListener { mListener?.onClick() }

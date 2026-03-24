@@ -6,7 +6,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:windowTranslucentStatus">true</item>
+        <!-- 沉浸式状态栏由 StatusBarUtils 在代码中设置 -->
     </style>
 
     <!-- MeFragment中最下面的4个选项的通用的设置 start-->
