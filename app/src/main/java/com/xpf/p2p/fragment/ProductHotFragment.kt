@@ -6,9 +6,9 @@ import android.widget.TextView
 import android.widget.Toast
 import com.xpf.p2p.R
 import com.xpf.p2p.base.BaseFragment
+import com.xpf.p2p.databinding.FragmentProductHotBinding
 import com.xpf.p2p.utils.DrawUtils
 import com.xpf.p2p.utils.UIUtils
-import com.xpf.p2p.widget.FlowLayout
 import java.util.Random
 
 /**
@@ -17,7 +17,8 @@ import java.util.Random
  */
 class ProductHotFragment : BaseFragment() {
 
-    private lateinit var flowLayout: FlowLayout
+    private var _binding: FragmentProductHotBinding? = null
+    private val binding get() = _binding!!
 
     private val mData = arrayOf(
         "新手计划", "乐享活系列90天计划", "钱包", "30天理财计划(加息2%)",
@@ -32,7 +33,7 @@ class ProductHotFragment : BaseFragment() {
     override fun getParams(): Map<String, String>? = null
 
     override fun initData(content: String?) {
-        flowLayout = mView!!.findViewById(R.id.flow_layout)
+        _binding = FragmentProductHotBinding.bind(mView!!)
         val random = Random()
 
         for (text in mData) {
@@ -65,7 +66,12 @@ class ProductHotFragment : BaseFragment() {
 
             val padding = UIUtils.dp2px(4)
             tv.setPadding(padding, padding, padding, padding)
-            flowLayout.addView(tv)
+            binding.flowLayout.addView(tv)
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

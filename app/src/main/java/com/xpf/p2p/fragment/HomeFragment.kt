@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.PagerAdapter
@@ -16,8 +15,8 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import com.squareup.picasso.Picasso
-import com.xpf.p2p.R
 import com.xpf.p2p.constants.ApiRequestUrl
+import com.xpf.p2p.databinding.FragmentHomeBinding
 import com.xpf.p2p.entity.Image
 import com.xpf.p2p.entity.Index
 import com.xpf.p2p.entity.Product
@@ -28,18 +27,18 @@ import com.xpf.p2p.entity.Product
  */
 class HomeFragment : Fragment() {
 
-    private lateinit var tvHomeRate: TextView
+    private var _binding: FragmentHomeBinding? = null
+    private val binding get() = _binding!!
     private var index: Index? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        val view = View.inflate(activity, R.layout.fragment_home, null)
-        tvHomeRate = view.findViewById(R.id.tv_home_rate)
+    ): View {
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
         initData()
-        return view
+        return binding.root
     }
 
     private fun initData() {
@@ -59,7 +58,7 @@ class HomeFragment : Fragment() {
                 }
 
                 val yearRate = index!!.product!!.yearRate
-                tvHomeRate.text = "$yearRate%"
+                binding.tvHomeRate.text = "$yearRate%"
             }
 
             override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
@@ -90,5 +89,10 @@ class HomeFragment : Fragment() {
         override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
             container.removeView(`object` as View)
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

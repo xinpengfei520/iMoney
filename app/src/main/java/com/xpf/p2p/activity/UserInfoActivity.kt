@@ -13,14 +13,12 @@ import android.os.Environment
 import android.provider.DocumentsContract
 import android.provider.MediaStore
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
 import com.hjq.permissions.OnPermissionCallback
 import com.hjq.permissions.XXPermissions
-import com.xpf.p2p.R
 import com.xpf.p2p.base.BaseActivity
+import com.xpf.p2p.databinding.ActivityUserInfoBinding
 import com.xpf.p2p.ui.main.view.MainActivity
 import com.xpf.p2p.utils.BitmapUtils
 import com.xpf.p2p.utils.ToastUtil
@@ -33,30 +31,17 @@ import java.io.FileOutputStream
  * Created by Vance on 2016/8/3 :)
  * Function:用户信息展示页
  */
-class UserInfoActivity : BaseActivity() {
+class UserInfoActivity : BaseActivity<ActivityUserInfoBinding>() {
 
-    private lateinit var ivBack: ImageView
-    private lateinit var tvTitle: TextView
-    private lateinit var ivSetting: ImageView
-    private lateinit var ivIcon: ImageView
-    private lateinit var tvIcon: TextView
-    private lateinit var logout: Button
-
-    override fun getLayoutId(): Int = R.layout.activity_user_info
+    override fun createViewBinding(inflater: LayoutInflater) = ActivityUserInfoBinding.inflate(inflater)
 
     override fun initData() {
-        ivBack = findViewById(R.id.iv_back)
-        tvTitle = findViewById(R.id.tv_title)
-        ivSetting = findViewById(R.id.iv_setting)
-        ivIcon = findViewById(R.id.iv_icon)
-        tvIcon = findViewById(R.id.tv_icon)
-        logout = findViewById(R.id.logout)
-        tvTitle.text = "用户信息"
-        ivSetting.visibility = View.GONE
+        binding.titleBar.tvTitle.text = "用户信息"
+        binding.titleBar.ivSetting.visibility = View.GONE
 
-        ivBack.setOnClickListener { removeCurrentActivity() }
-        tvIcon.setOnClickListener { requestPermissions() }
-        logout.setOnClickListener { logout() }
+        binding.titleBar.ivBack.setOnClickListener { removeCurrentActivity() }
+        binding.tvIcon.setOnClickListener { requestPermissions() }
+        binding.logout.setOnClickListener { logout() }
     }
 
     private fun requestPermissions() {
@@ -130,7 +115,7 @@ class UserInfoActivity : BaseActivity() {
                 val zoomed = BitmapUtils.zoom(bitmap, UIUtils.dp2px(62).toFloat(), UIUtils.dp2px(62).toFloat())
                 if (zoomed != null) {
                     val circleBitmap = BitmapUtils.circleBitmap(zoomed)
-                    ivIcon.setImageBitmap(circleBitmap)
+                    binding.ivIcon.setImageBitmap(circleBitmap)
                     try {
                         saveImage(circleBitmap)
                     } catch (e: FileNotFoundException) {
@@ -144,7 +129,7 @@ class UserInfoActivity : BaseActivity() {
             val decodeFile = BitmapFactory.decodeFile(pathResult)
             val zoomBitmap = BitmapUtils.zoom(decodeFile, UIUtils.dp2px(62).toFloat(), UIUtils.dp2px(62).toFloat())
             val circleImage = BitmapUtils.circleBitmap(zoomBitmap!!)
-            ivIcon.setImageBitmap(circleImage)
+            binding.ivIcon.setImageBitmap(circleImage)
             try {
                 saveImage(circleImage)
             } catch (e: FileNotFoundException) {

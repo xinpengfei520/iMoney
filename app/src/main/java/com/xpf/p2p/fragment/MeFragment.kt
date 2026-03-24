@@ -4,9 +4,6 @@ import android.app.AlertDialog
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.text.TextUtils
-import android.widget.ImageView
-import android.widget.RelativeLayout
-import android.widget.TextView
 import android.widget.Toast
 import com.squareup.picasso.Picasso
 import com.squareup.picasso.Transformation
@@ -18,6 +15,7 @@ import com.xpf.p2p.base.BaseActivity
 import com.xpf.p2p.base.BaseFragment
 import com.xpf.p2p.base.MvpBaseActivity
 import com.xpf.p2p.constants.SpKey
+import com.xpf.p2p.databinding.FragmentMeBinding
 import com.xpf.p2p.entity.User
 import com.xpf.p2p.ui.login.view.LoginActivity
 import com.xpf.p2p.utils.BitmapUtils
@@ -33,15 +31,8 @@ import java.io.File
  */
 class MeFragment : BaseFragment() {
 
-    private lateinit var imageView1: ImageView
-    private lateinit var iconTime: RelativeLayout
-    private lateinit var textView11: TextView
-    private lateinit var recharge: ImageView
-    private lateinit var withdraw: ImageView
-    private lateinit var llTouzi: TextView
-    private lateinit var llTouziZhiguan: TextView
-    private lateinit var llZichang: TextView
-    private lateinit var llZhanquan: TextView
+    private var _binding: FragmentMeBinding? = null
+    private val binding get() = _binding!!
 
     override fun getLayoutId(): Int = R.layout.fragment_me
 
@@ -50,33 +41,25 @@ class MeFragment : BaseFragment() {
     override fun getParams(): Map<String, String>? = null
 
     override fun initData(content: String?) {
-        imageView1 = mView!!.findViewById(R.id.imageView1)
-        iconTime = mView!!.findViewById(R.id.icon_time)
-        textView11 = mView!!.findViewById(R.id.textView11)
-        recharge = mView!!.findViewById(R.id.recharge)
-        withdraw = mView!!.findViewById(R.id.withdraw)
-        llTouzi = mView!!.findViewById(R.id.ll_touzi)
-        llTouziZhiguan = mView!!.findViewById(R.id.ll_touzi_zhiguan)
-        llZichang = mView!!.findViewById(R.id.ll_zichang)
-        llZhanquan = mView!!.findViewById(R.id.ll_zhanquan)
+        _binding = FragmentMeBinding.bind(mView!!)
 
-        recharge.setOnClickListener {
-            (activity as? BaseActivity)?.goToActivity(ChongZhiActivity::class.java, null)
+        binding.meContent.recharge.setOnClickListener {
+            (activity as? BaseActivity<*>)?.goToActivity(ChongZhiActivity::class.java, null)
         }
-        withdraw.setOnClickListener {
-            (activity as? BaseActivity)?.goToActivity(TiXianActivity::class.java, null)
+        binding.meContent.withdraw.setOnClickListener {
+            (activity as? BaseActivity<*>)?.goToActivity(TiXianActivity::class.java, null)
         }
-        llTouzi.setOnClickListener {
-            (activity as? BaseActivity)?.goToActivity(ChongZhiActivity::class.java, null)
+        binding.meContent.llTouzi.setOnClickListener {
+            (activity as? BaseActivity<*>)?.goToActivity(ChongZhiActivity::class.java, null)
         }
-        llTouziZhiguan.setOnClickListener {
-            (activity as? BaseActivity)?.goToActivity(ChongZhiActivity::class.java, null)
+        binding.meContent.llTouziZhiguan.setOnClickListener {
+            (activity as? BaseActivity<*>)?.goToActivity(ChongZhiActivity::class.java, null)
         }
-        llZichang.setOnClickListener {
-            (activity as? BaseActivity)?.goToActivity(ChongZhiActivity::class.java, null)
+        binding.meContent.llZichang.setOnClickListener {
+            (activity as? BaseActivity<*>)?.goToActivity(ChongZhiActivity::class.java, null)
         }
-        llZhanquan.setOnClickListener {
-            (activity as? BaseActivity)?.goToActivity(ChongZhiActivity::class.java, null)
+        binding.meContent.llZhanquan.setOnClickListener {
+            (activity as? BaseActivity<*>)?.goToActivity(ChongZhiActivity::class.java, null)
         }
 
         isLogin()
@@ -106,7 +89,7 @@ class MeFragment : BaseFragment() {
         val user: User = UserInfoUtils.readUser(context) ?: return
 
         if (!TextUtils.isEmpty(user.UF_ACC)) {
-            textView11.text = user.UF_ACC
+            binding.meContent.textView11.text = user.UF_ACC
         }
 
         if (!TextUtils.isEmpty(user.UF_AVATAR_URL)) {
@@ -119,12 +102,12 @@ class MeFragment : BaseFragment() {
                 }
 
                 override fun key(): String = ""
-            }).into(imageView1)
+            }).into(binding.meContent.imageView1)
         }
 
         val isOpen = SpUtil.getInstance(mContext).getBoolean(SpKey.GESTURE_IS_OPEN, false)
         if (isOpen) {
-            (activity as? MvpBaseActivity<*, *>)?.goToActivity(GestureVerifyActivity::class.java, null)
+            (activity as? MvpBaseActivity<*, *, *>)?.goToActivity(GestureVerifyActivity::class.java, null)
         }
     }
 
@@ -134,12 +117,17 @@ class MeFragment : BaseFragment() {
     }
 
     private fun setUserPhoto() {
-        val filePath = "${activity!!.cacheDir}/tx.png"
+        val filePath = "${context?.cacheDir}/tx.png"
         val file = File(filePath)
         if (file.exists()) {
             val bitmap = BitmapFactory.decodeFile(filePath)
-            imageView1.setImageBitmap(bitmap)
+            binding.meContent.imageView1.setImageBitmap(bitmap)
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     companion object {

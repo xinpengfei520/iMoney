@@ -7,7 +7,9 @@
     android:orientation="vertical"
     tools:context="com.xpf.p2p.activity.AccountSafeActivity">
 
-    <include layout="@layout/title_common" />
+    <include
+        android:id="@+id/titleBar"
+        layout="@layout/title_common" />
 
     <RelativeLayout
         android:layout_width="match_parent"

@@ -2,8 +2,10 @@ package com.xpf.p2p.base
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.viewbinding.ViewBinding
 import com.xpf.p2p.R
 import com.xpf.p2p.utils.ActivityManager
 import com.xpf.p2p.utils.StatusBarUtils
@@ -12,11 +14,14 @@ import com.xpf.p2p.utils.StatusBarUtils
  * 通用 Activity 基类（Kotlin 版本）
  * 非 MVP/MVVM Activity 继承此类
  */
-abstract class BaseActivity : AppCompatActivity() {
+abstract class BaseActivity<VB : ViewBinding> : AppCompatActivity() {
+
+    protected lateinit var binding: VB
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(getLayoutId())
+        binding = createViewBinding(layoutInflater)
+        setContentView(binding.root)
         supportActionBar?.hide()
         StatusBarUtils.setImmersiveStatusBar(this)
         setupStatusBarSpace()
@@ -26,7 +31,7 @@ abstract class BaseActivity : AppCompatActivity() {
 
     protected abstract fun initData()
 
-    protected abstract fun getLayoutId(): Int
+    protected abstract fun createViewBinding(inflater: LayoutInflater): VB
 
     fun removeCurrentActivity() {
         ActivityManager.instance.removeCurrent()

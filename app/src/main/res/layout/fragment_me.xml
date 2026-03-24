@@ -8,7 +8,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <include layout="@layout/fragment_me_content" />
+        <include
+            android:id="@+id/meContent"
+            layout="@layout/fragment_me_content" />
 
     </com.xpf.p2p.widget.MyScrollView>
 

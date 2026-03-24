@@ -3,10 +3,10 @@ package com.xpf.p2p.fragment
 import android.content.Context
 import android.graphics.Color
 import androidx.fragment.app.Fragment
-import androidx.viewpager.widget.ViewPager
 import com.xpf.p2p.R
 import com.xpf.p2p.adapter.MyPagerAdapter
 import com.xpf.p2p.base.BaseFragment
+import com.xpf.p2p.databinding.FragmentInvestBinding
 import net.lucode.hackware.magicindicator.MagicIndicator
 import net.lucode.hackware.magicindicator.ViewPagerHelper
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.CommonNavigator
@@ -22,8 +22,8 @@ import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.ColorT
  */
 class InvestFragment : BaseFragment() {
 
-    private lateinit var tabIndicator: MagicIndicator
-    private lateinit var mViewPager: ViewPager
+    private var _binding: FragmentInvestBinding? = null
+    private val binding get() = _binding!!
     private var mAdapter: MyPagerAdapter? = null
     private val mFragments = ArrayList<Fragment>()
     private val mTitleDataList = ArrayList<String>()
@@ -35,8 +35,7 @@ class InvestFragment : BaseFragment() {
     override fun getParams(): Map<String, String>? = null
 
     override fun initData(content: String?) {
-        tabIndicator = mView!!.findViewById(R.id.tab_indicator)
-        mViewPager = mView!!.findViewById(R.id.invest_viewPager)
+        _binding = FragmentInvestBinding.bind(mView!!)
         initFragments()
         setViewPagerAdapter()
     }
@@ -48,7 +47,7 @@ class InvestFragment : BaseFragment() {
 
         if (mFragments.isNotEmpty()) {
             mAdapter = MyPagerAdapter(mFragments, parentFragmentManager)
-            mViewPager.adapter = mAdapter
+            binding.investViewPager.adapter = mAdapter
 
             val commonNavigator = CommonNavigator(context)
             commonNavigator.adapter = object : CommonNavigatorAdapter() {
@@ -60,7 +59,7 @@ class InvestFragment : BaseFragment() {
                     titleView.normalColor = Color.GRAY
                     titleView.selectedColor = Color.BLACK
                     titleView.text = mTitleDataList[index]
-                    titleView.setOnClickListener { mViewPager.currentItem = index }
+                    titleView.setOnClickListener { binding.investViewPager.currentItem = index }
                     return titleView
                 }
 
@@ -70,8 +69,8 @@ class InvestFragment : BaseFragment() {
                     return indicator
                 }
             }
-            tabIndicator.navigator = commonNavigator
-            ViewPagerHelper.bind(tabIndicator, mViewPager)
+            binding.tabIndicator.navigator = commonNavigator
+            ViewPagerHelper.bind(binding.tabIndicator, binding.investViewPager)
         }
     }
 
@@ -79,5 +78,10 @@ class InvestFragment : BaseFragment() {
         mFragments.add(ProductListFragment())
         mFragments.add(RecommendFragment())
         mFragments.add(ProductHotFragment())
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

@@ -7,15 +7,13 @@ import android.text.Editable
 import android.text.TextUtils
 import android.text.TextWatcher
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.TextView
 import android.widget.Toast
 import com.alipay.sdk.app.PayTask
 import com.xpf.p2p.R
 import com.xpf.p2p.base.BaseActivity
+import com.xpf.p2p.databinding.ActivityChongZhiBinding
 import com.xpf.p2p.utils.pay.PayKeys
 import com.xpf.p2p.utils.pay.PayResult
 import com.xpf.p2p.utils.pay.SignUtils
@@ -29,16 +27,7 @@ import java.util.Random
  * Created by Vance on 2016/8/3 :)
  * Function:用户账户充值页面
  */
-class ChongZhiActivity : BaseActivity() {
-
-    private lateinit var ivBack: ImageView
-    private lateinit var tvTitle: TextView
-    private lateinit var ivSetting: ImageView
-    private lateinit var chongzhiText: TextView
-    private lateinit var chongzhiEt: EditText
-    private lateinit var chongzhiText2: TextView
-    private lateinit var yueTv: TextView
-    private lateinit var chongzhiBtn: Button
+class ChongZhiActivity : BaseActivity<ActivityChongZhiBinding>() {
 
     @SuppressLint("HandlerLeak")
     private val mHandler = object : Handler() {
@@ -60,27 +49,18 @@ class ChongZhiActivity : BaseActivity() {
         }
     }
 
-    override fun getLayoutId(): Int = R.layout.activity_chong_zhi
+    override fun createViewBinding(inflater: LayoutInflater) = ActivityChongZhiBinding.inflate(inflater)
 
     override fun initData() {
-        ivBack = findViewById(R.id.iv_back)
-        tvTitle = findViewById(R.id.tv_title)
-        ivSetting = findViewById(R.id.iv_setting)
-        chongzhiText = findViewById(R.id.chongzhi_text)
-        chongzhiEt = findViewById(R.id.chongzhi_et)
-        chongzhiText2 = findViewById(R.id.chongzhi_text2)
-        yueTv = findViewById(R.id.yue_tv)
-        chongzhiBtn = findViewById(R.id.chongzhi_btn)
+        binding.titleBar.ivBack.visibility = View.VISIBLE
+        binding.titleBar.tvTitle.text = "充值"
+        binding.titleBar.ivSetting.visibility = View.GONE
+        binding.chongzhiBtn.isClickable = false
 
-        ivBack.visibility = View.VISIBLE
-        tvTitle.text = "充值"
-        ivSetting.visibility = View.GONE
-        chongzhiBtn.isClickable = false
+        binding.titleBar.ivBack.setOnClickListener { removeCurrentActivity() }
+        binding.chongzhiBtn.setOnClickListener { recharge() }
 
-        ivBack.setOnClickListener { removeCurrentActivity() }
-        chongzhiBtn.setOnClickListener { recharge() }
-
-        chongzhiEt.addTextChangedListener(object : TextWatcher {
+        binding.chongzhiEt.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
                 Log.e("TAG", "ChongZhiActivity----> beforeTextChanged()")
             }
@@ -91,13 +71,13 @@ class ChongZhiActivity : BaseActivity() {
 
             override fun afterTextChanged(s: Editable?) {
                 Log.e("TAG", "ChongZhiActivity----> afterTextChanged()")
-                val moneyNum = chongzhiEt.text.toString().trim()
+                val moneyNum = binding.chongzhiEt.text.toString().trim()
                 if (TextUtils.isEmpty(moneyNum)) {
-                    chongzhiBtn.setBackgroundResource(R.drawable.btn_023)
-                    chongzhiBtn.isClickable = false
+                    binding.chongzhiBtn.setBackgroundResource(R.drawable.btn_023)
+                    binding.chongzhiBtn.isClickable = false
                 } else {
-                    chongzhiBtn.setBackgroundResource(R.drawable.btn_01)
-                    chongzhiBtn.isClickable = true
+                    binding.chongzhiBtn.setBackgroundResource(R.drawable.btn_01)
+                    binding.chongzhiBtn.isClickable = true
                 }
             }
         })

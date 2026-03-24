@@ -1,11 +1,11 @@
 package com.xpf.p2p.fragment
 
 import android.text.TextUtils
-import android.widget.ListView
 import com.alibaba.fastjson.JSON
 import com.xpf.p2p.R
 import com.xpf.p2p.adapter.ProductAdapter
 import com.xpf.p2p.base.BaseFragment
+import com.xpf.p2p.databinding.FragmentProductListBinding
 import com.xpf.p2p.constants.ApiRequestUrl
 import com.xpf.p2p.entity.Product
 import com.xpf.p2p.utils.LogUtils
@@ -16,7 +16,8 @@ import com.xpf.p2p.utils.LogUtils
  */
 class ProductListFragment : BaseFragment() {
 
-    private lateinit var productListview: ListView
+    private var _binding: FragmentProductListBinding? = null
+    private val binding get() = _binding!!
     private var products: List<Product>? = null
 
     override fun getLayoutId(): Int = R.layout.fragment_product_list
@@ -26,7 +27,7 @@ class ProductListFragment : BaseFragment() {
     override fun getParams(): Map<String, String>? = null
 
     override fun initData(content: String?) {
-        productListview = mView!!.findViewById(R.id.product_listview)
+        _binding = FragmentProductListBinding.bind(mView!!)
         if (!TextUtils.isEmpty(content)) {
             LogUtils.d(TAG, content)
             val jsonObject = JSON.parseObject(content)
@@ -43,8 +44,13 @@ class ProductListFragment : BaseFragment() {
 
     private fun setAdapter() {
         if (!products.isNullOrEmpty()) {
-            productListview.adapter = ProductAdapter(products)
+            binding.productListview.adapter = ProductAdapter(products)
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     companion object {

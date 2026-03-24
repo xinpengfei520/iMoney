@@ -2,8 +2,7 @@ package com.xpf.p2p.adapter
 
 import android.util.Log
 import android.view.View
-import android.widget.TextView
-import com.xpf.p2p.R
+import com.xpf.p2p.databinding.ItemProductListBinding
 import com.xpf.p2p.entity.Product
 import com.xpf.p2p.utils.UIUtils
 
@@ -14,9 +13,10 @@ import com.xpf.p2p.utils.UIUtils
 class ProductAdapter2(list: List<Product>?) : MyBaseAdapter2<Product>(list) {
 
     override fun setData(convertView: View, t: Product) {
-        (convertView.findViewById<TextView>(R.id.p_name)).text = t.name
+        val binding = ItemProductListBinding.bind(convertView)
+        binding.pName.text = t.name
         Log.e("TAG", "setData()")
     }
 
-    override fun initView(): View = UIUtils.getView(R.layout.item_product_list)
+    override fun initView(): View = UIUtils.getView(com.xpf.p2p.R.layout.item_product_list)
 }

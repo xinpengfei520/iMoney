@@ -7,12 +7,9 @@ import android.text.Html
 import android.text.TextUtils
 import android.view.View
 import android.view.animation.AnimationUtils
-import android.widget.FrameLayout
-import android.widget.ImageView
-import android.widget.RelativeLayout
-import android.widget.TextView
 import android.widget.Toast
 import com.xpf.p2p.R
+import com.xpf.p2p.databinding.ActivityGestureVerifyBinding
 import com.xpf.p2p.widget.GestureContentView
 import com.xpf.p2p.widget.GestureDrawline
 
@@ -22,21 +19,14 @@ import com.xpf.p2p.widget.GestureDrawline
  */
 class GestureVerifyActivity : Activity() {
 
-    private lateinit var mTopLayout: RelativeLayout
-    private lateinit var mTextTitle: TextView
-    private lateinit var mTextCancel: TextView
-    private lateinit var mImgUserLogo: ImageView
-    private lateinit var mTextPhoneNumber: TextView
-    private lateinit var mTextTip: TextView
-    private lateinit var mGestureContainer: FrameLayout
+    private lateinit var binding: ActivityGestureVerifyBinding
     private lateinit var mGestureContentView: GestureContentView
-    private lateinit var mTextForget: TextView
-    private lateinit var mTextOther: TextView
     private lateinit var mSharedPreferences: android.content.SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_gesture_verify)
+        binding = ActivityGestureVerifyBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         obtainExtraData()
         setUpViews()
     }
@@ -46,16 +36,7 @@ class GestureVerifyActivity : Activity() {
     }
 
     private fun setUpViews() {
-        mTopLayout = findViewById(R.id.top_layout)
-        mTextTitle = findViewById(R.id.text_title)
-        mTextCancel = findViewById(R.id.text_cancel)
-        mImgUserLogo = findViewById(R.id.user_logo)
-        mTextPhoneNumber = findViewById(R.id.text_phone_number)
-        mTextTip = findViewById(R.id.text_tip)
-        mGestureContainer = findViewById(R.id.gesture_container)
-        mTextForget = findViewById(R.id.text_forget_gesture)
-        mTextOther = findViewById(R.id.text_other_account)
-        mTextCancel.setOnClickListener { finish() }
+        binding.textCancel.setOnClickListener { finish() }
 
         val inputCode = mSharedPreferences.getString("inputCode", "1235789") ?: "1235789"
         mGestureContentView = GestureContentView(this, true, inputCode,
@@ -70,15 +51,15 @@ class GestureVerifyActivity : Activity() {
 
                 override fun checkedFail() {
                     mGestureContentView.clearDrawlineState(1300L)
-                    mTextTip.visibility = View.VISIBLE
+                    binding.textTip.visibility = View.VISIBLE
                     @Suppress("DEPRECATION")
-                    mTextTip.text = Html.fromHtml("<font color='#c70c1e'>密码错误</font>")
+                    binding.textTip.text = Html.fromHtml("<font color='#c70c1e'>密码错误</font>")
                     val shakeAnimation = AnimationUtils.loadAnimation(this@GestureVerifyActivity, R.anim.shake)
-                    mTextTip.startAnimation(shakeAnimation)
+                    binding.textTip.startAnimation(shakeAnimation)
                 }
             })
 
-        mGestureContentView.setParentView(mGestureContainer)
+        mGestureContentView.setParentView(binding.gestureContainer)
     }
 
     private fun getProtectedMobile(phoneNumber: String?): String {

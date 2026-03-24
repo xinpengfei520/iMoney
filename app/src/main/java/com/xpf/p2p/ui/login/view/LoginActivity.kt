@@ -5,14 +5,12 @@ import android.content.Context
 import android.content.Intent
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.LayoutInflater
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import cn.iwgang.countdownview.CountdownView
 import com.xpf.p2p.utils.LogUtils
 import com.xpf.p2p.R
 import com.xpf.p2p.base.BaseVmActivity
+import com.xpf.p2p.databinding.ActivityLoginBinding
 import com.xpf.p2p.ui.login.LoginViewModel
 import com.xpf.p2p.ui.main.view.MainActivity
 import com.xpf.p2p.utils.ToastUtil
@@ -20,26 +18,13 @@ import com.xpf.p2p.utils.ToastUtil
 /**
  * 登录页面 — MVVM 版本
  */
-class LoginActivity : BaseVmActivity<LoginViewModel>() {
+class LoginActivity : BaseVmActivity<ActivityLoginBinding, LoginViewModel>() {
 
-    private lateinit var logEdMob: EditText
-    private lateinit var tvTestUse: TextView
-    private lateinit var logEdPad: EditText
-    private lateinit var logLogBtn: Button
-    private lateinit var tvSendSmsCode: TextView
-    private lateinit var countDownView: CountdownView
-
-    override fun getLayoutId(): Int = R.layout.activity_login
+    override fun createViewBinding(inflater: LayoutInflater) = ActivityLoginBinding.inflate(inflater)
 
     override fun getViewModelClass(): Class<LoginViewModel> = LoginViewModel::class.java
 
     override fun initView() {
-        logEdMob = findViewById(R.id.log_ed_mob)
-        tvTestUse = findViewById(R.id.tvTestUse)
-        logEdPad = findViewById(R.id.log_ed_pad)
-        logLogBtn = findViewById(R.id.log_log_btn)
-        tvSendSmsCode = findViewById(R.id.tvSendSmsCode)
-        countDownView = findViewById(R.id.countDownView)
         initListener()
     }
 
@@ -67,37 +52,37 @@ class LoginActivity : BaseVmActivity<LoginViewModel>() {
 
         viewModel.startCountDown.observe(this) { start ->
             if (start) {
-                tvSendSmsCode.visibility = View.GONE
-                countDownView.visibility = View.VISIBLE
-                countDownView.start(60000)
+                binding.tvSendSmsCode.visibility = View.GONE
+                binding.countDownView.visibility = View.VISIBLE
+                binding.countDownView.start(60000)
             }
         }
     }
 
     private fun initListener() {
-        logLogBtn.setOnClickListener {
-            viewModel.verifySmsCode(logEdMob.text.toString(), logEdPad.text.toString())
+        binding.logLogBtn.setOnClickListener {
+            viewModel.verifySmsCode(binding.logEdMob.text.toString(), binding.logEdPad.text.toString())
         }
-        tvTestUse.setOnClickListener { loginSuccess() }
-        tvSendSmsCode.setOnClickListener {
-            viewModel.sendSmsCode(logEdMob.text.toString())
+        binding.tvTestUse.setOnClickListener { loginSuccess() }
+        binding.tvSendSmsCode.setOnClickListener {
+            viewModel.sendSmsCode(binding.logEdMob.text.toString())
         }
-        countDownView.setOnCountdownEndListener {
-            countDownView.visibility = View.GONE
-            tvSendSmsCode.visibility = View.VISIBLE
-            tvSendSmsCode.setText(R.string.resend)
+        binding.countDownView.setOnCountdownEndListener {
+            binding.countDownView.visibility = View.GONE
+            binding.tvSendSmsCode.visibility = View.VISIBLE
+            binding.tvSendSmsCode.setText(R.string.resend)
         }
-        logEdMob.addTextChangedListener(object : TextWatcher {
+        binding.logEdMob.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                tvSendSmsCode.visibility = if (s?.length != 11) View.GONE else View.VISIBLE
+                binding.tvSendSmsCode.visibility = if (s?.length != 11) View.GONE else View.VISIBLE
             }
             override fun afterTextChanged(s: Editable?) {}
         })
-        logEdPad.addTextChangedListener(object : TextWatcher {
+        binding.logEdPad.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                logLogBtn.isEnabled = !s.isNullOrEmpty()
+                binding.logLogBtn.isEnabled = !s.isNullOrEmpty()
             }
             override fun afterTextChanged(s: Editable?) {}
         })

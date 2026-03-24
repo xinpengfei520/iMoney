@@ -3,7 +3,7 @@ package com.xpf.p2p.fragment
 import com.xpf.p2p.R
 import com.xpf.p2p.adapter.StellerAdapter
 import com.xpf.p2p.base.BaseFragment
-import com.xpf.p2p.widget.randomLayout.StellarMap
+import com.xpf.p2p.databinding.FragmentProductRecommondBinding
 
 /**
  * Created by xpf on 2016/11/15 :)
@@ -11,7 +11,8 @@ import com.xpf.p2p.widget.randomLayout.StellarMap
  */
 class RecommendFragment : BaseFragment() {
 
-    private lateinit var stellarMap: StellarMap
+    private var _binding: FragmentProductRecommondBinding? = null
+    private val binding get() = _binding!!
 
     override fun getLayoutId(): Int = R.layout.fragment_product_recommond
 
@@ -20,10 +21,15 @@ class RecommendFragment : BaseFragment() {
     override fun getParams(): Map<String, String> = emptyMap()
 
     override fun initData(content: String?) {
-        stellarMap = mView!!.findViewById(R.id.stellarMap)
+        _binding = FragmentProductRecommondBinding.bind(mView!!)
         val stellerAdapter = StellerAdapter(mContext)
-        stellarMap.setAdapter(stellerAdapter)
-        stellarMap.setGroup(0, true)
-        stellarMap.setRegularity(5, 10)
+        binding.stellarMap.setAdapter(stellerAdapter)
+        binding.stellarMap.setGroup(0, true)
+        binding.stellarMap.setRegularity(5, 10)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

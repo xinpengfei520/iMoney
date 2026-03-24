@@ -2,8 +2,10 @@ package com.xpf.p2p.base
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.viewbinding.ViewBinding
 import com.xpf.p2p.R
 import com.xpf.p2p.utils.ActivityManager
 import com.xpf.p2p.utils.StatusBarUtils
@@ -12,8 +14,9 @@ import com.xpf.p2p.utils.StatusBarUtils
  * MVP Activity 基类（Kotlin 版本）
  * 保留用于尚未迁移到 MVVM 的模块
  */
-abstract class MvpBaseActivity<V, T : MvpBasePresenter<V>> : AppCompatActivity() {
+abstract class MvpBaseActivity<VB : ViewBinding, V, T : MvpBasePresenter<V>> : AppCompatActivity() {
 
+    protected lateinit var binding: VB
     lateinit var mPresenter: T
 
     @Suppress("UNCHECKED_CAST")
@@ -21,7 +24,8 @@ abstract class MvpBaseActivity<V, T : MvpBasePresenter<V>> : AppCompatActivity()
         super.onCreate(savedInstanceState)
         mPresenter = createPresenter()
         mPresenter.attachView(this as V)
-        setContentView(getLayoutId())
+        binding = createViewBinding(layoutInflater)
+        setContentView(binding.root)
         supportActionBar?.hide()
         StatusBarUtils.setImmersiveStatusBar(this)
         setupStatusBarSpace()
@@ -31,7 +35,7 @@ abstract class MvpBaseActivity<V, T : MvpBasePresenter<V>> : AppCompatActivity()
 
     protected abstract fun createPresenter(): T
 
-    protected abstract fun getLayoutId(): Int
+    protected abstract fun createViewBinding(inflater: LayoutInflater): VB
 
     protected abstract fun initData()
 

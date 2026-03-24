@@ -4,9 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.fragment.app.Fragment
-import com.xpf.p2p.R
+import com.xpf.p2p.databinding.FragmentGuidePageBinding
 
 /**
  * A simple Fragment subclass that displays its page number in a ViewPager.
@@ -16,6 +15,8 @@ import com.xpf.p2p.R
  */
 class GuidePageFragment : Fragment() {
 
+    private var _binding: FragmentGuidePageBinding? = null
+    private val binding get() = _binding!!
     private var mResId: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,11 +30,15 @@ class GuidePageFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.fragment_guide_page, container, false)
-        val imageView = view.findViewById<ImageView>(R.id.imageView)
-        imageView?.setBackgroundResource(mResId)
-        return view
+    ): View {
+        _binding = FragmentGuidePageBinding.inflate(inflater, container, false)
+        binding.imageView.setBackgroundResource(mResId)
+        return binding.root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     companion object {

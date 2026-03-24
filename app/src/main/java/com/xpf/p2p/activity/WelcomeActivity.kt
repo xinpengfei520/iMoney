@@ -16,8 +16,6 @@ import android.view.animation.Animation
 import android.view.animation.AnimationSet
 import android.view.animation.DecelerateInterpolator
 import android.view.animation.ScaleAnimation
-import android.widget.LinearLayout
-import android.widget.TextView
 import com.alibaba.fastjson.JSON
 import com.xpf.p2p.network.RetrofitClient
 import okhttp3.ResponseBody
@@ -25,9 +23,9 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import com.xpf.p2p.App
-import com.xpf.p2p.R
 import com.xpf.p2p.constants.ApiRequestUrl
 import com.xpf.p2p.constants.SpKey
+import com.xpf.p2p.databinding.ActivityWelcomeBinding
 import com.xpf.p2p.entity.UpdateInfo
 import com.xpf.p2p.ui.login.view.LoginActivity
 import com.xpf.p2p.ui.main.view.MainActivity
@@ -49,8 +47,7 @@ import java.net.URL
  */
 class WelcomeActivity : Activity() {
 
-    private lateinit var tvVersion: TextView
-    private lateinit var llWelcome: LinearLayout
+    private lateinit var binding: ActivityWelcomeBinding
     private var startTime: Long = 0
     private var updateInfo: UpdateInfo? = null
     private var dialog: ProgressDialog? = null
@@ -91,9 +88,8 @@ class WelcomeActivity : Activity() {
         super.onCreate(savedInstanceState)
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
-        setContentView(R.layout.activity_welcome)
-        tvVersion = findViewById(R.id.tv_version)
-        llWelcome = findViewById(R.id.llWelcome)
+        binding = ActivityWelcomeBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         initData()
         startAnimation()
     }
@@ -101,7 +97,7 @@ class WelcomeActivity : Activity() {
     @SuppressLint("SetTextI18n")
     private fun initData() {
         val versionName = AppUtil.getAppVersionName(this)
-        tvVersion.text = "当前版本:V$versionName"
+        binding.tvVersion.text = "当前版本:V$versionName"
     }
 
     private fun installApk() {
@@ -228,7 +224,7 @@ class WelcomeActivity : Activity() {
             interpolator = DecelerateInterpolator()
         }
 
-        llWelcome.startAnimation(animationSet)
+        binding.llWelcome.startAnimation(animationSet)
 
         animationSet.setAnimationListener(object : Animation.AnimationListener {
             override fun onAnimationStart(animation: Animation) {}

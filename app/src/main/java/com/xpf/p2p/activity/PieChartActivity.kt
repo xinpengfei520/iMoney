@@ -2,68 +2,58 @@ package com.xpf.p2p.activity
 
 import android.graphics.Color
 import android.graphics.Typeface
+import android.view.LayoutInflater
 import android.view.View
-import android.widget.ImageView
-import android.widget.TextView
-import com.github.mikephil.charting.charts.PieChart
 import com.github.mikephil.charting.components.Description
 import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
 import com.github.mikephil.charting.formatter.PercentFormatter
 import com.github.mikephil.charting.utils.ColorTemplate
-import com.xpf.p2p.R
 import com.xpf.p2p.base.BaseActivity
+import com.xpf.p2p.databinding.ActivityPieChartBinding
 
 /**
  * Created by xpf on 2016/11/11 :)
  * Function:饼状图展示页面
  */
-class PieChartActivity : BaseActivity() {
+class PieChartActivity : BaseActivity<ActivityPieChartBinding>() {
 
-    private lateinit var ivBack: ImageView
-    private lateinit var tvTitle: TextView
-    private lateinit var ivSetting: ImageView
-    private lateinit var pieChart: PieChart
     private lateinit var mTf: Typeface
 
-    override fun getLayoutId(): Int = R.layout.activity_pie_chart
+    override fun createViewBinding(inflater: LayoutInflater) = ActivityPieChartBinding.inflate(inflater)
 
     override fun initData() {
-        ivBack = findViewById(R.id.iv_back)
-        tvTitle = findViewById(R.id.tv_title)
-        ivSetting = findViewById(R.id.iv_setting)
-        pieChart = findViewById(R.id.pieChart)
-        ivBack.visibility = View.VISIBLE
-        ivSetting.visibility = View.GONE
-        tvTitle.text = "饼状图"
+        binding.titleBar.ivBack.visibility = View.VISIBLE
+        binding.titleBar.ivSetting.visibility = View.GONE
+        binding.titleBar.tvTitle.text = "饼状图"
 
-        ivBack.setOnClickListener { removeCurrentActivity() }
+        binding.titleBar.ivBack.setOnClickListener { removeCurrentActivity() }
 
         mTf = Typeface.createFromAsset(assets, "OpenSans-Regular.ttf")
 
         val description = Description()
         description.text = "目前android市场的占比情况"
-        pieChart.description = description
-        pieChart.holeRadius = 52f
-        pieChart.transparentCircleRadius = 67f
-        pieChart.centerText = "Android\n市场占比"
-        pieChart.setCenterTextTypeface(mTf)
-        pieChart.setCenterTextSize(18f)
-        pieChart.setUsePercentValues(true)
+        binding.pieChart.description = description
+        binding.pieChart.holeRadius = 52f
+        binding.pieChart.transparentCircleRadius = 67f
+        binding.pieChart.centerText = "Android\n市场占比"
+        binding.pieChart.setCenterTextTypeface(mTf)
+        binding.pieChart.setCenterTextSize(18f)
+        binding.pieChart.setUsePercentValues(true)
 
         val mChartData = generateDataPie()
         mChartData.setValueFormatter(PercentFormatter())
         mChartData.setValueTypeface(mTf)
         mChartData.setValueTextSize(11f)
         mChartData.setValueTextColor(Color.RED)
-        pieChart.data = mChartData
+        binding.pieChart.data = mChartData
 
-        val l = pieChart.legend
+        val l = binding.pieChart.legend
         l.yEntrySpace = 10f
         l.yOffset = 30f
 
-        pieChart.animateXY(900, 900)
+        binding.pieChart.animateXY(900, 900)
     }
 
     private fun generateDataPie(): PieData {

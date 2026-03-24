@@ -4,15 +4,12 @@ import android.content.Intent
 import android.os.Handler
 import android.os.Looper
 import android.view.KeyEvent
+import android.view.LayoutInflater
 import android.view.View
-import android.widget.FrameLayout
-import android.widget.ImageView
-import android.widget.RadioButton
-import android.widget.RadioGroup
-import android.widget.TextView
 import com.xpf.p2p.R
 import com.xpf.p2p.activity.UserInfoActivity
 import com.xpf.p2p.base.BaseVmActivity
+import com.xpf.p2p.databinding.ActivityMainBinding
 import com.xpf.p2p.fragment.HomeFragment2
 import com.xpf.p2p.fragment.InvestFragment
 import com.xpf.p2p.fragment.MeFragment
@@ -25,17 +22,7 @@ import me.ele.uetool.UETool
 /**
  * 主页面 — MVVM 版本
  */
-class MainActivity : BaseVmActivity<MainViewModel>() {
-
-    private lateinit var ivBack: ImageView
-    private lateinit var tvTitle: TextView
-    private lateinit var ivSetting: ImageView
-    private lateinit var flMain: FrameLayout
-    private lateinit var rbHome: RadioButton
-    private lateinit var rbInvest: RadioButton
-    private lateinit var rbAssets: RadioButton
-    private lateinit var rbMore: RadioButton
-    private lateinit var rgMain: RadioGroup
+class MainActivity : BaseVmActivity<ActivityMainBinding, MainViewModel>() {
 
     private var homeFragment: HomeFragment2? = null
     private var investFragment: InvestFragment? = null
@@ -45,31 +32,21 @@ class MainActivity : BaseVmActivity<MainViewModel>() {
     private var isFlag = true
     private val handler = Handler(Looper.getMainLooper())
 
-    override fun getLayoutId(): Int = R.layout.activity_main
+    override fun createViewBinding(inflater: LayoutInflater) = ActivityMainBinding.inflate(inflater)
 
     override fun getViewModelClass(): Class<MainViewModel> = MainViewModel::class.java
 
     override fun initView() {
-        ivBack = findViewById(R.id.iv_back)
-        tvTitle = findViewById(R.id.tv_title)
-        ivSetting = findViewById(R.id.iv_setting)
-        flMain = findViewById(R.id.fl_main)
-        rbHome = findViewById(R.id.rb_home)
-        rbInvest = findViewById(R.id.rb_invest)
-        rbAssets = findViewById(R.id.rb_assets)
-        rbMore = findViewById(R.id.rb_more)
-        rgMain = findViewById(R.id.rg_main)
-
-        ivSetting.setOnClickListener {
+        binding.titleBar.ivSetting.setOnClickListener {
             startActivity(Intent(this, UserInfoActivity::class.java))
         }
-        rbHome.setOnClickListener { setSelect(0) }
-        rbInvest.setOnClickListener { setSelect(1) }
-        rbAssets.setOnClickListener { setSelect(2) }
-        rbMore.setOnClickListener { setSelect(3) }
+        binding.bottomBar.rbHome.setOnClickListener { setSelect(0) }
+        binding.bottomBar.rbInvest.setOnClickListener { setSelect(1) }
+        binding.bottomBar.rbAssets.setOnClickListener { setSelect(2) }
+        binding.bottomBar.rbMore.setOnClickListener { setSelect(3) }
 
         UETool.showUETMenu()
-        rgMain.check(R.id.rb_home)
+        binding.bottomBar.rgMain.check(R.id.rb_home)
         setSelect(0)
         PgyerApi.checkUpdate(this)
     }
@@ -85,9 +62,9 @@ class MainActivity : BaseVmActivity<MainViewModel>() {
 
         when (index) {
             0 -> {
-                tvTitle.text = getString(R.string.rb_home)
-                ivBack.visibility = View.INVISIBLE
-                ivSetting.visibility = View.INVISIBLE
+                binding.titleBar.tvTitle.text = getString(R.string.rb_home)
+                binding.titleBar.ivBack.visibility = View.INVISIBLE
+                binding.titleBar.ivSetting.visibility = View.INVISIBLE
                 if (homeFragment == null) {
                     homeFragment = HomeFragment2()
                     transaction.add(R.id.fl_main, homeFragment!!)
@@ -95,9 +72,9 @@ class MainActivity : BaseVmActivity<MainViewModel>() {
                 transaction.show(homeFragment!!)
             }
             1 -> {
-                tvTitle.text = getString(R.string.rb_invest)
-                ivSetting.visibility = View.INVISIBLE
-                ivBack.visibility = View.INVISIBLE
+                binding.titleBar.tvTitle.text = getString(R.string.rb_invest)
+                binding.titleBar.ivSetting.visibility = View.INVISIBLE
+                binding.titleBar.ivBack.visibility = View.INVISIBLE
                 if (investFragment == null) {
                     investFragment = InvestFragment()
                     transaction.add(R.id.fl_main, investFragment!!)
@@ -105,9 +82,9 @@ class MainActivity : BaseVmActivity<MainViewModel>() {
                 transaction.show(investFragment!!)
             }
             2 -> {
-                tvTitle.text = getString(R.string.rb_my_assets)
-                ivSetting.visibility = View.VISIBLE
-                ivBack.visibility = View.INVISIBLE
+                binding.titleBar.tvTitle.text = getString(R.string.rb_my_assets)
+                binding.titleBar.ivSetting.visibility = View.VISIBLE
+                binding.titleBar.ivBack.visibility = View.INVISIBLE
                 if (meFragment == null) {
                     meFragment = MeFragment()
                     transaction.add(R.id.fl_main, meFragment!!)
@@ -115,9 +92,9 @@ class MainActivity : BaseVmActivity<MainViewModel>() {
                 transaction.show(meFragment!!)
             }
             3 -> {
-                tvTitle.text = getString(R.string.rb_more)
-                ivSetting.visibility = View.INVISIBLE
-                ivBack.visibility = View.INVISIBLE
+                binding.titleBar.tvTitle.text = getString(R.string.rb_more)
+                binding.titleBar.ivSetting.visibility = View.INVISIBLE
+                binding.titleBar.ivBack.visibility = View.INVISIBLE
                 if (moreFragment == null) {
                     moreFragment = MoreFragment()
                     transaction.add(R.id.fl_main, moreFragment!!)

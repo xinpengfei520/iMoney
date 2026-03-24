@@ -1,10 +1,12 @@
 package com.xpf.p2p.base
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.viewbinding.ViewBinding
 import com.xpf.p2p.R
 import com.xpf.p2p.utils.ActivityManager
 import com.xpf.p2p.utils.StatusBarUtils
@@ -13,13 +15,15 @@ import com.xpf.p2p.utils.StatusBarUtils
  * MVVM Activity 基类
  * 使用 ViewModel 替代 Presenter，使用 LiveData 替代回调
  */
-abstract class BaseVmActivity<VM : ViewModel> : AppCompatActivity() {
+abstract class BaseVmActivity<VB : ViewBinding, VM : ViewModel> : AppCompatActivity() {
 
+    protected lateinit var binding: VB
     protected lateinit var viewModel: VM
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(getLayoutId())
+        binding = createViewBinding(layoutInflater)
+        setContentView(binding.root)
         supportActionBar?.hide()
         StatusBarUtils.setImmersiveStatusBar(this)
         setupStatusBarSpace()
@@ -29,8 +33,7 @@ abstract class BaseVmActivity<VM : ViewModel> : AppCompatActivity() {
         observeData()
     }
 
-    /** 布局资源 ID */
-    protected abstract fun getLayoutId(): Int
+    protected abstract fun createViewBinding(inflater: LayoutInflater): VB
 
     /** ViewModel 类型 */
     protected abstract fun getViewModelClass(): Class<VM>

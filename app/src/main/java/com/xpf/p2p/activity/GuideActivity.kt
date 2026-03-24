@@ -7,13 +7,13 @@ import android.view.ViewTreeObserver
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
 import com.xpf.p2p.App
 import com.xpf.p2p.R
 import com.xpf.p2p.adapter.VpGuideAdapter
 import com.xpf.p2p.constants.SpKey
+import com.xpf.p2p.databinding.ActivityGuideBinding
 import com.xpf.p2p.ui.login.view.LoginActivity
 import com.xpf.p2p.utils.SpUtil
 import com.xpf.p2p.utils.UIUtils
@@ -24,11 +24,7 @@ import com.xpf.p2p.utils.UIUtils
  */
 class GuideActivity : AppCompatActivity() {
 
-    private lateinit var viewPager: ViewPager
-    private lateinit var llPointGroup: LinearLayout
-    private lateinit var ivRedPoint: ImageView
-    private lateinit var rlPoints: RelativeLayout
-    private lateinit var tvRightAway: TextView
+    private lateinit var binding: ActivityGuideBinding
     private var leftMarg: Int = 0
     private var widthDpi: Int = 0
     private lateinit var mImageViews: ArrayList<ImageView>
@@ -36,13 +32,9 @@ class GuideActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_guide)
-        viewPager = findViewById(R.id.viewPager)
-        llPointGroup = findViewById(R.id.llPointGroup)
-        ivRedPoint = findViewById(R.id.ivRedPoint)
-        rlPoints = findViewById(R.id.rlPoints)
-        tvRightAway = findViewById(R.id.tvRightAway)
-        tvRightAway.setOnClickListener {
+        binding = ActivityGuideBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        binding.tvRightAway.setOnClickListener {
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
         }
@@ -58,7 +50,7 @@ class GuideActivity : AppCompatActivity() {
             mImageViews.add(imageView)
         }
         if (mImageViews.isNotEmpty()) {
-            viewPager.adapter = VpGuideAdapter(mImageViews)
+            binding.viewPager.adapter = VpGuideAdapter(mImageViews)
         }
     }
 
@@ -72,26 +64,26 @@ class GuideActivity : AppCompatActivity() {
                 params.leftMargin = widthDpi
             }
             point.layoutParams = params
-            llPointGroup.addView(point)
+            binding.llPointGroup.addView(point)
         }
 
-        ivRedPoint.viewTreeObserver.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
+        binding.ivRedPoint.viewTreeObserver.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
             override fun onGlobalLayout() {
-                ivRedPoint.viewTreeObserver.addOnGlobalLayoutListener(this)
-                leftMarg = llPointGroup.getChildAt(1).left - llPointGroup.getChildAt(0).left
+                binding.ivRedPoint.viewTreeObserver.addOnGlobalLayoutListener(this)
+                leftMarg = binding.llPointGroup.getChildAt(1).left - binding.llPointGroup.getChildAt(0).left
             }
         })
 
-        viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+        binding.viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
                 val leftMargin = (position + positionOffset) * leftMarg
-                val params = ivRedPoint.layoutParams as RelativeLayout.LayoutParams
+                val params = binding.ivRedPoint.layoutParams as RelativeLayout.LayoutParams
                 params.leftMargin = leftMargin.toInt()
-                ivRedPoint.layoutParams = params
+                binding.ivRedPoint.layoutParams = params
             }
 
             override fun onPageSelected(position: Int) {
-                tvRightAway.visibility = if (position == 3) View.VISIBLE else View.GONE
+                binding.tvRightAway.visibility = if (position == 3) View.VISIBLE else View.GONE
             }
 
             override fun onPageScrollStateChanged(state: Int) {}

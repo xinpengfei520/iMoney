@@ -4,7 +4,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <include layout="@layout/title_common" />
+    <include
+        android:id="@+id/titleBar"
+        layout="@layout/title_common" />
 
     <com.xpf.p2p.widget.MyScrollView
         android:layout_width="match_parent"
