@@ -68,6 +68,37 @@ If you find any bug when using this project, please report **[here](https://gith
 
 ## Change logs
 
+### 2.0.5
+
+ - Updated on 2026-03-24
+ - Migrated all findViewById calls to ViewBinding across Activities, Fragments, Adapters, and custom Widgets
+ - Added ViewBinding generic type parameter to BaseActivity, MvpBaseActivity, and BaseVmActivity
+
+### 2.0.4
+
+ - Updated on 2026-03-24
+ - Replaced hardcoded dp/sp values with @dimen references; added screen adaptation dimen resources
+ - Fixed GrowingIO: read config from properties file, allow cleartext traffic
+ - Redesigned MoreFragment with modern card-based layout
+ - Replaced marquee text with positive slogan
+ - Implemented immersive status bar and redesigned title bar
+
+### 2.0.3
+
+ - Updated on 2026-03-23
+ - Network layer refactoring: removed okla-library module and AsyncHttpClient, replaced with OkHttp + Retrofit
+ - Fixed CI pipeline: adjusted Maven repository priority, injected signing keys
+
+### 2.0.0
+
+ - Updated on 2026-03-23
+ - Full migration: converted all Java files to Kotlin
+ - Architecture upgrade: migrated base layer and login/home/multi-language modules to MVVM
+ - Upgraded Gradle build config to Kotlin DSL (build.gradle.kts)
+ - Introduced libs.versions.toml for plugin version management
+ - Added project architecture documentation
+ - Optimized code.
+
 ### 1.4.6
 
  - Integrated AndResGuard;

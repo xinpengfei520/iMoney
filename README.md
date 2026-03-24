@@ -68,6 +68,21 @@ If you find any bug when using this project, please report **[here](https://gith
 
 ## Change logs
 
+### 2.0.5
+
+ - update on 2026-03-24
+ - 全面迁移 ViewBinding：将所有 findViewById 替换为 ViewBinding，涵盖 Activity、Fragment、Adapter 及自定义 Widget
+ - 基类泛型化：BaseActivity、MvpBaseActivity、BaseVmActivity 增加 VB 泛型参数
+
+### 2.0.4
+
+ - update on 2026-03-24
+ - 布局尺寸规范化：将硬编码 dp/sp 值替换为 @dimen 引用，新增屏幕适配 dimen 资源
+ - 修复 GrowingIO：从 properties 文件读取配置，允许明文流量
+ - 重构"更多"页面：采用现代卡片式布局重新设计 MoreFragment
+ - 替换跑马灯文本为正能量标语
+ - 实现沉浸式状态栏并重新设计标题栏
+
 ### 2.0.3
 
  - update on 2026-03-23
