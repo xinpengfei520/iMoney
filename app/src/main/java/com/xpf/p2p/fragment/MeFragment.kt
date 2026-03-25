@@ -1,10 +1,8 @@
 package com.xpf.p2p.fragment
 
-import android.app.AlertDialog
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.text.TextUtils
-import android.widget.Toast
 import com.squareup.picasso.Picasso
 import com.squareup.picasso.Transformation
 import com.xpf.p2p.R
@@ -17,8 +15,8 @@ import com.xpf.p2p.base.MvpBaseActivity
 import com.xpf.p2p.constants.SpKey
 import com.xpf.p2p.databinding.FragmentMeBinding
 import com.xpf.p2p.entity.User
-import com.xpf.p2p.ui.login.view.LoginActivity
 import com.xpf.p2p.utils.BitmapUtils
+import com.xpf.p2p.utils.LoginDialogUtils
 import com.xpf.p2p.utils.SpUtil
 import com.xpf.p2p.utils.TimeUtil
 import com.xpf.p2p.utils.UIUtils
@@ -44,45 +42,40 @@ class MeFragment : BaseFragment() {
         _binding = FragmentMeBinding.bind(mView!!)
 
         binding.meContent.recharge.setOnClickListener {
-            (activity as? BaseActivity<*>)?.goToActivity(ChongZhiActivity::class.java, null)
+            if (LoginDialogUtils.checkLoginOrPrompt(activity)) {
+                (activity as? BaseActivity<*>)?.goToActivity(ChongZhiActivity::class.java, null)
+            }
         }
         binding.meContent.withdraw.setOnClickListener {
-            (activity as? BaseActivity<*>)?.goToActivity(TiXianActivity::class.java, null)
+            if (LoginDialogUtils.checkLoginOrPrompt(activity)) {
+                (activity as? BaseActivity<*>)?.goToActivity(TiXianActivity::class.java, null)
+            }
         }
         binding.meContent.llTouzi.setOnClickListener {
-            (activity as? BaseActivity<*>)?.goToActivity(ChongZhiActivity::class.java, null)
+            if (LoginDialogUtils.checkLoginOrPrompt(activity)) {
+                (activity as? BaseActivity<*>)?.goToActivity(ChongZhiActivity::class.java, null)
+            }
         }
         binding.meContent.llTouziZhiguan.setOnClickListener {
-            (activity as? BaseActivity<*>)?.goToActivity(ChongZhiActivity::class.java, null)
+            if (LoginDialogUtils.checkLoginOrPrompt(activity)) {
+                (activity as? BaseActivity<*>)?.goToActivity(ChongZhiActivity::class.java, null)
+            }
         }
         binding.meContent.llZichang.setOnClickListener {
-            (activity as? BaseActivity<*>)?.goToActivity(ChongZhiActivity::class.java, null)
+            if (LoginDialogUtils.checkLoginOrPrompt(activity)) {
+                (activity as? BaseActivity<*>)?.goToActivity(ChongZhiActivity::class.java, null)
+            }
         }
         binding.meContent.llZhanquan.setOnClickListener {
-            (activity as? BaseActivity<*>)?.goToActivity(ChongZhiActivity::class.java, null)
+            if (LoginDialogUtils.checkLoginOrPrompt(activity)) {
+                (activity as? BaseActivity<*>)?.goToActivity(ChongZhiActivity::class.java, null)
+            }
         }
 
-        isLogin()
-    }
-
-    private fun isLogin() {
+        // 如果已登录则加载用户信息，不弹框
         if (TimeUtil.isLoginValid()) {
             doUser()
-        } else {
-            login()
         }
-    }
-
-    private fun login() {
-        AlertDialog.Builder(activity)
-            .setTitle("登录")
-            .setMessage("请先登录！")
-            .setPositiveButton("确定") { _, _ ->
-                Toast.makeText(activity, "请先登录", Toast.LENGTH_SHORT).show()
-                LoginActivity.actionStart(mContext)
-            }
-            .setCancelable(false)
-            .show()
     }
 
     private fun doUser() {
