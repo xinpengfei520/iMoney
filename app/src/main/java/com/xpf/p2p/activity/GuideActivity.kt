@@ -69,7 +69,7 @@ class GuideActivity : AppCompatActivity() {
 
         binding.ivRedPoint.viewTreeObserver.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
             override fun onGlobalLayout() {
-                binding.ivRedPoint.viewTreeObserver.addOnGlobalLayoutListener(this)
+                binding.ivRedPoint.viewTreeObserver.removeOnGlobalLayoutListener(this)
                 leftMarg = binding.llPointGroup.getChildAt(1).left - binding.llPointGroup.getChildAt(0).left
             }
         })
