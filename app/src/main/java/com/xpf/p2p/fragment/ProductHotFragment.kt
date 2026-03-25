@@ -21,9 +21,9 @@ class ProductHotFragment : BaseFragment() {
     private val binding get() = _binding!!
 
     private val mData = arrayOf(
-        "新手计划", "乐享活系列90天计划", "钱包", "30天理财计划(加息2%)",
-        "林业局投资商业经营与大捞一笔", "中学老师购买车辆", "屌丝下海经商计划", "新西游影视拍", "Java培训老师自己周转",
-        "HelloWorld", "C++-C-ObjectC-java", "Android vs ios", "算法与数据结构", "JNI与NDK", "team working"
+        "新手专享计划", "乐享活期90天", "零钱宝", "30天稳健计划(加息2%)",
+        "小微企业经营周转", "个人消费信贷", "供应链金融计划", "影视文化产业基金", "教育分期项目",
+        "智能定投组合", "季度增利计划", "年度稳盈计划", "灵活申赎产品", "新能源产业基金", "科技创新计划"
     )
 
     override fun getLayoutId(): Int = R.layout.fragment_product_hot
