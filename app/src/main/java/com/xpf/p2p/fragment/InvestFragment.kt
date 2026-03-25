@@ -1,20 +1,11 @@
 package com.xpf.p2p.fragment
 
-import android.content.Context
-import android.graphics.Color
 import androidx.fragment.app.Fragment
+import com.google.android.material.tabs.TabLayoutMediator
 import com.xpf.p2p.R
-import com.xpf.p2p.adapter.MyPagerAdapter
+import com.xpf.p2p.adapter.InvestPagerAdapter
 import com.xpf.p2p.base.BaseFragment
 import com.xpf.p2p.databinding.FragmentInvestBinding
-import net.lucode.hackware.magicindicator.MagicIndicator
-import net.lucode.hackware.magicindicator.ViewPagerHelper
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.CommonNavigator
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.CommonNavigatorAdapter
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerIndicator
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerTitleView
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.indicators.LinePagerIndicator
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.ColorTransitionPagerTitleView
 
 /**
  * Created by xpf on 2016/11/11 :)
@@ -24,9 +15,8 @@ class InvestFragment : BaseFragment() {
 
     private var _binding: FragmentInvestBinding? = null
     private val binding get() = _binding!!
-    private var mAdapter: MyPagerAdapter? = null
-    private val mFragments = ArrayList<Fragment>()
-    private val mTitleDataList = ArrayList<String>()
+
+    private val tabTitles = arrayOf("全部理财", "推荐理财", "热门理财")
 
     override fun getLayoutId(): Int = R.layout.fragment_invest
 
@@ -36,48 +26,18 @@ class InvestFragment : BaseFragment() {
 
     override fun initData(content: String?) {
         _binding = FragmentInvestBinding.bind(mView!!)
-        initFragments()
-        setViewPagerAdapter()
-    }
 
-    private fun setViewPagerAdapter() {
-        mTitleDataList.add("全部理财")
-        mTitleDataList.add("推荐理财")
-        mTitleDataList.add("热门理财")
+        val fragments = listOf<Fragment>(
+            ProductListFragment(),
+            RecommendFragment(),
+            ProductHotFragment()
+        )
 
-        if (mFragments.isNotEmpty()) {
-            mAdapter = MyPagerAdapter(mFragments, parentFragmentManager)
-            binding.investViewPager.adapter = mAdapter
+        binding.investViewPager.adapter = InvestPagerAdapter(this, fragments)
 
-            val commonNavigator = CommonNavigator(context)
-            commonNavigator.adapter = object : CommonNavigatorAdapter() {
-
-                override fun getCount(): Int = mTitleDataList.size
-
-                override fun getTitleView(context: Context, index: Int): IPagerTitleView {
-                    val titleView = ColorTransitionPagerTitleView(context)
-                    titleView.normalColor = Color.GRAY
-                    titleView.selectedColor = Color.BLACK
-                    titleView.text = mTitleDataList[index]
-                    titleView.setOnClickListener { binding.investViewPager.currentItem = index }
-                    return titleView
-                }
-
-                override fun getIndicator(context: Context): IPagerIndicator {
-                    val indicator = LinePagerIndicator(context)
-                    indicator.mode = LinePagerIndicator.MODE_WRAP_CONTENT
-                    return indicator
-                }
-            }
-            binding.tabIndicator.navigator = commonNavigator
-            ViewPagerHelper.bind(binding.tabIndicator, binding.investViewPager)
-        }
-    }
-
-    private fun initFragments() {
-        mFragments.add(ProductListFragment())
-        mFragments.add(RecommendFragment())
-        mFragments.add(ProductHotFragment())
+        TabLayoutMediator(binding.tabLayout, binding.investViewPager) { tab, position ->
+            tab.text = tabTitles[position]
+        }.attach()
     }
 
     override fun onDestroyView() {

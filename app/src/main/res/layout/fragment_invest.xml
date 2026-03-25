@@ -1,17 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <net.lucode.hackware.magicindicator.MagicIndicator
-        android:id="@+id/tab_indicator"
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_40"
-        android:background="#FF0000" />
+        android:layout_height="@dimen/dp_44"
+        android:background="@android:color/white"
+        android:elevation="@dimen/dp_2"
+        app:tabGravity="fill"
+        app:tabIndicatorColor="@color/my_title_bg"
+        app:tabIndicatorFullWidth="false"
+        app:tabIndicatorHeight="@dimen/dp_3"
+        app:tabMode="fixed"
+        app:tabRippleColor="@android:color/transparent"
+        app:tabSelectedTextColor="@color/my_title_bg"
+        app:tabTextColor="#999999" />
 
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/invest_viewPager"
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/invest_view_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

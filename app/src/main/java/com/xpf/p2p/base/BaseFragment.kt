@@ -28,7 +28,7 @@ abstract class BaseFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        mView = UIUtils.getView(getLayoutId())
+        mView = inflater.inflate(getLayoutId(), container, false)
         mContext = activity
         val url = getUrl()
         return if (TextUtils.isEmpty(url)) {

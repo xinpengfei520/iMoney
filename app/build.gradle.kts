@@ -131,6 +131,7 @@ dependencies {
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.ktx)
     implementation(libs.androidx.fragment.ktx)
+    implementation(libs.androidx.viewpager2)
     // Network
     implementation(libs.okhttp)
     implementation(libs.retrofit)
