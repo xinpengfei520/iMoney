@@ -76,7 +76,6 @@ countdownview = "2.1.6"
 bugly = "latest.release"
 pgyerUpdate = "1.0.0"
 multidex = "2.0.1"
-autosize = "1.2.1"
 rxjava2 = "2.2.11"
 rxandroid2 = "2.1.1"
 jpush = "3.3.6"
@@ -205,7 +204,6 @@ countdownview = { group = "com.github.iwgang", name = "countdownview", version.r
 bugly-crashreport = { group = "com.tencent.bugly", name = "crashreport", version.ref = "bugly" }
 pgyer-update = { group = "com.xsir", name = "PgyerAndroidAppUpdate", version.ref = "pgyerUpdate" }
 androidx-multidex = { group = "androidx.multidex", name = "multidex", version.ref = "multidex" }
-autosize = { group = "me.jessyan", name = "autosize", version.ref = "autosize" }
 rxjava2 = { group = "io.reactivex.rxjava2", name = "rxjava", version.ref = "rxjava2" }
 rxandroid2 = { group = "io.reactivex.rxjava2", name = "rxandroid", version.ref = "rxandroid2" }
 jpush = { group = "cn.jiguang.sdk", name = "jpush", version.ref = "jpush" }
