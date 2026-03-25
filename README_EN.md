@@ -68,6 +68,19 @@ If you find any bug when using this project, please report **[here](https://gith
 
 ## Change logs
 
+### 2.0.6
+
+ - Updated on 2026-03-25
+ - Fixed guide page OOM crash caused by infinite OnGlobalLayoutListener registration
+ - Converted guide images from JPG to WebP, reducing size by 53%
+ - Replaced emoji icons with vector drawables in More page for device compatibility
+ - Replaced placeholder hot product names with realistic ones
+ - Migrated all app dependencies to version catalog (libs.versions.toml)
+ - Migrated invest page to ViewPager2 + TabLayout with click-to-switch support
+ - Fixed BaseFragment theme crash when inflating layouts with Application Context
+ - Deferred login prompt to button click and redesigned login dialog
+ - Removed unused MagicIndicator dependency
+
 ### 2.0.5
 
  - Updated on 2026-03-24

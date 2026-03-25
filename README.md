@@ -68,6 +68,19 @@ If you find any bug when using this project, please report **[here](https://gith
 
 ## Change logs
 
+### 2.0.6
+
+ - update on 2026-03-25
+ - 修复引导页 OOM 闪退：OnGlobalLayoutListener 无限注册导致内存溢出
+ - 引导页图片转换为 WebP 格式，体积减少 53%
+ - 更多页面图标替换：emoji 替换为 vector drawable，兼容所有设备
+ - 热门理财产品名称替换为真实理财产品名
+ - 依赖统一管理：所有 app 依赖迁移至 libs.versions.toml
+ - 投资页面迁移至 ViewPager2 + TabLayout，支持点击 tab 切换
+ - 修复 BaseFragment 使用 Application Context inflate 布局导致的主题崩溃
+ - 我的资产页面登录弹框延迟至按钮点击时触发，并美化弹框样式
+ - 移除未使用的 MagicIndicator 依赖
+
 ### 2.0.5
 
  - update on 2026-03-24
