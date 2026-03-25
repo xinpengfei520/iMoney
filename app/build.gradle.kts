@@ -74,7 +74,7 @@ android {
         release {
             isMinifyEnabled = true
             isShrinkResources = true
-            proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
             signingConfig = signingConfigs.getByName("release")
             // API HOST(生产环境：pro 研发环境：dev 测试环境：test)
             buildConfigField("String", "HOST", getHOST("pro"))
@@ -95,7 +95,7 @@ android {
             buildConfigField("String", "HOST", getHOST("pro"))
             // Log日志开关，false不显示log，true显示log
             buildConfigField("boolean", "ENABLE_DEBUG", "true")
-            proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
             signingConfig = signingConfigs.getByName("debug")
         }
     }
