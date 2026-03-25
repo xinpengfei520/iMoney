@@ -120,42 +120,49 @@ android {
 
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.?ar"))))
-    implementation("com.google.android.material:material:1.12.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
-    testImplementation("junit:junit:4.13.2")
-    implementation("androidx.appcompat:appcompat:1.7.0")
-    implementation("com.youth.banner:banner:1.4.10")
-    implementation("com.squareup.picasso:picasso:2.8")
-    implementation("com.github.iwgang:countdownview:2.1.6")
-    implementation("com.tencent.bugly:crashreport:latest.release")
-    implementation("com.google.code.gson:gson:2.10.1")
-    implementation("com.xsir:PgyerAndroidAppUpdate:1.0.0")
-    implementation("androidx.multidex:multidex:2.0.1")
-    implementation("me.jessyan:autosize:1.2.1")
-    implementation("io.reactivex.rxjava2:rxjava:2.2.11")
-    implementation("io.reactivex.rxjava2:rxandroid:2.1.1")
-    implementation("com.github.getActivity:XXPermissions:18.63")
+    // AndroidX
+    implementation(libs.material)
+    implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.multidex)
     // ViewModel + LiveData
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.2")
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.8.2")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.2")
-    implementation("androidx.activity:activity-ktx:1.9.0")
-    implementation("androidx.fragment:fragment-ktx:1.6.2")
-    implementation("cn.jiguang.sdk:jpush:3.3.6")
-    implementation("cn.jiguang.sdk:jcore:2.1.6")
-    implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
-    implementation("com.github.hackware1993:MagicIndicator:1.7.0")
-    debugImplementation("com.squareup.leakcanary:leakcanary-android:2.12")
-    debugImplementation("com.github.eleme.UETool:uetool:1.3.4")
-    debugImplementation("com.github.eleme.UETool:uetool-base:1.3.4")
-    releaseImplementation("com.github.eleme.UETool:uetool-no-op:1.3.4")
-    // Import the BoM for the GrowingIO platform
-    implementation(platform("com.growingio.android:autotracker-bom:4.3.0"))
-    //GrowingIO 无埋点 SDK
-    implementation("com.growingio.android:autotracker")
-    implementation("com.squareup.okhttp3:okhttp:4.12.0")
-    implementation("com.squareup.retrofit2:retrofit:2.11.0")
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.lifecycle.livedata.ktx)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.activity.ktx)
+    implementation(libs.androidx.fragment.ktx)
+    // Network
+    implementation(libs.okhttp)
+    implementation(libs.retrofit)
+    implementation(libs.gson)
+    // RxJava
+    implementation(libs.rxjava2)
+    implementation(libs.rxandroid2)
+    // UI
+    implementation(libs.banner.youth)
+    implementation(libs.picasso)
+    implementation(libs.countdownview)
+    implementation(libs.mpandroidchart)
+    implementation(libs.magic.indicator)
+    implementation(libs.autosize)
+    // Push
+    implementation(libs.jpush)
+    implementation(libs.jcore)
+    // Analytics
+    implementation(libs.bugly.crashreport)
+    implementation(platform(libs.growingio.autotracker.bom))
+    implementation(libs.growingio.autotracker)
+    // Utils
+    implementation(libs.pgyer.update)
+    implementation(libs.xxpermissions)
+    // Debug
+    debugImplementation(libs.leakcanary)
+    debugImplementation(libs.uetool)
+    debugImplementation(libs.uetool.base)
+    releaseImplementation(libs.uetool.no.op)
+    // Test
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
 }
 
 fun getApkFullPath(): String {
