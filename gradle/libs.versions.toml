@@ -82,7 +82,6 @@ rxandroid2 = "2.1.1"
 jpush = "3.3.6"
 jcore = "2.1.6"
 mpandroidchart = "v3.1.0"
-magicIndicator = "1.7.0"
 uetool = "1.3.4"
 viewpager2 = "1.1.0"
 # 组件间通信
@@ -212,7 +211,6 @@ rxandroid2 = { group = "io.reactivex.rxjava2", name = "rxandroid", version.ref =
 jpush = { group = "cn.jiguang.sdk", name = "jpush", version.ref = "jpush" }
 jcore = { group = "cn.jiguang.sdk", name = "jcore", version.ref = "jcore" }
 mpandroidchart = { group = "com.github.PhilJay", name = "MPAndroidChart", version.ref = "mpandroidchart" }
-magic-indicator = { group = "com.github.hackware1993", name = "MagicIndicator", version.ref = "magicIndicator" }
 uetool = { group = "com.github.eleme.UETool", name = "uetool", version.ref = "uetool" }
 uetool-base = { group = "com.github.eleme.UETool", name = "uetool-base", version.ref = "uetool" }
 uetool-no-op = { group = "com.github.eleme.UETool", name = "uetool-no-op", version.ref = "uetool" }

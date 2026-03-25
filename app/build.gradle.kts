@@ -144,8 +144,7 @@ dependencies {
     implementation(libs.picasso)
     implementation(libs.countdownview)
     implementation(libs.mpandroidchart)
-    implementation(libs.magic.indicator)
-    implementation(libs.autosize)
+implementation(libs.autosize)
     // Push
     implementation(libs.jpush)
     implementation(libs.jcore)
