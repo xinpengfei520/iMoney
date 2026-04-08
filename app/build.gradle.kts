@@ -21,7 +21,7 @@ android {
         minSdk = 24
         targetSdk = 34
         versionCode = getVersionCode()
-        versionName = "2.0.6"
+        versionName = "2.0.7"
         flavorDimensions.add("versionCode")
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled = true
