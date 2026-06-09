@@ -18,6 +18,9 @@ jobs:
     # 操作步骤(按顺序执行)
     steps:
       - uses: actions/checkout@v4
+        with:
+          # 拉取完整 git 历史，使 versionCode = `git rev-list HEAD --count` 计算正确
+          fetch-depth: 0
       # 设置 Java 运行环境(temurin是开源jdk)
       - name: Set up Gradle JDK
         uses: actions/setup-java@v3
