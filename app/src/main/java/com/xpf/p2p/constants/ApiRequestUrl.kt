@@ -8,7 +8,7 @@ import com.xpf.p2p.BuildConfig
  */
 object ApiRequestUrl {
     const val HOST: String = BuildConfig.HOST
-    const val BASE_URL: String = "$HOST/iMoney/"
+    const val BASE_URL: String = "$HOST/imoney/"
     const val INDEX: String = "${BASE_URL}index"
     const val LOGIN: String = "${BASE_URL}login"
     const val PRODUCT: String = "${BASE_URL}product"
