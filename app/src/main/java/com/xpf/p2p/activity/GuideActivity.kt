@@ -8,7 +8,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import androidx.appcompat.app.AppCompatActivity
-import androidx.viewpager.widget.ViewPager
+import androidx.viewpager2.widget.ViewPager2
 import com.xpf.p2p.App
 import com.xpf.p2p.R
 import com.xpf.p2p.adapter.VpGuideAdapter
@@ -27,7 +27,6 @@ class GuideActivity : AppCompatActivity() {
     private lateinit var binding: ActivityGuideBinding
     private var leftMarg: Int = 0
     private var widthDpi: Int = 0
-    private lateinit var mImageViews: ArrayList<ImageView>
     private val mResIds = intArrayOf(R.drawable.guide1, R.drawable.guide2, R.drawable.guide3, R.drawable.guide4)
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,20 +37,8 @@ class GuideActivity : AppCompatActivity() {
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
         }
+        binding.viewPager.adapter = VpGuideAdapter(mResIds)
         initData()
-        initImageViewList()
-    }
-
-    private fun initImageViewList() {
-        mImageViews = ArrayList()
-        for (resId in mResIds) {
-            val imageView = ImageView(this)
-            imageView.setBackgroundResource(resId)
-            mImageViews.add(imageView)
-        }
-        if (mImageViews.isNotEmpty()) {
-            binding.viewPager.adapter = VpGuideAdapter(mImageViews)
-        }
     }
 
     private fun initData() {
@@ -74,7 +61,7 @@ class GuideActivity : AppCompatActivity() {
             }
         })
 
-        binding.viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+        binding.viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
                 val leftMargin = (position + positionOffset) * leftMarg
                 val params = binding.ivRedPoint.layoutParams as RelativeLayout.LayoutParams
@@ -83,10 +70,8 @@ class GuideActivity : AppCompatActivity() {
             }
 
             override fun onPageSelected(position: Int) {
-                binding.tvRightAway.visibility = if (position == 3) View.VISIBLE else View.GONE
+                binding.tvRightAway.visibility = if (position == mResIds.size - 1) View.VISIBLE else View.GONE
             }
-
-            override fun onPageScrollStateChanged(state: Int) {}
         })
     }
 
