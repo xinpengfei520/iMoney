@@ -16,6 +16,7 @@ import com.xpf.p2p.constants.SpKey
 import com.xpf.p2p.databinding.ActivityGuideBinding
 import com.xpf.p2p.ui.login.view.LoginActivity
 import com.xpf.p2p.utils.SpUtil
+import com.xpf.p2p.utils.StatusBarUtils
 import com.xpf.p2p.utils.UIUtils
 
 /**
@@ -33,6 +34,8 @@ class GuideActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityGuideBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        // 沉浸式：状态栏透明，引导图延伸到状态栏下方（图片偏彩色/深色，用浅色图标）
+        StatusBarUtils.setImmersiveStatusBar(this, darkIcons = false)
         binding.tvRightAway.setOnClickListener {
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
