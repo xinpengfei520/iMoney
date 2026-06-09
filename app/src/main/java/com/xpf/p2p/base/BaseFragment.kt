@@ -39,6 +39,10 @@ abstract class BaseFragment : Fragment() {
                 override fun layoutId(): Int = getLayoutId()
 
                 override fun onSuccess(resultState: ResultState, view_success: View) {
+                    // LoadingPage shows its own inflated `view_success`, not the `mView`
+                    // inflated in onCreateView (which is never attached). Point mView at the
+                    // on-screen view so initData()'s view binding updates what the user sees.
+                    mView = view_success
                     initData(resultState.content)
                 }
 

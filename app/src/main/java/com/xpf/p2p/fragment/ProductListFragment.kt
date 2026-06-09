@@ -30,13 +30,11 @@ class ProductListFragment : BaseFragment() {
         _binding = FragmentProductListBinding.bind(mView!!)
         if (!TextUtils.isEmpty(content)) {
             LogUtils.d(TAG, content)
+            // 后端 v1.0.8 起 product 响应为 { "data": [...] }，不再带 "success" 字段
             val jsonObject = JSON.parseObject(content)
-            val isSuccess = jsonObject.getBoolean("success")
-            if (isSuccess) {
-                val data = jsonObject.getString("data")
-                products = JSON.parseArray(data, Product::class.java)
-                setAdapter()
-            }
+            val data = jsonObject.getString("data")
+            products = JSON.parseArray(data, Product::class.java)
+            setAdapter()
         } else {
             LogUtils.e(TAG, "content is null!")
         }
