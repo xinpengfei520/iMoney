@@ -20,7 +20,7 @@ object AppUtil {
                 val appContext = context.applicationContext
                 val manager = appContext.packageManager
                 val packageInfo = manager.getPackageInfo(appContext.packageName, 0)
-                version = packageInfo.versionName
+                version = packageInfo.versionName ?: version
             }
         } catch (e: PackageManager.NameNotFoundException) {
             e.printStackTrace()
@@ -53,7 +53,7 @@ object AppUtil {
             val packageInfo = ctx.applicationContext
                 .packageManager
                 .getPackageInfo(ctx.packageName, 0)
-            localVersion = packageInfo.versionName
+            localVersion = packageInfo.versionName ?: localVersion
             LogUtils.d("AppUtil", "本软件的版本号。。$localVersion")
         } catch (e: PackageManager.NameNotFoundException) {
             e.printStackTrace()

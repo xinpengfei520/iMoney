@@ -70,7 +70,7 @@ object ExampleUtil {
     fun GetVersion(context: Context): String {
         return try {
             val manager = context.packageManager.getPackageInfo(context.packageName, 0)
-            manager.versionName
+            manager.versionName ?: "Unknown"
         } catch (e: PackageManager.NameNotFoundException) {
             "Unknown"
         }

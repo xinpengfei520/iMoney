@@ -1,3 +1,9 @@
+// AGP 9 marks the legacy variant/DSL APIs (applicationVariants, ApkVariantOutputImpl,
+// kotlinOptions, BaseAppModuleExtension) as error-level deprecations. They are kept working
+// at runtime via `android.newDsl=false` in gradle.properties; this suppression lets the
+// Kotlin build script still compile against them. These APIs are removed in AGP 10.
+@file:Suppress("DEPRECATION", "DEPRECATION_ERROR")
+
 import java.io.BufferedReader
 import java.io.FileInputStream
 import java.io.InputStreamReader
@@ -15,7 +21,7 @@ plugins {
 
 android {
     namespace = "com.xpf.p2p"
-    compileSdk = 34
+    compileSdk = 36
     defaultConfig {
         applicationId = "com.xpf.p2p"
         minSdk = 24
@@ -103,7 +109,12 @@ android {
         jvmTarget = "17"
     }
 
-    viewBinding { enable = true }
+    buildFeatures {
+        // AGP 9 defaults buildConfig and resValues to false; both are used in this module
+        buildConfig = true
+        resValues = true
+        viewBinding = true
+    }
 
     lint {
         abortOnError = false
@@ -216,9 +227,9 @@ fun getHOST(env: String): String {
 fun executeCommand(command: String) {
     println("command:$command")
     try {
-        exec {
-            commandLine("bash", "-c", command)
-        }
+        // Gradle 9 removed Project.exec {}; run the command directly instead.
+        val process = ProcessBuilder("bash", "-c", command).inheritIO().start()
+        process.waitFor()
         println("command execute success~")
     } catch (e: Exception) {
         e.printStackTrace()
